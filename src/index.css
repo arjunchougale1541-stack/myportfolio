@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #08080a;
+    color: #f3f4f6;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom marquee keyframes */
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: 200%;
+  animation: marquee-left 24s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: 200%;
+  animation: marquee-right 28s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #272738;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4338ca;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   High-End Creative Portfolio Page & Modal Transitions (500ms ease-in-out)
+   ========================================================================== */
+
+/* 1. Backdrop Fade (Smooth ease-in-out blur & overlay) */
+@keyframes portfolioBackdropFadeIn {
+  0% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    backdrop-filter: blur(14px);
+  }
+}
+
+@keyframes portfolioBackdropFadeOut {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(14px);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+}
+
+/* 2. Modal Center Popup: Subtle Fade + Upward Slide (500ms ease-in-out) */
+@keyframes portfolioModalSlideUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+  }
+  60% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes portfolioModalSlideUpOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+}
+
+/* 3. Navigation Drawer: Smooth Right-to-Left Slide + Fade (500ms ease-in-out) */
+@keyframes portfolioMenuSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes portfolioMenuSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-portfolio-backdrop-in {
+  animation: portfolioBackdropFadeIn 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-portfolio-backdrop-out {
+  animation: portfolioBackdropFadeOut 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-portfolio-modal-in {
+  animation: portfolioModalSlideUpIn 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-portfolio-modal-out {
+  animation: portfolioModalSlideUpOut 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-portfolio-menu-in {
+  animation: portfolioMenuSlideIn 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-portfolio-menu-out {
+  animation: portfolioMenuSlideOut 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   Full-Screen Website Luxury Loader Animation
+   ========================================================================== */
+
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes loaderFadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.animate-loader-fade-out {
+  animation: loaderFadeOut 500ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-loader-fade-out {
+    animation: loaderFadeOut 250ms ease forwards;
+  }
+}
+
+/* ==========================================================================
+   Testimonials Coverflow & Ambient Glow
+   ========================================================================== */
+@keyframes testimonialPulseGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.65;
+    filter: blur(100px);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.18);
+    opacity: 0.95;
+    filter: blur(125px);
+  }
+}
+
+.animate-testimonial-glow {
+  animation: testimonialPulseGlow 5s ease-in-out infinite;
+}
+
+.bg-testimonials-grid {
+  background-image: 
+    linear-gradient(to right, rgba(71, 87, 254, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(71, 87, 254, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+
