@@ -12,14 +12,15 @@ export interface ProjectItem {
   category: string;
   accentColor: string;
   bgTone: string;
-  details: {
-    overview: string;
-    role: string;
-    timeline: string;
-    tools: string[];
-    colors: { name: string; hex: string }[];
-    typography: { name: string; usage: string }[];
-    deliverables: string[];
+  images?: string[];
+  details?: {
+    overview?: string;
+    role?: string;
+    timeline?: string;
+    tools?: string[];
+    colors?: { name: string; hex: string }[];
+    typography?: { name: string; usage: string }[];
+    deliverables?: string[];
     galleryImages?: string[];
   };
 }

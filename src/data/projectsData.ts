@@ -1,33 +1,44 @@
 import { ProjectItem, ServiceItem } from '../types';
+import axialImg from '../assets/images/axial_graphic_cover.webp';
+import axialDesktopImg from '../assets/images/axial_graphic_desktop_cover.png';
+import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.webp';
+import candyImg from '../assets/images/candy_cloud_cover.jpg';
+import candyDesktopImg from '../assets/images/candy_cloud_desktop_cover.png';
+import candyCloudUiuxImg from '../assets/images/candy_cloud_uiux_full.png';
+import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
+import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
 
 export const projectsData: ProjectItem[] = [
   {
     id: 'personal-branding',
     number: '01',
-    title: 'PERSONAL BRANDING PROJECT',
-    subtitle: 'AXIAL GRAPHIC - DRIVEN BY DESIGN',
+    title: 'AXIAL GRAPHIC - DRIVEN BY DESIGN',
+    subtitle: 'PERSONAL DESIGN IDENTITY & BRAND SYSTEM',
     year: '2023',
-    client: 'Self Identity & Studio Concept',
-    description: 'A thoughtfully crafted visual identity focused on creating a clean, modern, and impactful brand presence.',
-    tags: ['Logo Design', 'Branding', 'Social Media'],
+    client: 'Arjun Chougale / Self Identity',
+    description: 'Axial Graphic is my personal design identity, built to represent my creative journey and style as a graphic designer. The word "Axial" symbolizes structure and balance, referencing an axis — the central line around which design elements align.',
+    tags: ['Logo Design', 'Branding', 'Visual Identity', 'Stationery'],
     mockupSide: 'left',
     badge: 'BRANDING CASE STUDY',
     category: 'Visual Identity',
     accentColor: '#5362ff',
     bgTone: '#1e1b4b',
+    images: [
+      axialCaseStudyImg,
+    ],
     details: {
-      overview: 'Axial Graphic represents a bold, geometric, and high-impact identity system designed for a multidisciplinary creative studio. The visual language emphasizes precision, typographic dominance, and modern digital aesthetics across physical and digital touchpoints.',
+      overview: 'Axial Graphic is my personal design identity, built to represent my creative journey and style as a graphic designer. The word "Axial" symbolizes structure and balance, referencing an axis — the central line around which design elements align. This logo reflects strength, clarity, and visual stability — qualities I bring to every design project. From logo creation to brand storytelling, this identity serves as the visual voice of my creative career.',
       role: 'Lead Brand Designer, Visual Strategist & 3D Mockup Artist',
       timeline: '4 Weeks (Q3 2023)',
       tools: ['Adobe Illustrator', 'Adobe Photoshop', 'Blender 3D', 'Figma'],
       colors: [
-        { name: 'Electric Violet', hex: '#5362ff' },
+        { name: 'Periwinkle Slate', hex: '#6366f1' },
         { name: 'Deep Midnight Indigo', hex: '#16143c' },
         { name: 'Pure Obsidian', hex: '#0a0a0f' },
         { name: 'Silver Frost', hex: '#e2e8f0' }
       ],
       typography: [
-        { name: 'Custom Heavy Block Sans', usage: 'Logo Mark & Display Title' },
+        { name: 'Pricedown BL', usage: 'Logotype & Display Headline' },
         { name: 'Plus Jakarta Sans Bold', usage: 'Headings & Accents' },
         { name: 'Inter Regular', usage: 'Body Copy & ID Specifications' }
       ],
@@ -37,6 +48,9 @@ export const projectsData: ProjectItem[] = [
         'Staff Lanyard & NFC Smart ID Card',
         'Dark Mode Social Media Asset Kit',
         'Comprehensive 32-Page Brand Guidelines'
+      ],
+      galleryImages: [
+        axialCaseStudyImg,
       ]
     }
   },
@@ -54,6 +68,11 @@ export const projectsData: ProjectItem[] = [
     category: 'Packaging & Identity',
     accentColor: '#ec4899',
     bgTone: '#1e1b4b',
+    images: [
+      candyDesktopImg,
+      candyImg,
+      candyCloudUiuxImg,
+    ],
     details: {
       overview: 'Candy Cloud is an artisanal confectionery brand specializing in cloud-soft marshmallows, gourmet cotton candy, and bespoke sweets. The identity blends playful pastel pinks with clean, modern typography and tactile packaging that conveys sweetness and joyful indulgence.',
       role: 'Brand Identity Designer, Packaging Developer & Merchandiser',
@@ -76,6 +95,11 @@ export const projectsData: ProjectItem[] = [
         'Boutique Paper Cups & Straw Sleeves',
         'Staff Apparel & Lanyard Identification',
         'Merchandise & Confectionery Sticker Badges'
+      ],
+      galleryImages: [
+        candyDesktopImg,
+        candyImg,
+        candyCloudUiuxImg,
       ]
     }
   },
@@ -93,6 +117,10 @@ export const projectsData: ProjectItem[] = [
     category: 'Cultural Identity & UI',
     accentColor: '#eab308',
     bgTone: '#1e1b4b',
+    images: [
+      devsthanDesktopImg,
+      devsthanImg,
+    ],
     details: {
       overview: 'Devsthan Vyavasthapan Samiti manages historical and cultural heritage temples across Western Maharashtra, Kolhapur. The branding project unites sacred temple architecture motifs with a majestic golden Ganesha emblem, ceremonial identity collateral, and an intuitive administrative dashboard system.',
       role: 'Lead Cultural Identity Designer & UI/UX Specialist',
@@ -115,6 +143,60 @@ export const projectsData: ProjectItem[] = [
         'Gold-Foiled VIP Badges & Lanyards',
         'Temple Management Dashboard UI System',
         'Architectural Signage & Heritage Display Guides'
+      ],
+      galleryImages: [
+        devsthanDesktopImg,
+        devsthanImg,
+      ]
+    }
+  },
+  {
+    id: 'candy-cloud-ecommerce-experience',
+    number: 'UI/UX',
+    title: 'CANDY CLOUD - D2C E-COMMERCE UI/UX WEBSITE',
+    subtitle: 'Taste the Clouds. — Immersive Confectionery Web Storefront',
+    year: '2024',
+    client: 'Candy Cloud D2C Store',
+    description: 'A playful, high-converting digital storefront designed to evoke joy and sweet cravings through pastel aesthetics, interactive categories, and friction-free shopping.',
+    tags: ['UI/UX Design', 'E-Commerce', 'Web Design', 'Figma'],
+    mockupSide: 'right',
+    badge: 'SCROLLABLE WEB UI',
+    category: 'UIUX Design',
+    accentColor: '#ec4899',
+    bgTone: '#1e1430',
+    images: [
+      candyCloudUiuxImg,
+      candyDesktopImg,
+    ],
+    details: {
+      overview: 'Candy Cloud D2C Store is an artisanal digital shopping experience built from the ground up to captivate sweet lovers. Featuring an ethereal pastel cloud aesthetic, gamified category exploration (Lollipops, Gummies, Gift Boxes, Seasonal Specials), bestseller highlights with instant quick-add, seasonal promotional banners, and social-proof customer testimonials. The UI balances whimsical delight with clear e-commerce conversion heuristics.',
+      role: 'Lead UI/UX Designer, Design System Architect & Prototype Specialist',
+      timeline: '6 Weeks (Q2 2024)',
+      tools: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator', 'Procreate', 'React/Tailwind'],
+      colors: [
+        { name: 'Cotton Candy Pink', hex: '#ec4899' },
+        { name: 'Lavender Mist', hex: '#c084fc' },
+        { name: 'Deep Berry Violet', hex: '#7e22ce' },
+        { name: 'Sweet Honey Amber', hex: '#f59e0b' },
+        { name: 'Cream Marshmallow', hex: '#fdf2f8' },
+        { name: 'Sky Cloud Blue', hex: '#bae6fd' }
+      ],
+      typography: [
+        { name: 'Puffy Display Script', usage: 'Logotype & Hero Headlines' },
+        { name: 'Plus Jakarta Sans Bold', usage: 'Product Titles, Section Headers & CTAs' },
+        { name: 'Inter Regular', usage: 'Body Copy, Pricing, Descriptions & Reviews' }
+      ],
+      deliverables: [
+        'Complete Full-Page Desktop & Mobile Responsive Web Layout',
+        'Interactive Category Navigation (Lollipops, Gummies, Boxes, Specials)',
+        'Bestseller Product Cards with Star Ratings & Instant Add-to-Cart',
+        'Dynamic 50% Off Promotional Campaign Banner',
+        'Customer Testimonial Carousel & Newsletter Subscription System',
+        'Figma Design System with Component Variants & Hover Micro-Interactions'
+      ],
+      galleryImages: [
+        candyCloudUiuxImg,
+        candyDesktopImg,
       ]
     }
   }

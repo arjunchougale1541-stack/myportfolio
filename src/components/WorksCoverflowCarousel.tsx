@@ -113,33 +113,49 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
     };
   }, [isHovered, isDragging, navigateBy]);
 
+  const hasMovedRef = useRef<boolean>(false);
+
   // Drag Gesture Handlers
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (e.button !== 0) return;
+    if ((e.target as HTMLElement).closest('button, a, [role="button"]')) {
+      return;
+    }
 
     if (animFrameRef.current) {
       cancelAnimationFrame(animFrameRef.current);
       animFrameRef.current = null;
     }
 
-    const target = e.currentTarget;
-    target.setPointerCapture(e.pointerId);
-
+    hasMovedRef.current = false;
     dragStartRef.current = {
       x: e.clientX,
       time: performance.now(),
       offset: continuousOffset,
     };
     velocityTrackerRef.current = [{ x: e.clientX, time: performance.now() }];
-    setIsDragging(true);
   };
 
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragStartRef.current || !isDragging) return;
+    if (!dragStartRef.current) return;
 
     const currentX = e.clientX;
     const currentTime = performance.now();
     const deltaX = currentX - dragStartRef.current.x;
+
+    if (!hasMovedRef.current) {
+      if (Math.abs(deltaX) > 6) {
+        hasMovedRef.current = true;
+        setIsDragging(true);
+        try {
+          e.currentTarget.setPointerCapture(e.pointerId);
+        } catch {
+          // Safe catch
+        }
+      } else {
+        return;
+      }
+    }
 
     const slotDelta = -deltaX / cardSpacing;
     setContinuousOffset(dragStartRef.current.offset + slotDelta);
@@ -150,15 +166,16 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
   };
 
   const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!dragStartRef.current || !isDragging) return;
+    if (!dragStartRef.current) return;
 
-    try {
-      e.currentTarget.releasePointerCapture(e.pointerId);
-    } catch {
-      // Safe catch
+    if (isDragging) {
+      try {
+        e.currentTarget.releasePointerCapture(e.pointerId);
+      } catch {
+        // Safe catch
+      }
+      setIsDragging(false);
     }
-
-    setIsDragging(false);
 
     const startX = dragStartRef.current.x;
     const totalDeltaX = e.clientX - startX;
@@ -179,6 +196,9 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
     if (Math.abs(totalDeltaX) < 8) {
       const targetSlot = Math.round(continuousOffset);
       animateToSlot(targetSlot, 350);
+      setTimeout(() => {
+        hasMovedRef.current = false;
+      }, 60);
       return;
     }
 
@@ -192,6 +212,9 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
 
     const targetSlot = Math.round(continuousOffset + momentumStep);
     animateToSlot(targetSlot, 480);
+    setTimeout(() => {
+      hasMovedRef.current = false;
+    }, 60);
   };
 
   const handlePointerCancel = (e: React.PointerEvent<HTMLDivElement>) => {
@@ -210,7 +233,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
   const activeNormIndex = ((Math.round(continuousOffset) % totalCards) + totalCards) % totalCards;
 
   return (
-    <div className="relative w-full select-none overflow-visible">
+    <div className="relative z-10 w-full select-none overflow-visible">
       {/* Coverflow Stage Container */}
       <div
         ref={containerRef}
@@ -262,15 +285,15 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
             const brightness = Math.max(0.58, 1 - absDist * 0.20);
             const saturation = Math.max(0.65, 1 - absDist * 0.18);
 
-            // Z-Index layering
-            const zIndex = Math.round(30 - absDist * 10);
+            // Z-Index layering (strictly below sticky category nav bar's z-30)
+            const zIndex = Math.max(1, Math.round(20 - absDist * 5));
             const isInteractive = absDist <= 2.4;
 
             return (
               <div
                 key={project.id}
                 onClick={(e) => {
-                  if (isDragging) return;
+                  if (hasMovedRef.current) return;
                   if (absDist >= 0.45) {
                     e.stopPropagation();
                     navigateToIndex(idx);
@@ -303,7 +326,8 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-108"
+                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-108"
+                      style={{ objectPosition: project.objectPosition || 'center' }}
                       loading="lazy"
                       draggable={false}
                     />
@@ -312,22 +336,45 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0e0d16] via-transparent to-black/30 opacity-80 group-hover:opacity-50 transition-opacity duration-300" />
 
                     {/* Top Floating Category Badge */}
-                    <div className="absolute top-3.5 left-3.5 z-10">
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-white/10 text-indigo-300 shadow-sm">
+                    <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5">
+                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase backdrop-blur-md border shadow-sm ${
+                        project.badge === 'SCROLLABLE WEB UI'
+                          ? 'bg-pink-950/80 border-pink-500/50 text-pink-300 shadow-[0_0_12px_rgba(236,72,153,0.35)]'
+                          : 'bg-black/70 border-white/10 text-indigo-300'
+                      }`}>
                         {project.badge || project.category}
                       </span>
                     </div>
 
-                    {/* Top-Right Quick Action Icon */}
-                    <div
-                      className={`absolute top-3.5 right-3.5 z-10 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-slate-300 transition-all duration-300 shadow-sm ${
-                        isCenter
-                          ? 'opacity-100 bg-[#4d5eff] text-white border-indigo-400/50'
-                          : 'opacity-0 group-hover:opacity-100'
+                    {/* Top-Right Quick Action Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProject(project);
+                      }}
+                      className={`absolute top-3.5 right-3.5 z-20 w-8 h-8 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-md cursor-pointer ${
+                        project.badge === 'SCROLLABLE WEB UI'
+                          ? 'bg-pink-600 hover:bg-pink-500 opacity-100 shadow-[0_0_12px_rgba(236,72,153,0.5)]'
+                          : isCenter
+                          ? 'opacity-100 bg-[#4d5eff] hover:bg-[#3d4ff5] border border-indigo-400/50'
+                          : 'opacity-0 group-hover:opacity-100 bg-black/60 hover:bg-[#4d5eff] backdrop-blur-md border border-white/10'
                       }`}
+                      title={project.badge === 'SCROLLABLE WEB UI' ? 'Open Scrollable UI/UX Preview' : 'View Project Case Study'}
+                      aria-label="View Project"
                     >
                       <ArrowUpRight className="w-4 h-4" />
-                    </div>
+                    </button>
+
+                    {/* Bottom floating hint for scrollable project */}
+                    {project.badge === 'SCROLLABLE WEB UI' && (
+                      <div className="absolute bottom-3 right-3 z-10">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold tracking-wider uppercase bg-pink-950/90 backdrop-blur-md border border-pink-400/60 text-pink-200 shadow-md">
+                          <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
+                          SCROLL VIEW
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Card Meta Content */}
@@ -355,10 +402,21 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                       <span className="truncate max-w-[160px] font-medium text-slate-300">
                         {project.client || 'Creative Showcase'}
                       </span>
-                      <div className="flex items-center gap-1 text-indigo-400 group-hover:text-indigo-300 font-semibold text-[11px] tracking-wider uppercase">
-                        <span>VIEW CASE</span>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onSelectProject(project);
+                        }}
+                        className={`flex items-center gap-1 font-semibold text-[11px] tracking-wider uppercase transition-colors cursor-pointer ${
+                          project.badge === 'SCROLLABLE WEB UI'
+                            ? 'text-pink-400 hover:text-pink-300'
+                            : 'text-indigo-400 hover:text-indigo-300'
+                        }`}
+                      >
+                        <span>{project.badge === 'SCROLLABLE WEB UI' ? 'SCROLL WEBPAGE' : 'VIEW CASE'}</span>
                         <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
+                      </button>
                     </div>
                   </div>
                 </div>

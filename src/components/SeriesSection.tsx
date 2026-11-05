@@ -16,9 +16,13 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
   const filterCategories = ['All', 'Branding', 'Logo Design', 'Visual Merch', 'Social Media'];
 
+  const seriesProjects = projectsData.filter((p) =>
+    ['personal-branding', 'candy-cloud', 'devsthan-samiti'].includes(p.id)
+  );
+
   const filteredProjects = activeFilter === 'All'
-    ? projectsData
-    : projectsData.filter((p) => p.tags.includes(activeFilter));
+    ? seriesProjects
+    : seriesProjects.filter((p) => p.tags.includes(activeFilter));
 
   const renderProjectMockup = (project: ProjectItem) => {
     switch (project.id) {

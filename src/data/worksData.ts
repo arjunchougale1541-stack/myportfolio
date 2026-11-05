@@ -1,6 +1,11 @@
-import axialImg from '../assets/images/axial_graphic_cover.jpg';
+import axialImg from '../assets/images/axial_graphic_cover.webp';
+import axialDesktopImg from '../assets/images/axial_graphic_desktop_cover.png';
+import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.webp';
 import candyImg from '../assets/images/candy_cloud_cover.jpg';
+import candyDesktopImg from '../assets/images/candy_cloud_desktop_cover.png';
+import candyCloudUiuxImg from '../assets/images/candy_cloud_uiux_full.png';
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
+import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
 import auroraPackagingImg from '../assets/images/works/aurora_packaging.jpg';
 import fintechUiuxImg from '../assets/images/works/fintech_dashboard.jpg';
 import kineticMotionImg from '../assets/images/works/kinetic_typography.jpg';
@@ -32,12 +37,14 @@ export interface WorkProjectItem {
   category: WorkCategory;
   categories: WorkCategory[];
   image: string;
+  images?: string[];
   year: string;
   client?: string;
   description: string;
   badge?: string;
   aspectClass?: string;
   accentColor?: string;
+  objectPosition?: string;
   projectItem?: ProjectItem;
 }
 
@@ -118,6 +125,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
       image: axialImg,
+      images: [
+        axialCaseStudyImg,
+      ],
       year: '2023',
       client: 'Axial Graphic Studio',
       description: 'Bold constructivist symbol crafted from pure geometric lines and industrial precision aesthetics.',
@@ -169,6 +179,11 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Branding'],
       image: fitnessSocialImg,
+      images: [
+        fitnessSocialImg,
+        streetwearReelImg,
+        kineticMotionImg,
+      ],
       year: '2024',
       client: 'Quantum Athletics',
       description: 'Multi-slide Instagram carousel series engineered for high engagement and performance sport storytelling.',
@@ -181,6 +196,11 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Reels'],
       image: fitnessSocialImg,
+      images: [
+        fitnessSocialImg,
+        kineticMotionImg,
+        axialImg,
+      ],
       year: '2024',
       client: 'Digital Vigyapan Media',
       description: 'Cohesive multi-platform graphic toolkit with thumb-stopping covers, reel title cards, and story templates.',
@@ -193,6 +213,11 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Branding'],
       image: axialImg,
+      images: [
+        axialCaseStudyImg,
+        axialDesktopImg,
+        kineticMotionImg,
+      ],
       year: '2023',
       client: 'Axial Design Community',
       description: 'Curated 9-post feed grid exploring kinetic type layouts and high-contrast brutalist design rules.',
@@ -205,6 +230,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Branding'],
       image: devsthanImg,
+      images: [
+        devsthanImg,
+        devsthanDesktopImg,
+      ],
       year: '2024',
       client: 'Kolhapur Cultural Trust',
       description: 'Rich festive countdown graphics, devotional quotes, and informational story series viewed by millions.',
@@ -217,6 +246,11 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Packaging Design'],
       image: candyImg,
+      images: [
+        candyImg,
+        candyDesktopImg,
+        candyCloudUiuxImg,
+      ],
       year: '2024',
       client: 'Candy Cloud D2C',
       description: 'Pastel-toned high-conversion ad creatives and unboxing carousels generating record seasonal conversions.',
@@ -229,6 +263,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'UIUX Design'],
       image: fintechUiuxImg,
+      images: [
+        fintechUiuxImg,
+        kineticMotionImg,
+      ],
       year: '2024',
       client: 'Nexus Cloud Analytics',
       description: 'Infographic-style carousel explaining complex algorithmic yields with sleek dark neon UI snippets.',
@@ -244,9 +282,12 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Branding',
       categories: ['Branding', 'Logo Designs', 'Social Media Posts'],
       image: axialImg,
+      images: [
+        axialCaseStudyImg,
+      ],
       year: '2023',
-      client: 'Self Identity & Studio Concept',
-      description: 'A thoughtfully crafted visual identity focused on creating a clean, modern, and impactful brand presence.',
+      client: 'Arjun Chougale / Self Identity',
+      description: 'Axial Graphic is my personal design identity, built to represent my creative journey and style as a graphic designer. Symbolizing structure, balance, and visual stability, this identity serves as the visual voice of my creative career.',
       badge: 'FEATURED CASE STUDY',
       accentColor: '#5362ff',
     },
@@ -529,6 +570,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Motion Graphic',
       categories: ['Motion Graphic', 'Branding'],
       image: axialImg,
+      images: [
+        axialCaseStudyImg,
+        axialDesktopImg,
+      ],
       year: '2023',
       client: 'Axial Graphic Studio',
       description: 'Continuous kinetic Swiss typography poster loops demonstrating modern grid deconstruction.',
@@ -567,12 +612,13 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       title: 'CANDY CLOUD IMMERSIVE D2C SHOP',
       category: 'UIUX Design',
       categories: ['UIUX Design', 'Packaging Design'],
-      image: candyImg,
+      image: candyCloudUiuxImg,
       year: '2024',
       client: 'Candy Cloud D2C Store',
-      description: 'Gamified confectionery builder, micro-animated cart slideout, and joyful high-converting checkout.',
-      badge: 'E-COMMERCE UI',
+      description: 'Full-page responsive D2C web experience featuring cloud-soft aesthetic, interactive categories, and seamless shopping cart flow.',
+      badge: 'SCROLLABLE WEB UI',
       accentColor: '#ec4899',
+      objectPosition: 'top',
     },
     {
       id: 'devsthan-temple-portal',

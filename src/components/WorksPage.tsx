@@ -48,7 +48,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
   const handleScrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
-      const headerOffset = 135;
+      const headerOffset = 150;
       const elementPosition = el.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 
@@ -65,6 +65,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
     if (matchedProject) {
       onSelectProject(matchedProject);
     } else {
+      const projectImages = work.images && work.images.length > 0 ? work.images : [work.image];
       const modalProject: ProjectItem = {
         id: work.id,
         number: 'WORKS',
@@ -79,26 +80,9 @@ export const WorksPage: React.FC<WorksPageProps> = ({
         category: work.category,
         accentColor: work.accentColor || '#4d5eff',
         bgTone: '#13112c',
+        images: projectImages,
         details: {
-          overview: work.description,
-          role: 'Creative Design, Art Direction & Production',
-          timeline: 'Completed ' + work.year,
-          tools: ['Adobe Photoshop', 'Adobe Illustrator', 'After Effects', 'Figma'],
-          colors: [
-            { name: 'Electric Accent', hex: work.accentColor || '#4d5eff' },
-            { name: 'Obsidian Black', hex: '#08080a' },
-            { name: 'Pure White', hex: '#ffffff' },
-          ],
-          typography: [
-            { name: 'Plus Jakarta Sans Bold', usage: 'Headings & Accents' },
-            { name: 'Inter Regular', usage: 'Body Copy' },
-          ],
-          deliverables: [
-            'High-Resolution Master Deliverables',
-            'Full Asset Variations & Colorways',
-            'Commercial Digital & Print Ready Formats',
-          ],
-          galleryImages: [work.image],
+          galleryImages: projectImages,
         },
       };
       onSelectProject(modalProject);
@@ -172,7 +156,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
         </div>
 
         {/* Sticky Anchor Navigation Bar: Full-bleed edge-to-edge outer container */}
-        <div className="sticky top-16 sm:top-20 z-30 w-full left-0 right-0 bg-[#070709]/85 backdrop-blur-md border-y border-white/5 shadow-md shadow-black/30">
+        <div className="sticky top-16 sm:top-20 z-30 w-full left-0 right-0 bg-[#070709]/95 backdrop-blur-md border-y border-white/5 shadow-md shadow-black/40">
           {/* Inner centered row of category pills with consistent 12px 32px padding */}
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-3">
             <div className="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 sm:gap-2.5 py-0.5">
@@ -217,7 +201,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
               <section
                 key={sec.id}
                 id={sec.id}
-                className="relative w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 scroll-mt-32 overflow-x-clip"
+                className="relative z-10 isolate w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 scroll-mt-36 sm:scroll-mt-40 overflow-x-clip pt-4 sm:pt-6"
                 aria-label={`${sec.name} Showcase`}
               >
                 {/* Section Header: Category Name + Item Count + Subtitle */}
@@ -249,7 +233,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
                 </div>
 
                 {/* Coverflow Carousel for this Category with negative margin offset for full-width track */}
-                <div className="-mx-4 sm:-mx-8 lg:-mx-12 xl:-mx-16 px-2 sm:px-4 lg:px-6 overflow-visible">
+                <div className="-mx-4 sm:-mx-8 lg:-mx-12 xl:-mx-16 px-2 sm:px-4 lg:px-6 pt-2 sm:pt-4 pb-2 overflow-visible">
                   <WorksCoverflowCarousel
                     items={items}
                     onSelectProject={handleProjectClick}
