@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Sparkles } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import profileImg from '../assets/images/arjun_profile.jpg';
 import { WORK_SECTIONS, worksByCategory, WorkProjectItem } from '../data/worksData';
 import { projectsData } from '../data/projectsData';
@@ -141,25 +141,6 @@ export const WorksPage: React.FC<WorksPageProps> = ({
 
       {/* Main Content Area */}
       <main className="flex-grow w-full">
-        {/* Page Hero Header */}
-        <div className="text-center max-w-3xl mx-auto pt-10 sm:pt-16 pb-6 sm:pb-8 px-4 sm:px-8">
-          {/* Mini Pill Tag: CURATED PORTFOLIO */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-xs font-mono font-semibold uppercase tracking-wider mb-5 shadow-[0_0_15px_rgba(77,94,255,0.2)]">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-400 animate-pulse" />
-            <span>CURATED PORTFOLIO</span>
-          </div>
-
-          {/* Main Title: MY WORKS */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 drop-shadow-sm font-sans mb-4 sm:mb-5">
-            MY WORKS
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
-            A collection of selected creative work, branding, and visual experiences.
-          </p>
-        </div>
-
         {/* Sticky Anchor Navigation Bar: Full-bleed edge-to-edge outer container */}
         <div className="sticky top-16 sm:top-20 z-30 w-full left-0 right-0 bg-[#070709]/95 backdrop-blur-md border-y border-white/5 shadow-md shadow-black/40">
           {/* Inner centered row of category pills with consistent 12px 32px padding */}
