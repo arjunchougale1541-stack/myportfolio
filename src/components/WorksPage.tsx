@@ -102,14 +102,14 @@ export const WorksPage: React.FC<WorksPageProps> = ({
 
       {/* Top Sticky Header with Profile and Back to Home Button */}
       <header className="sticky top-0 z-40 w-full bg-[#08080a]/90 backdrop-blur-md border-b border-white/5 transition-all">
-        <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-16 sm:h-20 flex items-center justify-between">
+        <div className="w-full px-3 xs:px-4 sm:px-8 lg:px-12 xl:px-16 h-16 sm:h-20 flex items-center justify-between gap-2">
           {/* Brand Identity / Profile */}
           <button
             onClick={onBackToHome}
-            className="flex items-center gap-2.5 sm:gap-3.5 group text-left cursor-pointer"
+            className="flex items-center gap-2 xs:gap-2.5 sm:gap-3.5 group text-left cursor-pointer min-w-0"
             aria-label="Back to Home"
           >
-            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden ring-2 ring-indigo-500/50 shadow-md group-hover:ring-indigo-400 transition-all flex-shrink-0">
+            <div className="relative w-8 h-8 xs:w-9 xs:h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden ring-2 ring-indigo-500/50 shadow-md group-hover:ring-indigo-400 transition-all flex-shrink-0">
               <img
                 src={profileImg}
                 alt="Arjun Chougale Profile"
@@ -117,24 +117,24 @@ export const WorksPage: React.FC<WorksPageProps> = ({
               />
             </div>
 
-            <div className="flex flex-col">
-              <span className="font-extrabold text-xs sm:text-base tracking-tight text-white font-sans uppercase group-hover:text-indigo-300 transition-colors">
+            <div className="flex flex-col min-w-0">
+              <span className="font-extrabold text-[11px] xs:text-xs sm:text-base tracking-tight text-white font-sans uppercase group-hover:text-indigo-300 transition-colors whitespace-nowrap">
                 ARJUN CHOUGALE
               </span>
-              <span className="text-[9px] sm:text-[11px] font-semibold tracking-wider text-gray-400 uppercase">
+              <span className="text-[8px] xs:text-[9.5px] sm:text-[11px] font-semibold tracking-wider text-gray-400 uppercase truncate max-w-[130px] xs:max-w-[170px] sm:max-w-none">
                 GRAPHIC DESIGNER &amp; VIDEO EDITOR
               </span>
             </div>
           </button>
 
-          {/* Right: Back to Home Button */}
+          {/* Right: Sleek, Compact Back to Home Button on Mobile */}
           <button
             onClick={onBackToHome}
-            className="group relative inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/[0.06] hover:bg-indigo-600/20 border border-white/10 hover:border-indigo-500/40 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(77,94,255,0.35)] cursor-pointer active:scale-95"
+            className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-2.5 xs:px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/[0.06] hover:bg-indigo-600/20 border border-white/10 hover:border-indigo-500/40 text-[10px] xs:text-[11px] sm:text-xs md:text-sm font-bold uppercase tracking-wider text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(77,94,255,0.35)] cursor-pointer active:scale-95 whitespace-nowrap flex-shrink-0"
             aria-label="Return to Homepage"
           >
-            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-400 group-hover:-translate-x-1 transition-transform duration-300" />
-            <span>BACK TO HOME</span>
+            <ArrowLeft className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 text-indigo-400 group-hover:-translate-x-1 transition-transform duration-300 flex-shrink-0" />
+            <span className="whitespace-nowrap">BACK TO HOME</span>
           </button>
         </div>
       </header>
