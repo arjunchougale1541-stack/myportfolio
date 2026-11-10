@@ -52,11 +52,10 @@ export const ServicesSection: React.FC = () => {
               key={service.id}
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`w-full p-6 sm:p-7 md:p-8 rounded-2xl bg-gradient-to-b from-[#100f24] to-[#0a0a14] border transition-all duration-300 ease-out space-y-5 sm:space-y-6 flex flex-col justify-between group cursor-pointer transform hover:-translate-y-2 hover:scale-[1.01] ${
-                isHovered
+              className={`w-full p-6 sm:p-7 md:p-8 rounded-2xl bg-gradient-to-b from-[#100f24] to-[#0a0a14] border transition-all duration-300 ease-out space-y-5 sm:space-y-6 flex flex-col justify-between group cursor-pointer transform hover:-translate-y-2 hover:scale-[1.01] ${isHovered
                   ? 'border-indigo-500/90 shadow-2xl shadow-indigo-600/30 ring-2 ring-indigo-500/40 from-[#141230] to-[#0c0b1a]'
                   : 'border-indigo-950/80 hover:border-indigo-500/70 hover:shadow-2xl hover:shadow-indigo-600/25'
-              }`}
+                }`}
             >
               {/* Header: Title + /01, /02, /03 */}
               <div className="space-y-3 sm:space-y-4">
