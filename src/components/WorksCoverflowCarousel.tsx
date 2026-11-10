@@ -259,8 +259,8 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         onMouseLeave={() => setIsHovered(false)}
         className={`relative w-full ${
           isReel
-            ? 'h-[470px] xs:h-[490px] sm:h-[510px]'
-            : 'h-[430px] xs:h-[440px] sm:h-[460px]'
+            ? 'h-[440px] xs:h-[480px] sm:h-[520px] md:h-[545px]'
+            : 'h-[440px] xs:h-[470px] sm:h-[490px] md:h-[515px]'
         } flex items-center justify-center touch-pan-y outline-none overflow-visible ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
@@ -537,7 +537,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
       </div>
 
       {/* Bottom Controls: Arrows + Indicator Dots */}
-      <div className="flex items-center justify-center gap-3.5 mt-3 sm:mt-4">
+      <div className="relative z-30 flex items-center justify-center gap-3.5 mt-5 sm:mt-7">
         <button
           onClick={() => navigateBy(-1)}
           aria-label="Previous project"
@@ -547,7 +547,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         </button>
 
         {/* Dot Indicators */}
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#080d24]/60 border border-blue-500/20 backdrop-blur-md">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#080d24]/80 border border-blue-500/20 backdrop-blur-md shadow-md">
           {items.map((p, dotIdx) => {
             const isActive = activeNormIndex === dotIdx;
             return (
