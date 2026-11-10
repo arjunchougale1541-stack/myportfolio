@@ -11,6 +11,8 @@ import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.p
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import hyperlexLogoImg from '../assets/images/works/hyperlex_logo.png';
+import dimoraCoverImg from '../assets/images/works/dimora_logo_cover.png';
+import dimoraCaseStudyImg from '../assets/images/works/dimora_case_study.png';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -283,6 +285,48 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         hyperlexLogoImg,
+      ]
+    }
+  },
+  {
+    id: 'dimora-luxury-fragrance-logo',
+    number: '06',
+    title: 'DIMORA - LUXURY FRAGRANCE LOGO & IDENTITY',
+    subtitle: 'Symbol of Luxury & Balance',
+    year: '2024',
+    client: 'Dimora Haute Parfumerie',
+    description: 'Symmetrical geometric monogram logo and luxury perfume brand identity inspired by the letter D, fragrance flow, and balanced elegance.',
+    tags: ['Logo Design', 'Luxury Branding', 'Packaging'],
+    mockupSide: 'right',
+    badge: 'LUXURY LOGO',
+    category: 'Logo Designs',
+    accentColor: '#c7b299',
+    bgTone: '#1e1c18',
+    coverImage: dimoraCoverImg,
+    projectImages: [
+      dimoraCaseStudyImg,
+    ],
+    images: [
+      dimoraCaseStudyImg,
+    ],
+    details: {
+      overview: 'Dimora is an artisanal luxury fragrance house. The brand identity features a harmonious geometric monogram synthesizing the letter D with infinity-inspired curves symbolizing fragrance and flow, creating a timeless seal of luxury and balance.',
+      role: 'Brand Identity & Luxury Monogram Designer',
+      timeline: '3 Weeks (2024)',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Pure Obsidian', hex: '#1E1E1E' },
+        { name: 'Warm Champagne Sand', hex: '#C7B299' },
+        { name: 'Silk Ivory Cream', hex: '#F7F3EB' }
+      ],
+      deliverables: [
+        'Symmetrical Monogram Mark & Wordmark System',
+        'Minimal Repeating Geometric Brand Pattern',
+        'Luxury Boutique Storefront Signage & Facade Mockup',
+        'Flacon Label & Rigid Presentation Box Packaging'
+      ],
+      galleryImages: [
+        dimoraCaseStudyImg,
       ]
     }
   }
