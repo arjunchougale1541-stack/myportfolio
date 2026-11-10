@@ -21,6 +21,8 @@ import dimoraCoverImg from '../assets/images/works/dimora_logo_cover.png';
 import dimoraCaseStudyImg from '../assets/images/works/dimora_case_study.png';
 import axialLogoCoverImg from '../assets/images/works/axial_logo_cover.png';
 import axialLogoCaseStudyImg from '../assets/images/works/axial_logo_case_study.png';
+import candyCloudLogoCoverImg from '../assets/images/works/candy_cloud_logo_cover.png';
+import candyCloudLogoCaseStudyImg from '../assets/images/works/candy_cloud_logo_case_study.png';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -207,22 +209,22 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
     },
     {
       id: 'candy-cloud-mascot-mark',
-      title: 'CANDY CLOUD JUBILANT LOGOTYPE',
+      title: 'CANDY CLOUD - CONFECTIONERY LOGO & IDENTITY',
       category: 'Logo Designs',
-      categories: ['Logo Designs', 'Packaging Design'],
-      image: candyImg,
-      coverImage: candyImg,
+      categories: ['Logo Designs', 'Packaging Design', 'Branding'],
+      image: candyCloudLogoCoverImg,
+      coverImage: candyCloudLogoCoverImg,
       projectImages: [
-        candyCloudCaseStudyImg,
+        candyCloudLogoCaseStudyImg,
       ],
       images: [
-        candyCloudCaseStudyImg,
+        candyCloudLogoCaseStudyImg,
       ],
       year: '2024',
-      client: 'Candy Cloud Confectionery',
-      description: 'Hand-lettered rounded confectionary wordmark with whimsical cloud mascot iconography.',
-      badge: 'RETAIL LOGO',
-      accentColor: '#ec4899',
+      client: 'Candy Cloud Confectionery Co.',
+      description: 'Whimsical cloud and sweet swirl monogram logomark representing softness, sweetness, and happiness for an artisanal confectionery.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#a746a8',
     },
     {
       id: 'devsthan-samiti-insignia',

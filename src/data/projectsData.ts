@@ -15,6 +15,8 @@ import dimoraCoverImg from '../assets/images/works/dimora_logo_cover.png';
 import dimoraCaseStudyImg from '../assets/images/works/dimora_case_study.png';
 import axialLogoCoverImg from '../assets/images/works/axial_logo_cover.png';
 import axialLogoCaseStudyImg from '../assets/images/works/axial_logo_case_study.png';
+import candyCloudLogoCoverImg from '../assets/images/works/candy_cloud_logo_cover.png';
+import candyCloudLogoCaseStudyImg from '../assets/images/works/candy_cloud_logo_case_study.png';
 
 export const projectsData: ProjectItem[] = [
   {
