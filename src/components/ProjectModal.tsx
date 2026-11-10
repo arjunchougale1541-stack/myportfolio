@@ -1,14 +1,16 @@
 import React, { useEffect, useMemo } from 'react';
 import { ProjectItem } from '../types';
 import { X, Images } from 'lucide-react';
-import axialImg from '../assets/images/axial_graphic_cover.webp';
+import axialImg from '../assets/images/axial_graphic_cover.jpg';
 import axialDesktopImg from '../assets/images/axial_graphic_desktop_cover.png';
-import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.webp';
+import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.jpg';
 import candyImg from '../assets/images/candy_cloud_cover.jpg';
 import candyDesktopImg from '../assets/images/candy_cloud_desktop_cover.png';
 import candyCloudUiuxImg from '../assets/images/candy_cloud_uiux_full.png';
+import candyCloudCaseStudyImg from '../assets/images/candy_cloud_case_study_full.webp';
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
+import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 
 interface ProjectModalProps {
   project: ProjectItem | null;
@@ -55,13 +57,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       return [axialCaseStudyImg];
     }
     if (project.id === 'candy-cloud') {
-      return [candyDesktopImg, candyImg, candyCloudUiuxImg];
+      return [candyCloudCaseStudyImg];
     }
     if (project.id === 'devsthan-samiti') {
-      return [devsthanDesktopImg, devsthanImg];
+      return [devsthanCaseStudyImg];
     }
     if (project.id === 'candy-cloud-ecommerce-experience') {
-      return [candyCloudUiuxImg, candyDesktopImg];
+      return [candyCloudUiuxImg, candyCloudCaseStudyImg];
     }
 
     return [];

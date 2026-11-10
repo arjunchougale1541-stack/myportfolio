@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import candyCloudCoverImg from '../../assets/images/candy_cloud_desktop_cover.png';
@@ -8,7 +10,7 @@ interface CandyCloudMockupProps {
 
 export const CandyCloudMockup: React.FC<CandyCloudMockupProps> = ({ onExplore }) => {
   return (
-    <div 
+    <div
       onClick={onExplore}
       className="group relative w-full h-full min-h-[260px] sm:min-h-[460px] md:min-h-[500px] bg-[#1e1b4b] rounded-none sm:rounded-lg overflow-hidden border border-pink-200/40 shadow-2xl transition-all duration-500 hover:border-pink-400/80 cursor-pointer select-none flex flex-col justify-between"
     >

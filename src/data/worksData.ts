@@ -1,11 +1,13 @@
-import axialImg from '../assets/images/axial_graphic_cover.webp';
+import axialImg from '../assets/images/axial_graphic_cover.jpg';
 import axialDesktopImg from '../assets/images/axial_graphic_desktop_cover.png';
-import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.webp';
+import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.jpg';
 import candyImg from '../assets/images/candy_cloud_cover.jpg';
 import candyDesktopImg from '../assets/images/candy_cloud_desktop_cover.png';
 import candyCloudUiuxImg from '../assets/images/candy_cloud_uiux_full.png';
+import candyCloudCaseStudyImg from '../assets/images/candy_cloud_case_study_full.webp';
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
+import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 import auroraPackagingImg from '../assets/images/works/aurora_packaging.jpg';
 import fintechUiuxImg from '../assets/images/works/fintech_dashboard.jpg';
 import kineticMotionImg from '../assets/images/works/kinetic_typography.jpg';
@@ -140,6 +142,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Packaging Design'],
       image: candyImg,
+      images: [
+        candyCloudCaseStudyImg,
+      ],
       year: '2024',
       client: 'Candy Cloud Confectionery',
       description: 'Hand-lettered rounded confectionary wordmark with whimsical cloud mascot iconography.',
@@ -152,6 +157,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
       image: devsthanImg,
+      images: [
+        devsthanCaseStudyImg,
+      ],
       year: '2024',
       client: 'Devsthan Vyavasthapan Samiti',
       description: 'Revered temple shikhar silhouette synthesized into a balanced royal emblem lockup.',
@@ -231,7 +239,7 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       categories: ['Social Media Posts', 'Branding'],
       image: devsthanImg,
       images: [
-        devsthanImg,
+        devsthanCaseStudyImg,
         devsthanDesktopImg,
       ],
       year: '2024',
@@ -247,7 +255,7 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       categories: ['Social Media Posts', 'Packaging Design'],
       image: candyImg,
       images: [
-        candyImg,
+        candyCloudCaseStudyImg,
         candyDesktopImg,
         candyCloudUiuxImg,
       ],
@@ -297,6 +305,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Branding',
       categories: ['Branding', 'Logo Designs', 'UIUX Design'],
       image: devsthanImg,
+      images: [
+        devsthanCaseStudyImg,
+      ],
       year: '2024',
       client: 'Devsthan Vyavasthapan Samiti, Kolhapur',
       description: 'Sacred architectural emblem, bilingual administrative stationery suite, and digital temple portal system.',
@@ -309,6 +320,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Branding',
       categories: ['Branding', 'Packaging Design'],
       image: candyImg,
+      images: [
+        candyCloudCaseStudyImg,
+      ],
       year: '2024',
       client: 'Candy Cloud Confectionery Co.',
       description: 'End-to-end brand guidelines, typography pairing, joyful color systems, and physical packaging assets.',
@@ -360,6 +374,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Packaging Design',
       categories: ['Packaging Design', 'Branding', 'Logo Designs'],
       image: candyImg,
+      images: [
+        candyCloudCaseStudyImg,
+      ],
       year: '2024',
       client: 'Candy Cloud Confectionery Co.',
       description: 'Artisanal confectionery branding, custom packaging boxes, paper cups, and joyful brand guidelines.',
@@ -471,6 +488,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Reels',
       categories: ['Reels', 'Packaging Design'],
       image: candyImg,
+      images: [
+        candyCloudCaseStudyImg,
+      ],
       year: '2024',
       client: 'Candy Cloud Confectionery',
       description: 'Crisp macro audio-synced unboxing reel showcasing package textures, tear strips, and vibrant sweets.',
@@ -495,6 +515,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Reels',
       categories: ['Reels', 'Branding'],
       image: devsthanImg,
+      images: [
+        devsthanCaseStudyImg,
+      ],
       year: '2024',
       client: 'Devsthan Media Cell',
       description: 'Breathtaking 4K drone transitions, devotional instrumental audio grading, and cultural title typography.',
@@ -613,6 +636,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'UIUX Design',
       categories: ['UIUX Design', 'Packaging Design'],
       image: candyCloudUiuxImg,
+      images: [
+        candyCloudUiuxImg,
+        candyCloudCaseStudyImg,
+      ],
       year: '2024',
       client: 'Candy Cloud D2C Store',
       description: 'Full-page responsive D2C web experience featuring cloud-soft aesthetic, interactive categories, and seamless shopping cart flow.',
@@ -626,6 +653,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'UIUX Design',
       categories: ['UIUX Design', 'Branding'],
       image: devsthanImg,
+      images: [
+        devsthanCaseStudyImg,
+      ],
       year: '2024',
       client: 'Devsthan Trust, Kolhapur',
       description: 'Bilingual responsive portal with live darshan stream player, VIP booking, and donation flows.',

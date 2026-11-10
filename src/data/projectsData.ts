@@ -1,12 +1,14 @@
 import { ProjectItem, ServiceItem } from '../types';
-import axialImg from '../assets/images/axial_graphic_cover.webp';
+import axialImg from '../assets/images/axial_graphic_cover.jpg';
 import axialDesktopImg from '../assets/images/axial_graphic_desktop_cover.png';
-import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.webp';
+import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.jpg';
 import candyImg from '../assets/images/candy_cloud_cover.jpg';
 import candyDesktopImg from '../assets/images/candy_cloud_desktop_cover.png';
 import candyCloudUiuxImg from '../assets/images/candy_cloud_uiux_full.png';
+import candyCloudCaseStudyImg from '../assets/images/candy_cloud_case_study_full.webp';
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
+import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -69,9 +71,7 @@ export const projectsData: ProjectItem[] = [
     accentColor: '#ec4899',
     bgTone: '#1e1b4b',
     images: [
-      candyDesktopImg,
-      candyImg,
-      candyCloudUiuxImg,
+      candyCloudCaseStudyImg,
     ],
     details: {
       overview: 'Candy Cloud is an artisanal confectionery brand specializing in cloud-soft marshmallows, gourmet cotton candy, and bespoke sweets. The identity blends playful pastel pinks with clean, modern typography and tactile packaging that conveys sweetness and joyful indulgence.',
@@ -97,9 +97,7 @@ export const projectsData: ProjectItem[] = [
         'Merchandise & Confectionery Sticker Badges'
       ],
       galleryImages: [
-        candyDesktopImg,
-        candyImg,
-        candyCloudUiuxImg,
+        candyCloudCaseStudyImg,
       ]
     }
   },
@@ -118,8 +116,7 @@ export const projectsData: ProjectItem[] = [
     accentColor: '#eab308',
     bgTone: '#1e1b4b',
     images: [
-      devsthanDesktopImg,
-      devsthanImg,
+      devsthanCaseStudyImg,
     ],
     details: {
       overview: 'Devsthan Vyavasthapan Samiti manages historical and cultural heritage temples across Western Maharashtra, Kolhapur. The branding project unites sacred temple architecture motifs with a majestic golden Ganesha emblem, ceremonial identity collateral, and an intuitive administrative dashboard system.',
@@ -145,8 +142,7 @@ export const projectsData: ProjectItem[] = [
         'Architectural Signage & Heritage Display Guides'
       ],
       galleryImages: [
-        devsthanDesktopImg,
-        devsthanImg,
+        devsthanCaseStudyImg,
       ]
     }
   },
@@ -166,7 +162,7 @@ export const projectsData: ProjectItem[] = [
     bgTone: '#1e1430',
     images: [
       candyCloudUiuxImg,
-      candyDesktopImg,
+      candyCloudCaseStudyImg,
     ],
     details: {
       overview: 'Candy Cloud D2C Store is an artisanal digital shopping experience built from the ground up to captivate sweet lovers. Featuring an ethereal pastel cloud aesthetic, gamified category exploration (Lollipops, Gummies, Gift Boxes, Seasonal Specials), bestseller highlights with instant quick-add, seasonal promotional banners, and social-proof customer testimonials. The UI balances whimsical delight with clear e-commerce conversion heuristics.',
@@ -196,7 +192,7 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         candyCloudUiuxImg,
-        candyDesktopImg,
+        candyCloudCaseStudyImg,
       ]
     }
   }

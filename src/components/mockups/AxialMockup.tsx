@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import axialCoverImg from '../../assets/images/axial_graphic_cover.webp';
+import axialCoverImg from '../../assets/images/axial_graphic_cover.jpg';
+import axialDesktopCoverImg from '../../assets/images/axial_graphic_desktop_cover.png';
 
 interface AxialMockupProps {
   onExplore?: () => void;
@@ -12,11 +13,18 @@ export const AxialMockup: React.FC<AxialMockupProps> = ({ onExplore }) => {
       onClick={onExplore}
       className="group relative w-full h-full min-h-[260px] sm:min-h-[460px] md:min-h-[500px] bg-[#0d0c24] rounded-none sm:rounded-lg overflow-hidden border border-indigo-950/60 shadow-2xl transition-all duration-500 hover:border-indigo-500/50 cursor-pointer select-none flex flex-col justify-between"
     >
-      {/* Main Project Card Thumbnail */}
+      {/* Mobile / Tablet High-Resolution Cover Image (1024x1024) */}
       <img
         src={axialCoverImg}
         alt="Axial Graphic Brand Identity Project Cover"
-        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+        className="block lg:hidden absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+      />
+
+      {/* Desktop Master Ultra High-Resolution Cover Image (1536x1024) */}
+      <img
+        src={axialDesktopCoverImg}
+        alt="Axial Graphic Brand Identity Project Cover (Desktop)"
+        className="hidden lg:block absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
       />
 
       {/* Subtle hover overlay */}
