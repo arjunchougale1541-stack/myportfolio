@@ -179,7 +179,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
         </div>
 
         {/* 7 Vertically Stacked Category Sections in Exact Order */}
-        <div className="space-y-20 sm:space-y-28 lg:space-y-32 py-12 sm:py-16">
+        <div className="space-y-14 sm:space-y-20 lg:space-y-24 pt-3 sm:pt-5 pb-12 sm:pb-16">
           {WORK_SECTIONS.map((sec, sectionIdx) => {
             const items = worksByCategory[sec.id] || [];
 
@@ -187,39 +187,39 @@ export const WorksPage: React.FC<WorksPageProps> = ({
               <section
                 key={sec.id}
                 id={sec.id}
-                className="relative z-10 isolate w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 scroll-mt-36 sm:scroll-mt-40 overflow-x-clip pt-4 sm:pt-6"
+                className="relative z-10 isolate w-full max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 scroll-mt-28 sm:scroll-mt-32 overflow-x-clip pt-1 sm:pt-2"
                 aria-label={`${sec.name} Showcase`}
               >
                 {/* Section Header: Category Name + Item Count + Subtitle */}
-                <div className="mb-8 sm:mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/5 pb-6">
+                <div className="mb-3 sm:mb-4 flex flex-col md:flex-row md:items-end justify-between gap-2.5 sm:gap-4 border-b border-white/5 pb-3 sm:pb-4">
                   <div>
                     {/* Number and Tag */}
-                    <div className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-2 flex items-center gap-2">
+                    <div className="text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-1 sm:mb-1.5 flex items-center gap-2">
                       <span>/ 0{sectionIdx + 1}</span>
                       <span>•</span>
                       <span>CATEGORY</span>
                     </div>
 
                     {/* Category Heading with Item Count Badge */}
-                    <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
+                    <div className="flex items-center gap-2.5 sm:gap-4 flex-wrap">
                       <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-300 font-sans">
                         {sec.name}
                       </h2>
 
-                      <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-indigo-950/60 border border-indigo-500/30 text-indigo-300">
+                      <span className="px-2.5 py-0.5 sm:py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-indigo-950/60 border border-indigo-500/30 text-indigo-300">
                         {items.length} Projects
                       </span>
                     </div>
 
                     {/* Subtitle */}
-                    <p className="mt-2 text-xs sm:text-sm text-slate-400 font-normal max-w-xl">
+                    <p className="mt-1.5 text-xs sm:text-sm text-slate-400 font-normal max-w-xl">
                       {sec.subtitle}
                     </p>
                   </div>
                 </div>
 
                 {/* Coverflow Carousel for this Category with negative margin offset for full-width track */}
-                <div className="-mx-4 sm:-mx-8 lg:-mx-12 xl:-mx-16 px-2 sm:px-4 lg:px-6 pt-2 sm:pt-4 pb-2 overflow-visible">
+                <div className="-mx-4 sm:-mx-8 lg:-mx-12 xl:-mx-16 px-2 sm:px-4 lg:px-6 pt-0 pb-1 overflow-visible">
                   <WorksCoverflowCarousel
                     items={items}
                     onSelectProject={handleProjectClick}

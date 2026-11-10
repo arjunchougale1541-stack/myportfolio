@@ -259,8 +259,8 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         onMouseLeave={() => setIsHovered(false)}
         className={`relative w-full ${
           isReel
-            ? 'h-[500px] xs:h-[520px] sm:h-[550px]'
-            : 'h-[520px] sm:h-[550px]'
+            ? 'h-[470px] xs:h-[490px] sm:h-[510px]'
+            : 'h-[430px] xs:h-[440px] sm:h-[460px]'
         } flex items-center justify-center touch-pan-y outline-none overflow-visible ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
