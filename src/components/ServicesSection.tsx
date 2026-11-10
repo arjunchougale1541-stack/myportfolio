@@ -21,30 +21,30 @@ export const ServicesSection: React.FC = () => {
   return (
     <section id="services" className="relative py-14 sm:py-24 lg:py-28 w-full px-4 sm:px-8 lg:px-12 xl:px-16 overflow-hidden">
       {/* Top Header: Statement Left + Paragraph Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start mb-10 sm:mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16 items-start mb-8 sm:mb-16">
         {/* Left Column: Bold Indigo Statement */}
         <div className="lg:col-span-7">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#4757fe] leading-[1.08]">
+          <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#4757fe] leading-[1.08]">
             I create visual solutions that bring ideas to life.
           </h2>
         </div>
 
         {/* Right Column: / My Services + Description */}
-        <div className="lg:col-span-5 space-y-3 sm:space-y-4">
+        <div className="lg:col-span-5 space-y-2.5 sm:space-y-4">
           <div className="flex items-center gap-2">
             <span className="text-xs sm:text-base font-bold text-[#4757fe] tracking-wide">
               / My Services
             </span>
           </div>
 
-          <p className="text-sm sm:text-base md:text-lg text-gray-300 font-normal leading-relaxed">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-300 font-normal leading-relaxed">
             My services go beyond just design. I create meaningful visual experiences through graphic design, video editing, and digital content creation—helping ideas communicate clearly, connect with audiences, and stand out.
           </p>
         </div>
       </div>
 
       {/* 3 Services Cards Grid - Full Width Rectangular Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 w-full">
         {servicesData.map((service, idx) => {
           const isHovered = hoveredIndex === idx;
           return (

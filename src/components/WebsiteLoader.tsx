@@ -118,7 +118,7 @@ export const WebsiteLoader: React.FC<WebsiteLoaderProps> = ({ onComplete }) => {
             return (
               <span
                 key={word}
-                className={`absolute font-editorial italic font-normal text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-normal text-[#E8E8E8] transition-all duration-600 ease-out transform ${
+                className={`absolute font-editorial italic font-normal text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-normal text-[#E8E8E8] transition-all duration-600 ease-out transform ${
                   isActive
                     ? 'opacity-100 translate-y-0 scale-100 blur-0'
                     : currentWordIndex > idx
@@ -140,7 +140,7 @@ export const WebsiteLoader: React.FC<WebsiteLoaderProps> = ({ onComplete }) => {
       <div className="w-full flex justify-end items-end z-10 pb-3 sm:pb-5">
         <div className="flex flex-col items-end pr-1 sm:pr-2">
           <span
-            className="font-poppins font-medium tabular-nums text-6xl sm:text-8xl md:text-9xl text-white tracking-tight leading-none drop-shadow-sm select-none"
+            className="font-poppins font-medium tabular-nums text-5xl xs:text-6xl sm:text-8xl md:text-9xl text-white tracking-tight leading-none drop-shadow-sm select-none"
             style={{
               fontVariantNumeric: 'tabular-nums',
             }}

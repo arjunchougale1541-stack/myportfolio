@@ -237,19 +237,19 @@ export const TestimonialsSection: React.FC = () => {
       />
 
       {/* 2. Top Section Header: Badge + Centered Heading + Subheading */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center mb-12 sm:mb-16 lg:mb-20">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center mb-8 sm:mb-16 lg:mb-20">
         {/* Subtle Section Label */}
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1E3FFF]/10 border border-[#1E3FFF]/30 text-[#4757fe] text-xs sm:text-sm font-bold tracking-wider uppercase mb-3 sm:mb-4">
           <span>/ Client Feedback</span>
         </div>
 
         {/* Centered Heading with White-to-Light-Blue Gradient */}
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] bg-gradient-to-r from-white via-sky-100 to-[#9db2ff] bg-clip-text text-transparent">
+        <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.1] bg-gradient-to-r from-white via-sky-100 to-[#9db2ff] bg-clip-text text-transparent">
           What people say
         </h2>
 
         {/* Centered Subheading in Muted Gray-Blue */}
-        <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-[#94a3b8] font-normal max-w-xl mx-auto leading-relaxed">
+        <p className="mt-2.5 sm:mt-4 text-xs xs:text-sm sm:text-base md:text-lg text-[#94a3b8] font-normal max-w-xl mx-auto leading-relaxed">
           Real words from founders, creative directors, and teams I've had the privilege of collaborating with.
         </p>
       </div>
@@ -267,7 +267,7 @@ export const TestimonialsSection: React.FC = () => {
         tabIndex={0}
         role="region"
         aria-label="Testimonials coverflow carousel"
-        className={`relative w-full max-w-7xl mx-auto h-[440px] sm:h-[420px] flex items-center justify-center touch-pan-y outline-none ${
+        className={`relative w-full max-w-7xl mx-auto h-[460px] xs:h-[440px] sm:h-[420px] flex items-center justify-center touch-pan-y outline-none ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
       >
@@ -340,7 +340,7 @@ export const TestimonialsSection: React.FC = () => {
               >
                 {/* Glassmorphic Card Container */}
                 <div
-                  className={`relative p-6 sm:p-7 md:p-8 rounded-[20px] backdrop-blur-xl transition-all duration-300 ${
+                  className={`relative p-5 xs:p-6 sm:p-7 md:p-8 rounded-[20px] backdrop-blur-xl transition-all duration-300 ${
                     isCenter
                       ? 'bg-gradient-to-b from-[#111942]/90 to-[#070b22]/95 border-2 border-blue-400/60 shadow-[0_10px_45px_-5px_rgba(30,63,255,0.42)] ring-1 ring-blue-400/40'
                       : 'bg-gradient-to-b from-[#0e1433]/80 to-[#07091a]/85 border border-blue-500/20 shadow-xl'

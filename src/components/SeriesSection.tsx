@@ -65,25 +65,25 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16">
         {/* Section Header: / My projects + Great work with my project */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-16 md:mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-16 md:mb-20">
           <div>
             <div className="flex items-center gap-2 mb-2 sm:mb-3">
               <span className="text-xs sm:text-lg font-bold text-[#4757fe] tracking-wide">
                 / My projects
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.05]">
+            <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.05]">
               Great work with my<br className="hidden sm:inline" /> project
             </h2>
           </div>
 
-          {/* Interactive Category Filter Pills (hidden on mobile view) */}
-          <div className="hidden sm:flex flex-wrap items-center gap-1.5 sm:gap-2 bg-white/[0.03] p-1.5 rounded-2xl sm:rounded-full border border-white/10 backdrop-blur max-w-full">
+          {/* Interactive Category Filter Pills (Scrollable on mobile) */}
+          <div className="flex items-center gap-1.5 sm:gap-2 bg-white/[0.03] p-1.5 rounded-2xl sm:rounded-full border border-white/10 backdrop-blur max-w-full overflow-x-auto no-scrollbar py-1.5">
             {filterCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-3 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                className={`px-3 sm:px-4 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer whitespace-nowrap flex-shrink-0 active:scale-95 ${
                   activeFilter === cat
                     ? 'bg-[#4757fe] text-white shadow-md'
                     : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -96,7 +96,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         </div>
 
         {/* The 3 Featured Series Projects Showcase Grid */}
-        <div className="space-y-8 sm:space-y-16">
+        <div className="space-y-6 sm:space-y-16">
           {filteredProjects.map((project) => {
             const isMockupLeft = project.mockupSide === 'left';
 
@@ -107,7 +107,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
               >
                 {/* Visual Mockup Container (Shown First on mobile) */}
                 <div
-                  className={`w-full h-full min-h-[260px] sm:min-h-[380px] md:min-h-[460px] lg:min-h-[500px] ${
+                  className={`w-full h-full min-h-[220px] xs:min-h-[260px] sm:min-h-[380px] md:min-h-[460px] lg:min-h-[500px] ${
                     isMockupLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'
                   }`}
                 >
@@ -116,19 +116,19 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
                 {/* Deep Indigo Project Content Card */}
                 <div
-                  className={`relative w-full h-full min-h-[280px] sm:min-h-[380px] md:min-h-[460px] lg:min-h-[500px] bg-gradient-to-br from-[#1c194c] via-[#1a1645] to-[#12102f] p-5 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between overflow-hidden ${
+                  className={`relative w-full h-full min-h-[260px] xs:min-h-[280px] sm:min-h-[380px] md:min-h-[460px] lg:min-h-[500px] bg-gradient-to-br from-[#1c194c] via-[#1a1645] to-[#12102f] p-5 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-between overflow-hidden ${
                     isMockupLeft ? 'order-2 lg:order-2' : 'order-2 lg:order-1'
                   }`}
                 >
                   {/* Giant Semi-Transparent Watermark Numeral */}
-                  <div className="absolute -bottom-8 sm:-bottom-10 right-2 sm:right-6 select-none pointer-events-none text-indigo-500/[0.08] group-hover:text-indigo-500/[0.12] transition-colors font-black text-[100px] sm:text-[180px] md:text-[240px] leading-none font-sans">
+                  <div className="absolute -bottom-6 sm:-bottom-10 right-2 sm:right-6 select-none pointer-events-none text-indigo-500/[0.08] group-hover:text-indigo-500/[0.12] transition-colors font-black text-[80px] xs:text-[100px] sm:text-[180px] md:text-[240px] leading-none font-sans">
                     {project.number}
                   </div>
 
                   {/* Top Content: Title and Year */}
-                  <div className="relative z-10 space-y-3 sm:space-y-6">
+                  <div className="relative z-10 space-y-2.5 sm:space-y-6">
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight uppercase leading-snug max-w-md">
+                      <h3 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight uppercase leading-snug max-w-md">
                         {project.title}
                       </h3>
                       <span className="text-xs sm:text-base font-bold text-indigo-300/80 font-mono flex-shrink-0 pt-1">

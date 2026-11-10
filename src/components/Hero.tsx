@@ -62,16 +62,14 @@ export const Hero: React.FC<HeroProps> = ({ onCollaborate }) => {
       const isTablet = width >= 768 && width < 1024;
 
       // Controlled flatter diagonal angles
-      const initialAngle = prefersReducedMotion ? 0 : isMobile ? 3.0 : isTablet ? 4.0 : 5.0;
-      const flatAngle = prefersReducedMotion ? 0 : isMobile ? 0.6 : 1.0;
-      // Increased scale for a larger, more impactful and immersive presence
-      const timelineScale = isMobile ? 0.80 : isTablet ? 0.95 : 1.08;
+      const initialAngle = prefersReducedMotion ? 0 : isMobile ? 2.5 : isTablet ? 3.5 : 5.0;
+      const flatAngle = prefersReducedMotion ? 0 : isMobile ? 0.5 : 1.0;
+      // Responsive scale for Premiere timeline
+      const timelineScale = isMobile ? 0.68 : isTablet ? 0.90 : 1.08;
 
       // Vertical position in viewport:
-      // Initial: starts slightly lower, completely hidden (autoAlpha: 0) on initial page load
-      // Showcase: smoothly fades in and slides into place in the lower hero area
-      const initialY = isMobile ? '38vh' : '42vh';
-      const showcaseY = isMobile ? '23vh' : '26vh';
+      const initialY = isMobile ? '36vh' : '42vh';
+      const showcaseY = isMobile ? '22vh' : '26vh';
 
       // Pin the hero section during the timeline animation.
       // Once the animation finishes (+100% scroll distance), the pin cleanly releases
@@ -167,7 +165,7 @@ export const Hero: React.FC<HeroProps> = ({ onCollaborate }) => {
     <section
       id="hero"
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-[#07070d] flex flex-col justify-center items-center"
+      className="relative w-full h-[100dvh] min-h-[580px] overflow-hidden bg-[#07070d] flex flex-col justify-center items-center"
     >
       {/* Background Video Layer */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -196,24 +194,24 @@ export const Hero: React.FC<HeroProps> = ({ onCollaborate }) => {
       {/* Main Content: Vertically Centered with Original Large Typography (Matches Reference Image 1) */}
       <div
         ref={heroContentRef}
-        className="relative z-20 w-full px-4 sm:px-8 lg:px-12 xl:px-16 text-center flex flex-col items-center justify-center py-20 pointer-events-auto select-none"
+        className="relative z-20 w-full px-4 sm:px-8 lg:px-12 xl:px-16 text-center flex flex-col items-center justify-center py-16 sm:py-20 pointer-events-auto select-none"
       >
-        {/* Main Display Headline (Original Large Size & Weight) */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-white leading-[1.08] max-w-6xl drop-shadow-lg">
+        {/* Main Display Headline (Responsive scaling with crisp fluid hierarchy) */}
+        <h1 className="text-[32px] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-white leading-[1.08] max-w-6xl drop-shadow-lg">
           <span className="text-[#4757fe]">Creative</span> ideas.
           <br />
           meaningful <span className="text-[#4757fe]">impact.</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="mt-3 sm:mt-6 text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl font-normal leading-relaxed px-2 sm:px-0 drop-shadow">
+        <p className="mt-3 sm:mt-6 text-xs xs:text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl font-normal leading-relaxed px-2 sm:px-0 drop-shadow">
           I turn ideas into bold visual experiences that connect brands with their audience and make them stand out.
         </p>
 
         {/* Action Row: CTA Button (Crisp, fully opaque, solid visual strength) */}
         <div
           ref={ctaButtonRef}
-          className="mt-5 sm:mt-8 md:mt-10 flex items-center justify-center z-20 opacity-100"
+          className="mt-6 sm:mt-8 md:mt-10 flex items-center justify-center z-20 opacity-100"
         >
           <button
             onClick={onCollaborate}
@@ -234,7 +232,7 @@ export const Hero: React.FC<HeroProps> = ({ onCollaborate }) => {
       {/* Hidden on initial page load; reveals smoothly with a fade-in and slide-in as user scrolls */}
       <div
         ref={timelineWrapperRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 will-change-transform opacity-0 pointer-events-auto"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 will-change-transform opacity-0 pointer-events-none"
         style={{
           transformStyle: 'preserve-3d',
           backfaceVisibility: 'hidden',

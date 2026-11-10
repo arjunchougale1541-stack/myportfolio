@@ -21,16 +21,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCollaborate })
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start">
         {/* Left Column: Huge Indigo Statement */}
         <div className="lg:col-span-6">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#4757fe] leading-[1.08]">
+          <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#4757fe] leading-[1.08]">
             Let's create something that stands out.
           </h2>
         </div>
 
         {/* Right Column: Profile + Let's Create Together + Contact Button + Social Pills */}
-        <div className="lg:col-span-6 space-y-5 sm:space-y-8">
+        <div className="lg:col-span-6 space-y-4 sm:space-y-8">
           {/* Profile Header */}
           <div className="flex items-center gap-3 sm:gap-3.5">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden ring-2 ring-indigo-500/50 shadow-md flex-shrink-0">
+            <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full overflow-hidden ring-2 ring-indigo-500/50 shadow-md flex-shrink-0">
               <img
                 src={profileImg}
                 alt="Arjun Chougale Profile"
@@ -50,10 +50,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCollaborate })
 
           {/* Heading and Bio */}
           <div className="space-y-2 sm:space-y-3">
-            <h3 className="text-xl sm:text-3xl font-extrabold text-[#4757fe] tracking-tight">
+            <h3 className="text-lg xs:text-xl sm:text-3xl font-extrabold text-[#4757fe] tracking-tight">
               Let's Create Together
             </h3>
-            <p className="text-sm sm:text-lg text-gray-300 font-normal leading-relaxed">
+            <p className="text-xs xs:text-sm sm:text-lg text-gray-300 font-normal leading-relaxed">
               Have a project, idea, or brand that needs a creative touch? I'm always open to new opportunities and collaborations. Let's turn your vision into something meaningful.
             </p>
           </div>
@@ -79,14 +79,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onCollaborate })
           </div>
 
           {/* Bottom Social Media Pills Grid */}
-          <div className="pt-4 sm:pt-8 grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="pt-3 sm:pt-8 grid grid-cols-3 gap-2 sm:gap-3">
             {socials.map((soc) => (
               <a
                 key={soc.name}
                 href={soc.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-2.5 sm:py-3 px-2 sm:px-4 rounded-full border border-white/20 hover:border-[#4757fe] bg-white/[0.02] hover:bg-[#4757fe]/15 text-center text-xs sm:text-sm font-bold text-gray-200 hover:text-white transition-all cursor-pointer shadow-xs active:scale-95 truncate"
+                className="py-2.5 sm:py-3 px-2 sm:px-4 rounded-full border border-white/20 hover:border-[#4757fe] bg-white/[0.02] hover:bg-[#4757fe]/15 text-center text-[11px] xs:text-xs sm:text-sm font-bold text-gray-200 hover:text-white transition-all cursor-pointer shadow-xs active:scale-95 truncate"
               >
                 {soc.name}
               </a>

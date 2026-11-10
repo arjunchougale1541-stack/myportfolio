@@ -3,11 +3,11 @@ import { Instagram, Linkedin } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="relative min-h-screen w-full flex items-center px-4 sm:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 scroll-mt-20">
+    <section id="about" className="relative min-h-[auto] lg:min-h-screen w-full flex items-center px-4 sm:px-8 lg:px-12 xl:px-16 py-14 sm:py-20 lg:py-28 scroll-mt-20">
       <div className="w-full max-w-[1700px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-center">
         {/* Left Column: Massive Statement in Rich Indigo / Purple */}
         <div className="lg:col-span-7">
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#4757fe] leading-[1.08]">
+          <h2 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#4757fe] leading-[1.08]">
             Turning ideas into visuals that create impact.
           </h2>
         </div>

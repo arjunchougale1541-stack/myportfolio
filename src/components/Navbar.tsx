@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Menu, X, ArrowRight, Mail } from 'lucide-react';
 import profileImg from '../assets/images/arjun_profile.jpg';
 
 interface NavbarProps {
@@ -11,9 +12,10 @@ interface NavItem {
   href: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onCollaborate }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const navItems: NavItem[] = [
     { id: 'hero', label: 'HOME', href: '#hero' },
@@ -68,8 +70,22 @@ export const Navbar: React.FC<NavbarProps> = () => {
     };
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setIsMobileMenuOpen(false);
+
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
 
@@ -91,15 +107,19 @@ export const Navbar: React.FC<NavbarProps> = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#08080a]/85 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/30'
+        isScrolled || isMobileMenuOpen
+          ? 'bg-[#08080a]/90 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/30'
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="w-full px-3 sm:px-8 lg:px-12 xl:px-16 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-3">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-16 sm:h-20 flex items-center justify-between gap-3">
         {/* Left: Brand Identity / Profile */}
-        <a href="#hero" className="flex items-center gap-2 sm:gap-3.5 group flex-shrink-0">
-          <div className="relative w-8 h-8 sm:w-11 sm:h-11 rounded-full overflow-hidden ring-2 ring-indigo-500/50 shadow-md group-hover:ring-indigo-400 transition-all flex-shrink-0">
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, '#hero')}
+          className="flex items-center gap-2.5 sm:gap-3.5 group flex-shrink-0"
+        >
+          <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden ring-2 ring-indigo-500/50 shadow-md group-hover:ring-indigo-400 transition-all flex-shrink-0">
             <img
               src={profileImg}
               alt="Arjun Chougale Profile"
@@ -108,19 +128,19 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </div>
 
           <div className="flex flex-col">
-            <span className="font-extrabold text-[11px] sm:text-base tracking-tight text-white font-sans uppercase group-hover:text-indigo-300 transition-colors whitespace-nowrap">
-              ARJUN <span className="hidden sm:inline">CHOUGALE</span>
+            <span className="font-extrabold text-sm sm:text-base tracking-tight text-white font-sans uppercase group-hover:text-indigo-300 transition-colors whitespace-nowrap">
+              ARJUN CHOUGALE
             </span>
-            <span className="text-[9px] sm:text-[11px] font-semibold tracking-wider text-gray-400 uppercase truncate max-w-[170px] sm:max-w-none hidden md:block">
+            <span className="text-[9px] sm:text-[11px] font-semibold tracking-wider text-gray-400 uppercase truncate max-w-[170px] sm:max-w-none hidden xs:block">
               GRAPHIC DESIGNER &amp; VIDEO EDITOR
             </span>
           </div>
         </a>
 
-        {/* Right: Clean Horizontal Navigation: HOME | ABOUT ME | PROJECTS | SERVICE | CONTACT */}
+        {/* Desktop / Tablet Navigation (Screens md and up) */}
         <nav
-          className="flex items-center gap-1 xs:gap-1.5 sm:gap-2.5 md:gap-3.5 lg:gap-4.5 overflow-x-auto no-scrollbar py-1 flex-shrink-0"
-          aria-label="Main Navigation"
+          className="hidden md:flex items-center gap-2.5 md:gap-3.5 lg:gap-4.5 py-1 flex-shrink-0"
+          aria-label="Desktop Navigation"
         >
           {navItems.map((item, idx) => {
             const isActive = activeSection === item.id;
@@ -129,13 +149,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 <a
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`relative py-1 px-0.5 sm:px-1.5 flex flex-col items-center group transition-transform duration-350 ease-in-out cursor-pointer select-none ${
+                  className={`relative py-1 px-1 sm:px-1.5 flex flex-col items-center group transition-transform duration-350 ease-in-out cursor-pointer select-none ${
                     isActive ? 'scale-105 sm:scale-110 -translate-y-0.5' : 'scale-100 hover:scale-105'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   <span
-                    className={`font-extrabold tracking-wider uppercase whitespace-nowrap transition-colors duration-350 ease-in-out text-[9.5px] xs:text-[10.5px] sm:text-xs md:text-sm ${
+                    className={`font-extrabold tracking-wider uppercase whitespace-nowrap transition-colors duration-350 ease-in-out text-xs sm:text-xs md:text-sm ${
                       isActive
                         ? 'text-[#4757fe] drop-shadow-[0_0_12px_rgba(71,87,254,0.6)] font-black'
                         : 'text-gray-300 group-hover:text-white font-bold'
@@ -155,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 {/* Pipe Divider */}
                 {idx < navItems.length - 1 && (
                   <span
-                    className="text-white/20 select-none text-[10px] sm:text-xs font-mono font-light pointer-events-none px-0.5"
+                    className="text-white/20 select-none text-xs font-mono font-light pointer-events-none px-0.5"
                     aria-hidden="true"
                   >
                     |
@@ -165,7 +185,73 @@ export const Navbar: React.FC<NavbarProps> = () => {
             );
           })}
         </nav>
+
+        {/* Mobile Hamburger Menu Toggle Button (Screens smaller than md) */}
+        <div className="flex md:hidden items-center gap-2">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 active:scale-95 transition-all text-white focus:outline-none"
+            aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-5 h-5 text-indigo-400" />
+            ) : (
+              <Menu className="w-5 h-5 text-gray-200" />
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Drawer Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden fixed inset-x-0 top-16 bg-[#08080a]/95 backdrop-blur-2xl border-b border-indigo-500/20 shadow-2xl px-6 py-6 transition-all duration-300 max-h-[calc(100dvh-4rem)] overflow-y-auto">
+          <nav className="flex flex-col space-y-3" aria-label="Mobile Navigation">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`flex items-center justify-between py-3 px-4 rounded-xl font-extrabold text-sm tracking-wider uppercase transition-all duration-200 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#4757fe]/20 to-indigo-900/30 text-[#4757fe] border border-[#4757fe]/40 shadow-md shadow-indigo-950/40'
+                      : 'text-gray-300 hover:text-white hover:bg-white/5 border border-transparent'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="w-2 h-2 rounded-full bg-[#4757fe] shadow-[0_0_8px_#4757fe]" />
+                  )}
+                </a>
+              );
+            })}
+
+            {/* Mobile Drawer CTA: Collaborate / Let's Talk */}
+            <div className="pt-4 border-t border-white/10 space-y-2.5">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  if (onCollaborate) onCollaborate();
+                }}
+                className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-gradient-to-r from-[#4757fe] to-[#3848ee] text-white text-xs font-bold tracking-wider uppercase shadow-lg shadow-indigo-950 active:scale-95 transition-all"
+              >
+                <span>LET'S COLLABORATE</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <a
+                href="mailto:arjunchougale1541@gmail.com"
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white text-xs font-semibold tracking-wide border border-white/10 active:scale-95 transition-all"
+              >
+                <Mail className="w-3.5 h-3.5 text-indigo-400" />
+                <span>arjunchougale1541@gmail.com</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
