@@ -9,6 +9,7 @@ import candyCloudCaseStudyImg from '../assets/images/candy_cloud_case_study_full
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
+import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -208,6 +209,42 @@ export const projectsData: ProjectItem[] = [
       galleryImages: [
         candyCloudUiuxImg,
         candyCloudCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'swara-electricals-logo',
+    number: '04',
+    title: 'SWARA ELECTRICALS - LOGO & STORE IDENTITY',
+    subtitle: 'Electrical Shop Project',
+    year: '2024',
+    client: 'Swara Electricals',
+    description: 'Modern geometric monogram logomark and complete electrical retail showroom identity featuring circuit-inspired iconography.',
+    tags: ['Logo Design', 'Branding', 'Visual Identity'],
+    mockupSide: 'right',
+    badge: 'PROJECT SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#2563eb',
+    bgTone: '#0b162c',
+    coverImage: swaraElectricalsImg,
+    projectImages: [
+      swaraElectricalsImg,
+    ],
+    images: [
+      swaraElectricalsImg,
+    ],
+    details: {
+      overview: 'Swara Electricals is an electrical goods and retail showroom brand. The identity centers around a modern geometric monogram logomark that represents electrical connectivity and circuit flow, paired with an illuminated retail store aesthetic.',
+      role: 'Logo Designer & Brand Identity Artist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      deliverables: [
+        'Geometric Circuit Logomark & Lockup',
+        'Storefront Signage & Display Mockup',
+        'Corporate Stationery & Business Collateral'
+      ],
+      galleryImages: [
+        swaraElectricalsImg,
       ]
     }
   }

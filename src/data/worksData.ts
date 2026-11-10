@@ -15,6 +15,7 @@ import fitnessSocialImg from '../assets/images/works/fitness_campaign.jpg';
 import auroraLogoImg from '../assets/images/works/aurora_logomark.jpg';
 import botanicalPackagingImg from '../assets/images/works/botanical_packaging.jpg';
 import streetwearReelImg from '../assets/images/works/streetwear_reel.jpg';
+import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -57,7 +58,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'logo-designs',
     name: 'Logo Designs',
     subtitle: 'Vector logomarks, monogram explorations, and brand mark identities.',
-    count: 6,
+    count: 7,
   },
   {
     id: 'social-media-posts',
@@ -99,6 +100,25 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
 
 export const worksByCategory: Record<string, WorkProjectItem[]> = {
   'logo-designs': [
+    {
+      id: 'swara-electricals-logo',
+      title: 'SWARA ELECTRICALS - LOGO & STORE IDENTITY',
+      category: 'Logo Designs',
+      categories: ['Logo Designs', 'Branding'],
+      image: swaraElectricalsImg,
+      coverImage: swaraElectricalsImg,
+      projectImages: [
+        swaraElectricalsImg,
+      ],
+      images: [
+        swaraElectricalsImg,
+      ],
+      year: '2024',
+      client: 'Swara Electricals',
+      description: 'Modern geometric monogram logomark and complete electrical retail showroom identity featuring circuit-inspired iconography.',
+      badge: 'PROJECT SHOWCASE',
+      accentColor: '#2563eb',
+    },
     {
       id: 'aurora-technology-logo',
       title: 'AURORA TECH LOGO & IDENTITY SYSTEM',
