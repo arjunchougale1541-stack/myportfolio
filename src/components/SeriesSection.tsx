@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Sparkles, Filter, Eye } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Sparkles, Filter, Eye } from 'lucide-react';
 import { ProjectItem } from '../types';
 import { projectsData } from '../data/projectsData';
 import { AxialMockup } from './mockups/AxialMockup';
@@ -33,6 +33,26 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
       case 'devsthan-samiti':
         return <DevsthanMockup onExplore={() => onSelectProject(project)} />;
       default:
+        if (project.coverImage) {
+          return (
+            <div
+              onClick={() => onSelectProject(project)}
+              className="group relative w-full h-full min-h-[260px] sm:min-h-[460px] md:min-h-[500px] bg-[#0d0c24] rounded-none sm:rounded-lg overflow-hidden border border-indigo-950/60 shadow-2xl transition-all duration-500 hover:border-indigo-500/50 cursor-pointer select-none flex flex-col justify-between"
+            >
+              <img
+                src={project.coverImage}
+                alt={`${project.title} Cover`}
+                className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
+              <div className="relative z-10 p-4 sm:p-6 md:p-8 flex items-start justify-end">
+                <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1 bg-[#4757fe] text-white p-2 rounded-full shadow-lg">
+                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                </div>
+              </div>
+            </div>
+          );
+        }
         return <AxialMockup onExplore={() => onSelectProject(project)} />;
     }
   };

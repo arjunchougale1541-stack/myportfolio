@@ -25,6 +25,10 @@ export const projectsData: ProjectItem[] = [
     category: 'Visual Identity',
     accentColor: '#5362ff',
     bgTone: '#1e1b4b',
+    coverImage: axialDesktopImg,
+    projectImages: [
+      axialCaseStudyImg,
+    ],
     images: [
       axialCaseStudyImg,
     ],
@@ -70,6 +74,10 @@ export const projectsData: ProjectItem[] = [
     category: 'Packaging & Identity',
     accentColor: '#ec4899',
     bgTone: '#1e1b4b',
+    coverImage: candyDesktopImg,
+    projectImages: [
+      candyCloudCaseStudyImg,
+    ],
     images: [
       candyCloudCaseStudyImg,
     ],
@@ -115,6 +123,10 @@ export const projectsData: ProjectItem[] = [
     category: 'Cultural Identity & UI',
     accentColor: '#eab308',
     bgTone: '#1e1b4b',
+    coverImage: devsthanDesktopImg,
+    projectImages: [
+      devsthanCaseStudyImg,
+    ],
     images: [
       devsthanCaseStudyImg,
     ],
@@ -160,8 +172,11 @@ export const projectsData: ProjectItem[] = [
     category: 'UIUX Design',
     accentColor: '#ec4899',
     bgTone: '#1e1430',
+    coverImage: candyCloudUiuxImg,
+    projectImages: [
+      candyCloudCaseStudyImg,
+    ],
     images: [
-      candyCloudUiuxImg,
       candyCloudCaseStudyImg,
     ],
     details: {

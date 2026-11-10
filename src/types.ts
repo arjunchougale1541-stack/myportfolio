@@ -12,6 +12,8 @@ export interface ProjectItem {
   category: string;
   accentColor: string;
   bgTone: string;
+  coverImage?: string;
+  projectImages?: string[];
   images?: string[];
   details?: {
     overview?: string;

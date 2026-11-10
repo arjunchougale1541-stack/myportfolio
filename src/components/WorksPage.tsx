@@ -65,7 +65,10 @@ export const WorksPage: React.FC<WorksPageProps> = ({
     if (matchedProject) {
       onSelectProject(matchedProject);
     } else {
-      const projectImages = work.images && work.images.length > 0 ? work.images : [work.image];
+      const presentationImages = (work.projectImages && work.projectImages.length > 0)
+        ? work.projectImages
+        : (work.images && work.images.length > 0 ? work.images : [work.image]);
+
       const modalProject: ProjectItem = {
         id: work.id,
         number: 'WORKS',
@@ -80,9 +83,11 @@ export const WorksPage: React.FC<WorksPageProps> = ({
         category: work.category,
         accentColor: work.accentColor || '#4d5eff',
         bgTone: '#13112c',
-        images: projectImages,
+        coverImage: work.coverImage || work.image,
+        projectImages: presentationImages,
+        images: presentationImages,
         details: {
-          galleryImages: projectImages,
+          galleryImages: presentationImages,
         },
       };
       onSelectProject(modalProject);

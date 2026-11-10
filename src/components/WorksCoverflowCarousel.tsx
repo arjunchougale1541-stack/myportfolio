@@ -324,7 +324,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                   {/* Media Container with 4:3 Aspect Ratio */}
                   <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-950">
                     <img
-                      src={project.image}
+                      src={project.coverImage || project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-108"
                       style={{ objectPosition: project.objectPosition || 'center' }}

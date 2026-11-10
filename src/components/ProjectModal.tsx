@@ -38,21 +38,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     };
   }, [project, onClose]);
 
-  // Resolve dynamic project images list
+  // Resolve dynamic project presentation images list
   const galleryImages = useMemo<string[]>(() => {
     if (!project) return [];
 
-    // 1. Direct images property on project
-    if (project.images && project.images.length > 0) {
-      return project.images;
+    // Helper to strip out the coverImage if present
+    const excludeCover = (list: string[]) => {
+      if (!project.coverImage) return list;
+      const filtered = list.filter((img) => img !== project.coverImage);
+      return filtered.length > 0 ? filtered : list;
+    };
+
+    // 1. Separate projectImages array explicitly dedicated to presentation images in the viewer
+    if (project.projectImages && project.projectImages.length > 0) {
+      return excludeCover(project.projectImages);
     }
 
-    // 2. details.galleryImages property
-    if (project.details?.galleryImages && project.details.galleryImages.length > 0) {
-      return project.details.galleryImages;
-    }
-
-    // 3. Fallbacks for known featured showcase projects
+    // 2. Fallbacks for known featured showcase projects
     if (project.id === 'personal-branding') {
       return [axialCaseStudyImg];
     }
@@ -63,7 +65,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       return [devsthanCaseStudyImg];
     }
     if (project.id === 'candy-cloud-ecommerce-experience') {
-      return [candyCloudUiuxImg, candyCloudCaseStudyImg];
+      return [candyCloudCaseStudyImg];
+    }
+
+    // 3. Fallback: project.images or details.galleryImages (excluding coverImage)
+    if (project.images && project.images.length > 0) {
+      return excludeCover(project.images);
+    }
+    if (project.details?.galleryImages && project.details.galleryImages.length > 0) {
+      return excludeCover(project.details.galleryImages);
     }
 
     return [];
@@ -160,13 +170,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {galleryImages.map((imgSrc, index) => (
               <div
                 key={`${imgSrc}-${index}`}
-                className="w-full rounded-lg sm:rounded-xl overflow-hidden bg-[#0d0c18] border border-indigo-950/70 shadow-2xl transition-all duration-300"
+                className="w-full rounded-lg sm:rounded-xl overflow-hidden bg-[#0d0c18] border border-indigo-950/70 shadow-2xl transition-all duration-300 flex items-center justify-center"
               >
                 <img
                   src={imgSrc}
-                  alt={`${project.title} - Showcase ${index + 1}`}
-                  className="w-full h-auto object-contain block select-none"
+                  alt={`${project.title} - Presentation ${index + 1}`}
+                  className="max-w-full w-auto h-auto object-contain block select-none mx-auto"
                   loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
                 />
               </div>
             ))}

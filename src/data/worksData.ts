@@ -39,6 +39,8 @@ export interface WorkProjectItem {
   category: WorkCategory;
   categories: WorkCategory[];
   image: string;
+  coverImage?: string;
+  projectImages?: string[];
   images?: string[];
   year: string;
   client?: string;
@@ -127,6 +129,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
       image: axialImg,
+      coverImage: axialImg,
+      projectImages: [
+        axialCaseStudyImg,
+      ],
       images: [
         axialCaseStudyImg,
       ],
@@ -142,6 +148,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Packaging Design'],
       image: candyImg,
+      coverImage: candyImg,
+      projectImages: [
+        candyCloudCaseStudyImg,
+      ],
       images: [
         candyCloudCaseStudyImg,
       ],
@@ -157,6 +167,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
       image: devsthanImg,
+      coverImage: devsthanImg,
+      projectImages: [
+        devsthanCaseStudyImg,
+      ],
       images: [
         devsthanCaseStudyImg,
       ],
@@ -187,6 +201,12 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Branding'],
       image: fitnessSocialImg,
+      coverImage: fitnessSocialImg,
+      projectImages: [
+        fitnessSocialImg,
+        streetwearReelImg,
+        kineticMotionImg,
+      ],
       images: [
         fitnessSocialImg,
         streetwearReelImg,
@@ -204,6 +224,12 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Reels'],
       image: fitnessSocialImg,
+      coverImage: fitnessSocialImg,
+      projectImages: [
+        fitnessSocialImg,
+        kineticMotionImg,
+        axialImg,
+      ],
       images: [
         fitnessSocialImg,
         kineticMotionImg,
@@ -221,9 +247,13 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Branding'],
       image: axialImg,
+      coverImage: axialImg,
+      projectImages: [
+        axialCaseStudyImg,
+        kineticMotionImg,
+      ],
       images: [
         axialCaseStudyImg,
-        axialDesktopImg,
         kineticMotionImg,
       ],
       year: '2023',
@@ -238,9 +268,12 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Branding'],
       image: devsthanImg,
+      coverImage: devsthanImg,
+      projectImages: [
+        devsthanCaseStudyImg,
+      ],
       images: [
         devsthanCaseStudyImg,
-        devsthanDesktopImg,
       ],
       year: '2024',
       client: 'Kolhapur Cultural Trust',
@@ -254,9 +287,13 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Packaging Design'],
       image: candyImg,
+      coverImage: candyImg,
+      projectImages: [
+        candyCloudCaseStudyImg,
+        candyCloudUiuxImg,
+      ],
       images: [
         candyCloudCaseStudyImg,
-        candyDesktopImg,
         candyCloudUiuxImg,
       ],
       year: '2024',
@@ -271,6 +308,11 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'UIUX Design'],
       image: fintechUiuxImg,
+      coverImage: fintechUiuxImg,
+      projectImages: [
+        fintechUiuxImg,
+        kineticMotionImg,
+      ],
       images: [
         fintechUiuxImg,
         kineticMotionImg,
@@ -290,6 +332,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Branding',
       categories: ['Branding', 'Logo Designs', 'Social Media Posts'],
       image: axialImg,
+      coverImage: axialDesktopImg,
+      projectImages: [
+        axialCaseStudyImg,
+      ],
       images: [
         axialCaseStudyImg,
       ],
@@ -305,6 +351,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Branding',
       categories: ['Branding', 'Logo Designs', 'UIUX Design'],
       image: devsthanImg,
+      coverImage: devsthanDesktopImg,
+      projectImages: [
+        devsthanCaseStudyImg,
+      ],
       images: [
         devsthanCaseStudyImg,
       ],
@@ -320,6 +370,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Branding',
       categories: ['Branding', 'Packaging Design'],
       image: candyImg,
+      coverImage: candyDesktopImg,
+      projectImages: [
+        candyCloudCaseStudyImg,
+      ],
       images: [
         candyCloudCaseStudyImg,
       ],
@@ -374,6 +428,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Packaging Design',
       categories: ['Packaging Design', 'Branding', 'Logo Designs'],
       image: candyImg,
+      coverImage: candyDesktopImg,
+      projectImages: [
+        candyCloudCaseStudyImg,
+      ],
       images: [
         candyCloudCaseStudyImg,
       ],
@@ -488,6 +546,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Reels',
       categories: ['Reels', 'Packaging Design'],
       image: candyImg,
+      coverImage: candyImg,
+      projectImages: [
+        candyCloudCaseStudyImg,
+      ],
       images: [
         candyCloudCaseStudyImg,
       ],
@@ -503,6 +565,13 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Reels',
       categories: ['Reels', 'Social Media Posts'],
       image: fitnessSocialImg,
+      coverImage: fitnessSocialImg,
+      projectImages: [
+        fitnessSocialImg,
+      ],
+      images: [
+        fitnessSocialImg,
+      ],
       year: '2024',
       client: 'Quantum Athletics',
       description: 'Fast-paced motivational reel with rhythm-matched typography and intense color contrast grading.',
@@ -515,6 +584,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Reels',
       categories: ['Reels', 'Branding'],
       image: devsthanImg,
+      coverImage: devsthanImg,
+      projectImages: [
+        devsthanCaseStudyImg,
+      ],
       images: [
         devsthanCaseStudyImg,
       ],
@@ -593,9 +666,12 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'Motion Graphic',
       categories: ['Motion Graphic', 'Branding'],
       image: axialImg,
+      coverImage: axialImg,
+      projectImages: [
+        axialCaseStudyImg,
+      ],
       images: [
         axialCaseStudyImg,
-        axialDesktopImg,
       ],
       year: '2023',
       client: 'Axial Graphic Studio',
@@ -636,8 +712,11 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'UIUX Design',
       categories: ['UIUX Design', 'Packaging Design'],
       image: candyCloudUiuxImg,
+      coverImage: candyCloudUiuxImg,
+      projectImages: [
+        candyCloudCaseStudyImg,
+      ],
       images: [
-        candyCloudUiuxImg,
         candyCloudCaseStudyImg,
       ],
       year: '2024',
@@ -653,6 +732,10 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       category: 'UIUX Design',
       categories: ['UIUX Design', 'Branding'],
       image: devsthanImg,
+      coverImage: devsthanImg,
+      projectImages: [
+        devsthanCaseStudyImg,
+      ],
       images: [
         devsthanCaseStudyImg,
       ],
