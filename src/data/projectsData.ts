@@ -375,6 +375,48 @@ export const projectsData: ProjectItem[] = [
         axialLogoCaseStudyImg,
       ]
     }
+  },
+  {
+    id: 'candy-cloud-mascot-mark',
+    number: '08',
+    title: 'CANDY CLOUD - CONFECTIONERY LOGO & IDENTITY',
+    subtitle: 'Taste the Clouds. — Logo & Identity System',
+    year: '2024',
+    client: 'Candy Cloud Confectionery Co.',
+    description: 'Whimsical cloud and sweet swirl monogram logomark representing softness, sweetness, and happiness for an artisanal confectionery.',
+    tags: ['Logo Design', 'Packaging', 'Visual Identity'],
+    mockupSide: 'right',
+    badge: 'LOGO SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#a746a8',
+    bgTone: '#241324',
+    coverImage: candyCloudLogoCoverImg,
+    projectImages: [
+      candyCloudLogoCaseStudyImg,
+    ],
+    images: [
+      candyCloudLogoCaseStudyImg,
+    ],
+    details: {
+      overview: 'Candy Cloud is an artisanal confectionery brand. The logo concept blends a soft cloud silhouette representing happiness and softness, an inner swirl symbolizing candy sweetness, and the stylized initial letter C. The system includes playful repeating patterns, retail storefront design, and gift packaging.',
+      role: 'Logo Designer & Confectionery Brand Identity Artist',
+      timeline: '2024',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Berry Velvet Purple', hex: '#A746A8' },
+        { name: 'Pastel Lilac Mist', hex: '#D993CE' },
+        { name: 'Sweet Cotton Cream', hex: '#FBE6F5' }
+      ],
+      deliverables: [
+        'Cloud Swirl Monogram & Typography Lockup',
+        'Playful Repeating Cloud Icon Pattern',
+        'Boutique Storefront Signage with Neon Backlight',
+        'Luxury Ribbon Gift Bag & Presentation Box'
+      ],
+      galleryImages: [
+        candyCloudLogoCaseStudyImg,
+      ]
+    }
   }
 ];
 
