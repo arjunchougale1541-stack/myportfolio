@@ -23,6 +23,8 @@ import axialLogoCoverImg from '../assets/images/works/axial_logo_cover.png';
 import axialLogoCaseStudyImg from '../assets/images/works/axial_logo_case_study.png';
 import candyCloudLogoCoverImg from '../assets/images/works/candy_cloud_logo_cover.png';
 import candyCloudLogoCaseStudyImg from '../assets/images/works/candy_cloud_logo_case_study.png';
+import devsthanLogoCoverImg from '../assets/images/works/devsthan_samiti_logo_cover.png';
+import devsthanLogoCaseStudyImg from '../assets/images/works/devsthan_samiti_logo_case_study.png';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -228,22 +230,22 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
     },
     {
       id: 'devsthan-samiti-insignia',
-      title: 'DEVSTHAN SACRED ARCHITECTURAL EMBLEM',
+      title: 'DEVSTHAN SAMITI - SACRED TEMPLE LOGO & IDENTITY',
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
-      image: devsthanImg,
-      coverImage: devsthanImg,
+      image: devsthanLogoCoverImg,
+      coverImage: devsthanLogoCoverImg,
       projectImages: [
-        devsthanCaseStudyImg,
+        devsthanLogoCaseStudyImg,
       ],
       images: [
-        devsthanCaseStudyImg,
+        devsthanLogoCaseStudyImg,
       ],
       year: '2024',
-      client: 'Devsthan Vyavasthapan Samiti',
-      description: 'Revered temple shikhar silhouette synthesized into a balanced royal emblem lockup.',
-      badge: 'CULTURAL MARK',
-      accentColor: '#f59e0b',
+      client: 'Devsthan Vyavasthapan Samiti, West Maharashtra, Kolhapur',
+      description: 'Sacred Ganesha monogram emblem synthesizing temple pillars, divine presence, and the rich cultural heritage of Kolhapur.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#f5b400',
     },
     {
       id: 'zenpulse-brandmark',

@@ -17,6 +17,8 @@ import axialLogoCoverImg from '../assets/images/works/axial_logo_cover.png';
 import axialLogoCaseStudyImg from '../assets/images/works/axial_logo_case_study.png';
 import candyCloudLogoCoverImg from '../assets/images/works/candy_cloud_logo_cover.png';
 import candyCloudLogoCaseStudyImg from '../assets/images/works/candy_cloud_logo_case_study.png';
+import devsthanLogoCoverImg from '../assets/images/works/devsthan_samiti_logo_cover.png';
+import devsthanLogoCaseStudyImg from '../assets/images/works/devsthan_samiti_logo_case_study.png';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -415,6 +417,48 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         candyCloudLogoCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'devsthan-samiti-insignia',
+    number: '09',
+    title: 'DEVSTHAN SAMITI - SACRED TEMPLE LOGO & IDENTITY',
+    subtitle: 'देवस्थान व्यवस्थापन समिती, पश्चिम महाराष्ट्र, कोल्हापूर — Sacred Identity System',
+    year: '2024',
+    client: 'Devsthan Vyavasthapan Samiti, West Maharashtra, Kolhapur',
+    description: 'Sacred Ganesha monogram emblem synthesizing temple pillars, divine presence, and the rich cultural heritage of Kolhapur.',
+    tags: ['Logo Design', 'Cultural Heritage', 'Visual Identity'],
+    mockupSide: 'left',
+    badge: 'LOGO SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#f5b400',
+    bgTone: '#291802',
+    coverImage: devsthanLogoCoverImg,
+    projectImages: [
+      devsthanLogoCaseStudyImg,
+    ],
+    images: [
+      devsthanLogoCaseStudyImg,
+    ],
+    details: {
+      overview: 'Devsthan Vyavasthapan Samiti manages the revered historical and sacred temples across Western Maharashtra, Kolhapur. The logo concept synthesizes the divine Ganesha silhouette, sacred temple pillars (mandir sthambh), and the spiritual legacy of Kolhapur. The identity system encompasses ceremonial invitations, temple entrance signage, annual receipt ledgers, and festival stage environments.',
+      role: 'Lead Cultural Identity & Sacred Symbol Designer',
+      timeline: '2024',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Saffron Gold (सुवर्ण / केशरी)', hex: '#F5B400' },
+        { name: 'Devotional Red (गडद लाल)', hex: '#D82428' },
+        { name: 'Sacred Ivory (शुभ्र क्रीम)', hex: '#FFF7E8' }
+      ],
+      deliverables: [
+        'Sacred Ganesha Monogram & Devanagari Typography Lockup',
+        'Traditional Sacred Temple Repeating Motif Pattern',
+        'Carved Teakwood Temple Entrance Archway Signage',
+        'Ceremonial Invitation Suite & Annual Ledger Publications'
+      ],
+      galleryImages: [
+        devsthanLogoCaseStudyImg,
       ]
     }
   }
