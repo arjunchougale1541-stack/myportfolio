@@ -242,6 +242,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
                   <WorksCoverflowCarousel
                     items={items}
                     onSelectProject={handleProjectClick}
+                    isReel={sec.id === 'reels'}
                   />
                 </div>
               </section>

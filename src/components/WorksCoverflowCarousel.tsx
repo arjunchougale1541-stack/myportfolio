@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowUpRight, Play, Film } from 'lucide-react';
 import { WorkProjectItem } from '../data/worksData';
 
 interface WorksCoverflowCarouselProps {
   items: WorkProjectItem[];
   onSelectProject: (work: WorkProjectItem) => void;
   accentColor?: string;
+  isReel?: boolean;
 }
 
 export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
   items,
   onSelectProject,
+  isReel = false,
 }) => {
   const [continuousOffset, setContinuousOffset] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -25,20 +27,32 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
 
   const totalCards = items.length;
 
-  // Responsive card spacing
+  // Responsive card spacing calculation (optimized for both standard cards and vertical 9:16 reel cards)
   const updateSpacing = useCallback(() => {
     if (typeof window === 'undefined') return;
     const width = window.innerWidth;
-    if (width < 640) {
-      setCardSpacing(Math.min(width * 0.78, 270)); // Mobile: 1 center + partial peeks
-    } else if (width < 1024) {
-      setCardSpacing(230); // Tablet: 3 visible cards
-    } else if (width < 1440) {
-      setCardSpacing(285); // Desktop: 5 visible cards
+    if (isReel) {
+      if (width < 640) {
+        setCardSpacing(Math.min(width * 0.58, 200)); // Mobile: centered 9:16 reel + peeks
+      } else if (width < 1024) {
+        setCardSpacing(195); // Tablet: 3 visible reel cards
+      } else if (width < 1440) {
+        setCardSpacing(230); // Desktop: 5 visible reel cards
+      } else {
+        setCardSpacing(255); // Large desktop: 5 visible reel cards
+      }
     } else {
-      setCardSpacing(320); // Large desktop: 5 visible cards
+      if (width < 640) {
+        setCardSpacing(Math.min(width * 0.78, 270)); // Mobile: 1 center + partial peeks
+      } else if (width < 1024) {
+        setCardSpacing(230); // Tablet: 3 visible cards
+      } else if (width < 1440) {
+        setCardSpacing(285); // Desktop: 5 visible cards
+      } else {
+        setCardSpacing(320); // Large desktop: 5 visible cards
+      }
     }
-  }, []);
+  }, [isReel]);
 
   useEffect(() => {
     updateSpacing();
@@ -243,7 +257,11 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         onPointerCancel={handlePointerCancel}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className={`relative w-full h-[520px] sm:h-[550px] flex items-center justify-center touch-pan-y outline-none overflow-visible ${
+        className={`relative w-full ${
+          isReel
+            ? 'h-[500px] xs:h-[520px] sm:h-[550px]'
+            : 'h-[520px] sm:h-[550px]'
+        } flex items-center justify-center touch-pan-y outline-none overflow-visible ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
         }`}
       >
@@ -251,7 +269,9 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] h-[320px] sm:h-[450px] rounded-full pointer-events-none -z-10 animate-testimonial-glow"
           style={{
-            background: 'radial-gradient(circle, rgba(30, 63, 255, 0.42) 0%, rgba(71, 87, 254, 0.20) 42%, rgba(0, 0, 0, 0) 72%)',
+            background: isReel
+              ? 'radial-gradient(circle, rgba(236, 72, 153, 0.40) 0%, rgba(168, 85, 247, 0.22) 42%, rgba(0, 0, 0, 0) 72%)'
+              : 'radial-gradient(circle, rgba(30, 63, 255, 0.42) 0%, rgba(71, 87, 254, 0.20) 42%, rgba(0, 0, 0, 0) 72%)',
           }}
         />
 
@@ -259,7 +279,9 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[320px] h-[220px] sm:h-[320px] rounded-full pointer-events-none -z-10 blur-[75px]"
           style={{
-            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(30, 63, 255, 0.12) 50%, transparent 75%)',
+            background: isReel
+              ? 'radial-gradient(circle, rgba(244, 63, 94, 0.25) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 75%)'
+              : 'radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(30, 63, 255, 0.12) 50%, transparent 75%)',
           }}
         />
 
@@ -301,7 +323,11 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                     onSelectProject(project);
                   }
                 }}
-                className={`absolute w-[86vw] max-w-[320px] sm:max-w-[360px] md:max-w-[390px] transition-shadow duration-300 ${
+                className={`absolute ${
+                  isReel
+                    ? 'w-[66vw] xs:w-[58vw] max-w-[220px] xs:max-w-[240px] sm:max-w-[260px] md:max-w-[275px]'
+                    : 'w-[86vw] max-w-[320px] sm:max-w-[360px] md:max-w-[390px]'
+                } transition-shadow duration-300 ${
                   isInteractive ? 'pointer-events-auto' : 'pointer-events-none'
                 }`}
                 style={{
@@ -313,113 +339,197 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                   willChange: 'transform, opacity, filter',
                 }}
               >
-                {/* Glassmorphic Project Card */}
-                <div
-                  className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 flex flex-col ${
-                    isCenter
-                      ? 'bg-gradient-to-b from-[#121124] to-[#0a0914] border-2 border-blue-400/60 shadow-[0_12px_45px_-5px_rgba(30,63,255,0.42)] ring-1 ring-blue-400/30'
-                      : 'bg-[#0e0d16]/90 border border-indigo-900/35 shadow-xl hover:border-indigo-500/40'
-                  }`}
-                >
-                  {/* Media Container with 4:3 Aspect Ratio */}
-                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-950">
+                {/* 1. REEL FORMAT CARD (9:16 Vertical Phone Aspect Ratio) */}
+                {isReel ? (
+                  <div
+                    className={`group relative w-full aspect-[9/16] rounded-2xl sm:rounded-[22px] overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between ${
+                      isCenter
+                        ? 'bg-gradient-to-b from-[#18112c] to-[#0a0718] border-2 border-pink-500/80 shadow-[0_12px_45px_-5px_rgba(236,72,153,0.45)] ring-1 ring-pink-400/40'
+                        : 'bg-[#0e0d16]/95 border border-indigo-900/40 shadow-xl hover:border-pink-500/50'
+                    }`}
+                  >
+                    {/* Full-bleed 9:16 Reel Cover Image */}
                     <img
                       src={project.coverImage || project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-108"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                       style={{ objectPosition: project.objectPosition || 'center' }}
                       loading="lazy"
                       draggable={false}
                     />
 
-                    {/* Dark Vignette / Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0e0d16] via-transparent to-black/30 opacity-80 group-hover:opacity-50 transition-opacity duration-300" />
+                    {/* Cine Gradient Overlays for optimal text legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/95 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-transparent opacity-95 pointer-events-none" />
 
-                    {/* Top Floating Category Badge */}
-                    <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5">
-                      <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase backdrop-blur-md border shadow-sm ${
-                        project.badge === 'SCROLLABLE WEB UI'
-                          ? 'bg-pink-950/80 border-pink-500/50 text-pink-300 shadow-[0_0_12px_rgba(236,72,153,0.35)]'
-                          : 'bg-black/70 border-white/10 text-indigo-300'
-                      }`}>
-                        {project.badge || project.category}
+                    {/* Top Header: Floating Reel Badge + 9:16 Aspect Pill */}
+                    <div className="relative z-10 p-3 sm:p-4 flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9.5px] sm:text-[10px] font-mono font-bold tracking-wider uppercase bg-black/65 backdrop-blur-md border border-pink-500/40 text-pink-300 shadow-md">
+                        <Film className="w-3 h-3 text-pink-400" />
+                        <span>{project.badge || 'REEL'}</span>
+                      </span>
+
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-semibold uppercase bg-black/60 backdrop-blur-md border border-white/15 text-gray-300">
+                        9:16
                       </span>
                     </div>
 
-                    {/* Top-Right Quick Action Button */}
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectProject(project);
-                      }}
-                      className={`absolute top-3.5 right-3.5 z-20 w-8 h-8 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-md cursor-pointer ${
-                        project.badge === 'SCROLLABLE WEB UI'
-                          ? 'bg-pink-600 hover:bg-pink-500 opacity-100 shadow-[0_0_12px_rgba(236,72,153,0.5)]'
-                          : isCenter
-                          ? 'opacity-100 bg-[#4d5eff] hover:bg-[#3d4ff5] border border-indigo-400/50'
-                          : 'opacity-0 group-hover:opacity-100 bg-black/60 hover:bg-[#4d5eff] backdrop-blur-md border border-white/10'
-                      }`}
-                      title={project.badge === 'SCROLLABLE WEB UI' ? 'Open Scrollable UI/UX Preview' : 'View Project Case Study'}
-                      aria-label="View Project"
-                    >
-                      <ArrowUpRight className="w-4 h-4" />
-                    </button>
-
-                    {/* Bottom floating hint for scrollable project */}
-                    {project.badge === 'SCROLLABLE WEB UI' && (
-                      <div className="absolute bottom-3 right-3 z-10">
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold tracking-wider uppercase bg-pink-950/90 backdrop-blur-md border border-pink-400/60 text-pink-200 shadow-md">
-                          <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
-                          SCROLL VIEW
-                        </span>
+                    {/* Center Play Icon Glow Button */}
+                    <div className="relative z-10 flex items-center justify-center my-auto pointer-events-none">
+                      <div
+                        className={`w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-2xl ${
+                          isCenter
+                            ? 'bg-pink-600/30 border-2 border-pink-400/80 text-white group-hover:scale-115 group-hover:bg-pink-600 shadow-[0_0_25px_rgba(236,72,153,0.6)]'
+                            : 'bg-black/55 border border-white/30 text-white/80 group-hover:scale-110'
+                        }`}
+                      >
+                        <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-white text-white ml-0.5" />
                       </div>
-                    )}
-                  </div>
+                    </div>
 
-                  {/* Card Meta Content */}
-                  <div className="p-5 sm:p-6 flex flex-col flex-grow justify-between bg-gradient-to-b from-[#0e0d16] to-[#090812]">
-                    <div>
-                      {/* Category Tag */}
-                      <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-indigo-400 mb-2 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-                        <span>{project.category}</span>
+                    {/* Bottom Info & Action Overlay */}
+                    <div className="relative z-10 p-3.5 sm:p-4.5 space-y-1.5 sm:space-y-2">
+                      {/* Category & Client */}
+                      <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-pink-300 font-semibold tracking-wider uppercase">
+                        <span className="truncate max-w-[130px]">{project.client || 'Featured Reel'}</span>
+                        <span className="text-gray-400 font-mono text-[9px] sm:text-[10px]">{project.year || '2024'}</span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-white group-hover:text-indigo-200 transition-colors line-clamp-1">
+                      <h3 className="text-xs sm:text-sm font-black uppercase tracking-tight text-white line-clamp-2 leading-snug group-hover:text-pink-200 transition-colors">
                         {project.title}
                       </h3>
 
-                      {/* Description */}
-                      <p className="mt-2 text-xs sm:text-sm text-slate-400 line-clamp-2 leading-relaxed">
+                      {/* Description snippet */}
+                      <p className="text-[10px] sm:text-[11px] text-gray-300 line-clamp-2 leading-relaxed">
                         {project.description}
                       </p>
-                    </div>
 
-                    {/* Bottom Card Footer */}
-                    <div className="mt-4 pt-3.5 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
-                      <span className="truncate max-w-[160px] font-medium text-slate-300">
-                        {project.client || 'Creative Showcase'}
-                      </span>
+                      {/* Action Pill: VIEW REEL DETAILS */}
+                      <div className="pt-1">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onSelectProject(project);
+                          }}
+                          className="w-full inline-flex items-center justify-center gap-1.5 py-1.5 sm:py-2 px-3 rounded-full bg-gradient-to-r from-pink-600 via-rose-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-bold text-[10px] sm:text-[11px] uppercase tracking-wider shadow-lg shadow-pink-950/60 active:scale-95 transition-all cursor-pointer"
+                        >
+                          <span>VIEW REEL DETAILS</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-pink-200" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  /* 2. STANDARD FORMAT CARD (4:3 Media Aspect Ratio) */
+                  <div
+                    className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 flex flex-col ${
+                      isCenter
+                        ? 'bg-gradient-to-b from-[#121124] to-[#0a0914] border-2 border-blue-400/60 shadow-[0_12px_45px_-5px_rgba(30,63,255,0.42)] ring-1 ring-blue-400/30'
+                        : 'bg-[#0e0d16]/90 border border-indigo-900/35 shadow-xl hover:border-indigo-500/40'
+                    }`}
+                  >
+                    {/* Media Container with 4:3 Aspect Ratio */}
+                    <div className="relative w-full aspect-[4/3] overflow-hidden bg-slate-950">
+                      <img
+                        src={project.coverImage || project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-108"
+                        style={{ objectPosition: project.objectPosition || 'center' }}
+                        loading="lazy"
+                        draggable={false}
+                      />
+
+                      {/* Dark Vignette / Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e0d16] via-transparent to-black/30 opacity-80 group-hover:opacity-50 transition-opacity duration-300" />
+
+                      {/* Top Floating Category Badge */}
+                      <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5">
+                        <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase backdrop-blur-md border shadow-sm ${
+                          project.badge === 'SCROLLABLE WEB UI'
+                            ? 'bg-pink-950/80 border-pink-500/50 text-pink-300 shadow-[0_0_12px_rgba(236,72,153,0.35)]'
+                            : 'bg-black/70 border-white/10 text-indigo-300'
+                        }`}>
+                          {project.badge || project.category}
+                        </span>
+                      </div>
+
+                      {/* Top-Right Quick Action Button */}
                       <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
                           onSelectProject(project);
                         }}
-                        className={`flex items-center gap-1 font-semibold text-[11px] tracking-wider uppercase transition-colors cursor-pointer ${
+                        className={`absolute top-3.5 right-3.5 z-20 w-8 h-8 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-md cursor-pointer ${
                           project.badge === 'SCROLLABLE WEB UI'
-                            ? 'text-pink-400 hover:text-pink-300'
-                            : 'text-indigo-400 hover:text-indigo-300'
+                            ? 'bg-pink-600 hover:bg-pink-500 opacity-100 shadow-[0_0_12px_rgba(236,72,153,0.5)]'
+                            : isCenter
+                            ? 'opacity-100 bg-[#4d5eff] hover:bg-[#3d4ff5] border border-indigo-400/50'
+                            : 'opacity-0 group-hover:opacity-100 bg-black/60 hover:bg-[#4d5eff] backdrop-blur-md border border-white/10'
                         }`}
+                        title={project.badge === 'SCROLLABLE WEB UI' ? 'Open Scrollable UI/UX Preview' : 'View Project Case Study'}
+                        aria-label="View Project"
                       >
-                        <span>{project.badge === 'SCROLLABLE WEB UI' ? 'SCROLL WEBPAGE' : 'VIEW CASE'}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        <ArrowUpRight className="w-4 h-4" />
                       </button>
+
+                      {/* Bottom floating hint for scrollable project */}
+                      {project.badge === 'SCROLLABLE WEB UI' && (
+                        <div className="absolute bottom-3 right-3 z-10">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-mono font-bold tracking-wider uppercase bg-pink-950/90 backdrop-blur-md border border-pink-400/60 text-pink-200 shadow-md">
+                            <span className="w-1.5 h-1.5 rounded-full bg-pink-400 animate-pulse" />
+                            SCROLL VIEW
+                          </span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Card Meta Content */}
+                    <div className="p-5 sm:p-6 flex flex-col flex-grow justify-between bg-gradient-to-b from-[#0e0d16] to-[#090812]">
+                      <div>
+                        {/* Category Tag */}
+                        <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-indigo-400 mb-2 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
+                          <span>{project.category}</span>
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-white group-hover:text-indigo-200 transition-colors line-clamp-1">
+                          {project.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="mt-2 text-xs sm:text-sm text-slate-400 line-clamp-2 leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      {/* Bottom Card Footer */}
+                      <div className="mt-4 pt-3.5 border-t border-white/5 flex items-center justify-between text-xs text-slate-400">
+                        <span className="truncate max-w-[160px] font-medium text-slate-300">
+                          {project.client || 'Creative Showcase'}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onSelectProject(project);
+                          }}
+                          className={`flex items-center gap-1 font-semibold text-[11px] tracking-wider uppercase transition-colors cursor-pointer ${
+                            project.badge === 'SCROLLABLE WEB UI'
+                              ? 'text-pink-400 hover:text-pink-300'
+                              : 'text-indigo-400 hover:text-indigo-300'
+                          }`}
+                        >
+                          <span>{project.badge === 'SCROLLABLE WEB UI' ? 'SCROLL WEBPAGE' : 'VIEW CASE'}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             );
           })}
