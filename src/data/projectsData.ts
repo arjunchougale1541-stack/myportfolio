@@ -11,6 +11,8 @@ import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.p
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 import swaraLogoCoverImg from '../assets/images/works/swara_logo_cover.png';
 import swaraLogoCaseStudyImg from '../assets/images/works/swara_logo_case_study.png';
+import marbexLogoCoverImg from '../assets/images/works/marbex_logo_cover.png';
+import marbexLogoCaseStudyImg from '../assets/images/works/marbex_logo_case_study.png';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
 import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
@@ -474,6 +476,48 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         devsthanLogoCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'marbex-furniture-interiors-logo',
+    number: '10',
+    title: 'MARBEX - LUXURY FURNITURE & INTERIORS LOGO',
+    subtitle: 'Home • Furniture • Interiors — Luxury Brand Identity',
+    year: '2024',
+    client: 'Marbex Home & Luxury Interiors',
+    description: 'Elegant geometric M monogram blending architectural structure, comfort curves, and metallic gold for a luxury furniture atelier.',
+    tags: ['Logo Design', 'Luxury Furniture', 'Branding'],
+    mockupSide: 'right',
+    badge: 'LOGO SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#d4af37',
+    bgTone: '#1e1b14',
+    coverImage: marbexLogoCoverImg,
+    projectImages: [
+      marbexLogoCaseStudyImg,
+    ],
+    images: [
+      marbexLogoCaseStudyImg,
+    ],
+    details: {
+      overview: 'Marbex is a high-end luxury furniture, interior architecture, and home decor brand. The logo concept harmonizes the letter M for Marbex, an ergonomic curve symbolizing comfort, and clean architectural lines representing structural furniture integrity. The identity encompasses minimal repeating pattern motifs, an illuminated showroom facade, woven upholstery labels, and gold-foiled packaging.',
+      role: 'Lead Brand Identity & Luxury Logo Designer',
+      timeline: '2024',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Warm Metallic Gold', hex: '#D4AF37' },
+        { name: 'Charcoal Slate', hex: '#5A5A5A' },
+        { name: 'Soft Warm Ivory', hex: '#F7F4EB' }
+      ],
+      deliverables: [
+        'Sculptural Letter M Monogram & Typography Lockup',
+        'Minimal Geometric Pattern Motif',
+        'Illuminated Showroom Facade Signage',
+        'Woven Fabric Upholstery Labels & Gold-Foiled Shopping Bags'
+      ],
+      galleryImages: [
+        marbexLogoCaseStudyImg,
       ]
     }
   }

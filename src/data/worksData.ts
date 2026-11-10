@@ -17,6 +17,8 @@ import botanicalPackagingImg from '../assets/images/works/botanical_packaging.jp
 import streetwearReelImg from '../assets/images/works/streetwear_reel.jpg';
 import swaraLogoCoverImg from '../assets/images/works/swara_logo_cover.png';
 import swaraLogoCaseStudyImg from '../assets/images/works/swara_logo_case_study.png';
+import marbexLogoCoverImg from '../assets/images/works/marbex_logo_cover.png';
+import marbexLogoCaseStudyImg from '../assets/images/works/marbex_logo_case_study.png';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
 import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
@@ -169,6 +171,25 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Geometric monogram S glyph symbolizing electrical power, connectivity, and modern tech-forward retail showroom identity.',
       badge: 'LOGO SHOWCASE',
       accentColor: '#1e72d8',
+    },
+    {
+      id: 'marbex-furniture-interiors-logo',
+      title: 'MARBEX - LUXURY FURNITURE & INTERIORS LOGO',
+      category: 'Logo Designs',
+      categories: ['Logo Designs', 'Branding'],
+      image: marbexLogoCoverImg,
+      coverImage: marbexLogoCoverImg,
+      projectImages: [
+        marbexLogoCaseStudyImg,
+      ],
+      images: [
+        marbexLogoCaseStudyImg,
+      ],
+      year: '2024',
+      client: 'Marbex Home & Luxury Interiors',
+      description: 'Elegant geometric M monogram blending architectural structure, comfort curves, and metallic gold for a luxury furniture atelier.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#d4af37',
     },
     {
       id: 'aurora-technology-logo',
