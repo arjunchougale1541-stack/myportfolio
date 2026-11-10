@@ -17,48 +17,9 @@ export const WorksPage: React.FC<WorksPageProps> = ({
   onSelectProject,
   onCollaborate,
 }) => {
-  const [activeSection, setActiveSection] = useState<string>(WORK_SECTIONS[0].id);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
-
-  // Real-time scroll spy for category anchor navigation
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-
-      for (let i = WORK_SECTIONS.length - 1; i >= 0; i--) {
-        const sec = WORK_SECTIONS[i];
-        const el = document.getElementById(sec.id);
-        if (el) {
-          const top = el.offsetTop;
-          if (scrollPosition >= top - 60) {
-            setActiveSection(sec.id);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleScrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      const headerOffset = 150;
-      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - headerOffset;
-
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: 'smooth',
-      });
-      setActiveSection(sectionId);
-    }
-  };
 
   const handleProjectClick = (work: WorkProjectItem) => {
     const matchedProject = projectsData.find((p) => p.id === work.id);
@@ -141,45 +102,8 @@ export const WorksPage: React.FC<WorksPageProps> = ({
 
       {/* Main Content Area */}
       <main className="flex-grow w-full">
-        {/* Sticky Anchor Navigation Bar: Full-bleed edge-to-edge outer container */}
-        <div className="sticky top-16 sm:top-20 z-30 w-full left-0 right-0 bg-[#070709]/95 backdrop-blur-md border-y border-white/5 shadow-md shadow-black/40">
-          {/* Inner centered row of category pills with consistent 12px 32px padding */}
-          <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 py-3">
-            <div className="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 sm:gap-2.5 py-0.5">
-              {WORK_SECTIONS.map((sec) => {
-                const isActive = activeSection === sec.id;
-                const count = worksByCategory[sec.id]?.length || 0;
-
-                return (
-                  <button
-                    key={sec.id}
-                    onClick={() => handleScrollToSection(sec.id)}
-                    className={`relative px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full text-[10.5px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer whitespace-nowrap flex-shrink-0 ${
-                      isActive
-                        ? 'bg-gradient-to-r from-[#4d5eff] via-[#3d4ff5] to-[#2b3ee3] text-white shadow-[0_0_20px_rgba(77,94,255,0.45)] border border-indigo-300/40 scale-105'
-                        : 'bg-white/[0.03] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/5 hover:border-indigo-500/30'
-                    }`}
-                    aria-label={`Jump to ${sec.name} section`}
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <span>{sec.name}</span>
-                      <span
-                        className={`text-[9.5px] font-mono px-1.5 py-0.2 rounded-full ${
-                          isActive ? 'bg-black/30 text-white' : 'bg-white/5 text-slate-400'
-                        }`}
-                      >
-                        {count}
-                      </span>
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* 7 Vertically Stacked Category Sections in Exact Order */}
-        <div className="space-y-14 sm:space-y-20 lg:space-y-24 pt-3 sm:pt-5 pb-12 sm:pb-16">
+        {/* Vertically Stacked Category Sections in Exact Order */}
+        <div className="space-y-14 sm:space-y-20 lg:space-y-24 pt-6 sm:pt-10 pb-12 sm:pb-16">
           {WORK_SECTIONS.map((sec, sectionIdx) => {
             const items = worksByCategory[sec.id] || [];
 
