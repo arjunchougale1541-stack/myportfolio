@@ -170,12 +170,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {galleryImages.map((imgSrc, index) => (
               <div
                 key={`${imgSrc}-${index}`}
-                className="w-full rounded-lg sm:rounded-xl overflow-hidden bg-[#0d0c18] border border-indigo-950/70 shadow-2xl transition-all duration-300 flex items-center justify-center"
+                className="w-full rounded-lg sm:rounded-xl overflow-hidden bg-[#0d0c18] border border-indigo-950/70 shadow-2xl transition-all duration-300"
               >
                 <img
                   src={imgSrc}
                   alt={`${project.title} - Presentation ${index + 1}`}
-                  className="max-w-full w-auto h-auto object-contain block select-none mx-auto"
+                  className="w-full h-auto block select-none"
                   loading={index === 0 ? 'eager' : 'lazy'}
                   decoding="async"
                 />
