@@ -9,6 +9,8 @@ import candyCloudCaseStudyImg from '../assets/images/candy_cloud_case_study_full
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
+import swaraLogoCoverImg from '../assets/images/works/swara_logo_cover.png';
+import swaraLogoCaseStudyImg from '../assets/images/works/swara_logo_case_study.png';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
 import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
@@ -227,35 +229,41 @@ export const projectsData: ProjectItem[] = [
     id: 'swara-electricals-logo',
     number: '04',
     title: 'SWARA ELECTRICALS - LOGO & STORE IDENTITY',
-    subtitle: 'Electrical Shop Project',
+    subtitle: 'Letter S & Electrical Power — Modern Showroom Identity',
     year: '2024',
-    client: 'Swara Electricals',
-    description: 'Modern geometric monogram logomark and complete electrical retail showroom identity featuring circuit-inspired iconography.',
+    client: 'Swara Electricals & Lighting Hub',
+    description: 'Geometric monogram S glyph symbolizing electrical power, connectivity, and modern tech-forward retail showroom identity.',
     tags: ['Logo Design', 'Branding', 'Visual Identity'],
     mockupSide: 'right',
-    badge: 'PROJECT SHOWCASE',
+    badge: 'LOGO SHOWCASE',
     category: 'Logo Designs',
-    accentColor: '#2563eb',
+    accentColor: '#1e72d8',
     bgTone: '#0b162c',
-    coverImage: swaraElectricalsImg,
+    coverImage: swaraLogoCoverImg,
     projectImages: [
-      swaraElectricalsImg,
+      swaraLogoCaseStudyImg,
     ],
     images: [
-      swaraElectricalsImg,
+      swaraLogoCaseStudyImg,
     ],
     details: {
-      overview: 'Swara Electricals is an electrical goods and retail showroom brand. The identity centers around a modern geometric monogram logomark that represents electrical connectivity and circuit flow, paired with an illuminated retail store aesthetic.',
+      overview: 'Swara Electricals is a modern electrical solutions and lighting showroom. The logo concept synthesizes the letter S for Swara with dynamic electrical connectivity and power motifs. The identity suite includes a clean tech-forward geometric pattern, an illuminated channel-letter storefront, branded eco shopping bags, and premium retail product packaging.',
       role: 'Logo Designer & Brand Identity Artist',
-      timeline: '2 Weeks (2024)',
+      timeline: '2024',
       tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Electric Cobalt Blue', hex: '#1E72D8' },
+        { name: 'Cyan Sky Blue', hex: '#4DB2FF' },
+        { name: 'Graphite Slate', hex: '#555555' }
+      ],
       deliverables: [
-        'Geometric Circuit Logomark & Lockup',
-        'Storefront Signage & Display Mockup',
-        'Corporate Stationery & Business Collateral'
+        'Geometric Letter S & Electrical Monogram Vector Lockup',
+        'Clean Tech-Forward Repeating Power Pattern',
+        'Illuminated LED Storefront Signage System',
+        'Luxury Retail Tote Bags & Presentation Packaging Boxes'
       ],
       galleryImages: [
-        swaraElectricalsImg,
+        swaraLogoCaseStudyImg,
       ]
     }
   },

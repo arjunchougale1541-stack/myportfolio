@@ -15,6 +15,8 @@ import fitnessSocialImg from '../assets/images/works/fitness_campaign.jpg';
 import auroraLogoImg from '../assets/images/works/aurora_logomark.jpg';
 import botanicalPackagingImg from '../assets/images/works/botanical_packaging.jpg';
 import streetwearReelImg from '../assets/images/works/streetwear_reel.jpg';
+import swaraLogoCoverImg from '../assets/images/works/swara_logo_cover.png';
+import swaraLogoCaseStudyImg from '../assets/images/works/swara_logo_case_study.png';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
 import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
@@ -154,19 +156,19 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       title: 'SWARA ELECTRICALS - LOGO & STORE IDENTITY',
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
-      image: swaraElectricalsImg,
-      coverImage: swaraElectricalsImg,
+      image: swaraLogoCoverImg,
+      coverImage: swaraLogoCoverImg,
       projectImages: [
-        swaraElectricalsImg,
+        swaraLogoCaseStudyImg,
       ],
       images: [
-        swaraElectricalsImg,
+        swaraLogoCaseStudyImg,
       ],
       year: '2024',
-      client: 'Swara Electricals',
-      description: 'Modern geometric monogram logomark and complete electrical retail showroom identity featuring circuit-inspired iconography.',
-      badge: 'PROJECT SHOWCASE',
-      accentColor: '#2563eb',
+      client: 'Swara Electricals & Lighting Hub',
+      description: 'Geometric monogram S glyph symbolizing electrical power, connectivity, and modern tech-forward retail showroom identity.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#1e72d8',
     },
     {
       id: 'aurora-technology-logo',
