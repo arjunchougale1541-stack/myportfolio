@@ -16,6 +16,8 @@ import auroraLogoImg from '../assets/images/works/aurora_logomark.jpg';
 import botanicalPackagingImg from '../assets/images/works/botanical_packaging.jpg';
 import streetwearReelImg from '../assets/images/works/streetwear_reel.jpg';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
+import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
+import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
 import hyperlexLogoImg from '../assets/images/works/hyperlex_logo.png';
 import dimoraCoverImg from '../assets/images/works/dimora_logo_cover.png';
 import dimoraCaseStudyImg from '../assets/images/works/dimora_case_study.png';
@@ -133,19 +135,19 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       title: 'HYPERLEX - PREMIUM CAR CARE LOGO & BRANDING',
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
-      image: hyperlexLogoImg,
-      coverImage: hyperlexLogoImg,
+      image: hyperlexLogoCoverImg,
+      coverImage: hyperlexLogoCoverImg,
       projectImages: [
-        hyperlexLogoImg,
+        hyperlexLogoCaseStudyImg,
       ],
       images: [
-        hyperlexLogoImg,
+        hyperlexLogoCaseStudyImg,
       ],
       year: '2024',
       client: 'Hyperlex Premium Car Care Center',
-      description: 'Dynamic automotive monogram logomark and brand identity for a high-end luxury auto detailing, ceramic coating, and PPF center.',
-      badge: 'PROJECT SHOWCASE',
-      accentColor: '#ef4444',
+      description: 'Aerodynamic star monogram and high-performance automotive branding for luxury car detailing, PPF, and ceramic coating.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#d33a2c',
     },
     {
       id: 'swara-electricals-logo',

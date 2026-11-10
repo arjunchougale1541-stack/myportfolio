@@ -10,6 +10,8 @@ import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
+import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
+import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
 import hyperlexLogoImg from '../assets/images/works/hyperlex_logo.png';
 import dimoraCoverImg from '../assets/images/works/dimora_logo_cover.png';
 import dimoraCaseStudyImg from '../assets/images/works/dimora_case_study.png';
@@ -261,36 +263,41 @@ export const projectsData: ProjectItem[] = [
     id: 'hyperlex-car-care-logo',
     number: '05',
     title: 'HYPERLEX - PREMIUM CAR CARE LOGO & BRANDING',
-    subtitle: 'PPF • Ceramic Coating • Detailing',
+    subtitle: 'Shine & Protection — PPF • Ceramic Coating • Detailing',
     year: '2024',
     client: 'Hyperlex Premium Car Care Center',
-    description: 'Dynamic automotive monogram logomark and brand identity for a high-end luxury auto detailing, ceramic coating, and PPF center.',
+    description: 'Aerodynamic star monogram and high-performance automotive branding for luxury car detailing, PPF, and ceramic coating.',
     tags: ['Logo Design', 'Branding', 'Automotive'],
     mockupSide: 'left',
-    badge: 'PROJECT SHOWCASE',
+    badge: 'LOGO SHOWCASE',
     category: 'Logo Designs',
-    accentColor: '#ef4444',
+    accentColor: '#d33a2c',
     bgTone: '#180a0a',
-    coverImage: hyperlexLogoImg,
+    coverImage: hyperlexLogoCoverImg,
     projectImages: [
-      hyperlexLogoImg,
+      hyperlexLogoCaseStudyImg,
     ],
     images: [
-      hyperlexLogoImg,
+      hyperlexLogoCaseStudyImg,
     ],
     details: {
-      overview: 'Hyperlex is an elite automotive detailing studio specializing in Paint Protection Film (PPF), ceramic coatings, and precision car detailing. The logo blends an aerodynamic four-point star spark with a bold modern monogram "H", set against a high-contrast crimson and gloss-black automotive palette.',
+      overview: 'Hyperlex is an elite automotive detailing studio specializing in Paint Protection Film (PPF), ceramic coatings, and precision car detailing. The logo concept pairs a shine/finish 4-point sparkle star reflecting premium car care with the geometric letter H for Hyperlex. The identity system includes a sleek repeating protection pattern, illuminated exterior architectural signage, professional team workwear, and branded ceramic coating packaging.',
       role: 'Lead Brand Identity & Automotive Logo Designer',
-      timeline: '3 Weeks (2024)',
+      timeline: '2024',
       tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Crimson Performance Red', hex: '#D33A2C' },
+        { name: 'Obsidian Automotive Black', hex: '#111111' },
+        { name: 'Pure Spark White', hex: '#F5F5F5' }
+      ],
       deliverables: [
-        'Aerodynamic Star Monogram & Vector Logotype',
-        'Showroom Signage & Interior Wall Mockups',
-        'Staff Apparel & Workwear Badges',
-        'Car Care Chemical Product Label Suite'
+        'Aerodynamic Star & Letter H Monogram Lockup',
+        'Precision Geometric Star Protective Repeating Pattern',
+        'Illuminated 3D Facade & Interior Showroom Signage',
+        'Staff Workwear Polo & Branded Detailing Packaging Suite'
       ],
       galleryImages: [
-        hyperlexLogoImg,
+        hyperlexLogoCaseStudyImg,
       ]
     }
   },
