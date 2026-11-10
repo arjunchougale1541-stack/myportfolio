@@ -261,7 +261,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
                 LET’S CREATE SOMETHING EXTRAORDINARY
               </h3>
               <p className="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed">
-                Ready to elevate your brand identity, packaging, or digital content? Let's discuss your next breakthrough project.
+                Ready to elevate your brand identity, logo design, or digital content? Let's discuss your next breakthrough project.
               </p>
               <div className="pt-3 flex items-center justify-center gap-4 flex-wrap">
                 <button
