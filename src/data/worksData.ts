@@ -19,6 +19,8 @@ import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.j
 import hyperlexLogoImg from '../assets/images/works/hyperlex_logo.png';
 import dimoraCoverImg from '../assets/images/works/dimora_logo_cover.png';
 import dimoraCaseStudyImg from '../assets/images/works/dimora_case_study.png';
+import axialLogoCoverImg from '../assets/images/works/axial_logo_cover.png';
+import axialLogoCaseStudyImg from '../assets/images/works/axial_logo_case_study.png';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -186,22 +188,22 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
     },
     {
       id: 'axial-brand-symbol',
-      title: 'AXIAL GRAPHIC EMBLEM & VECTOR SYSTEM',
+      title: 'AXIAL GRAPHIC - DRIVEN BY DESIGN',
       category: 'Logo Designs',
       categories: ['Logo Designs', 'Branding'],
-      image: axialImg,
-      coverImage: axialImg,
+      image: axialLogoCoverImg,
+      coverImage: axialLogoCoverImg,
       projectImages: [
-        axialCaseStudyImg,
+        axialLogoCaseStudyImg,
       ],
       images: [
-        axialCaseStudyImg,
+        axialLogoCaseStudyImg,
       ],
-      year: '2023',
+      year: '2024',
       client: 'Axial Graphic Studio',
-      description: 'Bold constructivist symbol crafted from pure geometric lines and industrial precision aesthetics.',
-      badge: 'STUDIO MARK',
-      accentColor: '#5362ff',
+      description: 'Bold constructivist letterforms representing Letter A for Axial, Letter G for Graphic, and creative blocks for design and build.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#3f46af',
     },
     {
       id: 'candy-cloud-mascot-mark',

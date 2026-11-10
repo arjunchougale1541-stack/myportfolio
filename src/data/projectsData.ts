@@ -13,6 +13,8 @@ import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.j
 import hyperlexLogoImg from '../assets/images/works/hyperlex_logo.png';
 import dimoraCoverImg from '../assets/images/works/dimora_logo_cover.png';
 import dimoraCaseStudyImg from '../assets/images/works/dimora_case_study.png';
+import axialLogoCoverImg from '../assets/images/works/axial_logo_cover.png';
+import axialLogoCaseStudyImg from '../assets/images/works/axial_logo_case_study.png';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -327,6 +329,48 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         dimoraCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'axial-brand-symbol',
+    number: '07',
+    title: 'AXIAL GRAPHIC - DRIVEN BY DESIGN',
+    subtitle: 'PERSONAL DESIGN IDENTITY & LOGO SYSTEM',
+    year: '2024',
+    client: 'Axial Graphic Studio',
+    description: 'Bold constructivist letterforms representing Letter A for Axial, Letter G for Graphic, and creative blocks for design and build.',
+    tags: ['Logo Design', 'Branding', 'Visual Identity'],
+    mockupSide: 'left',
+    badge: 'LOGO SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#3f46af',
+    bgTone: '#121430',
+    coverImage: axialLogoCoverImg,
+    projectImages: [
+      axialLogoCaseStudyImg,
+    ],
+    images: [
+      axialLogoCaseStudyImg,
+    ],
+    details: {
+      overview: 'Axial Graphic is built around pure geometric constructivism. The logo system explores modular letterforms where Letter A and Letter G interlock with creative building blocks, accompanied by a dynamic wave pattern, an illuminated 3D studio wall sign, and corporate stationery.',
+      role: 'Logo Designer & Visual Identity Architect',
+      timeline: '2024',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Axial Royal Indigo', hex: '#3F46AF' },
+        { name: 'Iris Periwinkle', hex: '#7D87E9' },
+        { name: 'Lavender Mist', hex: '#E9EBF7' }
+      ],
+      deliverables: [
+        'Modular Letterform Monogram & Wordmark',
+        'Kinetic Wave Graphic Pattern System',
+        'Studio Interior Signage & Backlit LED Display Mockup',
+        'Corporate Stationery & Branded Apparel Suite'
+      ],
+      galleryImages: [
+        axialLogoCaseStudyImg,
       ]
     }
   }
