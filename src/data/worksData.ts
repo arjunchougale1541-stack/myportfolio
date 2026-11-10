@@ -19,6 +19,10 @@ import swaraLogoCoverImg from '../assets/images/works/swara_logo_cover.png';
 import swaraLogoCaseStudyImg from '../assets/images/works/swara_logo_case_study.png';
 import marbexLogoCoverImg from '../assets/images/works/marbex_logo_cover.png';
 import marbexLogoCaseStudyImg from '../assets/images/works/marbex_logo_case_study.png';
+import soulFashionLogoCoverImg from '../assets/images/works/soul_fashion_logo_cover.png';
+import soulFashionLogoCaseStudyImg from '../assets/images/works/soul_fashion_logo_case_study.png';
+import vbEventsLogoCoverImg from '../assets/images/works/vb_events_logo_cover.png';
+import vbEventsLogoCaseStudyImg from '../assets/images/works/vb_events_logo_case_study.png';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
 import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
@@ -190,6 +194,44 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Elegant geometric M monogram blending architectural structure, comfort curves, and metallic gold for a luxury furniture atelier.',
       badge: 'LOGO SHOWCASE',
       accentColor: '#d4af37',
+    },
+    {
+      id: 'soul-fashion-logo',
+      title: 'SOUL FASHION - LUXURY ATELIER LOGO & IDENTITY',
+      category: 'Logo Designs',
+      categories: ['Logo Designs', 'Branding'],
+      image: soulFashionLogoCoverImg,
+      coverImage: soulFashionLogoCoverImg,
+      projectImages: [
+        soulFashionLogoCaseStudyImg,
+      ],
+      images: [
+        soulFashionLogoCaseStudyImg,
+      ],
+      year: '2024',
+      client: 'Soul Fashion Haute Couture',
+      description: 'Fluid swirling emblem inspired by elegance, harmony, and feminine grace for a luxury fashion house.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#751a1f',
+    },
+    {
+      id: 'vb-events-luxury-logo',
+      title: 'VB EVENTS - CELEBRATION & EVENT DESIGN LOGO',
+      category: 'Logo Designs',
+      categories: ['Logo Designs', 'Branding'],
+      image: vbEventsLogoCoverImg,
+      coverImage: vbEventsLogoCoverImg,
+      projectImages: [
+        vbEventsLogoCaseStudyImg,
+      ],
+      images: [
+        vbEventsLogoCaseStudyImg,
+      ],
+      year: '2024',
+      client: 'VB Events & Luxury Wedding Co.',
+      description: 'Opulent gold monogram intertwined with celebratory growth leaves, designed for high-end bespoke celebrations.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#d4a037',
     },
     {
       id: 'aurora-technology-logo',

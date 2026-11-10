@@ -13,6 +13,10 @@ import swaraLogoCoverImg from '../assets/images/works/swara_logo_cover.png';
 import swaraLogoCaseStudyImg from '../assets/images/works/swara_logo_case_study.png';
 import marbexLogoCoverImg from '../assets/images/works/marbex_logo_cover.png';
 import marbexLogoCaseStudyImg from '../assets/images/works/marbex_logo_case_study.png';
+import soulFashionLogoCoverImg from '../assets/images/works/soul_fashion_logo_cover.png';
+import soulFashionLogoCaseStudyImg from '../assets/images/works/soul_fashion_logo_case_study.png';
+import vbEventsLogoCoverImg from '../assets/images/works/vb_events_logo_cover.png';
+import vbEventsLogoCaseStudyImg from '../assets/images/works/vb_events_logo_case_study.png';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
 import hyperlexLogoCoverImg from '../assets/images/works/hyperlex_logo_cover.png';
 import hyperlexLogoCaseStudyImg from '../assets/images/works/hyperlex_logo_case_study.png';
@@ -518,6 +522,90 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         marbexLogoCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'soul-fashion-logo',
+    number: '11',
+    title: 'SOUL FASHION - LUXURY ATELIER LOGO & IDENTITY',
+    subtitle: 'Elegance & Flow — Haute Couture Brand System',
+    year: '2024',
+    client: 'Soul Fashion Haute Couture',
+    description: 'Fluid swirling emblem inspired by elegance, harmony, and feminine grace for a luxury fashion house.',
+    tags: ['Logo Design', 'Fashion Branding', 'Apparel'],
+    mockupSide: 'left',
+    badge: 'LOGO SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#751a1f',
+    bgTone: '#1f090b',
+    coverImage: soulFashionLogoCoverImg,
+    projectImages: [
+      soulFashionLogoCaseStudyImg,
+    ],
+    images: [
+      soulFashionLogoCaseStudyImg,
+    ],
+    details: {
+      overview: 'Soul Fashion is an haute couture and contemporary luxury apparel atelier. The logo concept features an intricate organic symbol inspired by elegance, movement, and flow, paired with high-contrast serif typography. The identity system includes a signature repeating pattern, boutique storefront signage with warm ambient lighting, premium matte shopping bags, and textured fabric swing tags.',
+      role: 'Lead Brand Identity & Luxury Fashion Logo Designer',
+      timeline: '2024',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Deep Crimson Burgundy', hex: '#751A1F' },
+        { name: 'Soft Warm Blush Ivory', hex: '#F5E8E0' },
+        { name: 'Dark Espresso Maroon', hex: '#3B1E1E' }
+      ],
+      deliverables: [
+        'Fluid Monogram Symbol & High-Contrast Typography Lockup',
+        'Repeating Brand Heritage Textile Pattern',
+        'Boutique Retail Storefront Channel-Letter Signage',
+        'Premium Paper Shopping Bags & Garment Swing Tags'
+      ],
+      galleryImages: [
+        soulFashionLogoCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'vb-events-luxury-logo',
+    number: '12',
+    title: 'VB EVENTS - CELEBRATION & EVENT DESIGN LOGO',
+    subtitle: 'Event Planning | Design | Execution — Bespoke Celebrations',
+    year: '2024',
+    client: 'VB Events & Luxury Wedding Co.',
+    description: 'Opulent gold monogram intertwined with celebratory growth leaves, designed for high-end bespoke celebrations.',
+    tags: ['Logo Design', 'Luxury Events', 'Branding'],
+    mockupSide: 'right',
+    badge: 'LOGO SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#d4a037',
+    bgTone: '#1c1508',
+    coverImage: vbEventsLogoCoverImg,
+    projectImages: [
+      vbEventsLogoCaseStudyImg,
+    ],
+    images: [
+      vbEventsLogoCaseStudyImg,
+    ],
+    details: {
+      overview: 'VB Events is a premier luxury event planning, wedding production, and stage design company. The logo concept intertwines the distinctive brand monogram with organic celebratory leaves symbolizing growth, freshness, and joyful milestones. The identity system encompasses an illuminated architectural studio facade, embossed gold foil wedding invitations, and opulent stage environment backdrops.',
+      role: 'Lead Identity & Event Branding Designer',
+      timeline: '2024',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Metallic Celebration Gold', hex: '#D4A037' },
+        { name: 'Royal Burgundy', hex: '#7A0E1E' },
+        { name: 'Warm Banquet Ivory', hex: '#F9F4E8' }
+      ],
+      deliverables: [
+        'Celebratory Leaf Monogram & Serif Typography Lockup',
+        'Subtle Organic Leaf Motif Event Pattern',
+        'Studio Showroom Facade & Entrance Signage',
+        'Embossed Satin Ribbon Invitations & Banquet Stage Visuals'
+      ],
+      galleryImages: [
+        vbEventsLogoCaseStudyImg,
       ]
     }
   }
