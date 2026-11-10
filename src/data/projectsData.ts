@@ -10,6 +10,7 @@ import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
+import hyperlexLogoImg from '../assets/images/works/hyperlex_logo.png';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -245,6 +246,43 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         swaraElectricalsImg,
+      ]
+    }
+  },
+  {
+    id: 'hyperlex-car-care-logo',
+    number: '05',
+    title: 'HYPERLEX - PREMIUM CAR CARE LOGO & BRANDING',
+    subtitle: 'PPF • Ceramic Coating • Detailing',
+    year: '2024',
+    client: 'Hyperlex Premium Car Care Center',
+    description: 'Dynamic automotive monogram logomark and brand identity for a high-end luxury auto detailing, ceramic coating, and PPF center.',
+    tags: ['Logo Design', 'Branding', 'Automotive'],
+    mockupSide: 'left',
+    badge: 'PROJECT SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#ef4444',
+    bgTone: '#180a0a',
+    coverImage: hyperlexLogoImg,
+    projectImages: [
+      hyperlexLogoImg,
+    ],
+    images: [
+      hyperlexLogoImg,
+    ],
+    details: {
+      overview: 'Hyperlex is an elite automotive detailing studio specializing in Paint Protection Film (PPF), ceramic coatings, and precision car detailing. The logo blends an aerodynamic four-point star spark with a bold modern monogram "H", set against a high-contrast crimson and gloss-black automotive palette.',
+      role: 'Lead Brand Identity & Automotive Logo Designer',
+      timeline: '3 Weeks (2024)',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      deliverables: [
+        'Aerodynamic Star Monogram & Vector Logotype',
+        'Showroom Signage & Interior Wall Mockups',
+        'Staff Apparel & Workwear Badges',
+        'Car Care Chemical Product Label Suite'
+      ],
+      galleryImages: [
+        hyperlexLogoImg,
       ]
     }
   }

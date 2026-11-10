@@ -16,6 +16,7 @@ import auroraLogoImg from '../assets/images/works/aurora_logomark.jpg';
 import botanicalPackagingImg from '../assets/images/works/botanical_packaging.jpg';
 import streetwearReelImg from '../assets/images/works/streetwear_reel.jpg';
 import swaraElectricalsImg from '../assets/images/works/swara_electricals_logo.jpg';
+import hyperlexLogoImg from '../assets/images/works/hyperlex_logo.png';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -58,7 +59,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'logo-designs',
     name: 'Logo Designs',
     subtitle: 'Vector logomarks, monogram explorations, and brand mark identities.',
-    count: 7,
+    count: 8,
   },
   {
     id: 'social-media-posts',
@@ -100,6 +101,25 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
 
 export const worksByCategory: Record<string, WorkProjectItem[]> = {
   'logo-designs': [
+    {
+      id: 'hyperlex-car-care-logo',
+      title: 'HYPERLEX - PREMIUM CAR CARE LOGO & BRANDING',
+      category: 'Logo Designs',
+      categories: ['Logo Designs', 'Branding'],
+      image: hyperlexLogoImg,
+      coverImage: hyperlexLogoImg,
+      projectImages: [
+        hyperlexLogoImg,
+      ],
+      images: [
+        hyperlexLogoImg,
+      ],
+      year: '2024',
+      client: 'Hyperlex Premium Car Care Center',
+      description: 'Dynamic automotive monogram logomark and brand identity for a high-end luxury auto detailing, ceramic coating, and PPF center.',
+      badge: 'PROJECT SHOWCASE',
+      accentColor: '#ef4444',
+    },
     {
       id: 'swara-electricals-logo',
       title: 'SWARA ELECTRICALS - LOGO & STORE IDENTITY',
