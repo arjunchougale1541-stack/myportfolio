@@ -45,6 +45,14 @@ import dimoraSocialPost3Img from '../assets/images/works/dimora_social_post_3.jp
 import dimoraSocialPost4Img from '../assets/images/works/dimora_social_post_4.jpg';
 import dimoraSocialPost5Img from '../assets/images/works/dimora_social_post_5.jpg';
 import dimoraSocialPost6Img from '../assets/images/works/dimora_social_post_6.jpg';
+import konnectCompilerSocialCoverImg from '../assets/images/works/konnect_compiler_social_cover.jpg';
+import konnectCompilerSocialPost1Img from '../assets/images/works/konnect_compiler_social_post_1.jpg';
+import konnectCompilerSocialPost2Img from '../assets/images/works/konnect_compiler_social_post_2.jpg';
+import konnectCompilerSocialPost3Img from '../assets/images/works/konnect_compiler_social_post_3.jpg';
+import konnectCompilerSocialPost4Img from '../assets/images/works/konnect_compiler_social_post_4.jpg';
+import konnectCompilerSocialPost5Img from '../assets/images/works/konnect_compiler_social_post_5.jpg';
+import konnectCompilerSocialPost6Img from '../assets/images/works/konnect_compiler_social_post_6.jpg';
+import konnectCompilerSocialPost7Img from '../assets/images/works/konnect_compiler_social_post_7.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -489,6 +497,69 @@ export const projectsData: ProjectItem[] = [
         dimoraSocialPost4Img,
         dimoraSocialPost5Img,
         dimoraSocialPost6Img,
+      ]
+    }
+  },
+  {
+    id: 'konnect-compiler-social-campaign',
+    number: '08',
+    title: 'KONNECT COMPILER - TECH EDUCATION SOCIAL MEDIA CAMPAIGN',
+    subtitle: 'High-Impact Digital Ad Creatives & Course Launch Posts',
+    year: '2024',
+    client: 'Konnect Compiler / Coding Academy',
+    description: 'High-impact educational social media campaign featuring full-stack web development, Python, SQL databases, mobile apps, and youth innovator coding courses.',
+    tags: ['Social Media Posts', 'EdTech Design', 'Campaign Design', 'Branding'],
+    mockupSide: 'right',
+    badge: 'EDTECH CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#06b6d4',
+    bgTone: '#0a101d',
+    coverImage: konnectCompilerSocialCoverImg,
+    projectImages: [
+      konnectCompilerSocialPost1Img,
+      konnectCompilerSocialPost2Img,
+      konnectCompilerSocialPost3Img,
+      konnectCompilerSocialPost4Img,
+      konnectCompilerSocialPost5Img,
+      konnectCompilerSocialPost6Img,
+      konnectCompilerSocialPost7Img,
+    ],
+    images: [
+      konnectCompilerSocialPost1Img,
+      konnectCompilerSocialPost2Img,
+      konnectCompilerSocialPost3Img,
+      konnectCompilerSocialPost4Img,
+      konnectCompilerSocialPost5Img,
+      konnectCompilerSocialPost6Img,
+      konnectCompilerSocialPost7Img,
+    ],
+    details: {
+      overview: 'A complete multi-platform social media ad campaign engineered for Konnect Compiler, an innovative computer science and programming academy. The 7-design suite utilizes futuristic cyber aesthetics, high-contrast neon glows, 3D technology assets, clear course breakdowns, and conversion-focused call-to-actions designed to drive enrollments across foundational databases (SQL), full-stack web development, mobile app development, and young innovator coding bootcamps.',
+      role: 'Lead Visual Designer & Social Campaign Strategist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Cyber Electric Cyan', hex: '#00F0FF' },
+        { name: 'Deep Tech Indigo', hex: '#1E1B4B' },
+        { name: 'Neon Amber Gold', hex: '#F59E0B' }
+      ],
+      deliverables: [
+        'Post 01: SQL Database Mastery - "Speak the Language of Data" (Red Dark Hero)',
+        'Post 02: SQL Structured Query Language - "Speak the Language of Data" (Cyber Blue Tech)',
+        'Post 03: Young Innovators Tech Curriculum (Ages 7–16 Bootcamp)',
+        'Post 04: Full Stack Web Developer - Scratch to Pro Comprehensive Guide',
+        'Post 05: Game Development for Kids - "Young Minds, Big Games"',
+        'Post 06: Cross-Platform Mobile App Development (iOS & Android)',
+        'Post 07: Modern Web Development Made Simple, Powerful & Real'
+      ],
+      galleryImages: [
+        konnectCompilerSocialPost1Img,
+        konnectCompilerSocialPost2Img,
+        konnectCompilerSocialPost3Img,
+        konnectCompilerSocialPost4Img,
+        konnectCompilerSocialPost5Img,
+        konnectCompilerSocialPost6Img,
+        konnectCompilerSocialPost7Img,
       ]
     }
   },

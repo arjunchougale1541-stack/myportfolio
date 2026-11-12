@@ -51,6 +51,14 @@ import dimoraSocialPost3Img from '../assets/images/works/dimora_social_post_3.jp
 import dimoraSocialPost4Img from '../assets/images/works/dimora_social_post_4.jpg';
 import dimoraSocialPost5Img from '../assets/images/works/dimora_social_post_5.jpg';
 import dimoraSocialPost6Img from '../assets/images/works/dimora_social_post_6.jpg';
+import konnectCompilerSocialCoverImg from '../assets/images/works/konnect_compiler_social_cover.jpg';
+import konnectCompilerSocialPost1Img from '../assets/images/works/konnect_compiler_social_post_1.jpg';
+import konnectCompilerSocialPost2Img from '../assets/images/works/konnect_compiler_social_post_2.jpg';
+import konnectCompilerSocialPost3Img from '../assets/images/works/konnect_compiler_social_post_3.jpg';
+import konnectCompilerSocialPost4Img from '../assets/images/works/konnect_compiler_social_post_4.jpg';
+import konnectCompilerSocialPost5Img from '../assets/images/works/konnect_compiler_social_post_5.jpg';
+import konnectCompilerSocialPost6Img from '../assets/images/works/konnect_compiler_social_post_6.jpg';
+import konnectCompilerSocialPost7Img from '../assets/images/works/konnect_compiler_social_post_7.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -99,7 +107,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 2,
+    count: 3,
   },
   {
     id: 'branding',
@@ -379,6 +387,37 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'High-conversion multi-post social media campaign featuring rider app launches, express delivery, customer satisfaction, and merchant growth creatives.',
       badge: 'SOCIAL CAMPAIGN',
       accentColor: '#F7931A',
+    },
+    {
+      id: 'konnect-compiler-social-campaign',
+      title: 'KONNECT COMPILER - TECH EDUCATION SOCIAL MEDIA CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding'],
+      image: konnectCompilerSocialCoverImg,
+      coverImage: konnectCompilerSocialCoverImg,
+      projectImages: [
+        konnectCompilerSocialPost1Img,
+        konnectCompilerSocialPost2Img,
+        konnectCompilerSocialPost3Img,
+        konnectCompilerSocialPost4Img,
+        konnectCompilerSocialPost5Img,
+        konnectCompilerSocialPost6Img,
+        konnectCompilerSocialPost7Img,
+      ],
+      images: [
+        konnectCompilerSocialPost1Img,
+        konnectCompilerSocialPost2Img,
+        konnectCompilerSocialPost3Img,
+        konnectCompilerSocialPost4Img,
+        konnectCompilerSocialPost5Img,
+        konnectCompilerSocialPost6Img,
+        konnectCompilerSocialPost7Img,
+      ],
+      year: '2024',
+      client: 'Konnect Compiler / Coding Academy',
+      description: 'High-impact educational social media campaign featuring full-stack web development, Python, SQL databases, mobile apps, and youth innovator coding courses.',
+      badge: 'EDTECH CAMPAIGN',
+      accentColor: '#06b6d4',
     },
   ],
 
