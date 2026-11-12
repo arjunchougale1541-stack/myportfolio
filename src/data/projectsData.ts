@@ -38,6 +38,13 @@ import getItSocialPost3Img from '../assets/images/works/get_it_social_post_3.jpg
 import getItSocialPost4Img from '../assets/images/works/get_it_social_post_4.jpg';
 import getItSocialPost5Img from '../assets/images/works/get_it_social_post_5.jpg';
 import getItSocialPost6Img from '../assets/images/works/get_it_social_post_6.jpg';
+import dimoraSocialCoverImg from '../assets/images/works/dimora_social_cover.jpg';
+import dimoraSocialPost1Img from '../assets/images/works/dimora_social_post_1.jpg';
+import dimoraSocialPost2Img from '../assets/images/works/dimora_social_post_2.jpg';
+import dimoraSocialPost3Img from '../assets/images/works/dimora_social_post_3.jpg';
+import dimoraSocialPost4Img from '../assets/images/works/dimora_social_post_4.jpg';
+import dimoraSocialPost5Img from '../assets/images/works/dimora_social_post_5.jpg';
+import dimoraSocialPost6Img from '../assets/images/works/dimora_social_post_6.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -423,6 +430,65 @@ export const projectsData: ProjectItem[] = [
         getItSocialPost4Img,
         getItSocialPost5Img,
         getItSocialPost6Img,
+      ]
+    }
+  },
+  {
+    id: 'dimora-social-campaign',
+    number: '07',
+    title: 'DIMORA - LUXURY FRAGRANCE SOCIAL MEDIA CAMPAIGN',
+    subtitle: 'High-Conversion Editorial Ad Creatives & Scent Launch Series',
+    year: '2024',
+    client: 'Dimora Haute Parfumerie',
+    description: 'High-conversion editorial social media ad campaign for Dimora luxury fragrance, featuring product hero showcases, lifestyle model features, and gift packaging creatives.',
+    tags: ['Social Media Posts', 'Luxury Branding', 'Campaign Design', 'Product Ads'],
+    mockupSide: 'left',
+    badge: 'LUXURY CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#a31d24',
+    bgTone: '#1a0d0f',
+    coverImage: dimoraSocialCoverImg,
+    projectImages: [
+      dimoraSocialPost1Img,
+      dimoraSocialPost2Img,
+      dimoraSocialPost3Img,
+      dimoraSocialPost4Img,
+      dimoraSocialPost5Img,
+      dimoraSocialPost6Img,
+    ],
+    images: [
+      dimoraSocialPost1Img,
+      dimoraSocialPost2Img,
+      dimoraSocialPost3Img,
+      dimoraSocialPost4Img,
+      dimoraSocialPost5Img,
+      dimoraSocialPost6Img,
+    ],
+    details: {
+      overview: 'A premium social media advertising suite created for Dimora Haute Parfumerie. The 6-post campaign blends high-fashion editorial aesthetics, cinematic lighting, rich burgundy crimson gradients, and compelling luxury copy ("Own The Essence", "Ignite Your Aura", "Make Your Presence Last") designed to drive prestige brand recall, high engagement, and direct e-commerce sales.',
+      role: 'Lead Art Director & Luxury Campaign Designer',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Imperial Ruby Crimson', hex: '#A31D24' },
+        { name: 'Warm Champagne Gold', hex: '#C7B299' },
+        { name: 'Silk Ivory Cream', hex: '#F7F3EB' }
+      ],
+      deliverables: [
+        'Post 01: "Own The Essence" - Flagship Product Hero Showcase',
+        'Post 02: "Ignite Your Aura" - High-Impact Crimson Brand Statement Ad',
+        'Post 03: "Make Your Presence Last" - High-Fashion Editorial Model Feature',
+        'Post 04: "Elevate Every Moment" - Luxury Rigid Box Gift Set Creative',
+        'Post 05: "Scent That Defines You" - Raw Volcanic Stone Mineral Display',
+        'Post 06: "Your Scent Your Statement" - Dramatic Glass Reflection Ad'
+      ],
+      galleryImages: [
+        dimoraSocialPost1Img,
+        dimoraSocialPost2Img,
+        dimoraSocialPost3Img,
+        dimoraSocialPost4Img,
+        dimoraSocialPost5Img,
+        dimoraSocialPost6Img,
       ]
     }
   },

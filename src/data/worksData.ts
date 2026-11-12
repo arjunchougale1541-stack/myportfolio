@@ -44,6 +44,13 @@ import getItSocialPost3Img from '../assets/images/works/get_it_social_post_3.jpg
 import getItSocialPost4Img from '../assets/images/works/get_it_social_post_4.jpg';
 import getItSocialPost5Img from '../assets/images/works/get_it_social_post_5.jpg';
 import getItSocialPost6Img from '../assets/images/works/get_it_social_post_6.jpg';
+import dimoraSocialCoverImg from '../assets/images/works/dimora_social_cover.jpg';
+import dimoraSocialPost1Img from '../assets/images/works/dimora_social_post_1.jpg';
+import dimoraSocialPost2Img from '../assets/images/works/dimora_social_post_2.jpg';
+import dimoraSocialPost3Img from '../assets/images/works/dimora_social_post_3.jpg';
+import dimoraSocialPost4Img from '../assets/images/works/dimora_social_post_4.jpg';
+import dimoraSocialPost5Img from '../assets/images/works/dimora_social_post_5.jpg';
+import dimoraSocialPost6Img from '../assets/images/works/dimora_social_post_6.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -92,7 +99,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 7,
+    count: 8,
   },
   {
     id: 'branding',
@@ -315,6 +322,35 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
   ],
 
   'social-media-posts': [
+    {
+      id: 'dimora-social-campaign',
+      title: 'DIMORA - LUXURY FRAGRANCE SOCIAL MEDIA CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding'],
+      image: dimoraSocialCoverImg,
+      coverImage: dimoraSocialCoverImg,
+      projectImages: [
+        dimoraSocialPost1Img,
+        dimoraSocialPost2Img,
+        dimoraSocialPost3Img,
+        dimoraSocialPost4Img,
+        dimoraSocialPost5Img,
+        dimoraSocialPost6Img,
+      ],
+      images: [
+        dimoraSocialPost1Img,
+        dimoraSocialPost2Img,
+        dimoraSocialPost3Img,
+        dimoraSocialPost4Img,
+        dimoraSocialPost5Img,
+        dimoraSocialPost6Img,
+      ],
+      year: '2024',
+      client: 'Dimora Haute Parfumerie',
+      description: 'High-conversion editorial social media ad campaign for Dimora luxury fragrance, featuring product hero showcases, lifestyle model features, and gift packaging creatives.',
+      badge: 'LUXURY CAMPAIGN',
+      accentColor: '#a31d24',
+    },
     {
       id: 'get-it-social-campaign',
       title: 'GET IT - ON-DEMAND DELIVERY SOCIAL MEDIA CAMPAIGN',
