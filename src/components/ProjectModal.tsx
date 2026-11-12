@@ -81,6 +81,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   if (!project) return null;
 
+  const isSocialMedia =
+    project.category === 'Social Media Posts' ||
+    (project.tags && project.tags.includes('Social Media Posts')) ||
+    project.category?.toLowerCase().includes('social');
+
   return (
     <div
       role="dialog"
@@ -96,7 +101,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       />
 
       {/* Modal Dialog Window */}
-      <div className="relative w-full max-w-5xl xl:max-w-6xl max-h-[92vh] sm:max-h-[94vh] bg-[#0a0a12] border border-indigo-900/50 rounded-xl sm:rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden text-gray-100">
+      <div
+        className={`relative w-full ${
+          isSocialMedia ? 'max-w-5xl xl:max-w-6xl 2xl:max-w-7xl' : 'max-w-5xl xl:max-w-6xl'
+        } max-h-[92vh] sm:max-h-[94vh] bg-[#0a0a12] border border-indigo-900/50 rounded-xl sm:rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden text-gray-100`}
+      >
         
         {/* 1. STICKY MODAL TOP BAR (Accessible while scrolling) */}
         <header className="sticky top-0 z-30 w-full bg-[#0a0a14]/95 backdrop-blur-md border-b border-indigo-950/80 px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-3 shadow-md">
@@ -165,23 +174,42 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             )}
           </div>
 
-          {/* Behance-Style Vertical Image Gallery */}
-          <div className="flex flex-col space-y-6 sm:space-y-8 md:space-y-10">
-            {galleryImages.map((imgSrc, index) => (
-              <div
-                key={`${imgSrc}-${index}`}
-                className="w-full rounded-lg sm:rounded-xl overflow-hidden bg-[#0d0c18] border border-indigo-950/70 shadow-2xl transition-all duration-300"
-              >
-                <img
-                  src={imgSrc}
-                  alt={`${project.title} - Presentation ${index + 1}`}
-                  className="w-full h-auto block select-none"
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
-              </div>
-            ))}
-          </div>
+          {/* Gallery Body: 2-Column Responsive Grid for Social Media Posts, Single-Column for Others */}
+          {isSocialMedia ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-start">
+              {galleryImages.map((imgSrc, index) => (
+                <div
+                  key={`${imgSrc}-${index}`}
+                  className="w-full rounded-xl sm:rounded-2xl overflow-hidden bg-[#0d0c18] border border-indigo-950/70 hover:border-indigo-500/40 shadow-xl sm:shadow-2xl transition-all duration-300 flex flex-col"
+                >
+                  <img
+                    src={imgSrc}
+                    alt={`${project.title} - Design ${index + 1}`}
+                    className="w-full h-auto object-contain block select-none"
+                    loading={index < 2 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col space-y-6 sm:space-y-8 md:space-y-10">
+              {galleryImages.map((imgSrc, index) => (
+                <div
+                  key={`${imgSrc}-${index}`}
+                  className="w-full rounded-lg sm:rounded-xl overflow-hidden bg-[#0d0c18] border border-indigo-950/70 shadow-2xl transition-all duration-300"
+                >
+                  <img
+                    src={imgSrc}
+                    alt={`${project.title} - Presentation ${index + 1}`}
+                    className="w-full h-auto block select-none"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Minimalist End of Case Study Footer */}
           <div className="pt-6 sm:pt-10 pb-4 sm:pb-6 flex flex-col items-center justify-center text-center gap-3 border-t border-indigo-950/60">
