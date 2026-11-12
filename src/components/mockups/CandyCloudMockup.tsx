@@ -34,3 +34,4 @@ export const CandyCloudMockup: React.FC<CandyCloudMockupProps> = ({ onExplore })
   );
 };
 
+add this post in
