@@ -29,6 +29,8 @@ import candyCloudLogoCoverImg from '../assets/images/works/candy_cloud_logo_cove
 import candyCloudLogoCaseStudyImg from '../assets/images/works/candy_cloud_logo_case_study.png';
 import devsthanLogoCoverImg from '../assets/images/works/devsthan_samiti_logo_cover.png';
 import devsthanLogoCaseStudyImg from '../assets/images/works/devsthan_samiti_logo_case_study.png';
+import getItLogoCoverImg from '../assets/images/works/get_it_logo_cover.png';
+import getItLogoCaseStudyImg from '../assets/images/works/get_it_logo_case_study.png';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -312,6 +314,49 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         hyperlexLogoCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'get-it-delivery-logo',
+    number: '05',
+    title: 'GET IT - ON-DEMAND DELIVERY LOGO & IDENTITY',
+    subtitle: 'Speed, Precision & Quick Commerce Brand Identity',
+    year: '2024',
+    client: 'Get It Technologies / On-Demand Delivery Co.',
+    description: 'Dynamic location-pin spiral monogram and bold delivery branding symbolizing speed, real-time tracking, and seamless quick commerce.',
+    tags: ['Logo Design', 'On-Demand Delivery', 'Branding', 'App UI'],
+    mockupSide: 'left',
+    badge: 'LOGO SHOWCASE',
+    category: 'Logo Designs',
+    accentColor: '#F7931A',
+    bgTone: '#161410',
+    coverImage: getItLogoCoverImg,
+    projectImages: [
+      getItLogoCaseStudyImg,
+    ],
+    images: [
+      getItLogoCaseStudyImg,
+    ],
+    details: {
+      overview: 'Get It is a modern on-demand delivery and quick-commerce platform built for speed and reliability. The logo mark ingeniously combines a map location pin with a forward motion spiral, representing precision GPS tracking and rapid delivery fulfillment. Paired with bold modern typography, a high-contrast charcoal and vibrant orange color scheme, and an extensive branding kit across digital apps, storefront signage, and delivery gear.',
+      role: 'Logo Designer & Visual Identity Architect',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Illustrator', 'Adobe Photoshop'],
+      colors: [
+        { name: 'Vibrant Orange', hex: '#F7931A' },
+        { name: 'Pure Charcoal', hex: '#4A4A4A' },
+        { name: 'Light Gray', hex: '#F7F7F7' }
+      ],
+      deliverables: [
+        'Dynamic Location Spiral Monogram & Bold Wordmark Lockup',
+        'Repeating Brand Pattern & Visual Design System',
+        'Mobile Application App Icon & Dark Interface UI Mockup',
+        'Boutique Quick-Commerce Storefront 3D Channel-Letter Signage',
+        'Insulated Thermal Delivery Bag & Field Logistics Merchandise'
+      ],
+      galleryImages: [
+        getItLogoCaseStudyImg,
       ]
     }
   },

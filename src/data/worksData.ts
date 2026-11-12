@@ -35,6 +35,8 @@ import candyCloudLogoCoverImg from '../assets/images/works/candy_cloud_logo_cove
 import candyCloudLogoCaseStudyImg from '../assets/images/works/candy_cloud_logo_case_study.png';
 import devsthanLogoCoverImg from '../assets/images/works/devsthan_samiti_logo_cover.png';
 import devsthanLogoCaseStudyImg from '../assets/images/works/devsthan_samiti_logo_case_study.png';
+import getItLogoCoverImg from '../assets/images/works/get_it_logo_cover.png';
+import getItLogoCaseStudyImg from '../assets/images/works/get_it_logo_case_study.png';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -77,7 +79,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'logo-designs',
     name: 'Logo Designs',
     subtitle: 'Vector logomarks, monogram explorations, and brand mark identities.',
-    count: 9,
+    count: 10,
   },
   {
     id: 'social-media-posts',
@@ -113,6 +115,25 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
 
 export const worksByCategory: Record<string, WorkProjectItem[]> = {
   'logo-designs': [
+    {
+      id: 'get-it-delivery-logo',
+      title: 'GET IT - ON-DEMAND DELIVERY LOGO & IDENTITY',
+      category: 'Logo Designs',
+      categories: ['Logo Designs', 'Branding'],
+      image: getItLogoCoverImg,
+      coverImage: getItLogoCoverImg,
+      projectImages: [
+        getItLogoCaseStudyImg,
+      ],
+      images: [
+        getItLogoCaseStudyImg,
+      ],
+      year: '2024',
+      client: 'Get It Technologies / On-Demand Delivery Co.',
+      description: 'Dynamic location-pin spiral monogram and bold delivery branding symbolizing speed, real-time tracking, and seamless quick commerce.',
+      badge: 'LOGO SHOWCASE',
+      accentColor: '#F7931A',
+    },
     {
       id: 'dimora-luxury-fragrance-logo',
       title: 'DIMORA - LUXURY FRAGRANCE LOGO & IDENTITY',
