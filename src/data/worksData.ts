@@ -37,6 +37,13 @@ import devsthanLogoCoverImg from '../assets/images/works/devsthan_samiti_logo_co
 import devsthanLogoCaseStudyImg from '../assets/images/works/devsthan_samiti_logo_case_study.png';
 import getItLogoCoverImg from '../assets/images/works/get_it_logo_cover.png';
 import getItLogoCaseStudyImg from '../assets/images/works/get_it_logo_case_study.png';
+import getItSocialCoverImg from '../assets/images/works/get_it_social_cover.jpg';
+import getItSocialPost1Img from '../assets/images/works/get_it_social_post_1.jpg';
+import getItSocialPost2Img from '../assets/images/works/get_it_social_post_2.jpg';
+import getItSocialPost3Img from '../assets/images/works/get_it_social_post_3.jpg';
+import getItSocialPost4Img from '../assets/images/works/get_it_social_post_4.jpg';
+import getItSocialPost5Img from '../assets/images/works/get_it_social_post_5.jpg';
+import getItSocialPost6Img from '../assets/images/works/get_it_social_post_6.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -85,7 +92,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 6,
+    count: 7,
   },
   {
     id: 'branding',
@@ -308,6 +315,35 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
   ],
 
   'social-media-posts': [
+    {
+      id: 'get-it-social-campaign',
+      title: 'GET IT - ON-DEMAND DELIVERY SOCIAL MEDIA CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding'],
+      image: getItSocialCoverImg,
+      coverImage: getItSocialCoverImg,
+      projectImages: [
+        getItSocialPost1Img,
+        getItSocialPost2Img,
+        getItSocialPost3Img,
+        getItSocialPost4Img,
+        getItSocialPost5Img,
+        getItSocialPost6Img,
+      ],
+      images: [
+        getItSocialPost1Img,
+        getItSocialPost2Img,
+        getItSocialPost3Img,
+        getItSocialPost4Img,
+        getItSocialPost5Img,
+        getItSocialPost6Img,
+      ],
+      year: '2024',
+      client: 'Get It Technologies / On-Demand Delivery Co.',
+      description: 'High-conversion multi-post social media campaign featuring rider app launches, express delivery, customer satisfaction, and merchant growth creatives.',
+      badge: 'SOCIAL CAMPAIGN',
+      accentColor: '#F7931A',
+    },
     {
       id: 'quantum-sports-social',
       title: 'QUANTUM FITNESS SOCIAL MEDIA CAROUSEL',

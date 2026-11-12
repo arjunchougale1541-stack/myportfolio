@@ -31,6 +31,13 @@ import devsthanLogoCoverImg from '../assets/images/works/devsthan_samiti_logo_co
 import devsthanLogoCaseStudyImg from '../assets/images/works/devsthan_samiti_logo_case_study.png';
 import getItLogoCoverImg from '../assets/images/works/get_it_logo_cover.png';
 import getItLogoCaseStudyImg from '../assets/images/works/get_it_logo_case_study.png';
+import getItSocialCoverImg from '../assets/images/works/get_it_social_cover.jpg';
+import getItSocialPost1Img from '../assets/images/works/get_it_social_post_1.jpg';
+import getItSocialPost2Img from '../assets/images/works/get_it_social_post_2.jpg';
+import getItSocialPost3Img from '../assets/images/works/get_it_social_post_3.jpg';
+import getItSocialPost4Img from '../assets/images/works/get_it_social_post_4.jpg';
+import getItSocialPost5Img from '../assets/images/works/get_it_social_post_5.jpg';
+import getItSocialPost6Img from '../assets/images/works/get_it_social_post_6.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -357,6 +364,65 @@ export const projectsData: ProjectItem[] = [
       ],
       galleryImages: [
         getItLogoCaseStudyImg,
+      ]
+    }
+  },
+  {
+    id: 'get-it-social-campaign',
+    number: '06',
+    title: 'GET IT - ON-DEMAND DELIVERY SOCIAL MEDIA CAMPAIGN',
+    subtitle: 'High-Conversion Digital Ad Creatives & App Launch Posts',
+    year: '2024',
+    client: 'Get It Technologies / On-Demand Delivery Co.',
+    description: 'High-conversion multi-post social media campaign featuring rider app launches, express delivery, customer satisfaction, and merchant growth creatives.',
+    tags: ['Social Media Posts', 'Digital Advertising', 'Campaign Design', 'Branding'],
+    mockupSide: 'right',
+    badge: 'SOCIAL CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#F7931A',
+    bgTone: '#171410',
+    coverImage: getItSocialCoverImg,
+    projectImages: [
+      getItSocialPost1Img,
+      getItSocialPost2Img,
+      getItSocialPost3Img,
+      getItSocialPost4Img,
+      getItSocialPost5Img,
+      getItSocialPost6Img,
+    ],
+    images: [
+      getItSocialPost1Img,
+      getItSocialPost2Img,
+      getItSocialPost3Img,
+      getItSocialPost4Img,
+      getItSocialPost5Img,
+      getItSocialPost6Img,
+    ],
+    details: {
+      overview: 'A complete multi-channel social media ad campaign designed for GET IT, an on-demand quick-commerce and parcel delivery platform. The 6-creative suite combines bold typography, vibrant brand orange gradients, real-world lifestyle photography, app interface previews, and strong call-to-actions engineered to drive app downloads, brand trust, merchant acquisition, and user retention.',
+      role: 'Lead Visual Designer & Social Campaign Strategist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Vibrant Orange', hex: '#F7931A' },
+        { name: 'Pure Charcoal', hex: '#4A4A4A' },
+        { name: 'Clean White', hex: '#FFFFFF' }
+      ],
+      deliverables: [
+        'Post 01: Hero App Launch & Store Download Creative',
+        'Post 02: Fast Doorstep Delivery & Customer Satisfaction Ad',
+        'Post 03: Parcel Logistics & Real-Time Fleet Delivery Creative',
+        'Post 04: Doorstep Convenience & Mobile Live Tracking Ad',
+        'Post 05: Merchant Partnership & Business Growth Campaign',
+        'Post 06: Express Night Delivery & Instant Essentials Ad'
+      ],
+      galleryImages: [
+        getItSocialPost1Img,
+        getItSocialPost2Img,
+        getItSocialPost3Img,
+        getItSocialPost4Img,
+        getItSocialPost5Img,
+        getItSocialPost6Img,
       ]
     }
   },
