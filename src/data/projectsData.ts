@@ -53,6 +53,15 @@ import konnectCompilerSocialPost4Img from '../assets/images/works/konnect_compil
 import konnectCompilerSocialPost5Img from '../assets/images/works/konnect_compiler_social_post_5.jpg';
 import konnectCompilerSocialPost6Img from '../assets/images/works/konnect_compiler_social_post_6.jpg';
 import konnectCompilerSocialPost7Img from '../assets/images/works/konnect_compiler_social_post_7.jpg';
+import candyCloudSocialCoverImg from '../assets/images/works/candy_cloud_social_cover.jpg';
+import candyCloudSocialPost1Img from '../assets/images/works/candy_cloud_social_post_1.jpg';
+import candyCloudSocialPost2Img from '../assets/images/works/candy_cloud_social_post_2.jpg';
+import candyCloudSocialPost3Img from '../assets/images/works/candy_cloud_social_post_3.jpg';
+import candyCloudSocialPost4Img from '../assets/images/works/candy_cloud_social_post_4.jpg';
+import candyCloudSocialPost5Img from '../assets/images/works/candy_cloud_social_post_5.jpg';
+import candyCloudSocialPost6Img from '../assets/images/works/candy_cloud_social_post_6.jpg';
+import candyCloudSocialPost7Img from '../assets/images/works/candy_cloud_social_post_7.jpg';
+import candyCloudSocialPost8Img from '../assets/images/works/candy_cloud_social_post_8.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -560,6 +569,73 @@ export const projectsData: ProjectItem[] = [
         konnectCompilerSocialPost5Img,
         konnectCompilerSocialPost6Img,
         konnectCompilerSocialPost7Img,
+      ]
+    }
+  },
+  {
+    id: 'candy-cloud-social-campaign',
+    number: '09',
+    title: 'CANDY CLOUD - CONFECTIONERY SOCIAL MEDIA CAMPAIGN',
+    subtitle: 'High-Conversion D2C Ad Creatives & Sweet Treat Promos',
+    year: '2024',
+    client: 'Candy Cloud Confectionery D2C',
+    description: 'Vibrant, joyful confectionery social media ad campaign featuring gourmet sweets, 3D candy typography, family sharing boxes, and interactive engagement creatives.',
+    tags: ['Social Media Posts', 'D2C Campaign', 'Product Advertising', 'Branding'],
+    mockupSide: 'left',
+    badge: 'D2C CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#ec4899',
+    bgTone: '#1f0d19',
+    coverImage: candyCloudSocialCoverImg,
+    projectImages: [
+      candyCloudSocialPost1Img,
+      candyCloudSocialPost2Img,
+      candyCloudSocialPost3Img,
+      candyCloudSocialPost4Img,
+      candyCloudSocialPost5Img,
+      candyCloudSocialPost6Img,
+      candyCloudSocialPost7Img,
+      candyCloudSocialPost8Img,
+    ],
+    images: [
+      candyCloudSocialPost1Img,
+      candyCloudSocialPost2Img,
+      candyCloudSocialPost3Img,
+      candyCloudSocialPost4Img,
+      candyCloudSocialPost5Img,
+      candyCloudSocialPost6Img,
+      candyCloudSocialPost7Img,
+      candyCloudSocialPost8Img,
+    ],
+    details: {
+      overview: 'A delightful and high-converting multi-post social media campaign designed for Candy Cloud, a playful gourmet confectionery brand. The 8-creative suite fuses pastel dreamscapes, tactile 3D candy typography, whimsical lifestyle scenes ("For kids and adults alike", "Candy means joy"), playful interactive games (Candy Donut Tic-Tac-Toe), and irresistible product showcases designed to spark joy, drive direct-to-consumer online orders, and build memorable brand love.',
+      role: 'Lead Visual Designer & Social Campaign Strategist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Candy Cloud Pink', hex: '#EC4899' },
+        { name: 'Sweet Cotton Purple', hex: '#A855F7' },
+        { name: 'Pastel Marshmallow Cream', hex: '#FDF2F8' }
+      ],
+      deliverables: [
+        'Post 01: "For Kids and Adults Alike" - Generational Joy Lifestyle Creative',
+        'Post 02: "Sweet Picks" - Gourmet Confectionery Menu & Product Trio Showcase',
+        'Post 03: "Candy for the Winner" - Playful Donut & Candy Cane Tic-Tac-Toe Game',
+        'Post 04: "Candy Means Joy" - Whimsical Donut Glasses Lifestyle Portrait',
+        'Post 05: "Makes Every Day Sweeter" - Handcrafted 3D Candy Cloud Brand Typography',
+        'Post 06: "Next-Level Candy" - Vibrant Gen-Z Streetwear & Giant Swirl Lollipop',
+        'Post 07: "JOY" - Towering Gourmet Confectionery & 3D Statement Lettering',
+        'Post 08: "Family Candy Box" - Luxury Hamper Box & Sharing Platter Showcase'
+      ],
+      galleryImages: [
+        candyCloudSocialPost1Img,
+        candyCloudSocialPost2Img,
+        candyCloudSocialPost3Img,
+        candyCloudSocialPost4Img,
+        candyCloudSocialPost5Img,
+        candyCloudSocialPost6Img,
+        candyCloudSocialPost7Img,
+        candyCloudSocialPost8Img,
       ]
     }
   },

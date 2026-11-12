@@ -59,6 +59,15 @@ import konnectCompilerSocialPost4Img from '../assets/images/works/konnect_compil
 import konnectCompilerSocialPost5Img from '../assets/images/works/konnect_compiler_social_post_5.jpg';
 import konnectCompilerSocialPost6Img from '../assets/images/works/konnect_compiler_social_post_6.jpg';
 import konnectCompilerSocialPost7Img from '../assets/images/works/konnect_compiler_social_post_7.jpg';
+import candyCloudSocialCoverImg from '../assets/images/works/candy_cloud_social_cover.jpg';
+import candyCloudSocialPost1Img from '../assets/images/works/candy_cloud_social_post_1.jpg';
+import candyCloudSocialPost2Img from '../assets/images/works/candy_cloud_social_post_2.jpg';
+import candyCloudSocialPost3Img from '../assets/images/works/candy_cloud_social_post_3.jpg';
+import candyCloudSocialPost4Img from '../assets/images/works/candy_cloud_social_post_4.jpg';
+import candyCloudSocialPost5Img from '../assets/images/works/candy_cloud_social_post_5.jpg';
+import candyCloudSocialPost6Img from '../assets/images/works/candy_cloud_social_post_6.jpg';
+import candyCloudSocialPost7Img from '../assets/images/works/candy_cloud_social_post_7.jpg';
+import candyCloudSocialPost8Img from '../assets/images/works/candy_cloud_social_post_8.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -107,7 +116,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 3,
+    count: 4,
   },
   {
     id: 'branding',
@@ -418,6 +427,39 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'High-impact educational social media campaign featuring full-stack web development, Python, SQL databases, mobile apps, and youth innovator coding courses.',
       badge: 'EDTECH CAMPAIGN',
       accentColor: '#06b6d4',
+    },
+    {
+      id: 'candy-cloud-social-campaign',
+      title: 'CANDY CLOUD - CONFECTIONERY SOCIAL MEDIA CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding', 'Packaging Design'],
+      image: candyCloudSocialCoverImg,
+      coverImage: candyCloudSocialCoverImg,
+      projectImages: [
+        candyCloudSocialPost1Img,
+        candyCloudSocialPost2Img,
+        candyCloudSocialPost3Img,
+        candyCloudSocialPost4Img,
+        candyCloudSocialPost5Img,
+        candyCloudSocialPost6Img,
+        candyCloudSocialPost7Img,
+        candyCloudSocialPost8Img,
+      ],
+      images: [
+        candyCloudSocialPost1Img,
+        candyCloudSocialPost2Img,
+        candyCloudSocialPost3Img,
+        candyCloudSocialPost4Img,
+        candyCloudSocialPost5Img,
+        candyCloudSocialPost6Img,
+        candyCloudSocialPost7Img,
+        candyCloudSocialPost8Img,
+      ],
+      year: '2024',
+      client: 'Candy Cloud Confectionery D2C',
+      description: 'Vibrant, joyful confectionery social media ad campaign featuring gourmet sweets, 3D candy typography, family sharing boxes, and interactive engagement creatives.',
+      badge: 'D2C CAMPAIGN',
+      accentColor: '#ec4899',
     },
   ],
 
