@@ -68,6 +68,13 @@ import candyCloudSocialPost5Img from '../assets/images/works/candy_cloud_social_
 import candyCloudSocialPost6Img from '../assets/images/works/candy_cloud_social_post_6.jpg';
 import candyCloudSocialPost7Img from '../assets/images/works/candy_cloud_social_post_7.jpg';
 import candyCloudSocialPost8Img from '../assets/images/works/candy_cloud_social_post_8.jpg';
+import hyperlexSocialCoverImg from '../assets/images/works/hyperlex_social_cover.jpg';
+import hyperlexSocialPost1Img from '../assets/images/works/hyperlex_social_post_1.jpg';
+import hyperlexSocialPost2Img from '../assets/images/works/hyperlex_social_post_2.jpg';
+import hyperlexSocialPost3Img from '../assets/images/works/hyperlex_social_post_3.jpg';
+import hyperlexSocialPost4Img from '../assets/images/works/hyperlex_social_post_4.jpg';
+import hyperlexSocialPost5Img from '../assets/images/works/hyperlex_social_post_5.jpg';
+import hyperlexSocialPost6Img from '../assets/images/works/hyperlex_social_post_6.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -116,7 +123,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 4,
+    count: 5,
   },
   {
     id: 'branding',
@@ -460,6 +467,35 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Vibrant, joyful confectionery social media ad campaign featuring gourmet sweets, 3D candy typography, family sharing boxes, and interactive engagement creatives.',
       badge: 'D2C CAMPAIGN',
       accentColor: '#ec4899',
+    },
+    {
+      id: 'hyperlex-social-campaign',
+      title: 'HYPERLEX - PREMIUM PPF & CAR CARE SOCIAL MEDIA CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding'],
+      image: hyperlexSocialCoverImg,
+      coverImage: hyperlexSocialCoverImg,
+      projectImages: [
+        hyperlexSocialPost1Img,
+        hyperlexSocialPost2Img,
+        hyperlexSocialPost3Img,
+        hyperlexSocialPost4Img,
+        hyperlexSocialPost5Img,
+        hyperlexSocialPost6Img,
+      ],
+      images: [
+        hyperlexSocialPost1Img,
+        hyperlexSocialPost2Img,
+        hyperlexSocialPost3Img,
+        hyperlexSocialPost4Img,
+        hyperlexSocialPost5Img,
+        hyperlexSocialPost6Img,
+      ],
+      year: '2024',
+      client: 'Hyperlex Premium Car Care Center',
+      description: 'High-octane luxury automotive social media campaign highlighting Paint Protection Film (PPF), ceramic coating, studio precision detailing, and showroom finish protection.',
+      badge: 'AUTOMOTIVE CAMPAIGN',
+      accentColor: '#ea580c',
     },
   ],
 

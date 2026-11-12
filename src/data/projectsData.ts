@@ -62,6 +62,13 @@ import candyCloudSocialPost5Img from '../assets/images/works/candy_cloud_social_
 import candyCloudSocialPost6Img from '../assets/images/works/candy_cloud_social_post_6.jpg';
 import candyCloudSocialPost7Img from '../assets/images/works/candy_cloud_social_post_7.jpg';
 import candyCloudSocialPost8Img from '../assets/images/works/candy_cloud_social_post_8.jpg';
+import hyperlexSocialCoverImg from '../assets/images/works/hyperlex_social_cover.jpg';
+import hyperlexSocialPost1Img from '../assets/images/works/hyperlex_social_post_1.jpg';
+import hyperlexSocialPost2Img from '../assets/images/works/hyperlex_social_post_2.jpg';
+import hyperlexSocialPost3Img from '../assets/images/works/hyperlex_social_post_3.jpg';
+import hyperlexSocialPost4Img from '../assets/images/works/hyperlex_social_post_4.jpg';
+import hyperlexSocialPost5Img from '../assets/images/works/hyperlex_social_post_5.jpg';
+import hyperlexSocialPost6Img from '../assets/images/works/hyperlex_social_post_6.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -636,6 +643,65 @@ export const projectsData: ProjectItem[] = [
         candyCloudSocialPost6Img,
         candyCloudSocialPost7Img,
         candyCloudSocialPost8Img,
+      ]
+    }
+  },
+  {
+    id: 'hyperlex-social-campaign',
+    number: '10',
+    title: 'HYPERLEX - PREMIUM PPF & CAR CARE SOCIAL MEDIA CAMPAIGN',
+    subtitle: 'High-Impact Luxury Automotive Creatives & Studio Detailing Showcase',
+    year: '2024',
+    client: 'Hyperlex Premium Car Care Center',
+    description: 'High-octane luxury automotive social media campaign highlighting Paint Protection Film (PPF), ceramic coating, studio precision detailing, and showroom finish protection.',
+    tags: ['Social Media Posts', 'Automotive Detailing', 'Campaign Design', 'PPF Car Care'],
+    mockupSide: 'right',
+    badge: 'AUTOMOTIVE CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#ea580c',
+    bgTone: '#150a06',
+    coverImage: hyperlexSocialCoverImg,
+    projectImages: [
+      hyperlexSocialPost1Img,
+      hyperlexSocialPost2Img,
+      hyperlexSocialPost3Img,
+      hyperlexSocialPost4Img,
+      hyperlexSocialPost5Img,
+      hyperlexSocialPost6Img,
+    ],
+    images: [
+      hyperlexSocialPost1Img,
+      hyperlexSocialPost2Img,
+      hyperlexSocialPost3Img,
+      hyperlexSocialPost4Img,
+      hyperlexSocialPost5Img,
+      hyperlexSocialPost6Img,
+    ],
+    details: {
+      overview: 'A high-performance automotive social media campaign created for Hyperlex Premium Car Care Center. The 6-post creative campaign highlights precision Paint Protection Film (PPF) installations, ceramic coating gloss, hydrophobic surface protection, and elite craftsmanship on exotic vehicles including the BMW M4 and Brabus G-Wagon under dramatic studio lighting. Designed to drive luxury vehicle owner bookings, brand authority, and detailing studio footfall.',
+      role: 'Lead Visual Designer & Automotive Campaign Strategist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Hyperlex Spark Orange', hex: '#EA580C' },
+        { name: 'Carbon Studio Black', hex: '#111111' },
+        { name: 'Metallic Chrome Silver', hex: '#E5E7EB' }
+      ],
+      deliverables: [
+        'Post 01: "Flawless Finish" - Precision Hand Inspection & Key Feature Icons',
+        'Post 02: "Protection For Your Pride" - BMW M4 Dual-Tech PPF Application',
+        'Post 03: "Lasting Shine" - Brabus G-Wagon Full Body PPF Installation',
+        'Post 04: "Service Center" - Specialized Hood Film Stretching & Studio Detail',
+        'Post 05: "Service Centre Hero" - Ruby Red BMW M4 Two-Technician Film Wrapping',
+        'Post 06: "Protect, Enhance, Maintain" - Final Microfiber Buff & Studio Showcase'
+      ],
+      galleryImages: [
+        hyperlexSocialPost1Img,
+        hyperlexSocialPost2Img,
+        hyperlexSocialPost3Img,
+        hyperlexSocialPost4Img,
+        hyperlexSocialPost5Img,
+        hyperlexSocialPost6Img,
       ]
     }
   },
