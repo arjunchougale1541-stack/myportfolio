@@ -88,6 +88,15 @@ import swaraSocialPost2Img from '../assets/images/works/swara_social_post_2.jpg'
 import swaraSocialPost3Img from '../assets/images/works/swara_social_post_3.jpg';
 import swaraSocialPost4Img from '../assets/images/works/swara_social_post_4.jpg';
 import swaraSocialPost5Img from '../assets/images/works/swara_social_post_5.jpg';
+import marbexSocialCoverImg from '../assets/images/works/marbex_social_cover.jpg';
+import marbexSocialPost1Img from '../assets/images/works/marbex_social_post_1.jpg';
+import marbexSocialPost2Img from '../assets/images/works/marbex_social_post_2.jpg';
+import marbexSocialPost3Img from '../assets/images/works/marbex_social_post_3.jpg';
+import marbexSocialPost4Img from '../assets/images/works/marbex_social_post_4.jpg';
+import marbexSocialPost5Img from '../assets/images/works/marbex_social_post_5.jpg';
+import marbexSocialPost6Img from '../assets/images/works/marbex_social_post_6.jpg';
+import marbexSocialPost7Img from '../assets/images/works/marbex_social_post_7.jpg';
+import marbexSocialPost8Img from '../assets/images/works/marbex_social_post_8.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -565,6 +574,39 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Clean, modern smart home automation and electrical solutions social media campaign highlighting energy efficiency, touch automation, safety, and residential & commercial infrastructure.',
       badge: 'SMART HOME CAMPAIGN',
       accentColor: '#1e72d8',
+    },
+    {
+      id: 'marbex-social-campaign',
+      title: 'MARBEX - LUXURY FURNITURE & INTERIORS SOCIAL CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding'],
+      image: marbexSocialCoverImg,
+      coverImage: marbexSocialCoverImg,
+      projectImages: [
+        marbexSocialPost1Img,
+        marbexSocialPost2Img,
+        marbexSocialPost3Img,
+        marbexSocialPost4Img,
+        marbexSocialPost5Img,
+        marbexSocialPost6Img,
+        marbexSocialPost7Img,
+        marbexSocialPost8Img,
+      ],
+      images: [
+        marbexSocialPost1Img,
+        marbexSocialPost2Img,
+        marbexSocialPost3Img,
+        marbexSocialPost4Img,
+        marbexSocialPost5Img,
+        marbexSocialPost6Img,
+        marbexSocialPost7Img,
+        marbexSocialPost8Img,
+      ],
+      year: '2024',
+      client: 'Marbex Home & Luxury Interiors',
+      description: 'Sophisticated social media advertising campaign for Marbex luxury furniture and contemporary interiors, highlighting bespoke living, plush bedrooms, curated seating, and timeless dining spaces.',
+      badge: 'FURNITURE CAMPAIGN',
+      accentColor: '#d4af37',
     },
   ],
 

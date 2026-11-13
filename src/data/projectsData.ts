@@ -82,6 +82,15 @@ import swaraSocialPost2Img from '../assets/images/works/swara_social_post_2.jpg'
 import swaraSocialPost3Img from '../assets/images/works/swara_social_post_3.jpg';
 import swaraSocialPost4Img from '../assets/images/works/swara_social_post_4.jpg';
 import swaraSocialPost5Img from '../assets/images/works/swara_social_post_5.jpg';
+import marbexSocialCoverImg from '../assets/images/works/marbex_social_cover.jpg';
+import marbexSocialPost1Img from '../assets/images/works/marbex_social_post_1.jpg';
+import marbexSocialPost2Img from '../assets/images/works/marbex_social_post_2.jpg';
+import marbexSocialPost3Img from '../assets/images/works/marbex_social_post_3.jpg';
+import marbexSocialPost4Img from '../assets/images/works/marbex_social_post_4.jpg';
+import marbexSocialPost5Img from '../assets/images/works/marbex_social_post_5.jpg';
+import marbexSocialPost6Img from '../assets/images/works/marbex_social_post_6.jpg';
+import marbexSocialPost7Img from '../assets/images/works/marbex_social_post_7.jpg';
+import marbexSocialPost8Img from '../assets/images/works/marbex_social_post_8.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -829,6 +838,74 @@ export const projectsData: ProjectItem[] = [
         swaraSocialPost3Img,
         swaraSocialPost4Img,
         swaraSocialPost5Img,
+      ]
+    }
+  },
+  {
+    id: 'marbex-social-campaign',
+    number: '13',
+    title: 'MARBEX - LUXURY FURNITURE & INTERIORS SOCIAL CAMPAIGN',
+    subtitle: 'High-End Furniture Collections & Curated Living Ad Series',
+    year: '2024',
+    client: 'Marbex Home & Luxury Interiors',
+    description: 'Sophisticated social media advertising campaign for Marbex luxury furniture and contemporary interiors, highlighting bespoke living, plush bedrooms, curated seating, and timeless dining spaces.',
+    tags: ['Social Media Posts', 'Luxury Furniture', 'Interior Design', 'Campaign Design'],
+    mockupSide: 'left',
+    badge: 'FURNITURE CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#d4af37',
+    bgTone: '#17140e',
+    coverImage: marbexSocialCoverImg,
+    projectImages: [
+      marbexSocialPost1Img,
+      marbexSocialPost2Img,
+      marbexSocialPost3Img,
+      marbexSocialPost4Img,
+      marbexSocialPost5Img,
+      marbexSocialPost6Img,
+      marbexSocialPost7Img,
+      marbexSocialPost8Img,
+    ],
+    images: [
+      marbexSocialPost1Img,
+      marbexSocialPost2Img,
+      marbexSocialPost3Img,
+      marbexSocialPost4Img,
+      marbexSocialPost5Img,
+      marbexSocialPost6Img,
+      marbexSocialPost7Img,
+      marbexSocialPost8Img,
+    ],
+    details: {
+      overview: 'A luxury editorial social media advertising campaign designed for Marbex Home & Luxury Interiors. Spanning 8 refined visual creatives, the campaign spotlights bespoke craftsmanship across multiple living spaces: calm master bedroom suites, contemporary curved sofas, sculpted accent chairs, elegant marble dining, playful kids spaces, and regal tufted beds. The visual identity unites warm golden arches, organic curves, rich mustard velvets, natural fluted wood, and aspirational copy ("Invitation to Relax", "Find Your Comfort", "Dine With Class", "Beds Fit for a Queen") engineered to captivate homeowners, interior designers, and luxury lifestyle buyers.',
+      role: 'Lead Visual Designer & Interior Campaign Strategist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Champagne Gold', hex: '#D4AF37' },
+        { name: 'Warm Cream Linen', hex: '#F6F1EA' },
+        { name: 'Rich Mustard Ochre', hex: '#C99326' },
+        { name: 'Charcoal Espresso', hex: '#23201D' }
+      ],
+      deliverables: [
+        'Post 01: "Invitation to RELAX" - Master Bedroom Suite & Upholstered Bed',
+        'Post 02: "Find your COMFORT" - Living Room Bouclé Armchair & Fluted Wood',
+        'Post 03: "Perfect your STYLE" - Mustard Velvet Accent Chair & Sculpted Wall',
+        'Post 04: "NEW COLLECTION" - Contemporary Curved Sofa & Brass Table',
+        'Post 05: "Create the perfect KID\'S ROOM" - Scalloped Bed & House Bookshelf Desk',
+        'Post 06: "Dine with CLASS" - Marble Dining Table & Contemporary Chairs',
+        'Post 07: "Beds fit for a QUEEN" - Royal Gold Carved Tufted Headboard Bed',
+        'Post 08: "Dreams start with SOFT" - Luxury Bedding & Piping Detail Pillows'
+      ],
+      galleryImages: [
+        marbexSocialPost1Img,
+        marbexSocialPost2Img,
+        marbexSocialPost3Img,
+        marbexSocialPost4Img,
+        marbexSocialPost5Img,
+        marbexSocialPost6Img,
+        marbexSocialPost7Img,
+        marbexSocialPost8Img,
       ]
     }
   },
