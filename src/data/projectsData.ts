@@ -76,6 +76,12 @@ import soulFashionSocialPost3Img from '../assets/images/works/soul_fashion_socia
 import soulFashionSocialPost4Img from '../assets/images/works/soul_fashion_social_post_4.jpg';
 import soulFashionSocialPost5Img from '../assets/images/works/soul_fashion_social_post_5.jpg';
 import soulFashionSocialPost6Img from '../assets/images/works/soul_fashion_social_post_6.jpg';
+import swaraSocialCoverImg from '../assets/images/works/swara_social_cover.jpg';
+import swaraSocialPost1Img from '../assets/images/works/swara_social_post_1.jpg';
+import swaraSocialPost2Img from '../assets/images/works/swara_social_post_2.jpg';
+import swaraSocialPost3Img from '../assets/images/works/swara_social_post_3.jpg';
+import swaraSocialPost4Img from '../assets/images/works/swara_social_post_4.jpg';
+import swaraSocialPost5Img from '../assets/images/works/swara_social_post_5.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -768,6 +774,61 @@ export const projectsData: ProjectItem[] = [
         soulFashionSocialPost4Img,
         soulFashionSocialPost5Img,
         soulFashionSocialPost6Img,
+      ]
+    }
+  },
+  {
+    id: 'swara-electricals-social-campaign',
+    number: '12',
+    title: 'SWARA ELECTRICALS - SMART LIVING & ELECTRICAL CAMPAIGN',
+    subtitle: 'High-Impact Smart Home Automation & Retail Hub Campaign',
+    year: '2024',
+    client: 'Swara Electricals & Lighting Hub',
+    description: 'Clean, modern smart home automation and electrical solutions social media campaign highlighting energy efficiency, touch automation, safety, and residential & commercial infrastructure.',
+    tags: ['Social Media Posts', 'Smart Home', 'Campaign Design', 'Electrical Solutions'],
+    mockupSide: 'right',
+    badge: 'SMART HOME CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#1e72d8',
+    bgTone: '#0b1329',
+    coverImage: swaraSocialCoverImg,
+    projectImages: [
+      swaraSocialPost1Img,
+      swaraSocialPost2Img,
+      swaraSocialPost3Img,
+      swaraSocialPost4Img,
+      swaraSocialPost5Img,
+    ],
+    images: [
+      swaraSocialPost1Img,
+      swaraSocialPost2Img,
+      swaraSocialPost3Img,
+      swaraSocialPost4Img,
+      swaraSocialPost5Img,
+    ],
+    details: {
+      overview: 'A sleek, forward-thinking social media ad campaign created for Swara Electricals & Lighting Hub. Designed to position the brand as a modern authority in smart home automation, energy-efficient electrical systems, and residential safety. The 5-creative suite combines clean architectural photography, contemporary lifestyle warmth ("A smarter home for today\'s Indian living"), intuitive touch switches, voice-controlled tech integration, and robust distribution panel gear.',
+      role: 'Lead Visual Designer & Smart Home Campaign Strategist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Electrical Royal Blue', hex: '#1E72D8' },
+        { name: 'Pure Spark White', hex: '#FFFFFF' },
+        { name: 'Modern Matte Graphite', hex: '#1F2937' }
+      ],
+      deliverables: [
+        'Post 01: "A Smarter Home For Today\'s Indian Living" - Family Lifestyle & Tablet Automation',
+        'Post 02: "Powering The Spaces You Care About" - Architecture & Multi-Space Applications',
+        'Post 03: "Safety, Comfort and Convenience - All in Control" - Touch Modular Switch Panel',
+        'Post 04: "Modern Technology, Now For Indian Homes" - Smart Speaker & Switchboard Integration',
+        'Post 05: "Reliable Power For a Brighter Tomorrow" - Quality MCB Circuit Breaker Panel'
+      ],
+      galleryImages: [
+        swaraSocialPost1Img,
+        swaraSocialPost2Img,
+        swaraSocialPost3Img,
+        swaraSocialPost4Img,
+        swaraSocialPost5Img,
       ]
     }
   },

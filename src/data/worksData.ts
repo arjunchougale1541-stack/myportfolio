@@ -82,6 +82,12 @@ import soulFashionSocialPost3Img from '../assets/images/works/soul_fashion_socia
 import soulFashionSocialPost4Img from '../assets/images/works/soul_fashion_social_post_4.jpg';
 import soulFashionSocialPost5Img from '../assets/images/works/soul_fashion_social_post_5.jpg';
 import soulFashionSocialPost6Img from '../assets/images/works/soul_fashion_social_post_6.jpg';
+import swaraSocialCoverImg from '../assets/images/works/swara_social_cover.jpg';
+import swaraSocialPost1Img from '../assets/images/works/swara_social_post_1.jpg';
+import swaraSocialPost2Img from '../assets/images/works/swara_social_post_2.jpg';
+import swaraSocialPost3Img from '../assets/images/works/swara_social_post_3.jpg';
+import swaraSocialPost4Img from '../assets/images/works/swara_social_post_4.jpg';
+import swaraSocialPost5Img from '../assets/images/works/swara_social_post_5.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -130,7 +136,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 6,
+    count: 7,
   },
   {
     id: 'branding',
@@ -532,6 +538,33 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Opulent high-fashion social media campaign celebrating contemporary Indian ethnic wear, festive collections, editorial broadsheets, and timeless fusion apparel.',
       badge: 'FASHION CAMPAIGN',
       accentColor: '#751a1f',
+    },
+    {
+      id: 'swara-electricals-social-campaign',
+      title: 'SWARA ELECTRICALS - SMART LIVING & ELECTRICAL CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding'],
+      image: swaraSocialCoverImg,
+      coverImage: swaraSocialCoverImg,
+      projectImages: [
+        swaraSocialPost1Img,
+        swaraSocialPost2Img,
+        swaraSocialPost3Img,
+        swaraSocialPost4Img,
+        swaraSocialPost5Img,
+      ],
+      images: [
+        swaraSocialPost1Img,
+        swaraSocialPost2Img,
+        swaraSocialPost3Img,
+        swaraSocialPost4Img,
+        swaraSocialPost5Img,
+      ],
+      year: '2024',
+      client: 'Swara Electricals & Lighting Hub',
+      description: 'Clean, modern smart home automation and electrical solutions social media campaign highlighting energy efficiency, touch automation, safety, and residential & commercial infrastructure.',
+      badge: 'SMART HOME CAMPAIGN',
+      accentColor: '#1e72d8',
     },
   ],
 
