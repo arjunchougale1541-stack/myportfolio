@@ -75,50 +75,89 @@ export const CollaborateModal: React.FC<CollaborateModalProps> = ({ isOpen, onCl
     setIsSubmitting(true);
 
     try {
-      const endpoint =
-        import.meta.env.VITE_FORMSPREE_ID
-          ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
-          : (import.meta.env.VITE_CONTACT_ENDPOINT || 'https://formsubmit.co/ajax/arjunchougale1541@gmail.com');
+      // Primary: Direct Serverless Function with Nodemailer & Gmail App Password
+      let success = false;
+      let errorMsg: string | null = null;
 
-      const payload = {
-        _subject: `New Portfolio Inquiry – ${name.trim()}`,
-        _replyto: email.trim(),
-        _template: 'table',
-        _captcha: 'false',
-        'New Collaboration Request Received!': '----------------------------------------',
-        'Client Name': name.trim(),
-        'Client Email': email.trim(),
-        'Service Interested In': service,
-        'Project Summary': message.trim(),
-        name: name.trim(),
-        email: email.trim(),
-        service: service,
-        message: message.trim(),
-      };
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: name.trim(),
+            email: email.trim(),
+            service,
+            message: message.trim(),
+          }),
+        });
 
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && (data.success === true || data.success === 'true')) {
+          success = true;
+        } else {
+          errorMsg = data.message;
+        }
+      } catch (backendErr) {
+        // Fallback to FormSubmit if /api/contact is unavailable (e.g. static dev preview)
+        console.warn('Backend endpoint unreached, attempting fallback dispatch:', backendErr);
+      }
 
-      const data = await response.json().catch(() => ({}));
+      if (!success) {
+        const fallbackEndpoint =
+          import.meta.env.VITE_FORMSPREE_ID
+            ? `https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`
+            : (import.meta.env.VITE_CONTACT_ENDPOINT || 'https://formsubmit.co/ajax/arjunchougale1541@gmail.com');
 
-      if (response.ok && (data.success === 'true' || data.success === true || data.ok)) {
-        setSubmitted(true);
-        setErrorMessage(null);
-      } else if (data.message && typeof data.message === 'string' && data.message.toLowerCase().includes('activation')) {
-        // FormSubmit one-time activation request
+        const fallbackPayload = {
+          _subject: `New Portfolio Inquiry – ${name.trim()}`,
+          _replyto: email.trim(),
+          _template: 'table',
+          _captcha: 'false',
+          'New Collaboration Request Received!': '----------------------------------------',
+          'Client Name': name.trim(),
+          'Client Email': email.trim(),
+          'Service Interested In': service,
+          'Project Summary': message.trim(),
+          name: name.trim(),
+          email: email.trim(),
+          service: service,
+          message: message.trim(),
+        };
+
+        const fallbackRes = await fetch(fallbackEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify(fallbackPayload),
+        });
+
+        const fallbackData = await fallbackRes.json().catch(() => ({}));
+        if (
+          fallbackRes.ok &&
+          (fallbackData.success === 'true' ||
+            fallbackData.success === true ||
+            fallbackData.ok ||
+            (fallbackData.message && fallbackData.message.toLowerCase().includes('activation')))
+        ) {
+          success = true;
+        } else {
+          errorMsg = fallbackData.message || errorMsg;
+        }
+      }
+
+      if (success) {
         setSubmitted(true);
         setErrorMessage(null);
       } else {
-        const errorText =
-          (data && data.message) ||
-          'Failed to send inquiry. Please try again or reach out directly at arjunchougale1541@gmail.com.';
-        setErrorMessage(errorText);
+        setErrorMessage(
+          errorMsg ||
+            'Failed to deliver inquiry. Please try again or reach out directly at arjunchougale1541@gmail.com.'
+        );
       }
     } catch (err) {
       setErrorMessage(
