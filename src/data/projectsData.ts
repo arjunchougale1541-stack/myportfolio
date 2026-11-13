@@ -477,13 +477,13 @@ export const projectsData: ProjectItem[] = [
     subtitle: 'High-Conversion Editorial Ad Creatives & Scent Launch Series',
     year: '2024',
     client: 'Dimora Haute Parfumerie',
-    description: 'High-conversion editorial social media ad campaign for Dimora luxury fragrance, featuring product hero showcases, lifestyle model features, and gift packaging creatives.',
+    description: 'High-conversion editorial social media ad campaign for Dimora luxury fragrance, featuring product hero showcases, olfactory note pyramids, and luxury gift packaging creatives.',
     tags: ['Social Media Posts', 'Luxury Branding', 'Campaign Design', 'Product Ads'],
     mockupSide: 'left',
     badge: 'LUXURY CAMPAIGN',
     category: 'Social Media Posts',
-    accentColor: '#a31d24',
-    bgTone: '#1a0d0f',
+    accentColor: '#c5a880',
+    bgTone: '#15110e',
     coverImage: dimoraSocialCoverImg,
     projectImages: [
       dimoraSocialPost1Img,
@@ -502,22 +502,22 @@ export const projectsData: ProjectItem[] = [
       dimoraSocialPost6Img,
     ],
     details: {
-      overview: 'A premium social media advertising suite created for Dimora Haute Parfumerie. The 6-post campaign blends high-fashion editorial aesthetics, cinematic lighting, rich burgundy crimson gradients, and compelling luxury copy ("Own The Essence", "Ignite Your Aura", "Make Your Presence Last") designed to drive prestige brand recall, high engagement, and direct e-commerce sales.',
+      overview: 'A premium social media advertising suite created for Dimora Haute Parfumerie. The 6-post campaign blends high-end luxury aesthetics, warm amber and champagne lighting, gold foil accents, and refined typography ("The Refined Choice", "More Than a Fragrance. It\'s A Mood", "A Signature of Sophistication") with detailed olfactory ingredient storytelling designed to drive prestige brand prestige, engagement, and direct conversions.',
       role: 'Lead Art Director & Luxury Campaign Designer',
       timeline: '2 Weeks (2024)',
       tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
       colors: [
-        { name: 'Imperial Ruby Crimson', hex: '#A31D24' },
-        { name: 'Warm Champagne Gold', hex: '#C7B299' },
-        { name: 'Silk Ivory Cream', hex: '#F7F3EB' }
+        { name: 'Warm Amber Gold', hex: '#D4AF37' },
+        { name: 'Champagne Silk Cream', hex: '#F5EFEB' },
+        { name: 'Espresso Obsidian', hex: '#1E1714' }
       ],
       deliverables: [
-        'Post 01: "Own The Essence" - Flagship Product Hero Showcase',
-        'Post 02: "Ignite Your Aura" - High-Impact Crimson Brand Statement Ad',
-        'Post 03: "Make Your Presence Last" - High-Fashion Editorial Model Feature',
-        'Post 04: "Elevate Every Moment" - Luxury Rigid Box Gift Set Creative',
-        'Post 05: "Scent That Defines You" - Raw Volcanic Stone Mineral Display',
-        'Post 06: "Your Scent Your Statement" - Dramatic Glass Reflection Ad'
+        'Post 01: "The Refined Choice" - Flagship Porcelain Bottle & Luxury Features Showcase',
+        'Post 02: "It\'s A Mood" - Sunlit Caustics & Amber Glass Flacon Composition',
+        'Post 03: "A Signature of Sophistication" - Smoked Glass Flacon & Jasmine Floral Plinth',
+        'Post 04: "Fragrance Notes Pyramid" - Pearlescent Bottle with Jasmine, Sandalwood & Amber Notes',
+        'Post 05: "A Refined Experience" - Matte Black Rigid Gift Box on Champagne Velvet',
+        'Post 06: "Timeless Notes Blend" - Arched Triptych Floral, Woody & Amber Ingredient Feature'
       ],
       galleryImages: [
         dimoraSocialPost1Img,

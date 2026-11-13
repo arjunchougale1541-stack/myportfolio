@@ -384,9 +384,9 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       ],
       year: '2024',
       client: 'Dimora Haute Parfumerie',
-      description: 'High-conversion editorial social media ad campaign for Dimora luxury fragrance, featuring product hero showcases, lifestyle model features, and gift packaging creatives.',
+      description: 'High-conversion editorial social media ad campaign for Dimora luxury fragrance, featuring product hero showcases, olfactory note pyramids, and luxury gift packaging creatives.',
       badge: 'LUXURY CAMPAIGN',
-      accentColor: '#a31d24',
+      accentColor: '#c5a880',
     },
     {
       id: 'get-it-social-campaign',
