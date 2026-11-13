@@ -95,6 +95,7 @@ import makatoChipsReelCoverImg from '../assets/images/works/makato_chips_reel_co
 import arvindBusinessReelCoverImg from '../assets/images/works/arvind_business_reel_cover.jpg';
 import avyuktaRealtyReelCoverImg from '../assets/images/works/avyukta_realty_reel_cover.jpg';
 import doshiWealthIepfReelCoverImg from '../assets/images/works/doshi_wealth_iepf_reel_cover.jpg';
+import fourtwntyStreetwearReelCoverImg from '../assets/images/works/fourtwnty_streetwear_reel_cover.jpg';
 import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
@@ -151,7 +152,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'reels',
     name: 'Reels',
     subtitle: 'High-impact commercial video edits, D2C brand reels, and dynamic motion graphics.',
-    count: 6,
+    count: 7,
   },
 ];
 
@@ -889,6 +890,56 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
           category: 'Reels / Finance & Wealth Advisory',
           year: '2024',
           role: 'Lead Video Editor & Motion Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (30 FPS)',
+        },
+      },
+    },
+    {
+      id: 'fourtwnty-streetwear-lookbook-reel',
+      title: '4TWNTY - URBAN STREETWEAR LOOKBOOK REEL',
+      category: 'Reels',
+      categories: ['Reels', 'Social Media Posts'],
+      image: fourtwntyStreetwearReelCoverImg,
+      coverImage: fourtwntyStreetwearReelCoverImg,
+      projectImages: [fourtwntyStreetwearReelCoverImg],
+      images: [fourtwntyStreetwearReelCoverImg],
+      year: '2024',
+      client: '4twnty Apparel',
+      description: 'Underground fashion lookbook reel featuring high-contrast studio spotlighting, model walk dynamics, and aggressive beat-synced cuts showcasing the new drop.',
+      badge: 'STREETWEAR LOOKBOOK',
+      accentColor: '#ef4444',
+      videoUrl: '/videos/reels/fourtwnty_streetwear_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/fourtwnty_streetwear_reel.mp4',
+        title: '4TWNTY - URBAN STREETWEAR LOOKBOOK REEL',
+        client: '4twnty Apparel',
+        overview: {
+          description: 'An edgy, high-energy fashion lookbook reel crafted for indie streetwear label 4TWNTY. Shot in a minimalist black studio with focused key spotlights, the video highlights the brand\'s signature monochrome crop silhouette paired with oversized utility denim, exuding raw urban attitude and confident street style.',
+          objective: 'Elevate 4TWNTY\'s brand presence on Instagram and TikTok, showcase garment fit, movement, and styling details, and drive drop sales through an aesthetically captivating, beat-driven vertical showcase.',
+        },
+        creativeDirection: 'Moody, high-fashion underground streetwear visual language. Dramatic spotlight fall-offs against pitch-black backgrounds, high contrast lighting emphasizing garment textures and contours, blended with bold crimson red gothic typography and edgy urban attitude.',
+        editingProcess: {
+          description: 'Cut with aggressive rhythmic precision to a thumping trap beat. Utilizes micro speed ramps, seamless whip transitions, subtle motion blurs, cinematic punch-ins, and camera snap-zooms that lock the viewer\'s focus on the model\'s stride and styling details. Finished with film grain emulation and stylized crimson typographic branding.',
+          techniques: [
+            'Beat-Synchronized Rhythmic Cuts',
+            'Dynamic Speed Ramping & Whip Transitions',
+            'Camera Snap-Zooms & Punch-Ins',
+            'High-Contrast Fashion Color Grading',
+            'Gothic Typographic Motion Design',
+            'Trap Foley & Impact Audio Design',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Fashion & Streetwear',
+          year: '2024',
+          role: 'Lead Video Editor & Colorist',
           format: 'Vertical Video (9:16)',
           aspectRatio: '1080 x 1920 (30 FPS)',
         },
