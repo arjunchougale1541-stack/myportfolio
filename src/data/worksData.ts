@@ -1,16 +1,11 @@
 import axialImg from '../assets/images/axial_graphic_cover.jpg';
 import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.jpg';
 import candyImg from '../assets/images/candy_cloud_cover.jpg';
-import candyCloudUiuxImg from '../assets/images/candy_cloud_uiux_full.png';
 import candyCloudCaseStudyImg from '../assets/images/candy_cloud_case_study_full.webp';
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
-import auroraPackagingImg from '../assets/images/works/aurora_packaging.jpg';
-import fintechUiuxImg from '../assets/images/works/fintech_dashboard.jpg';
 import kineticMotionImg from '../assets/images/works/kinetic_typography.jpg';
 import fitnessSocialImg from '../assets/images/works/fitness_campaign.jpg';
-import auroraLogoImg from '../assets/images/works/aurora_logomark.jpg';
-import botanicalPackagingImg from '../assets/images/works/botanical_packaging.jpg';
 import streetwearReelImg from '../assets/images/works/streetwear_reel.jpg';
 import swaraLogoCoverImg from '../assets/images/works/swara_logo_cover.png';
 import swaraLogoCaseStudyImg from '../assets/images/works/swara_logo_case_study.png';
@@ -148,18 +143,6 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'reels',
     name: 'Reels',
     subtitle: 'High-retention cinematic edits, bass-synced drops, and viral video cuts.',
-    count: 6,
-  },
-  {
-    id: 'motion-graphic',
-    name: 'Motion Graphic',
-    subtitle: 'Dynamic 3D kinetic typography, animated ribbons, and living posters.',
-    count: 6,
-  },
-  {
-    id: 'uiux-design',
-    name: 'UIUX Design',
-    subtitle: 'Dark-mode analytics dashboards, fintech mobile apps, and Figma kits.',
     count: 6,
   },
 ];
@@ -697,177 +680,6 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
     },
   ],
 
-  'motion-graphic': [
-    {
-      id: 'kinetic-motion-typography',
-      title: 'CYBERPULSE 3D KINETIC TYPOGRAPHY',
-      category: 'Motion Graphic',
-      categories: ['Motion Graphic', 'Reels'],
-      image: kineticMotionImg,
-      year: '2024',
-      client: 'CyberPulse Sound Festival',
-      description: 'Dynamic 3D kinetic typography and neon light trail ribbon animation for concert visuals and reels.',
-      badge: 'MOTION REEL',
-      accentColor: '#a855f7',
-    },
-    {
-      id: 'synthwave-audio-spectrum',
-      title: 'NEON WAVE AUDIO REACTIVE VISUALIZER',
-      category: 'Motion Graphic',
-      categories: ['Motion Graphic'],
-      image: kineticMotionImg,
-      year: '2024',
-      client: 'Axial Sound Labs',
-      description: 'Real-time procedural frequency visualizer built in After Effects with responsive chromatic aberration.',
-      badge: 'AUDIO MOTION',
-      accentColor: '#ec4899',
-    },
-    {
-      id: 'nexus-fintech-3d-loop',
-      title: 'NEXUS LIQUID DATA TRANSACTION LOOP',
-      category: 'Motion Graphic',
-      categories: ['Motion Graphic', 'UIUX Design'],
-      image: fintechUiuxImg,
-      year: '2024',
-      client: 'Nexus Cloud Analytics',
-      description: 'Hypnotic 3D spline data sphere visualizing global financial transfers for marketing landing pages.',
-      badge: '3D ABSTRACT',
-      accentColor: '#06b6d4',
-    },
-    {
-      id: 'aurora-sonic-logo-reveal',
-      title: 'AURORA 3D METALLIC LOGO REVEAL',
-      category: 'Motion Graphic',
-      categories: ['Motion Graphic', 'Logo Designs'],
-      image: auroraLogoImg,
-      year: '2024',
-      client: 'Aurora Systems',
-      description: 'Cinema 4D metallic fluid extrusion assembling the Aurora monogram with precision sound design.',
-      badge: 'LOGO REVEAL',
-      accentColor: '#3b82f6',
-    },
-    {
-      id: 'streetwear-hud-graphics',
-      title: 'CYBER TECHWEAR ANIMATED HUD OVERLAYS',
-      category: 'Motion Graphic',
-      categories: ['Motion Graphic', 'Reels'],
-      image: streetwearReelImg,
-      year: '2024',
-      client: 'Sync City Apparel',
-      description: 'Futuristic sci-fi UI wireframes, rotating reticles, and barcode scanners for video overlays.',
-      badge: 'HUD ANIMATION',
-      accentColor: '#14b8a6',
-    },
-    {
-      id: 'axial-living-poster',
-      title: 'AXIAL GRAPHIC LIVING POSTER SERIES',
-      category: 'Motion Graphic',
-      categories: ['Motion Graphic', 'Branding'],
-      image: axialImg,
-      coverImage: axialImg,
-      projectImages: [
-        axialCaseStudyImg,
-      ],
-      images: [
-        axialCaseStudyImg,
-      ],
-      year: '2023',
-      client: 'Axial Graphic Studio',
-      description: 'Continuous kinetic Swiss typography poster loops demonstrating modern grid deconstruction.',
-      badge: 'LIVING POSTER',
-      accentColor: '#4f46e5',
-    },
-  ],
-
-  'uiux-design': [
-    {
-      id: 'fintech-dashboard-uiux',
-      title: 'NEXUS CLOUD DASHBOARD & MOBILE APP',
-      category: 'UIUX Design',
-      categories: ['UIUX Design'],
-      image: fintechUiuxImg,
-      year: '2024',
-      client: 'Nexus Cloud Analytics',
-      description: 'Ultra-modern dark mode analytics interface, real-time performance curves, and mobile responsive dashboard.',
-      badge: 'UI/UX SYSTEM',
-      accentColor: '#06b6d4',
-    },
-    {
-      id: 'fintech-mobile-wallet-ui',
-      title: 'PULSE CRYPTO & WALLET MOBILE APP',
-      category: 'UIUX Design',
-      categories: ['UIUX Design'],
-      image: fintechUiuxImg,
-      year: '2024',
-      client: 'Pulse Decentralized Finance',
-      description: 'Seamless onboarding flow, biometric transaction confirmation, and dark mode design system in Figma.',
-      badge: 'MOBILE APP UI',
-      accentColor: '#10b981',
-    },
-    {
-      id: 'candy-cloud-ecommerce-experience',
-      title: 'CANDY CLOUD IMMERSIVE D2C SHOP',
-      category: 'UIUX Design',
-      categories: ['UIUX Design', 'Packaging Design'],
-      image: candyCloudUiuxImg,
-      coverImage: candyCloudUiuxImg,
-      projectImages: [
-        candyCloudCaseStudyImg,
-      ],
-      images: [
-        candyCloudCaseStudyImg,
-      ],
-      year: '2024',
-      client: 'Candy Cloud D2C Store',
-      description: 'Full-page responsive D2C web experience featuring cloud-soft aesthetic, interactive categories, and seamless shopping cart flow.',
-      badge: 'SCROLLABLE WEB UI',
-      accentColor: '#ec4899',
-      objectPosition: 'top',
-    },
-    {
-      id: 'devsthan-temple-portal',
-      title: 'DEVSTHAN DIGITAL PILGRIM & LIVE DARSHAN',
-      category: 'UIUX Design',
-      categories: ['UIUX Design', 'Branding'],
-      image: devsthanImg,
-      coverImage: devsthanImg,
-      projectImages: [
-        devsthanCaseStudyImg,
-      ],
-      images: [
-        devsthanCaseStudyImg,
-      ],
-      year: '2024',
-      client: 'Devsthan Trust, Kolhapur',
-      description: 'Bilingual responsive portal with live darshan stream player, VIP booking, and donation flows.',
-      badge: 'WEB PORTAL',
-      accentColor: '#f59e0b',
-    },
-    {
-      id: 'aurora-design-system-kit',
-      title: 'AURORA ENTERPRISE FIGMA DESIGN SYSTEM',
-      category: 'UIUX Design',
-      categories: ['UIUX Design', 'Branding'],
-      image: auroraLogoImg,
-      year: '2024',
-      client: 'Aurora Next-Gen Systems',
-      description: 'Over 200 component variants, accessible WCAG color scales, typography tokens, and interactive guidelines.',
-      badge: 'DESIGN SYSTEM',
-      accentColor: '#3b82f6',
-    },
-    {
-      id: 'healthpulse-wearable-companion',
-      title: 'HEALTHPULSE REAL-TIME BIOMETRIC APP',
-      category: 'UIUX Design',
-      categories: ['UIUX Design', 'Social Media Posts'],
-      image: fitnessSocialImg,
-      year: '2024',
-      client: 'HealthPulse Tech',
-      description: 'Minimalist dark interface displaying heart rate variability, sleep quality stages, and workout streaks.',
-      badge: 'WEARABLE UI',
-      accentColor: '#0ea5e9',
-    },
-  ],
 };
 
 // Flattened export for any external references
