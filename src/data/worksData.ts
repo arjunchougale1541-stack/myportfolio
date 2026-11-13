@@ -93,6 +93,7 @@ import marketHoldingReelCoverImg from '../assets/images/works/market_holding_ree
 import clothingBrandReelCoverImg from '../assets/images/works/clothing_brand_reel_cover.jpg';
 import makatoChipsReelCoverImg from '../assets/images/works/makato_chips_reel_cover.jpg';
 import arvindBusinessReelCoverImg from '../assets/images/works/arvind_business_reel_cover.jpg';
+import avyuktaRealtyReelCoverImg from '../assets/images/works/avyukta_realty_reel_cover.jpg';
 import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
@@ -149,7 +150,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'reels',
     name: 'Reels',
     subtitle: 'High-impact commercial video edits, D2C brand reels, and dynamic motion graphics.',
-    count: 4,
+    count: 5,
   },
 ];
 
@@ -789,6 +790,56 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
           role: 'Lead Video Editor & Motion Designer',
           format: 'Vertical Video (9:16)',
           aspectRatio: '1080 x 1920 (30 FPS)',
+        },
+      },
+    },
+    {
+      id: 'avyukta-realty-investment-reel',
+      title: 'AVYUKTA REALTY - REAL ESTATE INVESTMENT & INSIGHT REEL',
+      category: 'Reels',
+      categories: ['Reels', 'Social Media Posts'],
+      image: avyuktaRealtyReelCoverImg,
+      coverImage: avyuktaRealtyReelCoverImg,
+      projectImages: [avyuktaRealtyReelCoverImg],
+      images: [avyuktaRealtyReelCoverImg],
+      year: '2024',
+      client: 'Avyukta Realty',
+      description: 'Educational data-driven real estate reel examining why modern women are prioritizing property investments over volatile stock markets.',
+      badge: 'REAL ESTATE REEL',
+      accentColor: '#0d9488',
+      videoUrl: '/videos/reels/avyukta_realty_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/avyukta_realty_reel.mp4',
+        title: 'AVYUKTA REALTY - REAL ESTATE INVESTMENT & INSIGHT REEL',
+        client: 'Avyukta Realty',
+        overview: {
+          description: 'A compelling, data-driven real estate analysis reel crafted for Avyukta Realty, dissecting how 71% of women are shifting away from stock market volatility into stable, long-term property assets.',
+          objective: 'Educate modern prospective homebuyers and investors, highlight property as the premier wealth-building asset, and position Avyukta Realty as an authoritative, client-centric real estate consultancy.',
+        },
+        creativeDirection: 'Vibrant, authoritative, and educational. Studio presentation centered on a signature yellow wingback chair, layered with clean 3D architectural renders, stylized contract overlays, and animated data infographics.',
+        editingProcess: {
+          description: 'Constructed around rapid conversational pacing with jump cuts that eliminate dead air. Augmented with 3D composited home models, real-time kinetic subtitle animations, stock market candlestick visualizers, and crisp foley sound effects.',
+          techniques: [
+            'Conversational Jump Cuts',
+            '3D Architectural Compositing',
+            'Kinetic Word-Level Subtitles',
+            'Data & Percentage Infographics',
+            'Foley Sound Effects',
+            'Commercial Color Grading',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Real Estate & Property',
+          year: '2024',
+          role: 'Lead Video Editor & Motion Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '720 x 1280 (30 FPS)',
         },
       },
     },
