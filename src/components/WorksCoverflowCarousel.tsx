@@ -110,6 +110,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
 
   // Subtle autoplay (pauses on interaction)
   useEffect(() => {
+    if (totalCards <= 1) return;
     if (isHovered || isDragging) {
       if (autoplayTimerRef.current) {
         clearInterval(autoplayTimerRef.current);
@@ -125,7 +126,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
     return () => {
       if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
     };
-  }, [isHovered, isDragging, navigateBy]);
+  }, [isHovered, isDragging, navigateBy, totalCards]);
 
   const hasMovedRef = useRef<boolean>(false);
 
@@ -537,42 +538,44 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
       </div>
 
       {/* Bottom Controls: Arrows + Indicator Dots */}
-      <div className="relative z-30 flex items-center justify-center gap-3.5 mt-5 sm:mt-7">
-        <button
-          onClick={() => navigateBy(-1)}
-          aria-label="Previous project"
-          className="p-2 sm:p-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.12] border border-blue-500/25 hover:border-blue-400 text-blue-200 hover:text-white transition-all duration-200 cursor-pointer active:scale-90 shadow-md shadow-black/40"
-        >
-          <ChevronLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-        </button>
+      {totalCards > 1 && (
+        <div className="relative z-30 flex items-center justify-center gap-3.5 mt-5 sm:mt-7">
+          <button
+            onClick={() => navigateBy(-1)}
+            aria-label="Previous project"
+            className="p-2 sm:p-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.12] border border-blue-500/25 hover:border-blue-400 text-blue-200 hover:text-white transition-all duration-200 cursor-pointer active:scale-90 shadow-md shadow-black/40"
+          >
+            <ChevronLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+          </button>
 
-        {/* Dot Indicators */}
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#080d24]/80 border border-blue-500/20 backdrop-blur-md shadow-md">
-          {items.map((p, dotIdx) => {
-            const isActive = activeNormIndex === dotIdx;
-            return (
-              <button
-                key={p.id}
-                onClick={() => navigateToIndex(dotIdx)}
-                aria-label={`Go to ${p.title}`}
-                className={`transition-all duration-300 cursor-pointer rounded-full ${
-                  isActive
-                    ? 'w-6 sm:w-7 h-2 bg-[#1E3FFF] shadow-[0_0_10px_#1E3FFF]'
-                    : 'w-2 h-2 bg-white/20 hover:bg-white/40'
-                }`}
-              />
-            );
-          })}
+          {/* Dot Indicators */}
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#080d24]/80 border border-blue-500/20 backdrop-blur-md shadow-md">
+            {items.map((p, dotIdx) => {
+              const isActive = activeNormIndex === dotIdx;
+              return (
+                <button
+                  key={p.id}
+                  onClick={() => navigateToIndex(dotIdx)}
+                  aria-label={`Go to ${p.title}`}
+                  className={`transition-all duration-300 cursor-pointer rounded-full ${
+                    isActive
+                      ? 'w-6 sm:w-7 h-2 bg-[#1E3FFF] shadow-[0_0_10px_#1E3FFF]'
+                      : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+                  }`}
+                />
+              );
+            })}
+          </div>
+
+          <button
+            onClick={() => navigateBy(1)}
+            aria-label="Next project"
+            className="p-2 sm:p-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.12] border border-blue-500/25 hover:border-blue-400 text-blue-200 hover:text-white transition-all duration-200 cursor-pointer active:scale-90 shadow-md shadow-black/40"
+          >
+            <ChevronRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+          </button>
         </div>
-
-        <button
-          onClick={() => navigateBy(1)}
-          aria-label="Next project"
-          className="p-2 sm:p-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.12] border border-blue-500/25 hover:border-blue-400 text-blue-200 hover:text-white transition-all duration-200 cursor-pointer active:scale-90 shadow-md shadow-black/40"
-        >
-          <ChevronRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-        </button>
-      </div>
+      )}
     </div>
   );
 };
