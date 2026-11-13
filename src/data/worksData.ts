@@ -90,6 +90,7 @@ import marbexSocialPost6Img from '../assets/images/works/marbex_social_post_6.jp
 import marbexSocialPost7Img from '../assets/images/works/marbex_social_post_7.jpg';
 import marbexSocialPost8Img from '../assets/images/works/marbex_social_post_8.jpg';
 import marketHoldingReelCoverImg from '../assets/images/works/market_holding_reel_cover.jpg';
+import clothingBrandReelCoverImg from '../assets/images/works/clothing_brand_reel_cover.jpg';
 import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
@@ -145,8 +146,8 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
   {
     id: 'reels',
     name: 'Reels',
-    subtitle: 'High-impact financial storytelling, kinetic typography, and motion graphics.',
-    count: 1,
+    subtitle: 'High-impact editorial cuts, fashion drops, and financial motion graphics.',
+    count: 2,
   },
 ];
 
@@ -634,6 +635,56 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
           category: 'Reels / Financial Breakdown',
           year: '2024',
           role: 'Lead Video Editor & Motion Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (30 FPS)',
+        },
+      },
+    },
+    {
+      id: 'urban-editions-streetwear-reel',
+      title: 'URBAN EDITIONS - STREETWEAR APPAREL CAMPAIGN REEL',
+      category: 'Reels',
+      categories: ['Reels', 'Social Media Posts'],
+      image: clothingBrandReelCoverImg,
+      coverImage: clothingBrandReelCoverImg,
+      projectImages: [clothingBrandReelCoverImg],
+      images: [clothingBrandReelCoverImg],
+      year: '2024',
+      client: 'Urban Editions Clothing',
+      description: 'Edgy Gen-Z streetwear campaign reel showcasing the midnight capsule drop with snappy attitude pacing, graphic rib-tank styling, and editorial color grading.',
+      badge: 'STREETWEAR REEL',
+      accentColor: '#f97316',
+      videoUrl: '/videos/reels/clothing_brand_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/clothing_brand_reel.mp4',
+        title: 'URBAN EDITIONS - STREETWEAR APPAREL CAMPAIGN REEL',
+        client: 'Urban Editions Clothing',
+        overview: {
+          description: "A dynamic, high-attitude fashion campaign reel created for Urban Editions' limited streetwear capsule collection, featuring edgy studio styling, striking model poses, and raw Gen-Z fashion aesthetics.",
+          objective: 'Drive high organic engagement and direct e-commerce traffic for the new streetwear apparel launch by capturing immediate attention through attitude-driven pacing and bold styling.',
+        },
+        creativeDirection: 'Edgy, confident, and contemporary. Minimalist studio backdrop with sharp, directional spotlighting creating dramatic contrast against the black graphic apparel, accented by bold accessories and modern street attitude.',
+        editingProcess: {
+          description: 'Paced with snappy camera whip transitions, micro-speed ramps matching model eye contact, and subtle grain grading that elevates the studio footage into an editorial lookbook reel.',
+          techniques: [
+            'Editorial Cuts',
+            'Speed Ramping',
+            'Beat Synchronization',
+            'Studio Color Grade',
+            'Fashion Motion Pacing',
+            'Foley Sound Design',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'DaVinci Resolve',
+          'Adobe After Effects',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Fashion & Streetwear',
+          year: '2024',
+          role: 'Lead Video Editor & Colorist',
           format: 'Vertical Video (9:16)',
           aspectRatio: '1080 x 1920 (30 FPS)',
         },
