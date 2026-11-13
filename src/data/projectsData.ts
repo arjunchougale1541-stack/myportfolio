@@ -516,7 +516,7 @@ export const projectsData: ProjectItem[] = [
         'Post 02: "It\'s A Mood" - Sunlit Caustics & Amber Glass Flacon Composition',
         'Post 03: "A Signature of Sophistication" - Smoked Glass Flacon & Jasmine Floral Plinth',
         'Post 04: "Fragrance Notes Pyramid" - Pearlescent Bottle with Jasmine, Sandalwood & Amber Notes',
-        'Post 05: "A Refined Experience" - Matte Black Rigid Gift Box on Champagne Velvet',
+        'Post 05: "Luxury, Thoughtfully Packed" - Matte Black Rigid Gift Box & Gold Satin Ribbon',
         'Post 06: "Timeless Notes Blend" - Arched Triptych Floral, Woody & Amber Ingredient Feature'
       ],
       galleryImages: [
