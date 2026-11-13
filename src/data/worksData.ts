@@ -92,6 +92,7 @@ import marbexSocialPost8Img from '../assets/images/works/marbex_social_post_8.jp
 import marketHoldingReelCoverImg from '../assets/images/works/market_holding_reel_cover.jpg';
 import clothingBrandReelCoverImg from '../assets/images/works/clothing_brand_reel_cover.jpg';
 import makatoChipsReelCoverImg from '../assets/images/works/makato_chips_reel_cover.jpg';
+import arvindBusinessReelCoverImg from '../assets/images/works/arvind_business_reel_cover.jpg';
 import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
@@ -148,7 +149,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'reels',
     name: 'Reels',
     subtitle: 'High-impact commercial video edits, D2C brand reels, and dynamic motion graphics.',
-    count: 3,
+    count: 4,
   },
 ];
 
@@ -734,6 +735,56 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
         ],
         details: {
           category: 'Reels / D2C Food & Beverage',
+          year: '2024',
+          role: 'Lead Video Editor & Motion Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (30 FPS)',
+        },
+      },
+    },
+    {
+      id: 'arvind-business-advisory-reel',
+      title: 'ARVIND KHATIK - BUSINESS & MINDSET ADVISORY REEL',
+      category: 'Reels',
+      categories: ['Reels', 'Social Media Posts'],
+      image: arvindBusinessReelCoverImg,
+      coverImage: arvindBusinessReelCoverImg,
+      projectImages: [arvindBusinessReelCoverImg],
+      images: [arvindBusinessReelCoverImg],
+      year: '2024',
+      client: 'Arvind Khatik / Business Advisory',
+      description: 'Strategic thought-leadership reel on building resilient business foundations, avoiding comparison burnout, and mastering long-term entrepreneurial focus.',
+      badge: 'BUSINESS ADVISOR',
+      accentColor: '#6366f1',
+      videoUrl: '/videos/reels/arvind_business_advisory_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/arvind_business_advisory_reel.mp4',
+        title: 'ARVIND KHATIK - BUSINESS & MINDSET ADVISORY REEL',
+        client: 'Arvind Khatik / Business Advisory',
+        overview: {
+          description: "A compelling, high-retention thought leadership reel crafted for business advisor Arvind Khatik. The video addresses the psychological trap of entrepreneurs comparing their daily hustle with competitors' highlight reels, advocating instead for patient, steadfast foundation-building.",
+          objective: 'Establish executive credibility and foster trust among startup founders and business owners across Instagram and LinkedIn with actionable mindset insights and magnetic short-form delivery.',
+        },
+        creativeDirection: 'Sophisticated executive setting with intimate conversational framing. Warm practical interior lighting paired with deep, focused shadows. Bold minimalist typography accents critical ideas without disrupting the speaker’s personal connection.',
+        editingProcess: {
+          description: 'Engineered for maximum viewer retention with dynamic conversational cuts, intentional punch-in reframing, and selective monochrome vignettes that emphasize high-impact statements. Polished with nuanced sound design and warm, cinema-grade color balance.',
+          techniques: [
+            'Conversational Pacing Cuts',
+            'Kinetic Headline Typography',
+            'Dynamic Framing & Punch-Ins',
+            'Selective Vignettes & Highlights',
+            'Foley & Sound Design',
+            'Cinematic Color Grading',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Business & Advisory',
           year: '2024',
           role: 'Lead Video Editor & Motion Designer',
           format: 'Vertical Video (9:16)',
