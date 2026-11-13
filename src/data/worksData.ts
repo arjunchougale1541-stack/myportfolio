@@ -512,7 +512,7 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
     },
     {
       id: 'soul-fashion-social-campaign',
-      title: 'SOUL FASHION - CONTEMPORARY ETHNIC WEAR SOCIAL MEDIA CAMPAIGN',
+      title: 'SOUL FASHION - LUXURY APPAREL & ACCESSORIES SOCIAL CAMPAIGN',
       category: 'Social Media Posts',
       categories: ['Social Media Posts', 'Branding'],
       image: soulFashionSocialCoverImg,
@@ -535,7 +535,7 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       ],
       year: '2024',
       client: 'Soul Fashion Haute Couture',
-      description: 'Opulent high-fashion social media campaign celebrating contemporary Indian ethnic wear, festive collections, editorial broadsheets, and timeless fusion apparel.',
+      description: 'High-fashion editorial social media campaign celebrating modern luxury tailoring, statement accessory spotlights, architectural staging, and seasonal launch collections.',
       badge: 'FASHION CAMPAIGN',
       accentColor: '#751a1f',
     },

@@ -721,12 +721,12 @@ export const projectsData: ProjectItem[] = [
   {
     id: 'soul-fashion-social-campaign',
     number: '11',
-    title: 'SOUL FASHION - CONTEMPORARY ETHNIC WEAR SOCIAL MEDIA CAMPAIGN',
-    subtitle: 'High-Impact Fashion Ad Creatives & Seasonal Launch Series',
+    title: 'SOUL FASHION - LUXURY APPAREL & ACCESSORIES SOCIAL CAMPAIGN',
+    subtitle: 'High-Impact Editorial Fashion Ad Creatives & Launch Series',
     year: '2024',
     client: 'Soul Fashion Haute Couture',
-    description: 'Opulent high-fashion social media campaign celebrating contemporary Indian ethnic wear, festive collections, editorial broadsheets, and timeless fusion apparel.',
-    tags: ['Social Media Posts', 'Fashion Branding', 'Campaign Design', 'Ethnic Wear'],
+    description: 'High-fashion editorial social media campaign celebrating modern luxury tailoring, statement accessory spotlights, architectural staging, and seasonal launch collections.',
+    tags: ['Social Media Posts', 'Fashion Branding', 'Campaign Design', 'Luxury Apparel'],
     mockupSide: 'left',
     badge: 'FASHION CAMPAIGN',
     category: 'Social Media Posts',
@@ -750,7 +750,7 @@ export const projectsData: ProjectItem[] = [
       soulFashionSocialPost6Img,
     ],
     details: {
-      overview: 'A luxury editorial social media campaign designed for Soul Fashion Haute Couture, celebrating the synthesis of heritage Indian craftsmanship with modern cosmopolitan silhouettes. The 6-creative collection features warm crimson tones, rich gold zari detailing, conceptual broadsheet newspaper typography, architectural street perspective ("Walk Your Soul", "Break The Frame"), and bespoke retro-nostalgic styling engineered to drive festive apparel sales, high social engagement, and aspirational brand desire.',
+      overview: 'A luxury editorial social media campaign designed for Soul Fashion Haute Couture, celebrating modern cosmopolitan tailoring, rich burgundy palettes, and statement accessories. The 6-creative collection features high-contrast typographic layouts, architectural perspective framing ("Fashion Unboxed", "Own the Avenue"), vintage broadsheet editorial styling, retro phone tech nostalgia, and luxury handbag spotlights engineered for high engagement and seasonal collection sales.',
       role: 'Lead Visual Designer & Fashion Campaign Strategist',
       timeline: '2 Weeks (2024)',
       tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
@@ -760,12 +760,12 @@ export const projectsData: ProjectItem[] = [
         { name: 'Antique Zari Gold', hex: '#D4AF37' }
       ],
       deliverables: [
-        'Post 01: "Walk Your Soul" - Street Crosswalk Modern Perspective Creative',
-        'Post 02: "Break The Frame" - Architectural Dimensional Frame & Sharara Feature',
-        'Post 03: "Style Never Fades" - Nostalgic Luxury Maroon Phone & Saree Silk Motif',
-        'Post 04: "Glow With Your Soul" - Beauty, Vanity Mirror & Festive Makeup Portrait',
-        'Post 05: "Soul Fashion New Arrivals" - Vintage Broadsheet Newspaper Editorial',
-        'Post 06: "Find Your Soul" - High-End Atelier Boutique & Collection Showcase'
+        'Post 01: "Glow in Soul" - Luxury Handbag & Statement Accessory Spotlight',
+        'Post 02: "Fashion Unboxed" - Architectural 3D Frame & Autumn Trench Feature',
+        'Post 03: "Own the Avenue" - High-Fashion Urban Street & Crosswalk Perspective',
+        'Post 04: "Trend Recall" - Retro Burgundy Flip-Phone & Iconic Seasonal Drop',
+        'Post 05: "Soul\'s New Arrivals" - Vintage Newspaper Broadsheet & Stiletto Editorial',
+        'Post 06: "Soul Style Empire" - Tailored Outerwear & Atelier Studio Showcase'
       ],
       galleryImages: [
         soulFashionSocialPost1Img,
