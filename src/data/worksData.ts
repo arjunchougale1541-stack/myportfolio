@@ -91,6 +91,7 @@ import marbexSocialPost7Img from '../assets/images/works/marbex_social_post_7.jp
 import marbexSocialPost8Img from '../assets/images/works/marbex_social_post_8.jpg';
 import marketHoldingReelCoverImg from '../assets/images/works/market_holding_reel_cover.jpg';
 import clothingBrandReelCoverImg from '../assets/images/works/clothing_brand_reel_cover.jpg';
+import makatoChipsReelCoverImg from '../assets/images/works/makato_chips_reel_cover.jpg';
 import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
@@ -146,8 +147,8 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
   {
     id: 'reels',
     name: 'Reels',
-    subtitle: 'High-impact editorial cuts, fashion drops, and financial motion graphics.',
-    count: 2,
+    subtitle: 'High-impact commercial video edits, D2C brand reels, and dynamic motion graphics.',
+    count: 3,
   },
 ];
 
@@ -685,6 +686,56 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
           category: 'Reels / Fashion & Streetwear',
           year: '2024',
           role: 'Lead Video Editor & Colorist',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (30 FPS)',
+        },
+      },
+    },
+    {
+      id: 'makato-popped-chips-campaign-reel',
+      title: 'MAKATO POPPED CHIPS - D2C BRAND AD REEL',
+      category: 'Reels',
+      categories: ['Reels', 'Social Media Posts', 'Packaging Design'],
+      image: makatoChipsReelCoverImg,
+      coverImage: makatoChipsReelCoverImg,
+      projectImages: [makatoChipsReelCoverImg],
+      images: [makatoChipsReelCoverImg],
+      year: '2024',
+      client: 'Makato Healthy Snacks / D2C FMCG',
+      description: 'High-converting D2C commercial reel for Makato Popped Chips featuring humorous storytelling, dynamic 3D typography callouts, and clean product benefit showcases.',
+      badge: 'SNACK AD REEL',
+      accentColor: '#eab308',
+      videoUrl: '/videos/reels/makato_popped_chips_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/makato_popped_chips_reel.mp4',
+        title: 'MAKATO POPPED CHIPS - D2C BRAND AD REEL',
+        client: 'Makato Healthy Snacks',
+        overview: {
+          description: 'An engaging, high-conversion commercial reel crafted for Makato Popped Chips, contrasting conventional fried potato chips (70% air & cheap palm oil) against healthy popped organic millet chips with 11% protein.',
+          objective: 'Break through short-form video clutter with relatable humor, stop-scrolling 3D motion graphics, and direct nutritional callouts to drive D2C snack trial and impulse purchase.',
+        },
+        creativeDirection: 'Playful, energetic, and lifestyle-oriented. Warm studio lighting and relatable creator dialogue paired with expressive 3D text overlays, illustrated floating snack packets, and bold punchy typography.',
+        editingProcess: {
+          description: "Built around snappy dialogue jump cuts to maintain high conversational velocity. Integrated 3D tracking typography ('70% AIR / 30% CHEAP PALM OIL'), custom sound effects (crunch foley, pop sounds, cash register dings), and balanced punchy color grading to make the black-and-gold snack pouch pop.",
+          techniques: [
+            'Dialogue Pacing Cuts',
+            '3D Text Overlays',
+            'Kinetic Typography',
+            'Product Callout VFX',
+            'Foley Sound Design',
+            'Commercial Color Grade',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / D2C Food & Beverage',
+          year: '2024',
+          role: 'Lead Video Editor & Motion Designer',
           format: 'Vertical Video (9:16)',
           aspectRatio: '1080 x 1920 (30 FPS)',
         },
