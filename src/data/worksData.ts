@@ -1,12 +1,9 @@
 import axialImg from '../assets/images/axial_graphic_cover.jpg';
-import axialDesktopImg from '../assets/images/axial_graphic_desktop_cover.png';
 import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.jpg';
 import candyImg from '../assets/images/candy_cloud_cover.jpg';
-import candyDesktopImg from '../assets/images/candy_cloud_desktop_cover.png';
 import candyCloudUiuxImg from '../assets/images/candy_cloud_uiux_full.png';
 import candyCloudCaseStudyImg from '../assets/images/candy_cloud_case_study_full.webp';
 import devsthanImg from '../assets/images/devsthan_samiti_cover.jpg';
-import devsthanDesktopImg from '../assets/images/devsthan_samiti_desktop_cover.png';
 import devsthanCaseStudyImg from '../assets/images/devsthan_samiti_case_study_full.webp';
 import auroraPackagingImg from '../assets/images/works/aurora_packaging.jpg';
 import fintechUiuxImg from '../assets/images/works/fintech_dashboard.jpg';
@@ -145,13 +142,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 7,
-  },
-  {
-    id: 'branding',
-    name: 'Branding',
-    subtitle: 'Full-spectrum visual identity systems, typography, and art direction.',
-    count: 6,
+    count: 8,
   },
   {
     id: 'reels',
@@ -607,102 +598,6 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Sophisticated social media advertising campaign for Marbex luxury furniture and contemporary interiors, highlighting bespoke living, plush bedrooms, curated seating, and timeless dining spaces.',
       badge: 'FURNITURE CAMPAIGN',
       accentColor: '#d4af37',
-    },
-  ],
-
-  'branding': [
-    {
-      id: 'personal-branding',
-      title: 'AXIAL GRAPHIC - DRIVEN BY DESIGN',
-      category: 'Branding',
-      categories: ['Branding', 'Logo Designs', 'Social Media Posts'],
-      image: axialImg,
-      coverImage: axialDesktopImg,
-      projectImages: [
-        axialCaseStudyImg,
-      ],
-      images: [
-        axialCaseStudyImg,
-      ],
-      year: '2023',
-      client: 'Arjun Chougale / Self Identity',
-      description: 'Axial Graphic is my personal design identity, built to represent my creative journey and style as a graphic designer. Symbolizing structure, balance, and visual stability, this identity serves as the visual voice of my creative career.',
-      badge: 'FEATURED CASE STUDY',
-      accentColor: '#5362ff',
-    },
-    {
-      id: 'devsthan-samiti',
-      title: 'DEVSTHAN SAMITI CULTURAL HERITAGE IDENTITY',
-      category: 'Branding',
-      categories: ['Branding', 'Logo Designs', 'UIUX Design'],
-      image: devsthanImg,
-      coverImage: devsthanDesktopImg,
-      projectImages: [
-        devsthanCaseStudyImg,
-      ],
-      images: [
-        devsthanCaseStudyImg,
-      ],
-      year: '2024',
-      client: 'Devsthan Vyavasthapan Samiti, Kolhapur',
-      description: 'Sacred architectural emblem, bilingual administrative stationery suite, and digital temple portal system.',
-      badge: 'CULTURAL IDENTITY',
-      accentColor: '#f59e0b',
-    },
-    {
-      id: 'candy-cloud-full-branding',
-      title: 'CANDY CLOUD BRAND IDENTITY & SYSTEM',
-      category: 'Branding',
-      categories: ['Branding', 'Packaging Design'],
-      image: candyImg,
-      coverImage: candyDesktopImg,
-      projectImages: [
-        candyCloudCaseStudyImg,
-      ],
-      images: [
-        candyCloudCaseStudyImg,
-      ],
-      year: '2024',
-      client: 'Candy Cloud Confectionery Co.',
-      description: 'End-to-end brand guidelines, typography pairing, joyful color systems, and physical packaging assets.',
-      badge: 'FULL IDENTITY',
-      accentColor: '#ec4899',
-    },
-    {
-      id: 'aurora-corporate-branding',
-      title: 'AURORA NEXT-GEN ENTERPRISE BRANDING',
-      category: 'Branding',
-      categories: ['Branding', 'Logo Designs'],
-      image: auroraLogoImg,
-      year: '2024',
-      client: 'Aurora Systems Global',
-      description: 'Comprehensive design manual covering trade show booths, corporate stationery, and digital presence.',
-      badge: 'ENTERPRISE SUITE',
-      accentColor: '#2563eb',
-    },
-    {
-      id: 'serene-organic-branding',
-      title: 'SERENE BOTANICALS VISUAL IDENTITY',
-      category: 'Branding',
-      categories: ['Branding', 'Packaging Design'],
-      image: botanicalPackagingImg,
-      year: '2024',
-      client: 'Serene Skincare Labs',
-      description: 'Minimalist earth-toned identity, debossed tactile print assets, and sustainable packaging ethos.',
-      badge: 'SUSTAINABLE BRAND',
-      accentColor: '#10b981',
-    },
-    {
-      id: 'quantum-athletics-brand',
-      title: 'QUANTUM SPORTS PERFORMANCE SYSTEM',
-      category: 'Branding',
-      categories: ['Branding', 'Social Media Posts'],
-      image: fitnessSocialImg,
-      year: '2024',
-      client: 'Quantum Athletics USA',
-      description: 'High-octane visual identity engineered for competitive athletics, apparel badges, and digital presence.',
-      badge: 'PERFORMANCE BRAND',
-      accentColor: '#38bdf8',
     },
   ],
 

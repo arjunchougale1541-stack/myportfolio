@@ -14,7 +14,7 @@ interface SeriesSectionProps {
 export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, onExploreWork }) => {
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  const filterCategories = ['All', 'Branding', 'Logo Design', 'Visual Merch', 'Social Media'];
+  const filterCategories = ['All', 'Logo Design', 'Visual Merch', 'Social Media'];
 
   const seriesProjects = projectsData.filter((p) =>
     ['personal-branding', 'candy-cloud', 'devsthan-samiti'].includes(p.id)
