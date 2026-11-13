@@ -32,7 +32,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
 
       const modalProject: ProjectItem = {
         id: work.id,
-        number: 'WORKS',
+        number: work.category === 'Reels' ? 'REEL' : 'WORKS',
         title: work.title,
         subtitle: work.client || work.category,
         year: work.year,
@@ -47,8 +47,16 @@ export const WorksPage: React.FC<WorksPageProps> = ({
         coverImage: work.coverImage || work.image,
         projectImages: presentationImages,
         images: presentationImages,
+        videoUrl: work.videoUrl,
+        reelData: work.reelData,
         details: {
           galleryImages: presentationImages,
+          overview: work.reelData?.overview.description || work.description,
+          objective: work.reelData?.overview.objective,
+          creativeDirection: work.reelData?.creativeDirection,
+          editingProcess: work.reelData?.editingProcess.description,
+          tools: work.reelData?.toolsUsed,
+          role: work.reelData?.details.role,
         },
       };
       onSelectProject(modalProject);

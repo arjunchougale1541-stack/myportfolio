@@ -89,7 +89,7 @@ import marbexSocialPost5Img from '../assets/images/works/marbex_social_post_5.jp
 import marbexSocialPost6Img from '../assets/images/works/marbex_social_post_6.jpg';
 import marbexSocialPost7Img from '../assets/images/works/marbex_social_post_7.jpg';
 import marbexSocialPost8Img from '../assets/images/works/marbex_social_post_8.jpg';
-import { ProjectItem } from '../types';
+import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
   | 'Logo Designs'
@@ -116,6 +116,8 @@ export interface WorkProjectItem {
   coverImage?: string;
   projectImages?: string[];
   images?: string[];
+  videoUrl?: string;
+  reelData?: ReelData;
   year: string;
   client?: string;
   description: string;
@@ -596,6 +598,41 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Speed-ramped cinematic reel edit with synced bass drops, kinetic type overlays, and color grading.',
       badge: 'VIRAL REEL',
       accentColor: '#ec4899',
+      videoUrl: '/videos/reels/velocity_automotive_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/velocity_automotive_reel.mp4',
+        title: 'VELOCITY AUTOMOTIVE VIRAL REEL EDIT',
+        client: 'Velocity Motors',
+        overview: {
+          description: 'A high-octane commercial automotive reel crafted to capture the aerodynamic elegance, roaring track horsepower, and aggressive aesthetic of modern performance engineering.',
+          objective: 'Command instant viewer retention within the first 1.5 seconds and drive viral organic resharing across Instagram Reels and TikTok algorithms.',
+        },
+        creativeDirection: 'Sleek, dark, and visceral. Low-key dramatic rim lighting contrasts against high-gloss metallic paint, paired with anamorphic flare bursts and cinematic motion blurs to emulate extreme track acceleration.',
+        editingProcess: {
+          description: 'Engineered with precision speed ramping between 120fps slow-motion apex drifts and lightning-fast straightaway cuts. Bass-matched audio transients synchronize each cut to engine revs, turbo blow-off valves, and custom risers. Finished with an aggressive high-contrast automotive LUT grade.',
+          techniques: [
+            'Cinematic Cuts',
+            'Speed Ramping',
+            'Beat Synchronization',
+            'Foley Sound Design',
+            'Automotive Color Grade',
+            'Motion Tracking',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Automotive Commercial',
+          year: '2024',
+          role: 'Lead Video Editor & Sound Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (60 FPS)',
+        },
+      },
     },
     {
       id: 'streetwear-urban-reel',
@@ -608,6 +645,41 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Nighttime neon Tokyo vibe with stutter cuts, dynamic camera whip pans, and glitch transitions.',
       badge: 'FASHION REEL',
       accentColor: '#06b6d4',
+      videoUrl: '/videos/reels/streetwear_urban_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/streetwear_urban_reel.mp4',
+        title: 'URBAN NEON STREETWEAR CAMPAIGN REEL',
+        client: 'Sync City Apparel',
+        overview: {
+          description: "An edgy, nocturnal street-style campaign showcasing Sync City's limited-edition midnight apparel drop against rain-slicked cybernetic cityscapes.",
+          objective: 'Generate intense drop hype, maximize community engagement, and push direct shop conversions for the seasonal midnight capsule collection.',
+        },
+        creativeDirection: 'Cyberpunk street culture meets raw documentary energy. Neon purples, vibrant electric blues, and deep shadows, accentuated by film grain, chromatic dispersion, and gritty urban textures.',
+        editingProcess: {
+          description: 'Utilized rapid stutter-frame edits, kinetic whip-pan camera movements, and beat-matched text glitch transitions. Kinetic typography was surface-tracked onto hoodie silhouettes, supported by multi-layered urban soundscapes (sirens, subway rumble, vinyl tape stops) mixed under hard trap percussion.',
+          techniques: [
+            'Stutter Cuts',
+            'Whip-Pan Transitions',
+            'Kinetic Typography',
+            'Glitch & RGB Split',
+            'Sub-Bass Beat Sync',
+            'Urban Sound Design',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'Boris FX Sapphire',
+          'Adobe Photoshop',
+        ],
+        details: {
+          category: 'Reels / Fashion Campaign',
+          year: '2024',
+          role: 'Video Editor & Motion Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (60 FPS)',
+        },
+      },
     },
     {
       id: 'cyberpulse-festival-reel',
@@ -620,6 +692,41 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Hard-hitting electronic music teaser reel engineered to maximize story shares and ticket presales.',
       badge: 'MUSIC REEL',
       accentColor: '#a855f7',
+      videoUrl: '/videos/reels/cyberpulse_festival_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/cyberpulse_festival_reel.mp4',
+        title: 'CYBERPULSE CONCERT FESTIVAL TEASER',
+        client: 'CyberPulse Sound Festival',
+        overview: {
+          description: 'A heart-pounding electronic music festival teaser reel engineered to build electric anticipation for a massive multi-stage stadium experience.',
+          objective: 'Ignite viral FOMO, fuel ticket presale surges, and maximize artist announcement engagement across dance music communities.',
+        },
+        creativeDirection: 'Futuristic stadium rave culture. Sweeping laser geometries, volumetric strobes, pyrotechnic drops, and holographic DJ line-up title reveals radiating intense crowd euphoria.',
+        editingProcess: {
+          description: 'Micro-timed cut rhythm strictly locked to synthesizer build-ups and stadium-shaking drop transients. 3D camera projections and displacement map glitch effects were composited in After Effects, elevated by layered sound design of live crowd cheers, sub-drops, and atmospheric risers.',
+          techniques: [
+            'Beat Synchronization',
+            'Visual Effects (VFX)',
+            '3D Camera Tracking',
+            'Audio Riser Design',
+            'Electric Neon Grading',
+            'Dynamic Speed Ramps',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Festival Teaser',
+          year: '2024',
+          role: 'Lead Visual Editor & VFX Compositor',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (60 FPS)',
+        },
+      },
     },
     {
       id: 'candy-cloud-asmr-unboxing',
@@ -639,6 +746,40 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Crisp macro audio-synced unboxing reel showcasing package textures, tear strips, and vibrant sweets.',
       badge: 'PRODUCT REEL',
       accentColor: '#f43f5e',
+      videoUrl: '/videos/reels/candy_cloud_asmr_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/candy_cloud_asmr_reel.mp4',
+        title: 'CANDY CLOUD ASMR UNBOXING REEL',
+        client: 'Candy Cloud Confectionery D2C',
+        overview: {
+          description: 'An ultra-satisfying, multisensory ASMR unboxing reel highlighting the tactile elegance and vibrant confectionery artistry of Candy Cloud packaging.',
+          objective: 'Trigger sensory cravings and convert sweet lovers through satisfying micro-sounds, pristine unboxing reveals, and delightful pastel aesthetics.',
+        },
+        creativeDirection: 'Hyper-clean, playful pastel elegance. Soft diffused studio illumination reveals delicate embossing, ribbon sheen, and vibrant gourmet treats in crisp macro detail.',
+        editingProcess: {
+          description: 'Constructed with seamless match cuts that flow effortlessly through box opening rituals. Mastered dedicated Foley audio tracks with isolated paper pulls, magnetic lid snaps, and candy crunches, balanced by smooth speed ramps and a vibrant candy-tone color treatment.',
+          techniques: [
+            'ASMR Foley Sound Design',
+            'Macro Match Cuts',
+            'Smooth Speed Ramping',
+            'Clean Pastel Color Grade',
+            'Micro-Interactions',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe Audition',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+        ],
+        details: {
+          category: 'Reels / D2C Product ASMR',
+          year: '2024',
+          role: 'Commercial Reel Editor & Sound Stylist',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (60 FPS)',
+        },
+      },
     },
     {
       id: 'quantum-athlete-motivation',
@@ -658,6 +799,40 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Fast-paced motivational reel with rhythm-matched typography and intense color contrast grading.',
       badge: 'ATHLETIC REEL',
       accentColor: '#38bdf8',
+      videoUrl: '/videos/reels/quantum_burnout_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/quantum_burnout_reel.mp4',
+        title: 'QUANTUM BURNOUT HIGH-ENERGY REEL',
+        client: 'Quantum Athletics',
+        overview: {
+          description: 'An explosive athletic motivation reel spotlighting raw human endurance, relentless discipline, and peak physical conditioning.',
+          objective: 'Inspire community athletic focus, drive organic algorithm loops, and accelerate registrations for the Quantum 30-Day High-Performance Challenge.',
+        },
+        creativeDirection: 'Raw, gritty, and heroic. High-contrast rim lighting sculpts muscle definition and chalk dust explosions against a deep obsidian gym background.',
+        editingProcess: {
+          description: 'Pacing accelerates progressively from disciplined isometric holds to furious sprint climaxes. Heavy impact sound design pairs iron plate clangs and barbell drops with aggressive sub-bass rumbles, tied together by a desaturated industrial color palette with piercing cyan highlights.',
+          techniques: [
+            'Pacing Acceleration',
+            'Impact Sound Design',
+            'Barbell Match Cuts',
+            'Kinetic Typography',
+            'High-Contrast Bleach Bypass LUT',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Athletic Motivation',
+          year: '2024',
+          role: 'Performance Video Editor & Motion Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (60 FPS)',
+        },
+      },
     },
     {
       id: 'devsthan-heritage-cinematic',
@@ -677,6 +852,40 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'Breathtaking 4K drone transitions, devotional instrumental audio grading, and cultural title typography.',
       badge: 'HERITAGE REEL',
       accentColor: '#f59e0b',
+      videoUrl: '/videos/reels/devsthan_temple_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/devsthan_temple_reel.mp4',
+        title: 'KOLHAPUR TEMPLE ARCHITECTURE REEL',
+        client: 'Devsthan Media Cell',
+        overview: {
+          description: 'A breathtaking architectural and spiritual tribute capturing the sacred stone carvings, towering gopurams, and serene ambiance of historic Kolhapur temples.',
+          objective: 'Celebrate regional cultural heritage through cinematic vertical storytelling, engaging younger demographics and heritage travelers globally.',
+        },
+        creativeDirection: 'Sacred, reverent, and majestic. Golden-hour dawn light cutting through ancient stone corridors, incense haze, and deep shadow play across stone sanctums.',
+        editingProcess: {
+          description: "Edited with slow, meditative push-ins and delicate speed ramps that honor the temple's centuries-old sanctity. Layered acoustic sound design blending brass temple bells, tanpura drones, and acoustic reverberation with warm architectural golden-hour color grading.",
+          techniques: [
+            'Cinematic Drone Push-ins',
+            'Slow-Motion Speed Ramps',
+            'Sacred Sound Design',
+            'Golden Hour Architectural Grade',
+            'Title Calligraphy',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'DaVinci Resolve',
+          'Adobe After Effects',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Heritage & Architecture',
+          year: '2024',
+          role: 'Cinematic Editor & Colorist',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (60 FPS)',
+        },
+      },
     },
   ],
 

@@ -243,5 +243,24 @@
   scrollbar-width: thin;
 }
 
+/* Custom Reel Split Screen Scrollbar */
+.custom-reel-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-reel-scrollbar::-webkit-scrollbar-track {
+  background: rgba(10, 8, 20, 0.5);
+}
+.custom-reel-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #06b6d4, #a855f7, #ec4899);
+  border-radius: 9999px;
+}
+.custom-reel-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #22d3ee, #c084fc, #f472b6);
+}
+.custom-reel-scrollbar {
+  scrollbar-color: #a855f7 rgba(10, 8, 20, 0.5);
+  scrollbar-width: thin;
+}
+
 
 

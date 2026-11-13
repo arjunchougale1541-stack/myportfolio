@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react';
 import { ProjectItem } from '../types';
 import { X, Images } from 'lucide-react';
+import { ReelModalView } from './ReelModalView';
 import axialImg from '../assets/images/axial_graphic_cover.jpg';
 import axialDesktopImg from '../assets/images/axial_graphic_desktop_cover.png';
 import axialCaseStudyImg from '../assets/images/axial_graphic_case_study_full.jpg';
@@ -80,6 +81,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   }, [project]);
 
   if (!project) return null;
+
+  const isReel =
+    project.category === 'Reels' ||
+    (project.tags && project.tags.includes('Reels')) ||
+    project.number === 'REEL' ||
+    !!project.videoUrl ||
+    !!project.reelData;
+
+  if (isReel) {
+    return <ReelModalView project={project} onClose={onClose} />;
+  }
 
   const isSocialMedia =
     project.category === 'Social Media Posts' ||

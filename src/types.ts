@@ -1,3 +1,26 @@
+export interface ReelData {
+  videoUrl: string;
+  title?: string;
+  client?: string;
+  overview: {
+    description: string;
+    objective: string;
+  };
+  creativeDirection: string;
+  editingProcess: {
+    description: string;
+    techniques?: string[];
+  };
+  toolsUsed: string[];
+  details: {
+    category: string;
+    year: string;
+    role: string;
+    format?: string;
+    aspectRatio?: string;
+  };
+}
+
 export interface ProjectItem {
   id: string;
   number: string;
@@ -15,8 +38,13 @@ export interface ProjectItem {
   coverImage?: string;
   projectImages?: string[];
   images?: string[];
+  videoUrl?: string;
+  reelData?: ReelData;
   details?: {
     overview?: string;
+    objective?: string;
+    creativeDirection?: string;
+    editingProcess?: string;
     role?: string;
     timeline?: string;
     tools?: string[];
