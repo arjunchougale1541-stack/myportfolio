@@ -69,6 +69,13 @@ import hyperlexSocialPost3Img from '../assets/images/works/hyperlex_social_post_
 import hyperlexSocialPost4Img from '../assets/images/works/hyperlex_social_post_4.jpg';
 import hyperlexSocialPost5Img from '../assets/images/works/hyperlex_social_post_5.jpg';
 import hyperlexSocialPost6Img from '../assets/images/works/hyperlex_social_post_6.jpg';
+import soulFashionSocialCoverImg from '../assets/images/works/soul_fashion_social_cover.jpg';
+import soulFashionSocialPost1Img from '../assets/images/works/soul_fashion_social_post_1.jpg';
+import soulFashionSocialPost2Img from '../assets/images/works/soul_fashion_social_post_2.jpg';
+import soulFashionSocialPost3Img from '../assets/images/works/soul_fashion_social_post_3.jpg';
+import soulFashionSocialPost4Img from '../assets/images/works/soul_fashion_social_post_4.jpg';
+import soulFashionSocialPost5Img from '../assets/images/works/soul_fashion_social_post_5.jpg';
+import soulFashionSocialPost6Img from '../assets/images/works/soul_fashion_social_post_6.jpg';
 
 export const projectsData: ProjectItem[] = [
   {
@@ -702,6 +709,65 @@ export const projectsData: ProjectItem[] = [
         hyperlexSocialPost4Img,
         hyperlexSocialPost5Img,
         hyperlexSocialPost6Img,
+      ]
+    }
+  },
+  {
+    id: 'soul-fashion-social-campaign',
+    number: '11',
+    title: 'SOUL FASHION - CONTEMPORARY ETHNIC WEAR SOCIAL MEDIA CAMPAIGN',
+    subtitle: 'High-Impact Fashion Ad Creatives & Seasonal Launch Series',
+    year: '2024',
+    client: 'Soul Fashion Haute Couture',
+    description: 'Opulent high-fashion social media campaign celebrating contemporary Indian ethnic wear, festive collections, editorial broadsheets, and timeless fusion apparel.',
+    tags: ['Social Media Posts', 'Fashion Branding', 'Campaign Design', 'Ethnic Wear'],
+    mockupSide: 'left',
+    badge: 'FASHION CAMPAIGN',
+    category: 'Social Media Posts',
+    accentColor: '#751a1f',
+    bgTone: '#1c0c0e',
+    coverImage: soulFashionSocialCoverImg,
+    projectImages: [
+      soulFashionSocialPost1Img,
+      soulFashionSocialPost2Img,
+      soulFashionSocialPost3Img,
+      soulFashionSocialPost4Img,
+      soulFashionSocialPost5Img,
+      soulFashionSocialPost6Img,
+    ],
+    images: [
+      soulFashionSocialPost1Img,
+      soulFashionSocialPost2Img,
+      soulFashionSocialPost3Img,
+      soulFashionSocialPost4Img,
+      soulFashionSocialPost5Img,
+      soulFashionSocialPost6Img,
+    ],
+    details: {
+      overview: 'A luxury editorial social media campaign designed for Soul Fashion Haute Couture, celebrating the synthesis of heritage Indian craftsmanship with modern cosmopolitan silhouettes. The 6-creative collection features warm crimson tones, rich gold zari detailing, conceptual broadsheet newspaper typography, architectural street perspective ("Walk Your Soul", "Break The Frame"), and bespoke retro-nostalgic styling engineered to drive festive apparel sales, high social engagement, and aspirational brand desire.',
+      role: 'Lead Visual Designer & Fashion Campaign Strategist',
+      timeline: '2 Weeks (2024)',
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      colors: [
+        { name: 'Royal Crimson Wine', hex: '#751A1F' },
+        { name: 'Warm Silk Cream', hex: '#F5EBE1' },
+        { name: 'Antique Zari Gold', hex: '#D4AF37' }
+      ],
+      deliverables: [
+        'Post 01: "Walk Your Soul" - Street Crosswalk Modern Perspective Creative',
+        'Post 02: "Break The Frame" - Architectural Dimensional Frame & Sharara Feature',
+        'Post 03: "Style Never Fades" - Nostalgic Luxury Maroon Phone & Saree Silk Motif',
+        'Post 04: "Glow With Your Soul" - Beauty, Vanity Mirror & Festive Makeup Portrait',
+        'Post 05: "Soul Fashion New Arrivals" - Vintage Broadsheet Newspaper Editorial',
+        'Post 06: "Find Your Soul" - High-End Atelier Boutique & Collection Showcase'
+      ],
+      galleryImages: [
+        soulFashionSocialPost1Img,
+        soulFashionSocialPost2Img,
+        soulFashionSocialPost3Img,
+        soulFashionSocialPost4Img,
+        soulFashionSocialPost5Img,
+        soulFashionSocialPost6Img,
       ]
     }
   },

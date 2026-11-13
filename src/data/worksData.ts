@@ -75,6 +75,13 @@ import hyperlexSocialPost3Img from '../assets/images/works/hyperlex_social_post_
 import hyperlexSocialPost4Img from '../assets/images/works/hyperlex_social_post_4.jpg';
 import hyperlexSocialPost5Img from '../assets/images/works/hyperlex_social_post_5.jpg';
 import hyperlexSocialPost6Img from '../assets/images/works/hyperlex_social_post_6.jpg';
+import soulFashionSocialCoverImg from '../assets/images/works/soul_fashion_social_cover.jpg';
+import soulFashionSocialPost1Img from '../assets/images/works/soul_fashion_social_post_1.jpg';
+import soulFashionSocialPost2Img from '../assets/images/works/soul_fashion_social_post_2.jpg';
+import soulFashionSocialPost3Img from '../assets/images/works/soul_fashion_social_post_3.jpg';
+import soulFashionSocialPost4Img from '../assets/images/works/soul_fashion_social_post_4.jpg';
+import soulFashionSocialPost5Img from '../assets/images/works/soul_fashion_social_post_5.jpg';
+import soulFashionSocialPost6Img from '../assets/images/works/soul_fashion_social_post_6.jpg';
 import { ProjectItem } from '../types';
 
 export type WorkCategory =
@@ -123,7 +130,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'social-media-posts',
     name: 'Social Media Posts',
     subtitle: 'High-engagement multi-slide carousels and digital marketing suites.',
-    count: 5,
+    count: 6,
   },
   {
     id: 'branding',
@@ -496,6 +503,35 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       description: 'High-octane luxury automotive social media campaign highlighting Paint Protection Film (PPF), ceramic coating, studio precision detailing, and showroom finish protection.',
       badge: 'AUTOMOTIVE CAMPAIGN',
       accentColor: '#ea580c',
+    },
+    {
+      id: 'soul-fashion-social-campaign',
+      title: 'SOUL FASHION - CONTEMPORARY ETHNIC WEAR SOCIAL MEDIA CAMPAIGN',
+      category: 'Social Media Posts',
+      categories: ['Social Media Posts', 'Branding'],
+      image: soulFashionSocialCoverImg,
+      coverImage: soulFashionSocialCoverImg,
+      projectImages: [
+        soulFashionSocialPost1Img,
+        soulFashionSocialPost2Img,
+        soulFashionSocialPost3Img,
+        soulFashionSocialPost4Img,
+        soulFashionSocialPost5Img,
+        soulFashionSocialPost6Img,
+      ],
+      images: [
+        soulFashionSocialPost1Img,
+        soulFashionSocialPost2Img,
+        soulFashionSocialPost3Img,
+        soulFashionSocialPost4Img,
+        soulFashionSocialPost5Img,
+        soulFashionSocialPost6Img,
+      ],
+      year: '2024',
+      client: 'Soul Fashion Haute Couture',
+      description: 'Opulent high-fashion social media campaign celebrating contemporary Indian ethnic wear, festive collections, editorial broadsheets, and timeless fusion apparel.',
+      badge: 'FASHION CAMPAIGN',
+      accentColor: '#751a1f',
     },
   ],
 
