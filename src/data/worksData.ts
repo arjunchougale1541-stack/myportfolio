@@ -94,6 +94,7 @@ import clothingBrandReelCoverImg from '../assets/images/works/clothing_brand_ree
 import makatoChipsReelCoverImg from '../assets/images/works/makato_chips_reel_cover.jpg';
 import arvindBusinessReelCoverImg from '../assets/images/works/arvind_business_reel_cover.jpg';
 import avyuktaRealtyReelCoverImg from '../assets/images/works/avyukta_realty_reel_cover.jpg';
+import doshiWealthIepfReelCoverImg from '../assets/images/works/doshi_wealth_iepf_reel_cover.jpg';
 import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
@@ -150,7 +151,7 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     id: 'reels',
     name: 'Reels',
     subtitle: 'High-impact commercial video edits, D2C brand reels, and dynamic motion graphics.',
-    count: 5,
+    count: 6,
   },
 ];
 
@@ -840,6 +841,56 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
           role: 'Lead Video Editor & Motion Designer',
           format: 'Vertical Video (9:16)',
           aspectRatio: '720 x 1280 (30 FPS)',
+        },
+      },
+    },
+    {
+      id: 'doshi-wealth-iepf-cheque-reel',
+      title: 'DOSHI WEALTH - IEPF UNCLAIMED SHARES RECOVERY REEL',
+      category: 'Reels',
+      categories: ['Reels', 'Social Media Posts'],
+      image: doshiWealthIepfReelCoverImg,
+      coverImage: doshiWealthIepfReelCoverImg,
+      projectImages: [doshiWealthIepfReelCoverImg],
+      images: [doshiWealthIepfReelCoverImg],
+      year: '2024',
+      client: 'Doshi Wealth',
+      description: 'High-impact investor awareness breakdown explaining how uncashed ₹4,000 dividend cheques can cause physical shares to transfer to IEPF, and how to recover them.',
+      badge: 'FINANCIAL AWARENESS',
+      accentColor: '#a855f7',
+      videoUrl: '/videos/reels/doshi_wealth_iepf_reel.mp4',
+      reelData: {
+        videoUrl: '/videos/reels/doshi_wealth_iepf_reel.mp4',
+        title: 'DOSHI WEALTH - IEPF UNCLAIMED SHARES RECOVERY REEL',
+        client: 'Doshi Wealth',
+        overview: {
+          description: 'A compelling, high-stakes financial education reel produced for Doshi Wealth. The video unravels a critical dilemma faced by many Indian families: how neglecting a simple ₹4,000 uncashed physical dividend cheque for 7 consecutive years leads to the government transferring entire shareholdings into the IEPF (Investor Education and Protection Fund)—a pool currently exceeding ₹1 Lakh Crore in unclaimed assets.',
+          objective: 'Hook retail investors and legacy shareholding families with relatable shock-value storytelling, demystify the complex legal IEPF recovery process, and drive high-intent advisory consultations for Doshi Wealth.',
+        },
+        creativeDirection: 'Authority-driven, documentary-style financial presentation. The creator sits at an executive desk flanked by warm practical lighting, enhanced with tactile physical paper textures, animated share certificates, stamp callouts ("GAYE", "BECHA NAHI"), and lined notebook graphics.',
+        editingProcess: {
+          description: 'Engineered for viral retention with snappy jump cuts, tactile paper sound effects, dynamic red stamp motion graphics, and clean lined notebook infographics. The timeline balances urgent educational warnings with clear procedural explanations.',
+          techniques: [
+            'Narrative Jump Cuts & Rhythm',
+            'Physical Paper & Stamp Motion VFX',
+            'Lined Notebook Data Overlays',
+            'High-Contrast Kinetic Subtitles',
+            'Tactile Foley & Stamp Audio FX',
+            'Warm Commercial Studio Color Grade',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'DaVinci Resolve',
+          'Adobe Audition',
+        ],
+        details: {
+          category: 'Reels / Finance & Wealth Advisory',
+          year: '2024',
+          role: 'Lead Video Editor & Motion Designer',
+          format: 'Vertical Video (9:16)',
+          aspectRatio: '1080 x 1920 (30 FPS)',
         },
       },
     },
