@@ -105,6 +105,8 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
     allReelProjects.find((p) => p.id === 'doshi-wealth-iepf-cheque-reel') || allReelProjects[1],
     allReelProjects.find((p) => p.id === 'avyukta-realty-investment-reel') || allReelProjects[2],
     allReelProjects.find((p) => p.id === 'makato-popped-chips-campaign-reel') || allReelProjects[3],
+    allReelProjects.find((p) => p.id === 'arvind-business-advisory-reel') || allReelProjects[4],
+    allReelProjects.find((p) => p.id === 'who-is-really-holding-the-market') || allReelProjects[5],
   ].filter(Boolean) as WorkProjectItem[];
 
   // ScrollTrigger Setup
@@ -629,8 +631,8 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
           <div className="order-2 w-full lg:w-[64%] xl:w-[67%] 2xl:w-[70%] flex-shrink-0 min-w-0 overflow-x-auto lg:overflow-visible no-scrollbar pt-2 pb-6 px-2 -mx-2">
             <div className="flex items-center justify-start lg:justify-end min-w-max lg:min-w-0 pl-1 pr-6 lg:pr-0">
               {reelItems.map((project, idx) => {
-                const zIndexStyle = 40 - idx * 10;
-                const marginOverlap = idx === 0 ? '' : '-ml-[160px] xs:-ml-[180px] sm:-ml-[205px] md:-ml-[230px] lg:-ml-[230px] xl:-ml-[255px] 2xl:-ml-[275px]';
+                const zIndexStyle = 60 - idx * 10;
+                const marginOverlap = idx === 0 ? '' : '-ml-[160px] xs:-ml-[180px] sm:-ml-[205px] md:-ml-[230px] lg:-ml-[235px] xl:-ml-[265px] 2xl:-ml-[285px]';
 
                 return (
                   <div
@@ -640,7 +642,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
                     }}
                     onClick={() => handleSelectWork(project)}
                     style={{ zIndex: zIndexStyle }}
-                    className={`relative ${marginOverlap} w-[230px] xs:w-[255px] sm:w-[290px] md:w-[320px] lg:w-[330px] xl:w-[365px] 2xl:w-[390px] aspect-[9/16] flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-50 hover:scale-104 hover:-translate-y-2 hover:border-pink-500 hover:shadow-[0_28px_65px_rgba(236,72,153,0.55)] select-none will-change-transform flex flex-col justify-between`}
+                    className={`relative ${marginOverlap} w-[220px] xs:w-[245px] sm:w-[275px] md:w-[300px] lg:w-[310px] xl:w-[350px] 2xl:w-[380px] aspect-[9/16] flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-[70] hover:scale-104 hover:-translate-y-2 hover:border-pink-500 hover:shadow-[0_28px_65px_rgba(236,72,153,0.55)] select-none will-change-transform flex flex-col justify-between`}
                   >
                     {/* Full-bleed 9:16 Reel Cover Image */}
                     <img
