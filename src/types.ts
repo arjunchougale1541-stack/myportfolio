@@ -7,7 +7,7 @@ export interface ReelData {
     objective: string;
   };
   creativeDirection: string;
-  editingProcess: {
+  editingProcess?: {
     description: string;
     techniques?: string[];
   };

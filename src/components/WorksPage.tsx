@@ -54,7 +54,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
           overview: work.reelData?.overview.description || work.description,
           objective: work.reelData?.overview.objective,
           creativeDirection: work.reelData?.creativeDirection,
-          editingProcess: work.reelData?.editingProcess.description,
+          editingProcess: work.reelData?.editingProcess?.description,
           tools: work.reelData?.toolsUsed,
           role: work.reelData?.details.role,
         },

@@ -393,7 +393,9 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                       {/* Category & Client */}
                       <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-pink-300 font-semibold tracking-wider uppercase">
                         <span className="truncate max-w-[130px]">{project.client || 'Featured Reel'}</span>
-                        <span className="text-gray-400 font-mono text-[9px] sm:text-[10px]">{project.year || '2024'}</span>
+                        <span className="text-gray-400 font-mono text-[9px] sm:text-[10px]">
+                          {project.year || (project.category === 'Reels' ? '2026' : '2024')}
+                        </span>
                       </div>
 
                       {/* Title */}
