@@ -308,7 +308,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
     <section
       id="projects"
       ref={containerRef}
-      className="relative py-16 sm:py-24 lg:py-32 w-full overflow-x-clip bg-[#070709] text-white selection:bg-[#4757fe] selection:text-white"
+      className="relative isolate pt-20 sm:pt-28 lg:pt-32 pb-20 sm:pb-28 lg:pb-32 w-full overflow-x-clip bg-[#070709] text-white selection:bg-[#4757fe] selection:text-white"
       aria-label="My Projects Showcase"
     >
       {/* Background Ambient Glows */}
@@ -322,7 +322,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         {/* ======================================================== */}
         {/* SECTION HEADER: / My projects + Word-by-word Reveal     */}
         {/* ======================================================== */}
-        <div ref={headerRef} className="mb-14 sm:mb-20 lg:mb-28">
+        <div ref={headerRef} className="mb-14 sm:mb-16 lg:mb-20">
           {/* Main Heading: / My projects (animates Left to Right) */}
           <div className="overflow-hidden mb-2 sm:mb-3">
             <span
@@ -357,12 +357,12 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         {/* ======================================================== */}
         <div
           ref={logoSectionRef}
-          className="mb-28 sm:mb-36 lg:mb-44 xl:mb-52 flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-12 xl:gap-16 2xl:gap-20 w-full"
+          className="relative isolate mb-20 sm:mb-24 lg:mb-28 xl:mb-32 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-10 xl:gap-12 2xl:gap-14 w-full"
         >
           {/* Left Column: Logo Content Text Block */}
           <div
             ref={logoTextRef}
-            className="order-1 w-full lg:w-[32%] xl:w-[30%] 2xl:w-[28%] flex-shrink-0 max-w-[480px] space-y-5 sm:space-y-6 will-change-transform"
+            className="order-1 w-full lg:w-[32%] xl:w-[29%] 2xl:w-[27%] flex-shrink-0 max-w-[440px] space-y-4 sm:space-y-5 will-change-transform"
           >
             {/* Small Section Label */}
             <div className="text-xs sm:text-sm md:text-base font-mono font-bold tracking-widest text-indigo-400 uppercase flex items-center gap-2.5">
@@ -406,11 +406,11 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
           </div>
 
           {/* Right Column: 4 Large Layered Square Logo Cards (Dominant Stack, Right -> Left) */}
-          <div className="order-2 w-full lg:w-[62%] xl:w-[64%] 2xl:w-[66%] flex-shrink-0 min-w-0 overflow-x-auto lg:overflow-visible no-scrollbar py-6 px-2 -mx-2">
-            <div className="flex items-center justify-start lg:justify-end min-w-max lg:min-w-0 pl-1 pr-8 lg:pr-0">
+          <div className="order-2 w-full lg:w-[64%] xl:w-[67%] 2xl:w-[70%] flex-shrink-0 min-w-0 overflow-x-auto lg:overflow-visible no-scrollbar pt-2 pb-6 px-2 -mx-2">
+            <div className="flex items-center justify-start lg:justify-end min-w-max lg:min-w-0 pl-1 pr-6 lg:pr-0">
               {logoItems.map((project, idx) => {
                 const zIndexStyle = 40 - idx * 10;
-                const marginOverlap = idx === 0 ? '' : '-ml-[180px] xs:-ml-[200px] sm:-ml-[230px] md:-ml-[250px] lg:-ml-[250px] xl:-ml-[295px] 2xl:-ml-[325px]';
+                const marginOverlap = idx === 0 ? '' : '-ml-[210px] xs:-ml-[230px] sm:-ml-[270px] md:-ml-[300px] lg:-ml-[290px] xl:-ml-[335px] 2xl:-ml-[365px]';
 
                 return (
                   <div
@@ -420,7 +420,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
                     }}
                     onClick={() => handleSelectWork(project)}
                     style={{ zIndex: zIndexStyle }}
-                    className={`relative ${marginOverlap} w-[250px] xs:w-[280px] sm:w-[320px] md:w-[350px] lg:w-[350px] xl:w-[410px] 2xl:w-[450px] aspect-square flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-50 hover:scale-105 hover:-translate-y-3 hover:border-indigo-400 hover:shadow-[0_28px_65px_rgba(71,87,254,0.55)] select-none will-change-transform`}
+                    className={`relative ${marginOverlap} w-[280px] xs:w-[310px] sm:w-[360px] md:w-[400px] lg:w-[400px] xl:w-[460px] 2xl:w-[500px] aspect-square flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-50 hover:scale-104 hover:-translate-y-2 hover:border-indigo-400 hover:shadow-[0_28px_65px_rgba(71,87,254,0.55)] select-none will-change-transform`}
                   >
                     {/* Full-bleed 1:1 Cover Image */}
                     <img
@@ -467,14 +467,14 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         {/* ======================================================== */}
         <div
           ref={socialSectionRef}
-          className="mb-28 sm:mb-36 lg:mb-44 xl:mb-52 flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-12 xl:gap-16 2xl:gap-20 w-full"
+          className="relative isolate mb-20 sm:mb-24 lg:mb-28 xl:mb-32 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-10 xl:gap-12 2xl:gap-14 w-full"
         >
           {/* Left Column: 4 Large Layered Social Media Cards (Dominant 4:5 Stack, Left -> Right) */}
-          <div className="order-2 lg:order-1 w-full lg:w-[62%] xl:w-[64%] 2xl:w-[66%] flex-shrink-0 min-w-0 overflow-x-auto lg:overflow-visible no-scrollbar py-6 px-2 -mx-2">
-            <div className="flex items-center justify-start min-w-max lg:min-w-0 pl-1 pr-8 lg:pr-0">
+          <div className="order-2 lg:order-1 w-full lg:w-[64%] xl:w-[67%] 2xl:w-[70%] flex-shrink-0 min-w-0 overflow-x-auto lg:overflow-visible no-scrollbar pt-2 pb-6 px-2 -mx-2">
+            <div className="flex items-center justify-start min-w-max lg:min-w-0 pl-1 pr-6 lg:pr-0">
               {socialItems.map((project, idx) => {
                 const zIndexStyle = 40 - idx * 10;
-                const marginOverlap = idx === 0 ? '' : '-ml-[180px] xs:-ml-[200px] sm:-ml-[230px] md:-ml-[250px] lg:-ml-[250px] xl:-ml-[295px] 2xl:-ml-[325px]';
+                const marginOverlap = idx === 0 ? '' : '-ml-[200px] xs:-ml-[220px] sm:-ml-[255px] md:-ml-[280px] lg:-ml-[275px] xl:-ml-[315px] 2xl:-ml-[345px]';
 
                 return (
                   <div
@@ -484,7 +484,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
                     }}
                     onClick={() => handleSelectWork(project)}
                     style={{ zIndex: zIndexStyle }}
-                    className={`relative ${marginOverlap} w-[250px] xs:w-[280px] sm:w-[320px] md:w-[350px] lg:w-[350px] xl:w-[410px] 2xl:w-[450px] aspect-[4/5] flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-50 hover:scale-105 hover:-translate-y-3 hover:border-cyan-400 hover:shadow-[0_28px_65px_rgba(6,182,212,0.55)] select-none will-change-transform`}
+                    className={`relative ${marginOverlap} w-[280px] xs:w-[310px] sm:w-[360px] md:w-[400px] lg:w-[400px] xl:w-[460px] 2xl:w-[500px] aspect-[4/5] flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-50 hover:scale-104 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_28px_65px_rgba(6,182,212,0.55)] select-none will-change-transform`}
                   >
                     {/* Full-bleed 4:5 Post Cover Image */}
                     <img
@@ -526,7 +526,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
           {/* Right Column: Social Media Content Text Block (Clean, Balanced Panel) */}
           <div
             ref={socialTextRef}
-            className="order-1 lg:order-2 w-full lg:w-[32%] xl:w-[30%] 2xl:w-[28%] flex-shrink-0 max-w-[480px] space-y-5 sm:space-y-6 will-change-transform"
+            className="order-1 lg:order-2 w-full lg:w-[32%] xl:w-[29%] 2xl:w-[27%] flex-shrink-0 max-w-[440px] space-y-4 sm:space-y-5 will-change-transform"
           >
             {/* Small Section Label */}
             <div className="text-xs sm:text-sm md:text-base font-mono font-bold tracking-widest text-indigo-400 uppercase flex items-center gap-2.5">
@@ -577,12 +577,12 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         {/* ======================================================== */}
         <div
           ref={reelSectionRef}
-          className="mb-28 sm:mb-36 lg:mb-44 xl:mb-52 flex flex-col lg:flex-row lg:items-center justify-between gap-10 lg:gap-12 xl:gap-16 2xl:gap-20 w-full"
+          className="relative isolate mb-20 sm:mb-24 lg:mb-28 xl:mb-32 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-10 xl:gap-12 2xl:gap-14 w-full"
         >
           {/* Left Column: Reel Content Text Block */}
           <div
             ref={reelTextRef}
-            className="order-1 w-full lg:w-[32%] xl:w-[30%] 2xl:w-[28%] flex-shrink-0 max-w-[480px] space-y-5 sm:space-y-6 will-change-transform"
+            className="order-1 w-full lg:w-[32%] xl:w-[29%] 2xl:w-[27%] flex-shrink-0 max-w-[440px] space-y-4 sm:space-y-5 will-change-transform"
           >
             {/* Small Section Label */}
             <div className="text-xs sm:text-sm md:text-base font-mono font-bold tracking-widest text-pink-400 uppercase flex items-center gap-2.5">
@@ -626,11 +626,11 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
           </div>
 
           {/* Right Column: 4 Large Layered 9:16 Vertical Reel Cards (Dominant Stack, Right -> Left) */}
-          <div className="order-2 w-full lg:w-[62%] xl:w-[64%] 2xl:w-[66%] flex-shrink-0 min-w-0 overflow-x-auto lg:overflow-visible no-scrollbar py-6 px-2 -mx-2">
-            <div className="flex items-center justify-start lg:justify-end min-w-max lg:min-w-0 pl-1 pr-8 lg:pr-0">
+          <div className="order-2 w-full lg:w-[64%] xl:w-[67%] 2xl:w-[70%] flex-shrink-0 min-w-0 overflow-x-auto lg:overflow-visible no-scrollbar pt-2 pb-6 px-2 -mx-2">
+            <div className="flex items-center justify-start lg:justify-end min-w-max lg:min-w-0 pl-1 pr-6 lg:pr-0">
               {reelItems.map((project, idx) => {
                 const zIndexStyle = 40 - idx * 10;
-                const marginOverlap = idx === 0 ? '' : '-ml-[145px] xs:-ml-[160px] sm:-ml-[185px] md:-ml-[200px] lg:-ml-[205px] xl:-ml-[230px] 2xl:-ml-[250px]';
+                const marginOverlap = idx === 0 ? '' : '-ml-[160px] xs:-ml-[180px] sm:-ml-[205px] md:-ml-[230px] lg:-ml-[230px] xl:-ml-[255px] 2xl:-ml-[275px]';
 
                 return (
                   <div
@@ -640,7 +640,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
                     }}
                     onClick={() => handleSelectWork(project)}
                     style={{ zIndex: zIndexStyle }}
-                    className={`relative ${marginOverlap} w-[210px] xs:w-[230px] sm:w-[260px] md:w-[285px] lg:w-[290px] xl:w-[325px] 2xl:w-[350px] aspect-[9/16] flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-50 hover:scale-105 hover:-translate-y-3 hover:border-pink-500 hover:shadow-[0_28px_65px_rgba(236,72,153,0.55)] select-none will-change-transform flex flex-col justify-between`}
+                    className={`relative ${marginOverlap} w-[230px] xs:w-[255px] sm:w-[290px] md:w-[320px] lg:w-[330px] xl:w-[365px] 2xl:w-[390px] aspect-[9/16] flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden bg-[#0d0c18] border-2 border-white/15 shadow-[0_22px_55px_rgba(0,0,0,0.88)] ring-1 ring-white/5 transition-all duration-300 group cursor-pointer hover:!z-50 hover:scale-104 hover:-translate-y-2 hover:border-pink-500 hover:shadow-[0_28px_65px_rgba(236,72,153,0.55)] select-none will-change-transform flex flex-col justify-between`}
                   >
                     {/* Full-bleed 9:16 Reel Cover Image */}
                     <img

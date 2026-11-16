@@ -106,7 +106,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCollaborate }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
           ? 'bg-[#08080a]/90 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/30'
           : 'bg-transparent border-b border-transparent'
