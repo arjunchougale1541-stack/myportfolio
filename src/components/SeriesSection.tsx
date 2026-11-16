@@ -82,7 +82,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
     }
   };
 
-  // Projects data sets (4 curated items per section for optimal layered composition)
+  // Projects data sets (4 curated items per section for full display)
   const allLogoProjects = worksByCategory['logo-designs'] || [];
   const logoItems = [
     allLogoProjects.find((p) => p.id === 'get-it-delivery-logo') || allLogoProjects[0],
@@ -118,8 +118,6 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
       // ========================================================
       // 1. SECTION HEADER SCROLL-LINKED ANIMATION
-      // - "My Projects" badge: Left to Right (translateX -120px -> 0, opacity 0 -> 1)
-      // - "Great work with my project": Bottom to Top masked word-by-word (translateY 35px -> 0, opacity 0 -> 1)
       // ========================================================
       if (headerRef.current) {
         const headerTl = gsap.timeline({
@@ -135,7 +133,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         if (headingBadgeRef.current) {
           headerTl.fromTo(
             headingBadgeRef.current,
-            { x: isMobile ? -50 : -120, opacity: 0 },
+            { x: isMobile ? -40 : -100, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.8, ease: 'power2.out' },
             0
           );
@@ -160,8 +158,6 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
       // ========================================================
       // 2. LOGO CONTENT SECTION (Row 1)
-      // - Left column text: Right to Left (translateX 100px -> 0, opacity 0 -> 1)
-      // - Right column square cards: Right to Left (translateX 140px -> 0, opacity 0 -> 1, staggered)
       // ========================================================
       if (logoSectionRef.current) {
         const logoTl = gsap.timeline({
@@ -177,7 +173,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         if (logoTextRef.current) {
           logoTl.fromTo(
             logoTextRef.current,
-            { x: isMobile ? 40 : 100, opacity: 0 },
+            { x: isMobile ? 35 : 80, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
             0
           );
@@ -187,7 +183,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         if (validLogoCards.length > 0) {
           logoTl.fromTo(
             validLogoCards,
-            { x: isMobile ? 50 : 140, opacity: 0 },
+            { x: isMobile ? 40 : 100, opacity: 0 },
             {
               x: 0,
               opacity: 1,
@@ -202,8 +198,6 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
       // ========================================================
       // 3. SOCIAL MEDIA CONTENT SECTION (Row 2 - Reverse Layout)
-      // - Left column cards: Left to Right (translateX -140px -> 0, opacity 0 -> 1, staggered)
-      // - Right column text: Left to Right (translateX -100px -> 0, opacity 0 -> 1)
       // ========================================================
       if (socialSectionRef.current) {
         const socialTl = gsap.timeline({
@@ -219,7 +213,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         if (socialTextRef.current) {
           socialTl.fromTo(
             socialTextRef.current,
-            { x: isMobile ? -40 : -100, opacity: 0 },
+            { x: isMobile ? -35 : -80, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
             0
           );
@@ -229,7 +223,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         if (validSocialCards.length > 0) {
           socialTl.fromTo(
             validSocialCards,
-            { x: isMobile ? -50 : -140, opacity: 0 },
+            { x: isMobile ? -40 : -100, opacity: 0 },
             {
               x: 0,
               opacity: 1,
@@ -244,8 +238,6 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
       // ========================================================
       // 4. REEL CONTENT SECTION (Row 3)
-      // - Left column text: Right to Left (translateX 100px -> 0, opacity 0 -> 1)
-      // - Right column 9:16 cards: Right to Left (translateX 150px -> 0, opacity 0 -> 1, staggered)
       // ========================================================
       if (reelSectionRef.current) {
         const reelTl = gsap.timeline({
@@ -261,7 +253,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         if (reelTextRef.current) {
           reelTl.fromTo(
             reelTextRef.current,
-            { x: isMobile ? 40 : 100, opacity: 0 },
+            { x: isMobile ? 35 : 80, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
             0
           );
@@ -271,7 +263,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         if (validReelCards.length > 0) {
           reelTl.fromTo(
             validReelCards,
-            { x: isMobile ? 50 : 150, opacity: 0 },
+            { x: isMobile ? 40 : 100, opacity: 0 },
             {
               x: 0,
               opacity: 1,
@@ -286,7 +278,6 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
       // ========================================================
       // 5. EXPLORE MY WORK FINAL CTA
-      // - Bottom to Top (translateY 80px -> 0, opacity 0 -> 1)
       // ========================================================
       if (ctaSectionRef.current && ctaButtonRef.current) {
         const ctaTl = gsap.timeline({
@@ -301,7 +292,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
 
         ctaTl.fromTo(
           ctaButtonRef.current,
-          { y: isMobile ? 40 : 80, opacity: 0 },
+          { y: isMobile ? 35 : 70, opacity: 0 },
           { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' }
         );
       }
@@ -316,22 +307,23 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
     <section
       id="projects"
       ref={containerRef}
-      className="relative py-16 sm:py-20 lg:py-28 overflow-x-clip bg-[#070709] text-white selection:bg-[#4757fe] selection:text-white"
+      className="relative py-16 sm:py-24 lg:py-32 w-full overflow-x-clip bg-[#070709] text-white selection:bg-[#4757fe] selection:text-white"
       aria-label="My Projects Showcase"
     >
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-600/8 rounded-full blur-[160px] pointer-events-none -z-10" />
-      <div className="absolute top-2/3 right-1/4 w-[550px] h-[550px] bg-purple-600/8 rounded-full blur-[170px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-1/3 w-[450px] h-[450px] bg-blue-600/6 rounded-full blur-[150px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-indigo-600/8 rounded-full blur-[180px] pointer-events-none -z-10" />
+      <div className="absolute top-2/3 right-1/4 w-[650px] h-[650px] bg-purple-600/8 rounded-full blur-[190px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-1/3 w-[550px] h-[550px] bg-blue-600/6 rounded-full blur-[170px] pointer-events-none -z-10" />
 
-      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
+      {/* Full-Width Content Container (Edge-to-Edge with generous padding) */}
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20">
         
         {/* ======================================================== */}
         {/* SECTION HEADER: / My projects + Word-by-word Reveal     */}
         {/* ======================================================== */}
-        <div ref={headerRef} className="mb-12 sm:mb-16 lg:mb-24">
+        <div ref={headerRef} className="mb-14 sm:mb-20 lg:mb-28">
           {/* Main Heading: / My projects (animates Left to Right) */}
-          <div className="overflow-hidden mb-2.5 sm:mb-3">
+          <div className="overflow-hidden mb-2 sm:mb-3">
             <span
               ref={headingBadgeRef}
               className="inline-block text-xs sm:text-base font-bold text-[#4757fe] tracking-widest uppercase font-mono will-change-transform"
@@ -360,16 +352,16 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         {/* ======================================================== */}
         {/* ROW 1: LOGO CONTENT & CARDS SECTION                      */}
         {/* Left Column: Text (Right -> Left)                        */}
-        {/* Right Column: Layered Square Cards (Right -> Left)       */}
+        {/* Right Column: Cards (Right -> Left, NO OVERLAP, Full)    */}
         {/* ======================================================== */}
         <div
           ref={logoSectionRef}
-          className="mb-16 sm:mb-24 lg:mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center"
+          className="mb-20 sm:mb-28 lg:mb-36 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-12 xl:gap-16 w-full"
         >
-          {/* Left Column: Logo Content Text */}
+          {/* Left Column: Logo Content Text (Fixed Stable Width, Never Collides) */}
           <div
             ref={logoTextRef}
-            className="lg:col-span-5 space-y-4 sm:space-y-5 max-w-lg will-change-transform"
+            className="w-full lg:w-[340px] xl:w-[400px] 2xl:w-[440px] flex-shrink-0 space-y-4 sm:space-y-5 will-change-transform"
           >
             <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-indigo-400 uppercase flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
@@ -407,128 +399,116 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
             </div>
           </div>
 
-          {/* Right Column: 4 Square Cards (1:1 Ratio, Layered Composition) */}
-          <div className="lg:col-span-7 overflow-x-auto lg:overflow-visible no-scrollbar py-3 px-1 -mx-1">
-            <div className="flex items-center justify-start lg:justify-end min-w-max lg:min-w-0 pr-6 lg:pr-0">
-              {logoItems.map((project, idx) => {
-                const zIndexStyle = 40 - idx * 10;
-                const marginOverlap = idx === 0 ? '' : '-ml-12 sm:-ml-16 md:-ml-18 lg:-ml-16 xl:-ml-20';
+          {/* Right Column: 4 Square Cards (NO OVERLAP, Clean Gaps, Full Width Fill) */}
+          <div className="flex-1 min-w-0 overflow-x-auto no-scrollbar py-3 px-1 -mx-1">
+            <div className="flex items-center justify-start lg:justify-end gap-4 sm:gap-5 xl:gap-6 min-w-max pr-4 lg:pr-0">
+              {logoItems.map((project, idx) => (
+                <div
+                  key={project.id}
+                  ref={(el) => {
+                    if (el) logoCardsRef.current[idx] = el;
+                  }}
+                  onClick={() => handleSelectWork(project)}
+                  className="relative w-[210px] xs:w-[230px] sm:w-[250px] md:w-[265px] xl:w-[280px] 2xl:w-[300px] aspect-square flex-shrink-0 rounded-2xl overflow-hidden bg-[#0d0c18] border border-white/12 shadow-2xl transition-all duration-300 group cursor-pointer hover:scale-104 hover:-translate-y-1.5 hover:border-indigo-400 hover:shadow-[0_20px_45px_rgba(71,87,254,0.4)] select-none will-change-transform"
+                >
+                  {/* Full-bleed 1:1 Cover Image */}
+                  <img
+                    src={project.coverImage || project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                    loading="lazy"
+                  />
 
-                return (
-                  <div
-                    key={project.id}
-                    ref={(el) => {
-                      if (el) logoCardsRef.current[idx] = el;
-                    }}
-                    onClick={() => handleSelectWork(project)}
-                    style={{ zIndex: zIndexStyle }}
-                    className={`relative ${marginOverlap} w-[210px] xs:w-[230px] sm:w-[260px] md:w-[280px] lg:w-[265px] xl:w-[295px] 2xl:w-[315px] aspect-square flex-shrink-0 rounded-2xl overflow-hidden bg-[#0d0c18] border border-white/15 shadow-2xl transition-all duration-300 group cursor-pointer hover:z-50 hover:scale-105 hover:-translate-y-2 hover:border-indigo-400 hover:shadow-[0_20px_45px_rgba(71,87,254,0.45)] select-none will-change-transform`}
-                  >
-                    {/* Full-bleed 1:1 Cover Image */}
-                    <img
-                      src={project.coverImage || project.image}
-                      alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                      loading="lazy"
-                    />
+                  {/* Gradient Overlay for legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 group-hover:opacity-60 transition-opacity duration-300" />
 
-                    {/* Gradient Overlay for legibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 group-hover:opacity-60 transition-opacity duration-300" />
+                  {/* Top Header Badge & Quick Action */}
+                  <div className="relative z-10 p-3 sm:p-3.5 flex items-center justify-between">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-white/10 text-indigo-300 shadow-sm">
+                      {project.badge || 'LOGO'}
+                    </span>
 
-                    {/* Top Header Badge & Quick Action */}
-                    <div className="relative z-10 p-3 sm:p-3.5 flex items-center justify-between">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-white/10 text-indigo-300 shadow-sm">
-                        {project.badge || 'LOGO'}
-                      </span>
-
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 group-hover:bg-[#4757fe] border border-white/20 text-white flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </div>
-                    </div>
-
-                    {/* Bottom Metadata */}
-                    <div className="absolute bottom-0 inset-x-0 z-10 p-3 sm:p-3.5 space-y-0.5">
-                      <div className="text-[10px] sm:text-[11px] font-mono font-semibold text-indigo-300 uppercase tracking-wider truncate">
-                        {project.client || 'Logo Design'}
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight truncate group-hover:text-indigo-200 transition-colors">
-                        {project.title}
-                      </h4>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 group-hover:bg-[#4757fe] border border-white/20 text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                      <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
-                );
-              })}
+
+                  {/* Bottom Metadata */}
+                  <div className="absolute bottom-0 inset-x-0 z-10 p-3 sm:p-3.5 space-y-0.5">
+                    <div className="text-[10px] sm:text-[11px] font-mono font-semibold text-indigo-300 uppercase tracking-wider truncate">
+                      {project.client || 'Logo Design'}
+                    </div>
+                    <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight truncate group-hover:text-indigo-200 transition-colors">
+                      {project.title}
+                    </h4>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* ======================================================== */}
         {/* ROW 2: SOCIAL MEDIA CONTENT SECTION (Reverse Layout)     */}
-        {/* Left Column: Layered 4:5 Cards (Left -> Right)           */}
+        {/* Left Column: Cards (Left -> Right, NO OVERLAP, Full)     */}
         {/* Right Column: Text (Left -> Right)                       */}
         {/* ======================================================== */}
         <div
           ref={socialSectionRef}
-          className="mb-16 sm:mb-24 lg:mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center"
+          className="mb-20 sm:mb-28 lg:mb-36 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-12 xl:gap-16 w-full"
         >
-          {/* Left Column: 4 Social Media Cards (4:5 Ratio, Layered Composition, Left -> Right) */}
-          <div className="order-2 lg:order-1 lg:col-span-7 overflow-x-auto lg:overflow-visible no-scrollbar py-3 px-1 -mx-1">
-            <div className="flex items-center justify-start min-w-max lg:min-w-0 pr-6 lg:pr-0">
-              {socialItems.map((project, idx) => {
-                const zIndexStyle = 10 + idx * 10;
-                const marginOverlap = idx === 0 ? '' : '-ml-10 sm:-ml-14 md:-ml-16 lg:-ml-14 xl:-ml-16';
+          {/* Left Column: 4 Social Media Cards (4:5 Ratio, NO OVERLAP, Clean Gaps, Left -> Right) */}
+          <div className="order-2 lg:order-1 flex-1 min-w-0 overflow-x-auto no-scrollbar py-3 px-1 -mx-1">
+            <div className="flex items-center justify-start gap-4 sm:gap-5 xl:gap-6 min-w-max pr-4 lg:pr-0">
+              {socialItems.map((project, idx) => (
+                <div
+                  key={project.id}
+                  ref={(el) => {
+                    if (el) socialCardsRef.current[idx] = el;
+                  }}
+                  onClick={() => handleSelectWork(project)}
+                  className="relative w-[180px] xs:w-[195px] sm:w-[215px] md:w-[230px] xl:w-[245px] 2xl:w-[260px] aspect-[4/5] flex-shrink-0 rounded-2xl overflow-hidden bg-[#0d0c18] border border-white/12 shadow-2xl transition-all duration-300 group cursor-pointer hover:scale-104 hover:-translate-y-1.5 hover:border-cyan-400 hover:shadow-[0_20px_45px_rgba(6,182,212,0.4)] select-none will-change-transform"
+                >
+                  {/* Full-bleed 4:5 Post Cover Image */}
+                  <img
+                    src={project.coverImage || project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                    loading="lazy"
+                  />
 
-                return (
-                  <div
-                    key={project.id}
-                    ref={(el) => {
-                      if (el) socialCardsRef.current[idx] = el;
-                    }}
-                    onClick={() => handleSelectWork(project)}
-                    style={{ zIndex: zIndexStyle }}
-                    className={`relative ${marginOverlap} w-[180px] xs:w-[200px] sm:w-[225px] md:w-[245px] lg:w-[235px] xl:w-[260px] 2xl:w-[280px] aspect-[4/5] flex-shrink-0 rounded-2xl overflow-hidden bg-[#0d0c18] border border-white/15 shadow-2xl transition-all duration-300 group cursor-pointer hover:z-50 hover:scale-105 hover:-translate-y-2 hover:border-cyan-400 hover:shadow-[0_20px_45px_rgba(6,182,212,0.45)] select-none will-change-transform`}
-                  >
-                    {/* Full-bleed 4:5 Post Cover Image */}
-                    <img
-                      src={project.coverImage || project.image}
-                      alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                      loading="lazy"
-                    />
+                  {/* Gradient Overlay for text legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 group-hover:opacity-60 transition-opacity duration-300" />
 
-                    {/* Gradient Overlay for text legibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/30 group-hover:opacity-60 transition-opacity duration-300" />
+                  {/* Top Badge & Action */}
+                  <div className="relative z-10 p-3 sm:p-3.5 flex items-center justify-between">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-white/10 text-cyan-300 shadow-sm">
+                      {project.badge || 'CAROUSEL'}
+                    </span>
 
-                    {/* Top Badge & Action */}
-                    <div className="relative z-10 p-3 sm:p-3.5 flex items-center justify-between">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-white/10 text-cyan-300 shadow-sm">
-                        {project.badge || 'CAROUSEL'}
-                      </span>
-
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 group-hover:bg-[#4757fe] border border-white/20 text-white flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </div>
-                    </div>
-
-                    {/* Bottom Metadata */}
-                    <div className="absolute bottom-0 inset-x-0 z-10 p-3 sm:p-3.5 space-y-0.5">
-                      <div className="text-[10px] sm:text-[11px] font-mono font-semibold text-cyan-300 uppercase tracking-wider truncate">
-                        {project.client || 'Social Media'}
-                      </div>
-                      <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight truncate group-hover:text-cyan-200 transition-colors">
-                        {project.title}
-                      </h4>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 group-hover:bg-[#4757fe] border border-white/20 text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                      <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
-                );
-              })}
+
+                  {/* Bottom Metadata */}
+                  <div className="absolute bottom-0 inset-x-0 z-10 p-3 sm:p-3.5 space-y-0.5">
+                    <div className="text-[10px] sm:text-[11px] font-mono font-semibold text-cyan-300 uppercase tracking-wider truncate">
+                      {project.client || 'Social Media'}
+                    </div>
+                    <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight truncate group-hover:text-cyan-200 transition-colors">
+                      {project.title}
+                    </h4>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right Column: Social Media Content Text (Left -> Right) */}
+          {/* Right Column: Social Media Content Text (Fixed Stable Width, Never Collides) */}
           <div
             ref={socialTextRef}
-            className="order-1 lg:order-2 lg:col-span-5 space-y-4 sm:space-y-5 max-w-lg will-change-transform"
+            className="order-1 lg:order-2 w-full lg:w-[340px] xl:w-[400px] 2xl:w-[440px] flex-shrink-0 space-y-4 sm:space-y-5 will-change-transform"
           >
             <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-indigo-400 uppercase flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
@@ -570,16 +550,16 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
         {/* ======================================================== */}
         {/* ROW 3: REEL CONTENT & CARDS SECTION                      */}
         {/* Left Column: Text (Right -> Left)                        */}
-        {/* Right Column: Layered 9:16 Reel Cards (Right -> Left)    */}
+        {/* Right Column: Cards (Right -> Left, NO OVERLAP, Full)    */}
         {/* ======================================================== */}
         <div
           ref={reelSectionRef}
-          className="mb-16 sm:mb-24 lg:mb-32 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center"
+          className="mb-20 sm:mb-28 lg:mb-36 flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-12 xl:gap-16 w-full"
         >
-          {/* Left Column: Reel Content Text */}
+          {/* Left Column: Reel Content Text (Fixed Stable Width, Never Collides) */}
           <div
             ref={reelTextRef}
-            className="lg:col-span-5 space-y-4 sm:space-y-5 max-w-lg will-change-transform"
+            className="w-full lg:w-[340px] xl:w-[400px] 2xl:w-[440px] flex-shrink-0 space-y-4 sm:space-y-5 will-change-transform"
           >
             <div className="text-xs sm:text-sm font-mono font-bold tracking-widest text-pink-400 uppercase flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse" />
@@ -617,66 +597,60 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
             </div>
           </div>
 
-          {/* Right Column: 4 Reel Cards (9:16 Vertical Ratio, Layered Composition) */}
-          <div className="lg:col-span-7 overflow-x-auto lg:overflow-visible no-scrollbar py-3 px-1 -mx-1">
-            <div className="flex items-center justify-start lg:justify-end min-w-max lg:min-w-0 pr-6 lg:pr-0">
-              {reelItems.map((project, idx) => {
-                const zIndexStyle = 40 - idx * 10;
-                const marginOverlap = idx === 0 ? '' : '-ml-8 sm:-ml-12 md:-ml-14 lg:-ml-12 xl:-ml-15';
+          {/* Right Column: 4 Reel Cards (9:16 Vertical Ratio, NO OVERLAP, Clean Gaps) */}
+          <div className="flex-1 min-w-0 overflow-x-auto no-scrollbar py-3 px-1 -mx-1">
+            <div className="flex items-center justify-start lg:justify-end gap-4 sm:gap-5 xl:gap-6 min-w-max pr-4 lg:pr-0">
+              {reelItems.map((project, idx) => (
+                <div
+                  key={project.id}
+                  ref={(el) => {
+                    if (el) reelCardsRef.current[idx] = el;
+                  }}
+                  onClick={() => handleSelectWork(project)}
+                  className="relative w-[150px] xs:w-[165px] sm:w-[180px] md:w-[195px] xl:w-[210px] 2xl:w-[225px] aspect-[9/16] flex-shrink-0 rounded-2xl overflow-hidden bg-[#0d0c18] border border-white/12 shadow-2xl transition-all duration-300 group cursor-pointer hover:scale-104 hover:-translate-y-1.5 hover:border-pink-500 hover:shadow-[0_20px_45px_rgba(236,72,153,0.4)] select-none will-change-transform flex flex-col justify-between"
+                >
+                  {/* Full-bleed 9:16 Reel Cover Image */}
+                  <img
+                    src={project.coverImage || project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                    loading="lazy"
+                  />
 
-                return (
-                  <div
-                    key={project.id}
-                    ref={(el) => {
-                      if (el) reelCardsRef.current[idx] = el;
-                    }}
-                    onClick={() => handleSelectWork(project)}
-                    style={{ zIndex: zIndexStyle }}
-                    className={`relative ${marginOverlap} w-[155px] xs:w-[170px] sm:w-[195px] md:w-[215px] lg:w-[205px] xl:w-[230px] 2xl:w-[245px] aspect-[9/16] flex-shrink-0 rounded-2xl overflow-hidden bg-[#0d0c18] border border-white/15 shadow-2xl transition-all duration-300 group cursor-pointer hover:z-50 hover:scale-105 hover:-translate-y-2 hover:border-pink-500 hover:shadow-[0_20px_45px_rgba(236,72,153,0.45)] select-none will-change-transform flex flex-col justify-between`}
-                  >
-                    {/* Full-bleed 9:16 Reel Cover Image */}
-                    <img
-                      src={project.coverImage || project.image}
-                      alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
-                      loading="lazy"
-                    />
+                  {/* Gradient Overlay for text & play icon */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90 pointer-events-none" />
 
-                    {/* Gradient Overlay for text & play icon */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/90 pointer-events-none" />
+                  {/* Top Header Badge & 9:16 Aspect Pill */}
+                  <div className="relative z-10 p-2.5 sm:p-3 flex items-center justify-between gap-1">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8.5px] sm:text-[9.5px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-pink-500/30 text-pink-300 shadow-sm">
+                      <Film className="w-2.5 h-2.5 text-pink-400" />
+                      <span>REEL</span>
+                    </span>
 
-                    {/* Top Header Badge & 9:16 Aspect Pill */}
-                    <div className="relative z-10 p-2.5 sm:p-3 flex items-center justify-between gap-1">
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8.5px] sm:text-[9.5px] font-mono font-bold tracking-wider uppercase bg-black/70 backdrop-blur-md border border-pink-500/30 text-pink-300 shadow-sm">
-                        <Film className="w-2.5 h-2.5 text-pink-400" />
-                        <span>REEL</span>
-                      </span>
+                    <span className="px-1.5 py-0.5 rounded text-[8px] font-mono font-semibold bg-black/60 border border-white/15 text-gray-300">
+                      9:16
+                    </span>
+                  </div>
 
-                      <span className="px-1.5 py-0.5 rounded text-[8px] font-mono font-semibold bg-black/60 border border-white/15 text-gray-300">
-                        9:16
-                      </span>
-                    </div>
-
-                    {/* Center Play Button Icon Glow */}
-                    <div className="relative z-10 flex items-center justify-center my-auto pointer-events-none">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-pink-600/30 border border-pink-400/80 text-white shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all duration-300 group-hover:scale-115 group-hover:bg-pink-600">
-                        <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white text-white ml-0.5" />
-                      </div>
-                    </div>
-
-                    {/* Bottom Metadata */}
-                    <div className="relative z-10 p-2.5 sm:p-3 space-y-0.5">
-                      <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-mono text-pink-300 font-semibold uppercase tracking-wider">
-                        <span className="truncate max-w-[95px]">{project.client || 'Commercial Reel'}</span>
-                        <span className="text-gray-400">{project.year || '2026'}</span>
-                      </div>
-                      <h4 className="text-[11px] sm:text-xs font-bold text-white uppercase tracking-tight line-clamp-1 group-hover:text-pink-200 transition-colors">
-                        {project.title}
-                      </h4>
+                  {/* Center Play Button Icon Glow */}
+                  <div className="relative z-10 flex items-center justify-center my-auto pointer-events-none">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center bg-pink-600/30 border border-pink-400/80 text-white shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-all duration-300 group-hover:scale-115 group-hover:bg-pink-600">
+                      <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white text-white ml-0.5" />
                     </div>
                   </div>
-                );
-              })}
+
+                  {/* Bottom Metadata */}
+                  <div className="relative z-10 p-2.5 sm:p-3 space-y-0.5">
+                    <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-mono text-pink-300 font-semibold uppercase tracking-wider">
+                      <span className="truncate max-w-[95px]">{project.client || 'Commercial Reel'}</span>
+                      <span className="text-gray-400">{project.year || '2026'}</span>
+                    </div>
+                    <h4 className="text-[11px] sm:text-xs font-bold text-white uppercase tracking-tight line-clamp-1 group-hover:text-pink-200 transition-colors">
+                      {project.title}
+                    </h4>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
