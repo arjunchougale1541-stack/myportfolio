@@ -109,6 +109,17 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
   const formatValue = reel?.details.format || 'Vertical Video (9:16)';
   const resolutionValue = reel?.details.aspectRatio || '1080 x 1920 (60 FPS)';
 
+  // Format detection: 16:9 widescreen vs 9:16 vertical
+  const isLandscape =
+    project.category === 'Motion Graphic' ||
+    project.category === 'Motion Graphics' ||
+    project.badge?.toLowerCase().includes('motion') ||
+    project.tags?.some((t) => t.toLowerCase().includes('motion')) ||
+    reel?.details.format?.includes('16:9') ||
+    reel?.details.aspectRatio?.includes('1920 x 1080') ||
+    project.aspectClass === 'aspect-video' ||
+    project.aspectClass === '16:9';
+
   // Autoplay on mount
   useEffect(() => {
     const video = videoRef.current;
@@ -316,14 +327,14 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider text-cyan-300 bg-cyan-950/60 border border-cyan-500/30">
               <Clapperboard className="w-3 h-3 text-cyan-400" />
-              <span>REEL CASE STUDY</span>
+              <span>{isLandscape ? 'MOTION GRAPHIC CASE STUDY' : 'REEL CASE STUDY'}</span>
             </span>
             <span className="text-[11px] sm:text-xs font-semibold text-gray-400 hidden xs:inline">
               {clientName}
             </span>
             <span className="text-gray-600 hidden sm:inline">•</span>
             <span className="text-[11px] sm:text-xs font-mono text-purple-300 hidden sm:inline">
-              9:16 VERTICAL CINEMATIC
+              {isLandscape ? '16:9 WIDESCREEN CINEMATIC' : '9:16 VERTICAL CINEMATIC'}
             </span>
           </div>
 
@@ -341,19 +352,27 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
         <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden min-h-0">
           
           {/* ======================================================== */}
-          {/* LEFT COLUMN: REEL VIDEO PLAYER (50% desktop, top mobile) */}
+          {/* LEFT COLUMN: VIDEO PLAYER (50% desktop, top mobile)      */}
           {/* ======================================================== */}
           <div
             ref={containerRef}
-            className="w-full lg:w-1/2 bg-[#040407] border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col items-center justify-center p-3 sm:p-6 lg:p-8 relative overflow-hidden group select-none min-h-[480px] sm:min-h-[560px] lg:min-h-0"
+            className={`w-full lg:w-1/2 bg-[#040407] border-b lg:border-b-0 lg:border-r border-white/5 flex flex-col items-center justify-center p-3 sm:p-6 lg:p-8 relative overflow-hidden group select-none ${
+              isLandscape ? 'min-h-[260px] xs:min-h-[300px] sm:min-h-[360px] lg:min-h-0' : 'min-h-[480px] sm:min-h-[560px] lg:min-h-0'
+            }`}
           >
             {/* Subtle Ambient Radial Lighting Behind Player */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="w-[320px] h-[480px] bg-gradient-to-tr from-cyan-600/15 via-purple-600/20 to-pink-600/15 blur-[100px] rounded-full" />
+              <div className={`w-[320px] ${isLandscape ? 'h-[320px]' : 'h-[480px]'} bg-gradient-to-tr from-cyan-600/15 via-purple-600/20 to-pink-600/15 blur-[100px] rounded-full`} />
             </div>
 
-            {/* Strict 9:16 Aspect Ratio Video Wrapper Container */}
-            <div className="relative w-auto h-full max-h-[58vh] sm:max-h-[68vh] lg:max-h-[76vh] aspect-[9/16] rounded-2xl sm:rounded-3xl overflow-hidden bg-black border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.85)] flex items-center justify-center ring-1 ring-white/5">
+            {/* Video Wrapper Container (9:16 vertical for Reels, 16:9 widescreen for Motion Graphics) */}
+            <div
+              className={`relative ${
+                isLandscape
+                  ? 'w-full max-w-[560px] aspect-[16/9]'
+                  : 'w-auto h-full max-h-[58vh] sm:max-h-[68vh] lg:max-h-[76vh] aspect-[9/16]'
+              } rounded-2xl sm:rounded-3xl overflow-hidden bg-black border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.85)] flex items-center justify-center ring-1 ring-white/5 my-auto`}
+            >
               
               {/* Actual HTML5 Video Element */}
               <video
@@ -402,7 +421,7 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
 
               {/* Resolution & Format Badge on Top-Right of Video */}
               <div className="absolute top-3 right-3 z-20 pointer-events-none px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono font-bold tracking-wider text-gray-300 uppercase">
-                9:16 • 60FPS
+                {isLandscape ? '16:9 • 30FPS' : '9:16 • 60FPS'}
               </div>
 
               {/* BOTTOM CUSTOM VIDEO CONTROLS BAR */}

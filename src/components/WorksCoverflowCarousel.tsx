@@ -7,12 +7,14 @@ interface WorksCoverflowCarouselProps {
   onSelectProject: (work: WorkProjectItem) => void;
   accentColor?: string;
   isReel?: boolean;
+  is16x9?: boolean;
 }
 
 export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
   items,
   onSelectProject,
   isReel = false,
+  is16x9 = false,
 }) => {
   const [continuousOffset, setContinuousOffset] = useState<number>(0);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -27,7 +29,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
 
   const totalCards = items.length;
 
-  // Responsive card spacing calculation (optimized for both standard cards and vertical 9:16 reel cards)
+  // Responsive card spacing calculation (optimized for standard, vertical 9:16 reel, and 16:9 motion graphics cards)
   const updateSpacing = useCallback(() => {
     if (typeof window === 'undefined') return;
     const width = window.innerWidth;
@@ -41,6 +43,16 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
       } else {
         setCardSpacing(255); // Large desktop: 5 visible reel cards
       }
+    } else if (is16x9) {
+      if (width < 640) {
+        setCardSpacing(Math.min(width * 0.85, 340)); // Mobile: centered 16:9 card
+      } else if (width < 1024) {
+        setCardSpacing(340); // Tablet: 3 visible landscape cards
+      } else if (width < 1440) {
+        setCardSpacing(400); // Desktop
+      } else {
+        setCardSpacing(450); // Large desktop
+      }
     } else {
       if (width < 640) {
         setCardSpacing(Math.min(width * 0.78, 270)); // Mobile: 1 center + partial peeks
@@ -52,7 +64,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         setCardSpacing(320); // Large desktop: 5 visible cards
       }
     }
-  }, [isReel]);
+  }, [isReel, is16x9]);
 
   useEffect(() => {
     updateSpacing();
@@ -261,6 +273,8 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
         className={`relative w-full ${
           isReel
             ? 'h-[440px] xs:h-[480px] sm:h-[520px] md:h-[545px]'
+            : is16x9
+            ? 'h-[360px] xs:h-[390px] sm:h-[420px] md:h-[440px]'
             : 'h-[440px] xs:h-[470px] sm:h-[490px] md:h-[515px]'
         } flex items-center justify-center touch-pan-y outline-none overflow-visible ${
           isDragging ? 'cursor-grabbing' : 'cursor-grab'
@@ -272,6 +286,8 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
           style={{
             background: isReel
               ? 'radial-gradient(circle, rgba(236, 72, 153, 0.40) 0%, rgba(168, 85, 247, 0.22) 42%, rgba(0, 0, 0, 0) 72%)'
+              : is16x9
+              ? 'radial-gradient(circle, rgba(99, 102, 241, 0.45) 0%, rgba(56, 189, 248, 0.22) 45%, rgba(0, 0, 0, 0) 72%)'
               : 'radial-gradient(circle, rgba(30, 63, 255, 0.42) 0%, rgba(71, 87, 254, 0.20) 42%, rgba(0, 0, 0, 0) 72%)',
           }}
         />
@@ -282,6 +298,8 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
           style={{
             background: isReel
               ? 'radial-gradient(circle, rgba(244, 63, 94, 0.25) 0%, rgba(168, 85, 247, 0.15) 50%, transparent 75%)'
+              : is16x9
+              ? 'radial-gradient(circle, rgba(129, 140, 248, 0.28) 0%, rgba(56, 189, 248, 0.15) 50%, transparent 75%)'
               : 'radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(30, 63, 255, 0.12) 50%, transparent 75%)',
           }}
         />
@@ -327,6 +345,8 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                 className={`absolute ${
                   isReel
                     ? 'w-[66vw] xs:w-[58vw] max-w-[220px] xs:max-w-[240px] sm:max-w-[260px] md:max-w-[275px]'
+                    : is16x9
+                    ? 'w-[90vw] xs:w-[84vw] sm:w-[72vw] max-w-[380px] xs:max-w-[420px] sm:max-w-[480px] md:max-w-[540px]'
                     : 'w-[86vw] max-w-[320px] sm:max-w-[360px] md:max-w-[390px]'
                 } transition-shadow duration-300 ${
                   isInteractive ? 'pointer-events-auto' : 'pointer-events-none'
@@ -340,8 +360,88 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                   willChange: 'transform, opacity, filter',
                 }}
               >
-                {/* 1. REEL FORMAT CARD (9:16 Vertical Phone Aspect Ratio) */}
-                {isReel ? (
+                {/* 1. MOTION GRAPHIC 16:9 WIDESCREEN CINEMATIC CARD */}
+                {is16x9 ? (
+                  <div
+                    className={`group relative w-full aspect-[16/9] rounded-2xl sm:rounded-[22px] overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between ${
+                      isCenter
+                        ? 'bg-gradient-to-b from-[#11162b] to-[#070914] border-2 border-indigo-400/80 shadow-[0_12px_45px_-5px_rgba(99,102,241,0.50)] ring-1 ring-indigo-400/40'
+                        : 'bg-[#0a0c16]/95 border border-indigo-950/70 shadow-xl hover:border-indigo-500/50'
+                    }`}
+                  >
+                    {/* Full-bleed 16:9 Cover Image */}
+                    <img
+                      src={project.coverImage || project.image}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                      style={{ objectPosition: project.objectPosition || 'center' }}
+                      loading="lazy"
+                      draggable={false}
+                    />
+
+                    {/* Cinematic Gradient Overlays for optimal text legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-transparent to-black/90 pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-95 pointer-events-none" />
+
+                    {/* Top Header: Floating Motion Graphic Badge + 16:9 Aspect Pill */}
+                    <div className="relative z-10 p-3 sm:p-4 flex items-center justify-between gap-2">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9.5px] sm:text-[10px] font-mono font-bold tracking-wider uppercase bg-black/75 backdrop-blur-md border border-indigo-500/40 text-cyan-300 shadow-md">
+                        <Film className="w-3 h-3 text-cyan-400" />
+                        <span>{project.badge || 'MOTION GRAPHIC'}</span>
+                      </span>
+
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[9px] sm:text-[9.5px] font-mono font-semibold uppercase bg-black/70 backdrop-blur-md border border-white/15 text-indigo-200">
+                        16:9 • HD
+                      </span>
+                    </div>
+
+                    {/* Center Play Icon Glow Button */}
+                    <div className="relative z-10 flex items-center justify-center my-auto pointer-events-none">
+                      <div
+                        className={`w-11 h-11 sm:w-13 sm:h-13 rounded-full flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-2xl ${
+                          isCenter
+                            ? 'bg-indigo-600/40 border-2 border-cyan-400/80 text-white group-hover:scale-115 group-hover:bg-indigo-600 shadow-[0_0_25px_rgba(56,189,248,0.6)]'
+                            : 'bg-black/60 border border-white/30 text-white/80 group-hover:scale-110'
+                        }`}
+                      >
+                        <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-white text-white ml-0.5" />
+                      </div>
+                    </div>
+
+                    {/* Bottom Info & Action Overlay */}
+                    <div className="relative z-10 p-3 sm:p-4 space-y-1 sm:space-y-1.5 bg-gradient-to-t from-black via-black/85 to-transparent pt-4 sm:pt-6">
+                      <div className="flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-cyan-300 font-semibold tracking-wider uppercase">
+                        <span className="truncate max-w-[160px] sm:max-w-[220px]">{project.client || 'Featured Motion Graphic'}</span>
+                        <span className="text-gray-400 font-mono text-[9px] sm:text-[10px]">
+                          {project.year || '2026'}
+                        </span>
+                      </div>
+
+                      <div className="flex items-center justify-between gap-3">
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-xs sm:text-sm md:text-[15px] font-black uppercase tracking-tight text-white line-clamp-1 leading-snug group-hover:text-cyan-200 transition-colors">
+                            {project.title}
+                          </h3>
+                          <p className="text-[10px] sm:text-[11px] text-gray-300 line-clamp-1 leading-relaxed mt-0.5 hidden xs:block">
+                            {project.description}
+                          </p>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onSelectProject(project);
+                          }}
+                          className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 py-1.5 sm:py-2 px-3 sm:px-4 rounded-full bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-bold text-[10px] sm:text-[11px] uppercase tracking-wider shadow-lg shadow-indigo-950/60 active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+                        >
+                          <span>VIEW CASE</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-cyan-200" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ) : isReel ? (
                   <div
                     className={`group relative w-full aspect-[9/16] rounded-2xl sm:rounded-[22px] overflow-hidden cursor-pointer transition-all duration-300 flex flex-col justify-between ${
                       isCenter

@@ -96,6 +96,7 @@ import arvindBusinessReelCoverImg from '../assets/images/works/arvind_business_r
 import avyuktaRealtyReelCoverImg from '../assets/images/works/avyukta_realty_reel_cover.jpg';
 import doshiWealthIepfReelCoverImg from '../assets/images/works/doshi_wealth_iepf_reel_cover.jpg';
 import fourtwntyStreetwearReelCoverImg from '../assets/images/works/fourtwnty_streetwear_reel_cover.jpg';
+import fortuneWealthMotionCoverImg from '../assets/images/works/fortune_wealth_motion_cover.jpg';
 import { ProjectItem, ReelData } from '../types';
 
 export type WorkCategory =
@@ -153,6 +154,12 @@ export const WORK_SECTIONS: CategorySectionMeta[] = [
     name: 'Reels',
     subtitle: 'High-impact commercial video edits, D2C brand reels, and dynamic motion graphics.',
     count: 7,
+  },
+  {
+    id: 'motion-graphics',
+    name: 'Motion Graphic',
+    subtitle: 'Cinematic 16:9 brand explainers, kinetic typography showcases, and corporate motion narratives.',
+    count: 1,
   },
 ];
 
@@ -942,6 +949,59 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
           role: 'Lead Video Editor & Colorist',
           format: 'Vertical Video (9:16)',
           aspectRatio: '1080 x 1920 (30 FPS)',
+        },
+      },
+    },
+  ],
+
+  'motion-graphics': [
+    {
+      id: 'fortune-wealth-the-ascent-motion-graphic',
+      title: 'FORTUNE WEALTH - THE ASCENT (FINANCIAL EXPLAINER)',
+      category: 'Motion Graphic',
+      categories: ['Motion Graphic', 'Branding'],
+      image: fortuneWealthMotionCoverImg,
+      coverImage: fortuneWealthMotionCoverImg,
+      projectImages: [fortuneWealthMotionCoverImg],
+      images: [fortuneWealthMotionCoverImg],
+      year: '2026',
+      client: 'Fortune Wealth',
+      description: 'Cinematic 16:9 corporate motion graphic explainer introducing "The Ascent" – Intelligent Model Portfolios (IMP) with quantitative wealth compounding and institutional risk management.',
+      badge: 'FINANCIAL EXPLAINER',
+      aspectClass: 'aspect-video',
+      accentColor: '#38bdf8',
+      videoUrl: '/videos/motion/fortune_wealth_the_ascent.mp4',
+      reelData: {
+        videoUrl: '/videos/motion/fortune_wealth_the_ascent.mp4',
+        title: 'FORTUNE WEALTH - THE ASCENT (FINANCIAL EXPLAINER)',
+        client: 'Fortune Wealth',
+        overview: {
+          description: 'A premium corporate widescreen 16:9 motion graphic explainer designed for Fortune Wealth (fortunewealth.in). Presenting "The Ascent" – Intelligent Model Portfolios (IMP) spearheaded by founder Mr. Sagar Mehta with 25+ years of capital markets leadership and ₹1,389 Cr+ DP AUM, highlighting systematic multi-cap wealth compounding, quantitative models, and institutional-grade risk management.',
+          objective: 'Deliver an authoritative, cinematic visual explainer to articulate Fortune Wealth\'s proprietary Ascent model portfolio strategy, build investor trust among high-net-worth individuals (HNIs), and transform complex financial analytics into compelling motion graphics.',
+        },
+        creativeDirection: 'Sleek institutional fintech visual language featuring deep corporate navy backgrounds, gleaming gold and electric cyan accents, kinetic typography, dynamic financial data visualizations, 3D camera sweeps, and crisp infographic iconography.',
+        editingProcess: {
+          description: 'Built with meticulous widescreen pacing, smooth camera sweeps, layered infographic animations, and synced typographic accents highlighting performance metrics and risk controls.',
+          techniques: [
+            '16:9 Cinematic Widescreen Composition',
+            'Kinetic Typography & Lower-Third Callouts',
+            'Financial Data Visualization & Chart Animations',
+            'Fintech Color Grading & Atmospheric Lighting',
+            'Motion Foley & Corporate Ambient Sound Design',
+          ],
+        },
+        toolsUsed: [
+          'Adobe Premiere Pro',
+          'Adobe After Effects',
+          'Adobe Photoshop',
+          'Claude',
+        ],
+        details: {
+          category: 'Motion Graphic / Corporate Finance',
+          year: '2026',
+          role: 'Lead Motion Graphic Designer & Editor',
+          format: 'Widescreen Video (16:9)',
+          aspectRatio: '1920 x 1080 (30 FPS)',
         },
       },
     },

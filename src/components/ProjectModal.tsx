@@ -82,14 +82,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   if (!project) return null;
 
-  const isReel =
+  const isVideoProject =
     project.category === 'Reels' ||
-    (project.tags && project.tags.includes('Reels')) ||
+    project.category === 'Motion Graphic' ||
+    (project.tags && (project.tags.includes('Reels') || project.tags.includes('Motion Graphic'))) ||
     project.number === 'REEL' ||
+    project.number === 'MOTION' ||
     !!project.videoUrl ||
     !!project.reelData;
 
-  if (isReel) {
+  if (isVideoProject) {
     return <ReelModalView project={project} onClose={onClose} />;
   }
 

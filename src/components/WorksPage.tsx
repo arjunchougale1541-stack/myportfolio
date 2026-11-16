@@ -32,7 +32,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
 
       const modalProject: ProjectItem = {
         id: work.id,
-        number: work.category === 'Reels' ? 'REEL' : 'WORKS',
+        number: work.category === 'Reels' ? 'REEL' : work.category === 'Motion Graphic' ? 'MOTION' : 'WORKS',
         title: work.title,
         subtitle: work.client || work.category,
         year: work.year,
@@ -156,6 +156,7 @@ export const WorksPage: React.FC<WorksPageProps> = ({
                     items={items}
                     onSelectProject={handleProjectClick}
                     isReel={sec.id === 'reels'}
+                    is16x9={sec.id === 'motion-graphics' || sec.id === 'motion-graphic'}
                   />
                 </div>
               </section>
