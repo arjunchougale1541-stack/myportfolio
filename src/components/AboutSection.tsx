@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Instagram, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin, Scissors, Play, Pause, Video, Volume2, Lock, Layers } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import aboutPortraitPng from '../assets/images/arjun_about_portrait_transparent.png';
@@ -14,14 +14,17 @@ export const AboutSection: React.FC = () => {
   const socialRef = useRef<HTMLDivElement>(null);
   const portraitContainerRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
+  const floatingLayerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Bidirectional ScrollTrigger timeline with smooth scrub response
-      const tl = gsap.timeline({
+      // ========================================================
+      // 1. Existing Bidirectional Scroll Scrub for Main Elements
+      // ========================================================
+      const mainTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 85%',
@@ -31,9 +34,9 @@ export const AboutSection: React.FC = () => {
         },
       });
 
-      // 1. Main Heading Animation: Slides smoothly upward from bottom
+      // A. Main Heading Animation: Slides smoothly upward from bottom
       if (headingRef.current) {
-        tl.fromTo(
+        mainTl.fromTo(
           headingRef.current,
           { y: 65, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
@@ -41,9 +44,9 @@ export const AboutSection: React.FC = () => {
         );
       }
 
-      // 2. About Me Content: Slides smoothly in from the left
+      // B. About Me Content: Slides smoothly in from the left
       if (labelRef.current) {
-        tl.fromTo(
+        mainTl.fromTo(
           labelRef.current,
           { x: -60, opacity: 0 },
           { x: 0, opacity: 1, duration: 0.85, ease: 'power2.out' },
@@ -52,7 +55,7 @@ export const AboutSection: React.FC = () => {
       }
 
       if (descRef.current) {
-        tl.fromTo(
+        mainTl.fromTo(
           descRef.current,
           { x: -70, opacity: 0 },
           { x: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
@@ -60,9 +63,9 @@ export const AboutSection: React.FC = () => {
         );
       }
 
-      // 3. Social Media Icons: Subtle staggered entrance
+      // C. Social Media Icons: Subtle staggered entrance
       if (socialRef.current) {
-        tl.fromTo(
+        mainTl.fromTo(
           socialRef.current,
           { x: -45, opacity: 0, scale: 0.92 },
           { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' },
@@ -70,9 +73,9 @@ export const AboutSection: React.FC = () => {
         );
       }
 
-      // 4. Portrait: Slides smoothly in from the right with subtle scale
+      // D. Portrait: Slides smoothly in from the right with subtle scale
       if (portraitContainerRef.current) {
-        tl.fromTo(
+        mainTl.fromTo(
           portraitContainerRef.current,
           { x: 85, opacity: 0, scale: 0.94 },
           { x: 0, opacity: 1, scale: 1, duration: 1, ease: 'power2.out' },
@@ -80,9 +83,9 @@ export const AboutSection: React.FC = () => {
         );
       }
 
-      // 5. Radial Glow: Expands softly behind the portrait
+      // E. Radial Glow: Expands softly behind the portrait
       if (glowRef.current) {
-        tl.fromTo(
+        mainTl.fromTo(
           glowRef.current,
           { opacity: 0, scale: 0.75 },
           { opacity: 1, scale: 1, duration: 1.1, ease: 'power2.out' },
@@ -100,6 +103,113 @@ export const AboutSection: React.FC = () => {
           delay: 1,
         });
       }
+
+      // ========================================================
+      // 2. Floating Video-Editing UI Elements System
+      // ========================================================
+      if (floatingLayerRef.current) {
+        const wrappers = floatingLayerRef.current.querySelectorAll<HTMLElement>('.v-float-wrapper');
+        const inners = floatingLayerRef.current.querySelectorAll<HTMLElement>('.v-float-inner');
+
+        // Initial state before entrance: translateY(100px), opacity 0, slight scale reduction
+        gsap.set(wrappers, { y: 100, opacity: 0, scale: 0.9 });
+
+        // A. Scroll-Based Entrance, Exit & Reverse (ScrollTrigger)
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: 'top 75%',
+          end: 'bottom 15%',
+          onEnter: () => {
+            // Entrance: Animate upward smoothly with staggered delays (80-120ms) and ease-out (800-1100ms)
+            gsap.to(wrappers, {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 1.0,
+              stagger: 0.09,
+              ease: 'power3.out',
+              overwrite: 'auto',
+            });
+          },
+          onLeave: () => {
+            // Scroll-Down Exit: Gradually move downward (80-120px) and fade opacity from 1 to 0
+            gsap.to(wrappers, {
+              y: 110,
+              opacity: 0,
+              scale: 0.92,
+              duration: 0.8,
+              stagger: 0.04,
+              ease: 'power2.in',
+              overwrite: 'auto',
+            });
+          },
+          onEnterBack: () => {
+            // Scroll-Up Reverse: Re-enter from bottom, restore opacity and original positions
+            gsap.to(wrappers, {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.95,
+              stagger: 0.08,
+              ease: 'power3.out',
+              overwrite: 'auto',
+            });
+          },
+          onLeaveBack: () => {
+            // Reversing upward to Hero: animate back down and fade out
+            gsap.to(wrappers, {
+              y: 100,
+              opacity: 0,
+              scale: 0.9,
+              duration: 0.75,
+              stagger: 0.04,
+              ease: 'power2.in',
+              overwrite: 'auto',
+            });
+          },
+        });
+
+        // B. Continuous Floating Animation (Infinite, seamless, smooth & lightweight)
+        // Gentle move up and down (8-15px) with subtle rotation (2-4deg) and durations (4-7s)
+        const floatConfigs = [
+          { y: -13, rot: -1.5, dur: 5.2, delay: 0 },     // 0: Timeline
+          { y: 11, rot: 3, dur: 4.6, delay: 0.4 },        // 1: Pr Badge
+          { y: -10, rot: -2.5, dur: 5.6, delay: 0.8 },    // 2: Ae Badge
+          { y: 12, rot: 2, dur: 6.2, delay: 0.2 },        // 3: Color Wheel
+          { y: -14, rot: -3, dur: 4.8, delay: 0.6 },      // 4: Bezier Graph
+          { y: 13, rot: 3.5, dur: 6.5, delay: 1.0 },      // 5: Filmstrip 1
+          { y: -11, rot: -2, dur: 5.0, delay: 0.3 },      // 6: Filmstrip 2
+          { y: 9, rot: 1.5, dur: 4.4, delay: 0.7 },       // 7: Play/Pause Pill
+          { y: -12, rot: -3.5, dur: 5.4, delay: 0.5 },    // 8: Cut Tool
+          { y: 10, rot: 2, dur: 4.7, delay: 0.9 },        // 9: Audio Waveform
+          { y: -9, rot: -2.5, dur: 5.8, delay: 0.1 },     // 10: Type Tool
+          { y: 11, rot: 2.5, dur: 6.0, delay: 0.5 },      // 11: Layer Stack
+        ];
+
+        inners.forEach((el, idx) => {
+          const cfg = floatConfigs[idx % floatConfigs.length];
+          gsap.to(el, {
+            y: cfg.y,
+            rotation: cfg.rot,
+            duration: cfg.dur,
+            delay: cfg.delay,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+          });
+        });
+
+        // Subtle pulsing glow on neon elements
+        const glowingElements = floatingLayerRef.current.querySelectorAll('.v-neon-pulse');
+        gsap.to(glowingElements, {
+          boxShadow: '0 0 25px rgba(99,102,241,0.5)',
+          opacity: 0.9,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -115,14 +225,14 @@ export const AboutSection: React.FC = () => {
       {/* Background Ambient Atmosphere */}
       <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-      <div className="w-full max-w-[1700px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 sm:gap-14 lg:gap-10 xl:gap-14 2xl:gap-18">
+      <div className="w-full max-w-[1700px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 sm:gap-14 lg:gap-8 xl:gap-12 2xl:gap-16">
         
-        {/* Left Side – Text Content (~52% to 54% Desktop Width) */}
-        <div className="w-full lg:w-[52%] xl:w-[53%] flex flex-col justify-center space-y-7 sm:space-y-9 lg:space-y-11">
+        {/* Left Side – Text Content (~50% to 52% Desktop Width) */}
+        <div className="w-full lg:w-[50%] xl:w-[51%] flex flex-col justify-center space-y-7 sm:space-y-9 lg:space-y-11 z-20">
           
           {/* Main Heading: Moved slightly upward, large, prominent & bold in #463FD1 */}
           <div ref={headingRef} className="will-change-transform">
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.3rem] 2xl:text-[4.85rem] font-extrabold tracking-tight text-[#463FD1] leading-[1.08]">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4.2rem] 2xl:text-[4.75rem] font-extrabold tracking-tight text-[#463FD1] leading-[1.08]">
               Turning ideas into visuals that create impact.
             </h2>
           </div>
@@ -183,8 +293,8 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side – Personal Portrait (~46% to 48% Desktop Width) */}
-        <div className="w-full lg:w-[48%] xl:w-[47%] flex items-center justify-center lg:justify-end relative">
+        {/* Right Side – Personal Portrait & Floating Video Editing Workspace (~49% to 50% Desktop Width) */}
+        <div className="w-full lg:w-[50%] xl:w-[49%] flex items-center justify-center lg:justify-end relative min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] xl:min-h-[760px]">
           
           {/* Subtle Blue/Purple Radial Glow Concentrated Behind Head & Shoulders */}
           <div
@@ -193,10 +303,336 @@ export const AboutSection: React.FC = () => {
           />
           <div className="absolute top-1/4 -right-10 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-          {/* Large Full-Size Portrait with completely transparent cutout background (fills the green-marked reference area) */}
+          {/* Orbiting Neon Light Trails (Background Atmosphere) */}
+          <div className="absolute inset-0 pointer-events-none overflow-visible -z-10 opacity-70">
+            <svg className="w-full h-full" viewBox="0 0 700 700" fill="none">
+              <ellipse
+                cx="340"
+                cy="380"
+                rx="320"
+                ry="180"
+                transform="rotate(-20 340 380)"
+                stroke="url(#neonOrbit1)"
+                strokeWidth="1.5"
+                className="opacity-60"
+              />
+              <ellipse
+                cx="360"
+                cy="420"
+                rx="290"
+                ry="140"
+                transform="rotate(18 360 420)"
+                stroke="url(#neonOrbit2)"
+                strokeWidth="1.2"
+                className="opacity-40"
+              />
+              <defs>
+                <linearGradient id="neonOrbit1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#463FD1" stopOpacity="0" />
+                  <stop offset="30%" stopColor="#6366f1" stopOpacity="0.8" />
+                  <stop offset="70%" stopColor="#38bdf8" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient id="neonOrbit2" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#ec4899" stopOpacity="0" />
+                  <stop offset="40%" stopColor="#818cf8" stopOpacity="0.7" />
+                  <stop offset="80%" stopColor="#3b82f6" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#463FD1" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          {/* ======================================================== */}
+          {/* FLOATING VIDEO EDITING UI ELEMENTS LAYER */}
+          {/* ======================================================== */}
+          <div ref={floatingLayerRef} className="absolute inset-0 pointer-events-none select-none z-20">
+
+            {/* 1. Premiere Pro Timeline Panel (Center-Left / Behind Right Side of Body) */}
+            <div className="v-float-wrapper absolute left-[-20px] sm:left-[-35px] lg:left-[-60px] xl:left-[-75px] top-[30%] sm:top-[32%] z-[1]">
+              <div className="v-float-inner will-change-transform">
+                <div className="w-[280px] xs:w-[320px] sm:w-[380px] lg:w-[410px] xl:w-[440px] rounded-2xl bg-[#0a0c16]/85 backdrop-blur-xl border border-indigo-500/35 shadow-[0_20px_50px_rgba(70,63,209,0.3)] p-3 sm:p-4 text-white overflow-hidden">
+                  
+                  {/* Timeline Header: Timecode Ruler */}
+                  <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[9px] sm:text-[10px] font-mono text-gray-400">
+                    <span className="text-cyan-400 font-semibold">00:00:00:00</span>
+                    <span className="hidden xs:inline">00:00:25:00</span>
+                    <span className="hidden sm:inline">00:00:50:00</span>
+                    <span>00:01:15:00</span>
+                  </div>
+
+                  {/* Ruler Ticks */}
+                  <div className="flex justify-between py-1 px-1 opacity-30">
+                    {Array.from({ length: 28 }).map((_, i) => (
+                      <span key={i} className={`w-[1px] bg-white ${i % 4 === 0 ? 'h-2.5 opacity-80' : 'h-1.5 opacity-40'}`} />
+                    ))}
+                  </div>
+
+                  {/* Video Track (V1) */}
+                  <div className="relative mt-1.5 flex items-center gap-2 bg-white/[0.02] p-1.5 rounded-lg border border-white/5">
+                    <div className="flex items-center gap-1.5 text-gray-400 pl-0.5">
+                      <Video className="w-3.5 h-3.5 text-indigo-400" />
+                      <Lock className="w-3 h-3 text-gray-500" />
+                    </div>
+                    {/* Clips Container */}
+                    <div className="flex-1 flex gap-2 h-7 sm:h-8 relative overflow-hidden">
+                      {/* Clip 1 */}
+                      <div className="flex-1 rounded-md bg-gradient-to-r from-indigo-700/60 to-purple-800/60 border border-indigo-400/40 p-1 flex items-center justify-between shadow-inner">
+                        <span className="text-[9px] sm:text-[10px] font-medium text-indigo-200 truncate">Commercial_Cut_01</span>
+                        <div className="w-1.5 h-full bg-indigo-400/60 rounded-r" />
+                      </div>
+                      {/* Clip 2 */}
+                      <div className="w-[36%] rounded-md bg-gradient-to-r from-blue-700/60 to-cyan-800/60 border border-blue-400/40 p-1 flex items-center justify-between shadow-inner">
+                        <span className="text-[9px] sm:text-[10px] font-medium text-blue-200 truncate">B-Roll_02</span>
+                        <div className="w-1.5 h-full bg-cyan-400/60 rounded-r" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Audio Track (A1) */}
+                  <div className="relative mt-2 flex items-center gap-2 bg-white/[0.02] p-1.5 rounded-lg border border-white/5">
+                    <div className="flex items-center gap-1.5 text-gray-400 pl-0.5">
+                      <Volume2 className="w-3.5 h-3.5 text-cyan-400" />
+                      <Lock className="w-3 h-3 text-gray-500" />
+                    </div>
+                    {/* Audio Waveform visualization */}
+                    <div className="flex-1 h-6 sm:h-7 rounded-md bg-cyan-950/40 border border-cyan-500/30 flex items-center justify-around px-2 overflow-hidden">
+                      {Array.from({ length: 36 }).map((_, i) => {
+                        const h = Math.sin(i * 0.45) * 45 + 50;
+                        return (
+                          <span
+                            key={i}
+                            className="w-[2px] bg-gradient-to-t from-cyan-400 to-indigo-300 rounded-full"
+                            style={{ height: `${h}%` }}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Playhead Vertical Glowing Line */}
+                  <div className="absolute top-2 bottom-2 left-[58%] w-[1.5px] bg-cyan-300 shadow-[0_0_10px_#22d3ee] pointer-events-none">
+                    <div className="absolute -top-1 -left-[5px] w-0 h-0 border-x-[6px] border-x-transparent border-t-[8px] border-t-cyan-300 filter drop-shadow-[0_0_6px_#22d3ee]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Floating Premiere Pro (Pr) Badge */}
+            <div className="v-float-wrapper absolute left-[15px] sm:left-[45px] lg:left-[55px] xl:left-[70px] top-[14%] sm:top-[15%] z-20">
+              <div className="v-float-inner v-neon-pulse will-change-transform w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#09081a]/90 backdrop-blur-md border border-[#9999ff]/40 shadow-[0_0_25px_rgba(153,153,255,0.35)] flex items-center justify-center">
+                <span className="text-xl sm:text-2xl font-black text-[#a78bfa] tracking-tight drop-shadow-[0_0_10px_rgba(167,139,250,0.8)] font-sans">
+                  Pr
+                </span>
+              </div>
+            </div>
+
+            {/* 3. Floating After Effects (Ae) Badge */}
+            <div className="v-float-wrapper absolute -right-2 sm:right-2 lg:right-2 xl:right-4 top-[46%] sm:top-[48%] z-20">
+              <div className="v-float-inner v-neon-pulse will-change-transform w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#09081a]/90 backdrop-blur-md border border-[#818cf8]/40 shadow-[0_0_25px_rgba(129,140,248,0.35)] flex items-center justify-center">
+                <span className="text-xl sm:text-2xl font-black text-[#818cf8] tracking-tight drop-shadow-[0_0_10px_rgba(129,140,248,0.8)] font-sans">
+                  Ae
+                </span>
+              </div>
+            </div>
+
+            {/* 4. Glowing Color Grading Wheel & Balance Sliders */}
+            <div className="v-float-wrapper absolute right-1 sm:right-4 lg:right-6 xl:right-8 top-[4%] sm:top-[5%] z-20">
+              <div className="v-float-inner will-change-transform flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#0a0c1a]/85 backdrop-blur-xl border border-indigo-500/35 shadow-[0_15px_40px_rgba(70,63,209,0.3)]">
+                {/* Hue Circle Wheel */}
+                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.3)]"
+                  style={{
+                    background: 'conic-gradient(from 0deg, #ff0055, #ffaa00, #00ff66, #00ffff, #0066ff, #aa00ff, #ff0055)'
+                  }}
+                >
+                  <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0a0b16] border border-white/20 flex items-center justify-center shadow-inner">
+                    {/* Reticle balance dot */}
+                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
+                  </div>
+                </div>
+
+                {/* Adjustment Sliders */}
+                <div className="space-y-1.5 w-16 sm:w-20">
+                  <div className="h-1.5 rounded-full bg-white/10 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 bottom-0 w-[65%] bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full" />
+                    <div className="absolute top-1/2 -translate-y-1/2 left-[62%] w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_6px_#22d3ee]" />
+                  </div>
+                  <div className="h-1.5 rounded-full bg-white/10 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 bottom-0 w-[45%] bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
+                    <div className="absolute top-1/2 -translate-y-1/2 left-[42%] w-2.5 h-2.5 rounded-full bg-pink-300 shadow-[0_0_6px_#f472b6]" />
+                  </div>
+                  <div className="h-1.5 rounded-full bg-white/10 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 bottom-0 w-[80%] bg-gradient-to-r from-blue-500 to-indigo-400 rounded-full" />
+                    <div className="absolute top-1/2 -translate-y-1/2 left-[77%] w-2.5 h-2.5 rounded-full bg-indigo-300 shadow-[0_0_6px_#818cf8]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 5. Motion Graphics Bezier Curve & Keyframe Graph */}
+            <div className="v-float-wrapper absolute -right-3 sm:right-2 lg:right-2 xl:right-4 top-[24%] sm:top-[26%] z-20">
+              <div className="v-float-inner will-change-transform w-36 sm:w-44 h-24 sm:h-28 rounded-2xl bg-[#090b18]/85 backdrop-blur-xl border border-white/15 p-2.5 shadow-[0_15px_35px_rgba(0,0,0,0.6)] flex flex-col justify-between">
+                <div className="flex items-center justify-between text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-indigo-300 border-b border-white/10 pb-1">
+                  <span>Speed Ramp</span>
+                  <span className="text-cyan-400 font-bold">Bézier</span>
+                </div>
+                {/* SVG Graph Grid & Curve */}
+                <div className="relative flex-1 flex items-center justify-center">
+                  <svg className="w-full h-full" viewBox="0 0 120 60" fill="none">
+                    {/* Grid lines */}
+                    <line x1="0" y1="15" x2="120" y2="15" stroke="rgba(255,255,255,0.08)" strokeDasharray="2 2" />
+                    <line x1="0" y1="45" x2="120" y2="45" stroke="rgba(255,255,255,0.08)" strokeDasharray="2 2" />
+                    <line x1="40" y1="0" x2="40" y2="60" stroke="rgba(255,255,255,0.08)" strokeDasharray="2 2" />
+                    <line x1="80" y1="0" x2="80" y2="60" stroke="rgba(255,255,255,0.08)" strokeDasharray="2 2" />
+                    
+                    {/* Tangent control handle */}
+                    <line x1="20" y1="48" x2="55" y2="48" stroke="rgba(96,165,250,0.4)" strokeWidth="1" />
+                    <circle cx="55" cy="48" r="2" fill="#60a5fa" />
+                    <line x1="65" y1="12" x2="100" y2="12" stroke="rgba(192,132,252,0.4)" strokeWidth="1" />
+                    <circle cx="65" cy="12" r="2" fill="#c084fc" />
+
+                    {/* Glowing S-Curve */}
+                    <path
+                      d="M 20 48 C 55 48, 65 12, 100 12"
+                      stroke="url(#graphCurve)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+
+                    {/* Keyframe Diamond 1 */}
+                    <rect x="17" y="45" width="6" height="6" transform="rotate(45 20 48)" fill="#38bdf8" className="filter drop-shadow-[0_0_6px_#38bdf8]" />
+                    {/* Keyframe Diamond 2 */}
+                    <rect x="97" y="9" width="6" height="6" transform="rotate(45 100 12)" fill="#c084fc" className="filter drop-shadow-[0_0_6px_#c084fc]" />
+
+                    <defs>
+                      <linearGradient id="graphCurve" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#38bdf8" />
+                        <stop offset="100%" stopColor="#c084fc" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* 6. Floating Curved Filmstrip 1 (Top Left) */}
+            <div className="v-float-wrapper absolute left-[0px] sm:left-[25px] lg:left-[35px] xl:left-[45px] top-[1%] sm:top-[2%] z-[5]">
+              <div className="v-float-inner will-change-transform -rotate-6">
+                <div className="w-32 sm:w-40 rounded-xl bg-black/85 backdrop-blur-md border border-white/20 p-1.5 shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
+                  {/* Top sprocket holes */}
+                  <div className="flex justify-between px-1 pb-1">
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <span key={i} className="w-2 h-1.5 bg-white/30 rounded-[1px]" />
+                    ))}
+                  </div>
+                  {/* Film frames */}
+                  <div className="flex gap-1.5">
+                    <div className="flex-1 h-12 sm:h-14 rounded bg-gradient-to-br from-indigo-900/80 via-blue-900/60 to-purple-900/80 border border-white/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <span className="absolute bottom-1 left-1 text-[7px] font-mono text-cyan-300">#01A</span>
+                    </div>
+                    <div className="flex-1 h-12 sm:h-14 rounded bg-gradient-to-br from-purple-900/80 via-pink-900/60 to-indigo-900/80 border border-white/10 relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <span className="absolute bottom-1 left-1 text-[7px] font-mono text-pink-300">#02B</span>
+                    </div>
+                  </div>
+                  {/* Bottom sprocket holes */}
+                  <div className="flex justify-between px-1 pt-1">
+                    {Array.from({ length: 6 }).map((_, i) => (
+                      <span key={i} className="w-2 h-1.5 bg-white/30 rounded-[1px]" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 7. Floating Filmstrip Cell 2 (Middle Right) */}
+            <div className="v-float-wrapper absolute right-[45px] sm:right-[75px] lg:right-[90px] xl:right-[105px] top-[49%] sm:top-[51%] z-[5] hidden xs:block">
+              <div className="v-float-inner will-change-transform rotate-6">
+                <div className="w-20 sm:w-24 rounded-lg bg-black/85 backdrop-blur-md border border-white/20 p-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]">
+                  <div className="flex justify-between px-1 pb-0.5">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                      <span key={i} className="w-1.5 h-1 bg-white/30 rounded-[1px]" />
+                    ))}
+                  </div>
+                  <div className="h-9 sm:h-11 rounded bg-gradient-to-tr from-cyan-900/80 to-blue-950/80 border border-cyan-400/20 flex items-center justify-center">
+                    <span className="text-[7px] font-mono text-cyan-300 font-bold">REC ●</span>
+                  </div>
+                  <div className="flex justify-between px-1 pt-0.5">
+                    {Array.from({ length: 4 }).map((_, i) => (
+                      <span key={i} className="w-1.5 h-1 bg-white/30 rounded-[1px]" />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 8. Play / Pause Glass Pill */}
+            <div className="v-float-wrapper absolute left-[38%] sm:left-[43%] lg:left-[41%] xl:left-[43%] top-[10%] sm:top-[11%] z-20">
+              <div className="v-float-inner will-change-transform px-3.5 py-1.5 rounded-full bg-[#090b16]/90 backdrop-blur-md border border-white/20 flex items-center gap-2 shadow-[0_8px_20px_rgba(0,0,0,0.6)]">
+                <Play className="w-3 h-3 text-cyan-400 fill-cyan-400" />
+                <span className="w-[1px] h-3 bg-white/20" />
+                <Pause className="w-3 h-3 text-gray-300 fill-gray-300" />
+              </div>
+            </div>
+
+            {/* 9. Razor / Cut Tool Badge [ ✂ ] */}
+            <div className="v-float-wrapper absolute -left-4 sm:left-2 lg:left-4 xl:left-6 top-[66%] sm:top-[68%] z-20">
+              <div className="v-float-inner will-change-transform px-3.5 sm:px-4 py-2 rounded-xl bg-[#090b16]/90 backdrop-blur-md border border-[#463FD1]/45 flex items-center gap-2 shadow-[0_0_20px_rgba(70,63,209,0.35)] font-mono text-sm">
+                <span className="text-gray-400 font-bold">[</span>
+                <Scissors className="w-4 h-4 text-indigo-400" />
+                <span className="text-gray-400 font-bold">]</span>
+                <span className="text-[10px] text-gray-400 ml-1">C</span>
+              </div>
+            </div>
+
+            {/* 10. Glowing Audio Waveform Pill */}
+            <div className="v-float-wrapper absolute left-4 sm:left-10 lg:left-12 xl:left-14 top-[82%] sm:top-[84%] z-20">
+              <div className="v-float-inner will-change-transform px-3.5 py-2 rounded-xl bg-[#0a0c1a]/90 backdrop-blur-md border border-cyan-500/35 flex items-center gap-1 shadow-[0_0_25px_rgba(6,182,212,0.3)]">
+                <Volume2 className="w-3.5 h-3.5 text-cyan-400 mr-1.5" />
+                {Array.from({ length: 14 }).map((_, i) => {
+                  const heights = [35, 60, 90, 45, 75, 100, 70, 40, 85, 65, 95, 50, 80, 40];
+                  return (
+                    <span
+                      key={i}
+                      className="w-[2px] bg-gradient-to-t from-cyan-400 to-indigo-400 rounded-full animate-pulse"
+                      style={{
+                        height: `${heights[i % heights.length] * 0.22}px`,
+                        animationDelay: `${i * 0.12}s`,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* 11. Type / Text Tool Badge [ T ] */}
+            <div className="v-float-wrapper absolute -right-3 sm:right-1 lg:right-2 xl:right-4 top-[62%] sm:top-[64%] z-20">
+              <div className="v-float-inner will-change-transform w-11 h-11 rounded-xl bg-[#090b18]/90 backdrop-blur-md border border-dashed border-indigo-400/50 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.3)] relative">
+                {/* 4 corner handles */}
+                <span className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_4px_#ffffff]" />
+                <span className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_4px_#ffffff]" />
+                <span className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_4px_#ffffff]" />
+                <span className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_4px_#ffffff]" />
+                <span className="font-serif font-black text-xl text-white tracking-wide">T</span>
+              </div>
+            </div>
+
+            {/* 12. Layer Stack Isometric Planes */}
+            <div className="v-float-wrapper absolute right-8 sm:right-12 lg:right-14 xl:right-16 top-[78%] sm:top-[80%] z-20">
+              <div className="v-float-inner will-change-transform p-2.5 rounded-xl bg-[#090b18]/90 backdrop-blur-md border border-indigo-500/35 flex items-center justify-center shadow-[0_0_20px_rgba(70,63,209,0.35)]">
+                <Layers className="w-5 h-5 text-indigo-300" />
+              </div>
+            </div>
+
+          </div>
+
+          {/* ======================================================== */}
+          {/* PERSONAL PORTRAIT (Cutout, Layered Between Elements) */}
+          {/* ======================================================== */}
           <div
             ref={portraitContainerRef}
-            className="relative w-full max-w-[500px] sm:max-w-[560px] md:max-w-[620px] lg:max-w-[660px] xl:max-w-[720px] 2xl:max-w-[780px] flex items-end justify-center select-none will-change-transform"
+            className="relative w-full max-w-[500px] sm:max-w-[560px] md:max-w-[620px] lg:max-w-[660px] xl:max-w-[720px] 2xl:max-w-[780px] flex items-end justify-center select-none will-change-transform z-10"
           >
             <img
               src={aboutPortraitPng}
@@ -209,6 +645,7 @@ export const AboutSection: React.FC = () => {
               loading="eager"
             />
           </div>
+
         </div>
 
       </div>
