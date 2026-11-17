@@ -21,174 +21,38 @@ export const AboutSection: React.FC = () => {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // ========================================================
-      // 1. Existing Bidirectional Scroll Scrub for Main Elements
-      // ========================================================
-      const mainTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 85%',
-          end: 'top 30%',
-          scrub: 0.6,
-          invalidateOnRefresh: true,
-        },
-      });
+      const wrappers = floatingLayerRef.current?.querySelectorAll<HTMLElement>('.v-float-wrapper');
+      const inners = floatingLayerRef.current?.querySelectorAll<HTMLElement>('.v-float-inner');
 
-      // A. Main Heading Animation: Slides smoothly upward from bottom
-      if (headingRef.current) {
-        mainTl.fromTo(
-          headingRef.current,
-          { y: 65, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
-          0
-        );
-      }
+      // Floating tweens storage
+      const floatTweens: gsap.core.Tween[] = [];
+      let isFloatingStarted = false;
 
-      // B. About Me Content: Slides smoothly in from the left
-      if (labelRef.current) {
-        mainTl.fromTo(
-          labelRef.current,
-          { x: -60, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.85, ease: 'power2.out' },
-          0.08
-        );
-      }
+      const floatConfigs = [
+        { y: -12, rot: -1.5, dur: 5.2, delay: 0 },    // 0: Timeline
+        { y: 10, rot: 2.5, dur: 4.6, delay: 0.3 },     // 1: Pr Badge
+        { y: -10, rot: -2.5, dur: 5.6, delay: 0.6 },   // 2: Ae Badge
+        { y: 12, rot: 2, dur: 6.0, delay: 0.2 },       // 3: Color Wheel
+        { y: -13, rot: -3, dur: 4.8, delay: 0.5 },     // 4: Bezier Graph
+        { y: 14, rot: 3, dur: 6.4, delay: 0.8 },       // 5: Filmstrip 1
+        { y: -10, rot: -2, dur: 5.0, delay: 0.4 },     // 6: Filmstrip 2
+        { y: 9, rot: 1.5, dur: 4.4, delay: 0.7 },      // 7: Play/Pause
+        { y: -12, rot: -3, dur: 5.4, delay: 0.5 },     // 8: Cut Tool
+        { y: 10, rot: 2, dur: 4.7, delay: 0.9 },       // 9: Audio Waveform
+        { y: -9, rot: -2, dur: 5.8, delay: 0.1 },      // 10: Type Tool
+        { y: 11, rot: 2.5, dur: 6.2, delay: 0.6 },     // 11: Layer Stack
+      ];
 
-      if (descRef.current) {
-        mainTl.fromTo(
-          descRef.current,
-          { x: -70, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
-          0.14
-        );
-      }
-
-      // C. Social Media Icons: Subtle staggered entrance
-      if (socialRef.current) {
-        mainTl.fromTo(
-          socialRef.current,
-          { x: -45, opacity: 0, scale: 0.92 },
-          { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' },
-          0.2
-        );
-      }
-
-      // D. Portrait: Slides smoothly in from the right with subtle scale
-      if (portraitContainerRef.current) {
-        mainTl.fromTo(
-          portraitContainerRef.current,
-          { x: 85, opacity: 0, scale: 0.94 },
-          { x: 0, opacity: 1, scale: 1, duration: 1, ease: 'power2.out' },
-          0.08
-        );
-      }
-
-      // E. Radial Glow: Expands softly behind the portrait
-      if (glowRef.current) {
-        mainTl.fromTo(
-          glowRef.current,
-          { opacity: 0, scale: 0.75 },
-          { opacity: 1, scale: 1, duration: 1.1, ease: 'power2.out' },
-          0.05
-        );
-
-        // Continuous subtle ambient breathing effect
-        gsap.to(glowRef.current, {
-          scale: 1.08,
-          opacity: 0.85,
-          duration: 4.5,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
-          delay: 1,
-        });
-      }
-
-      // ========================================================
-      // 2. Floating Video-Editing UI Elements System
-      // ========================================================
-      if (floatingLayerRef.current) {
-        const wrappers = floatingLayerRef.current.querySelectorAll<HTMLElement>('.v-float-wrapper');
-        const inners = floatingLayerRef.current.querySelectorAll<HTMLElement>('.v-float-inner');
-
-        // Initial state before entrance: translateY(100px), opacity 0, slight scale reduction
-        gsap.set(wrappers, { y: 100, opacity: 0, scale: 0.9 });
-
-        // A. Scroll-Based Entrance, Exit & Reverse (ScrollTrigger)
-        ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          end: 'bottom 15%',
-          onEnter: () => {
-            // Entrance: Animate upward smoothly with staggered delays (80-120ms) and ease-out (800-1100ms)
-            gsap.to(wrappers, {
-              y: 0,
-              opacity: 1,
-              scale: 1,
-              duration: 1.0,
-              stagger: 0.09,
-              ease: 'power3.out',
-              overwrite: 'auto',
-            });
-          },
-          onLeave: () => {
-            // Scroll-Down Exit: Gradually move downward (80-120px) and fade opacity from 1 to 0
-            gsap.to(wrappers, {
-              y: 110,
-              opacity: 0,
-              scale: 0.92,
-              duration: 0.8,
-              stagger: 0.04,
-              ease: 'power2.in',
-              overwrite: 'auto',
-            });
-          },
-          onEnterBack: () => {
-            // Scroll-Up Reverse: Re-enter from bottom, restore opacity and original positions
-            gsap.to(wrappers, {
-              y: 0,
-              opacity: 1,
-              scale: 1,
-              duration: 0.95,
-              stagger: 0.08,
-              ease: 'power3.out',
-              overwrite: 'auto',
-            });
-          },
-          onLeaveBack: () => {
-            // Reversing upward to Hero: animate back down and fade out
-            gsap.to(wrappers, {
-              y: 100,
-              opacity: 0,
-              scale: 0.9,
-              duration: 0.75,
-              stagger: 0.04,
-              ease: 'power2.in',
-              overwrite: 'auto',
-            });
-          },
-        });
-
-        // B. Continuous Floating Animation (Infinite, seamless, smooth & lightweight)
-        // Gentle move up and down (8-15px) with subtle rotation (2-4deg) and durations (4-7s)
-        const floatConfigs = [
-          { y: -13, rot: -1.5, dur: 5.2, delay: 0 },     // 0: Timeline
-          { y: 11, rot: 3, dur: 4.6, delay: 0.4 },        // 1: Pr Badge
-          { y: -10, rot: -2.5, dur: 5.6, delay: 0.8 },    // 2: Ae Badge
-          { y: 12, rot: 2, dur: 6.2, delay: 0.2 },        // 3: Color Wheel
-          { y: -14, rot: -3, dur: 4.8, delay: 0.6 },      // 4: Bezier Graph
-          { y: 13, rot: 3.5, dur: 6.5, delay: 1.0 },      // 5: Filmstrip 1
-          { y: -11, rot: -2, dur: 5.0, delay: 0.3 },      // 6: Filmstrip 2
-          { y: 9, rot: 1.5, dur: 4.4, delay: 0.7 },       // 7: Play/Pause Pill
-          { y: -12, rot: -3.5, dur: 5.4, delay: 0.5 },    // 8: Cut Tool
-          { y: 10, rot: 2, dur: 4.7, delay: 0.9 },        // 9: Audio Waveform
-          { y: -9, rot: -2.5, dur: 5.8, delay: 0.1 },     // 10: Type Tool
-          { y: 11, rot: 2.5, dur: 6.0, delay: 0.5 },      // 11: Layer Stack
-        ];
-
+      const startFloating = () => {
+        if (!inners) return;
+        if (isFloatingStarted) {
+          floatTweens.forEach((t) => t.resume());
+          return;
+        }
+        isFloatingStarted = true;
         inners.forEach((el, idx) => {
           const cfg = floatConfigs[idx % floatConfigs.length];
-          gsap.to(el, {
+          const tween = gsap.to(el, {
             y: cfg.y,
             rotation: cfg.rot,
             duration: cfg.dur,
@@ -197,9 +61,153 @@ export const AboutSection: React.FC = () => {
             yoyo: true,
             ease: 'sine.inOut',
           });
+          floatTweens.push(tween);
         });
+      };
 
-        // Subtle pulsing glow on neon elements
+      const pauseFloating = () => {
+        floatTweens.forEach((t) => t.pause());
+      };
+
+      // ========================================================
+      // STRICT SEQUENTIAL ENTRANCE TIMELINE
+      // Step 1: Text first (Heading -> Label, Description, Social)
+      // Step 2: ONLY after text is fully completed -> Portrait
+      // Step 3: Floating UI elements rise into place around portrait
+      // Step 4: Continuous floating begins
+      // ========================================================
+      const masterTl = gsap.timeline({
+        paused: true,
+        onComplete: () => {
+          startFloating();
+        },
+      });
+
+      // Initial layout states
+      if (headingRef.current) gsap.set(headingRef.current, { y: 55, opacity: 0 });
+      const textItems = [labelRef.current, descRef.current, socialRef.current].filter(Boolean);
+      if (textItems.length > 0) gsap.set(textItems, { x: -50, opacity: 0 });
+      if (portraitContainerRef.current) gsap.set(portraitContainerRef.current, { x: 80, opacity: 0, scale: 0.94 });
+      if (glowRef.current) gsap.set(glowRef.current, { opacity: 0, scale: 0.75 });
+      if (wrappers && wrappers.length > 0) gsap.set(wrappers, { y: 90, opacity: 0, scale: 0.9 });
+
+      // PHASE A: Main Heading reveals upward from bottom (0.0s -> 0.75s)
+      if (headingRef.current) {
+        masterTl.to(
+          headingRef.current,
+          { y: 0, opacity: 1, duration: 0.75, ease: 'power3.out' },
+          0
+        );
+      }
+
+      // PHASE B: About Me label, description, and social icons slide in from left (0.45s -> 1.35s)
+      if (textItems.length > 0) {
+        masterTl.to(
+          textItems,
+          { x: 0, opacity: 1, duration: 0.7, stagger: 0.14, ease: 'power2.out' },
+          0.45
+        );
+      }
+
+      // ========================================================
+      // TEXT PHASE IS FULLY FINISHED HERE (~1.4s)
+      // ========================================================
+
+      // PHASE C: Portrait enters from right with confident ease-out (1.45s -> 2.3s)
+      if (portraitContainerRef.current) {
+        masterTl.to(
+          portraitContainerRef.current,
+          { x: 0, opacity: 1, scale: 1, duration: 0.85, ease: 'power3.out' },
+          1.45
+        );
+      }
+
+      // Radial Glow emerges behind the portrait
+      if (glowRef.current) {
+        masterTl.to(
+          glowRef.current,
+          { opacity: 1, scale: 1, duration: 0.95, ease: 'power2.out' },
+          1.45
+        );
+
+        // Continuous subtle ambient breathing effect on the glow
+        gsap.to(glowRef.current, {
+          scale: 1.08,
+          opacity: 0.85,
+          duration: 4.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: 2.4,
+        });
+      }
+
+      // PHASE D: Floating editing elements rise from bottom to their positions (2.15s -> 3.0s)
+      if (wrappers && wrappers.length > 0) {
+        masterTl.to(
+          wrappers,
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.85,
+            stagger: 0.07,
+            ease: 'power3.out',
+          },
+          2.15
+        );
+      }
+
+      // ========================================================
+      // SCROLLTRIGGER FOR ENTRANCE, EXIT & REVERSE
+      // ========================================================
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top 75%',
+        end: 'bottom 15%',
+        onEnter: () => {
+          // Entering while scrolling down: play the sequential story
+          masterTl.play();
+        },
+        onLeave: () => {
+          // Leaving while scrolling down: elements gently move downward and fade out
+          pauseFloating();
+          if (wrappers && wrappers.length > 0) {
+            gsap.to(wrappers, {
+              y: 90,
+              opacity: 0,
+              duration: 0.7,
+              stagger: 0.03,
+              ease: 'power2.in',
+              overwrite: 'auto',
+            });
+          }
+        },
+        onEnterBack: () => {
+          // Re-entering while scrolling back up: re-enter elements from bottom & resume floating
+          if (wrappers && wrappers.length > 0) {
+            gsap.to(wrappers, {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.05,
+              ease: 'power3.out',
+              overwrite: 'auto',
+              onComplete: () => {
+                startFloating();
+              },
+            });
+          }
+        },
+        onLeaveBack: () => {
+          // Reversing back up to Hero: smoothly reverse master sequence
+          pauseFloating();
+          masterTl.reverse();
+        },
+      });
+
+      // Subtle pulsing glow on neon badges
+      if (floatingLayerRef.current) {
         const glowingElements = floatingLayerRef.current.querySelectorAll('.v-neon-pulse');
         gsap.to(glowingElements, {
           boxShadow: '0 0 25px rgba(99,102,241,0.5)',
@@ -227,10 +235,12 @@ export const AboutSection: React.FC = () => {
 
       <div className="w-full max-w-[1700px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 sm:gap-14 lg:gap-8 xl:gap-12 2xl:gap-16">
         
-        {/* Left Side – Text Content (~50% to 52% Desktop Width) */}
-        <div className="w-full lg:w-[50%] xl:w-[51%] flex flex-col justify-center space-y-7 sm:space-y-9 lg:space-y-11 z-20">
+        {/* ======================================================== */}
+        {/* PRIORITY 1: LEFT SIDE – TEXT CONTENT (z-30)               */}
+        {/* ======================================================== */}
+        <div className="w-full lg:w-[50%] xl:w-[51%] flex flex-col justify-center space-y-7 sm:space-y-9 lg:space-y-11 z-30">
           
-          {/* Main Heading: Moved slightly upward, large, prominent & bold in #463FD1 */}
+          {/* Main Heading: Large, prominent & bold in #463FD1 */}
           <div ref={headingRef} className="will-change-transform">
             <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-[4.2rem] 2xl:text-[4.75rem] font-extrabold tracking-tight text-[#463FD1] leading-[1.08]">
               Turning ideas into visuals that create impact.
@@ -293,17 +303,19 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side – Personal Portrait & Floating Video Editing Workspace (~49% to 50% Desktop Width) */}
+        {/* Right Side Container */}
         <div className="w-full lg:w-[50%] xl:w-[49%] flex items-center justify-center lg:justify-end relative min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] xl:min-h-[760px]">
           
-          {/* Subtle Blue/Purple Radial Glow Concentrated Behind Head & Shoulders */}
+          {/* ======================================================== */}
+          {/* PRIORITY 4: BACKGROUND GLOW & DECORATIVE ORBITS (-z-10)   */}
+          {/* ======================================================== */}
           <div
             ref={glowRef}
             className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[440px] lg:w-[500px] xl:w-[580px] 2xl:w-[620px] h-[340px] sm:h-[440px] lg:h-[500px] xl:h-[580px] 2xl:h-[620px] bg-[radial-gradient(ellipse_at_center,_rgba(70,63,209,0.45)_0%,_rgba(99,102,241,0.22)_40%,_transparent_72%)] rounded-full blur-[80px] pointer-events-none will-change-transform -z-10"
           />
           <div className="absolute top-1/4 -right-10 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-          {/* Orbiting Neon Light Trails (Background Atmosphere) */}
+          {/* Orbiting Neon Light Trails (Strictly behind portrait at -z-10) */}
           <div className="absolute inset-0 pointer-events-none overflow-visible -z-10 opacity-70">
             <svg className="w-full h-full" viewBox="0 0 700 700" fill="none">
               <ellipse
@@ -344,14 +356,15 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* ======================================================== */}
-          {/* FLOATING VIDEO EDITING UI ELEMENTS LAYER */}
+          {/* PRIORITY 3: FLOATING VIDEO EDITING UI ELEMENTS (z-10)     */}
+          {/* Sits BEHIND the portrait (z-20) so it never covers Arjun */}
           {/* ======================================================== */}
-          <div ref={floatingLayerRef} className="absolute inset-0 pointer-events-none select-none z-20">
+          <div ref={floatingLayerRef} className="absolute inset-0 pointer-events-none select-none z-10">
 
-            {/* 1. Premiere Pro Timeline Panel (Center-Left / Behind Right Side of Body) */}
-            <div className="v-float-wrapper absolute left-[-20px] sm:left-[-35px] lg:left-[-60px] xl:left-[-75px] top-[30%] sm:top-[32%] z-[1]">
+            {/* 1. Premiere Pro Timeline Panel (Sits behind Arjun's left shoulder/torso) */}
+            <div className="v-float-wrapper absolute left-[-25px] sm:left-[-45px] lg:left-[-75px] xl:left-[-90px] top-[30%] sm:top-[32%] z-[1]">
               <div className="v-float-inner will-change-transform">
-                <div className="w-[280px] xs:w-[320px] sm:w-[380px] lg:w-[410px] xl:w-[440px] rounded-2xl bg-[#0a0c16]/85 backdrop-blur-xl border border-indigo-500/35 shadow-[0_20px_50px_rgba(70,63,209,0.3)] p-3 sm:p-4 text-white overflow-hidden">
+                <div className="w-[280px] xs:w-[320px] sm:w-[380px] lg:w-[420px] xl:w-[450px] rounded-2xl bg-[#0a0c16]/85 backdrop-blur-xl border border-indigo-500/35 shadow-[0_20px_50px_rgba(70,63,209,0.3)] p-3 sm:p-4 text-white overflow-hidden">
                   
                   {/* Timeline Header: Timecode Ruler */}
                   <div className="flex items-center justify-between pb-2 border-b border-white/10 text-[9px] sm:text-[10px] font-mono text-gray-400">
@@ -419,7 +432,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 2. Floating Premiere Pro (Pr) Badge */}
-            <div className="v-float-wrapper absolute left-[15px] sm:left-[45px] lg:left-[55px] xl:left-[70px] top-[14%] sm:top-[15%] z-20">
+            <div className="v-float-wrapper absolute left-[15px] sm:left-[45px] lg:left-[55px] xl:left-[70px] top-[14%] sm:top-[15%] z-[5]">
               <div className="v-float-inner v-neon-pulse will-change-transform w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#09081a]/90 backdrop-blur-md border border-[#9999ff]/40 shadow-[0_0_25px_rgba(153,153,255,0.35)] flex items-center justify-center">
                 <span className="text-xl sm:text-2xl font-black text-[#a78bfa] tracking-tight drop-shadow-[0_0_10px_rgba(167,139,250,0.8)] font-sans">
                   Pr
@@ -428,7 +441,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 3. Floating After Effects (Ae) Badge */}
-            <div className="v-float-wrapper absolute -right-2 sm:right-2 lg:right-2 xl:right-4 top-[46%] sm:top-[48%] z-20">
+            <div className="v-float-wrapper absolute -right-2 sm:right-2 lg:right-2 xl:right-4 top-[45%] sm:top-[47%] z-[5]">
               <div className="v-float-inner v-neon-pulse will-change-transform w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#09081a]/90 backdrop-blur-md border border-[#818cf8]/40 shadow-[0_0_25px_rgba(129,140,248,0.35)] flex items-center justify-center">
                 <span className="text-xl sm:text-2xl font-black text-[#818cf8] tracking-tight drop-shadow-[0_0_10px_rgba(129,140,248,0.8)] font-sans">
                   Ae
@@ -436,8 +449,8 @@ export const AboutSection: React.FC = () => {
               </div>
             </div>
 
-            {/* 4. Glowing Color Grading Wheel & Balance Sliders */}
-            <div className="v-float-wrapper absolute right-1 sm:right-4 lg:right-6 xl:right-8 top-[4%] sm:top-[5%] z-20">
+            {/* 4. Glowing Color Grading Wheel & Balance Sliders (Top Right) */}
+            <div className="v-float-wrapper absolute right-1 sm:right-4 lg:right-6 xl:right-8 top-[3%] sm:top-[4%] z-[5]">
               <div className="v-float-inner will-change-transform flex items-center gap-3 p-3 sm:p-3.5 rounded-2xl bg-[#0a0c1a]/85 backdrop-blur-xl border border-indigo-500/35 shadow-[0_15px_40px_rgba(70,63,209,0.3)]">
                 {/* Hue Circle Wheel */}
                 <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(236,72,153,0.3)]"
@@ -470,7 +483,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 5. Motion Graphics Bezier Curve & Keyframe Graph */}
-            <div className="v-float-wrapper absolute -right-3 sm:right-2 lg:right-2 xl:right-4 top-[24%] sm:top-[26%] z-20">
+            <div className="v-float-wrapper absolute -right-3 sm:right-1 lg:right-2 xl:right-4 top-[24%] sm:top-[26%] z-[5]">
               <div className="v-float-inner will-change-transform w-36 sm:w-44 h-24 sm:h-28 rounded-2xl bg-[#090b18]/85 backdrop-blur-xl border border-white/15 p-2.5 shadow-[0_15px_35px_rgba(0,0,0,0.6)] flex flex-col justify-between">
                 <div className="flex items-center justify-between text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-indigo-300 border-b border-white/10 pb-1">
                   <span>Speed Ramp</span>
@@ -516,7 +529,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 6. Floating Curved Filmstrip 1 (Top Left) */}
-            <div className="v-float-wrapper absolute left-[0px] sm:left-[25px] lg:left-[35px] xl:left-[45px] top-[1%] sm:top-[2%] z-[5]">
+            <div className="v-float-wrapper absolute left-[0px] sm:left-[25px] lg:left-[35px] xl:left-[45px] top-[1%] sm:top-[2%] z-[2]">
               <div className="v-float-inner will-change-transform -rotate-6">
                 <div className="w-32 sm:w-40 rounded-xl bg-black/85 backdrop-blur-md border border-white/20 p-1.5 shadow-[0_15px_35px_rgba(0,0,0,0.6)]">
                   {/* Top sprocket holes */}
@@ -547,7 +560,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 7. Floating Filmstrip Cell 2 (Middle Right) */}
-            <div className="v-float-wrapper absolute right-[45px] sm:right-[75px] lg:right-[90px] xl:right-[105px] top-[49%] sm:top-[51%] z-[5] hidden xs:block">
+            <div className="v-float-wrapper absolute right-[45px] sm:right-[75px] lg:right-[90px] xl:right-[105px] top-[49%] sm:top-[51%] z-[2] hidden xs:block">
               <div className="v-float-inner will-change-transform rotate-6">
                 <div className="w-20 sm:w-24 rounded-lg bg-black/85 backdrop-blur-md border border-white/20 p-1 shadow-[0_10px_25px_rgba(0,0,0,0.5)]">
                   <div className="flex justify-between px-1 pb-0.5">
@@ -568,7 +581,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 8. Play / Pause Glass Pill */}
-            <div className="v-float-wrapper absolute left-[38%] sm:left-[43%] lg:left-[41%] xl:left-[43%] top-[10%] sm:top-[11%] z-20">
+            <div className="v-float-wrapper absolute left-[38%] sm:left-[43%] lg:left-[41%] xl:left-[43%] top-[10%] sm:top-[11%] z-[5]">
               <div className="v-float-inner will-change-transform px-3.5 py-1.5 rounded-full bg-[#090b16]/90 backdrop-blur-md border border-white/20 flex items-center gap-2 shadow-[0_8px_20px_rgba(0,0,0,0.6)]">
                 <Play className="w-3 h-3 text-cyan-400 fill-cyan-400" />
                 <span className="w-[1px] h-3 bg-white/20" />
@@ -577,7 +590,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 9. Razor / Cut Tool Badge [ ✂ ] */}
-            <div className="v-float-wrapper absolute -left-4 sm:left-2 lg:left-4 xl:left-6 top-[66%] sm:top-[68%] z-20">
+            <div className="v-float-wrapper absolute -left-4 sm:left-2 lg:left-4 xl:left-6 top-[66%] sm:top-[68%] z-[5]">
               <div className="v-float-inner will-change-transform px-3.5 sm:px-4 py-2 rounded-xl bg-[#090b16]/90 backdrop-blur-md border border-[#463FD1]/45 flex items-center gap-2 shadow-[0_0_20px_rgba(70,63,209,0.35)] font-mono text-sm">
                 <span className="text-gray-400 font-bold">[</span>
                 <Scissors className="w-4 h-4 text-indigo-400" />
@@ -587,7 +600,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 10. Glowing Audio Waveform Pill */}
-            <div className="v-float-wrapper absolute left-4 sm:left-10 lg:left-12 xl:left-14 top-[82%] sm:top-[84%] z-20">
+            <div className="v-float-wrapper absolute left-4 sm:left-10 lg:left-12 xl:left-14 top-[82%] sm:top-[84%] z-[5]">
               <div className="v-float-inner will-change-transform px-3.5 py-2 rounded-xl bg-[#0a0c1a]/90 backdrop-blur-md border border-cyan-500/35 flex items-center gap-1 shadow-[0_0_25px_rgba(6,182,212,0.3)]">
                 <Volume2 className="w-3.5 h-3.5 text-cyan-400 mr-1.5" />
                 {Array.from({ length: 14 }).map((_, i) => {
@@ -607,7 +620,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 11. Type / Text Tool Badge [ T ] */}
-            <div className="v-float-wrapper absolute -right-3 sm:right-1 lg:right-2 xl:right-4 top-[62%] sm:top-[64%] z-20">
+            <div className="v-float-wrapper absolute -right-3 sm:right-1 lg:right-2 xl:right-4 top-[62%] sm:top-[64%] z-[5]">
               <div className="v-float-inner will-change-transform w-11 h-11 rounded-xl bg-[#090b18]/90 backdrop-blur-md border border-dashed border-indigo-400/50 flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.3)] relative">
                 {/* 4 corner handles */}
                 <span className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_4px_#ffffff]" />
@@ -619,7 +632,7 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* 12. Layer Stack Isometric Planes */}
-            <div className="v-float-wrapper absolute right-8 sm:right-12 lg:right-14 xl:right-16 top-[78%] sm:top-[80%] z-20">
+            <div className="v-float-wrapper absolute right-8 sm:right-12 lg:right-14 xl:right-16 top-[78%] sm:top-[80%] z-[5]">
               <div className="v-float-inner will-change-transform p-2.5 rounded-xl bg-[#090b18]/90 backdrop-blur-md border border-indigo-500/35 flex items-center justify-center shadow-[0_0_20px_rgba(70,63,209,0.35)]">
                 <Layers className="w-5 h-5 text-indigo-300" />
               </div>
@@ -628,11 +641,12 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* ======================================================== */}
-          {/* PERSONAL PORTRAIT (Cutout, Layered Between Elements) */}
+          {/* PRIORITY 2: PERSONAL PORTRAIT (z-20)                      */}
+          {/* ALWAYS IN FRONT of all floating editing elements          */}
           {/* ======================================================== */}
           <div
             ref={portraitContainerRef}
-            className="relative w-full max-w-[500px] sm:max-w-[560px] md:max-w-[620px] lg:max-w-[660px] xl:max-w-[720px] 2xl:max-w-[780px] flex items-end justify-center select-none will-change-transform z-10"
+            className="relative w-full max-w-[500px] sm:max-w-[560px] md:max-w-[620px] lg:max-w-[660px] xl:max-w-[720px] 2xl:max-w-[780px] flex items-end justify-center select-none will-change-transform z-20 pointer-events-auto"
           >
             <img
               src={aboutPortraitPng}
