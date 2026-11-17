@@ -105,7 +105,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       role="dialog"
       aria-modal="true"
       aria-label={project.title}
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/90 backdrop-blur-md animate-in fade-in duration-200 select-none"
+      className="fixed inset-0 z-[200] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 bg-black/92 backdrop-blur-md animate-in fade-in duration-200 select-none"
     >
       {/* Backdrop click to dismiss */}
       <div
@@ -118,7 +118,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       <div
         className={`relative w-full ${
           isSocialMedia ? 'max-w-5xl xl:max-w-6xl 2xl:max-w-7xl' : 'max-w-5xl xl:max-w-6xl'
-        } max-h-[92vh] sm:max-h-[94vh] bg-[#0a0a12] border border-indigo-900/50 rounded-xl sm:rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden text-gray-100`}
+        } max-h-[94vh] sm:max-h-[96vh] bg-[#0a0a12] border border-indigo-900/50 rounded-xl sm:rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.95)] flex flex-col overflow-hidden text-gray-100`}
       >
         
         {/* 1. STICKY MODAL TOP BAR (Accessible while scrolling) */}

@@ -4,6 +4,7 @@ import profileImg from '../assets/images/arjun_profile.jpg';
 
 interface NavbarProps {
   onCollaborate?: () => void;
+  isHidden?: boolean;
 }
 
 interface NavItem {
@@ -12,7 +13,7 @@ interface NavItem {
   href: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onCollaborate }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onCollaborate, isHidden = false }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -107,10 +108,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onCollaborate }) => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-300 ${
+        isHidden
+          ? '-translate-y-full opacity-0 pointer-events-none invisible'
+          : 'translate-y-0 opacity-100 visible'
+      } ${
         isScrolled || isMobileMenuOpen
           ? 'bg-[#08080a]/90 backdrop-blur-md border-b border-white/5 shadow-lg shadow-black/30'
           : 'bg-transparent border-b border-transparent'
       }`}
+      aria-hidden={isHidden}
     >
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 h-16 sm:h-20 flex items-center justify-between gap-3">
         {/* Left: Brand Identity / Profile */}

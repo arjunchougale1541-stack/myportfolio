@@ -302,7 +302,7 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
       role="dialog"
       aria-modal="true"
       aria-label={reelTitle}
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/92 backdrop-blur-xl animate-in fade-in duration-200 select-none overflow-y-auto"
+      className="fixed inset-0 z-[200] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 bg-black/92 backdrop-blur-xl animate-in fade-in duration-200 select-none overflow-y-auto"
     >
       {/* Backdrop click to dismiss */}
       <div

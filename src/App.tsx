@@ -66,7 +66,10 @@ export default function App() {
       ) : (
         <>
           {/* Top Header Navigation */}
-          <Navbar onCollaborate={() => setIsCollaborateOpen(true)} />
+          <Navbar
+            onCollaborate={() => setIsCollaborateOpen(true)}
+            isHidden={Boolean(selectedProject)}
+          />
 
           {/* Main Content Sections */}
           <main className="flex-grow">
