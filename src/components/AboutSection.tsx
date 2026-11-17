@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Instagram, Linkedin } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import aboutPortraitImg from '../assets/images/arjun_about_portrait.jpg';
+import aboutPortraitPng from '../assets/images/arjun_about_portrait_transparent.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,71 +20,84 @@ export const AboutSection: React.FC = () => {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // 1. Entrance timeline when About section enters the viewport
+      // Bidirectional ScrollTrigger timeline with smooth scrub response
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-          once: true,
+          start: 'top 85%',
+          end: 'top 30%',
+          scrub: 0.6,
+          invalidateOnRefresh: true,
         },
       });
 
-      // A. Main Heading Animation: Smooth upward movement with subtle fade-in
+      // 1. Main Heading Animation: Slides smoothly upward from bottom
       if (headingRef.current) {
         tl.fromTo(
           headingRef.current,
-          { y: 45, opacity: 0 },
-          { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+          { y: 65, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
           0
         );
       }
 
-      // B. About Me Content Animation: Animate label, description, and social icons from left to right with stagger
-      const contentElements = [labelRef.current, descRef.current, socialRef.current].filter(Boolean);
-      if (contentElements.length > 0) {
+      // 2. About Me Content: Slides smoothly in from the left
+      if (labelRef.current) {
         tl.fromTo(
-          contentElements,
-          { x: -40, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.9,
-            stagger: 0.14,
-            ease: 'power2.out',
-          },
+          labelRef.current,
+          { x: -60, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.85, ease: 'power2.out' },
+          0.08
+        );
+      }
+
+      if (descRef.current) {
+        tl.fromTo(
+          descRef.current,
+          { x: -70, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.9, ease: 'power2.out' },
+          0.14
+        );
+      }
+
+      // 3. Social Media Icons: Subtle staggered entrance
+      if (socialRef.current) {
+        tl.fromTo(
+          socialRef.current,
+          { x: -45, opacity: 0, scale: 0.92 },
+          { x: 0, opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' },
           0.2
         );
       }
 
-      // C. Portrait Image Animation: Animate from right toward final position with subtle scale
+      // 4. Portrait: Slides smoothly in from the right with subtle scale
       if (portraitContainerRef.current) {
         tl.fromTo(
           portraitContainerRef.current,
-          { x: 60, opacity: 0, scale: 0.95 },
-          { x: 0, opacity: 1, scale: 1, duration: 1.1, ease: 'power3.out' },
-          0.15
+          { x: 85, opacity: 0, scale: 0.94 },
+          { x: 0, opacity: 1, scale: 1, duration: 1, ease: 'power2.out' },
+          0.08
         );
       }
 
-      // D. Background Glow Animation: Radial glow emerges smoothly
+      // 5. Radial Glow: Expands softly behind the portrait
       if (glowRef.current) {
         tl.fromTo(
           glowRef.current,
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 1.3, ease: 'power2.out' },
-          0.1
+          { opacity: 0, scale: 0.75 },
+          { opacity: 1, scale: 1, duration: 1.1, ease: 'power2.out' },
+          0.05
         );
 
         // Continuous subtle ambient breathing effect
         gsap.to(glowRef.current, {
           scale: 1.08,
           opacity: 0.85,
-          duration: 4,
+          duration: 4.5,
           repeat: -1,
           yoyo: true,
           ease: 'sine.inOut',
-          delay: 1.3,
+          delay: 1,
         });
       }
     }, sectionRef);
@@ -96,20 +109,20 @@ export const AboutSection: React.FC = () => {
     <section
       id="about"
       ref={sectionRef}
-      className="relative min-h-[auto] lg:min-h-screen w-full flex items-center px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 sm:py-24 lg:py-32 scroll-mt-20 overflow-hidden bg-[#070709] text-white"
+      className="relative min-h-[auto] lg:min-h-screen w-full flex items-center px-4 sm:px-8 lg:px-12 xl:px-16 2xl:px-20 py-16 sm:py-24 lg:py-28 scroll-mt-20 overflow-hidden bg-[#070709] text-white"
       aria-label="About Me Section"
     >
       {/* Background Ambient Atmosphere */}
       <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-      <div className="w-full max-w-[1700px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 sm:gap-14 lg:gap-12 xl:gap-16 2xl:gap-20">
+      <div className="w-full max-w-[1700px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 sm:gap-14 lg:gap-10 xl:gap-14 2xl:gap-18">
         
-        {/* Left Side – Text Content (~55% Desktop Width) */}
-        <div className="w-full lg:w-[54%] xl:w-[55%] flex flex-col justify-center space-y-8 sm:space-y-10 lg:space-y-12">
+        {/* Left Side – Text Content (~52% to 54% Desktop Width) */}
+        <div className="w-full lg:w-[52%] xl:w-[53%] flex flex-col justify-center space-y-7 sm:space-y-9 lg:space-y-11">
           
           {/* Main Heading: Moved slightly upward, large, prominent & bold in #463FD1 */}
           <div ref={headingRef} className="will-change-transform">
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.75rem] 2xl:text-[5.25rem] font-extrabold tracking-tight text-[#463FD1] leading-[1.06]">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.3rem] 2xl:text-[4.85rem] font-extrabold tracking-tight text-[#463FD1] leading-[1.08]">
               Turning ideas into visuals that create impact.
             </h2>
           </div>
@@ -170,32 +183,30 @@ export const AboutSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side – Personal Portrait (~45% Desktop Width) */}
-        <div className="w-full lg:w-[46%] xl:w-[45%] flex items-center justify-center lg:justify-end relative">
+        {/* Right Side – Personal Portrait (~46% to 48% Desktop Width) */}
+        <div className="w-full lg:w-[48%] xl:w-[47%] flex items-center justify-center lg:justify-end relative">
           
           {/* Subtle Blue/Purple Radial Glow Concentrated Behind Head & Shoulders */}
           <div
             ref={glowRef}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[440px] lg:w-[480px] xl:w-[540px] h-[340px] sm:h-[440px] lg:h-[500px] xl:h-[560px] bg-[radial-gradient(ellipse_at_center,_rgba(70,63,209,0.42)_0%,_rgba(99,102,241,0.2)_40%,_transparent_70%)] rounded-full blur-[70px] pointer-events-none will-change-transform -z-10"
+            className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[440px] lg:w-[500px] xl:w-[580px] 2xl:w-[620px] h-[340px] sm:h-[440px] lg:h-[500px] xl:h-[580px] 2xl:h-[620px] bg-[radial-gradient(ellipse_at_center,_rgba(70,63,209,0.45)_0%,_rgba(99,102,241,0.22)_40%,_transparent_72%)] rounded-full blur-[80px] pointer-events-none will-change-transform -z-10"
           />
-          <div className="absolute -top-10 -right-6 w-[420px] sm:w-[500px] h-[420px] sm:h-[500px] bg-indigo-600/10 rounded-full blur-[110px] pointer-events-none -z-10" />
+          <div className="absolute top-1/4 -right-10 w-[380px] sm:w-[480px] h-[380px] sm:h-[480px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-          {/* Large Editorial Portrait (Naturally blended into dark background, no borders/cards) */}
+          {/* Large Full-Size Portrait with completely transparent cutout background (fills the green-marked reference area) */}
           <div
             ref={portraitContainerRef}
-            className="relative w-full max-w-[400px] sm:max-w-[460px] lg:max-w-[500px] xl:max-w-[550px] 2xl:max-w-[580px] flex items-center justify-center select-none will-change-transform"
+            className="relative w-full max-w-[500px] sm:max-w-[560px] md:max-w-[620px] lg:max-w-[660px] xl:max-w-[720px] 2xl:max-w-[780px] flex items-end justify-center select-none will-change-transform"
           >
             <img
-              src={aboutPortraitImg}
+              src={aboutPortraitPng}
               alt="Arjun Chougale - Personal Portrait"
-              className="w-full h-auto object-cover rounded-3xl drop-shadow-[0_20px_50px_rgba(70,63,209,0.22)]"
+              className="w-full h-auto max-h-[700px] xl:max-h-[760px] 2xl:max-h-[820px] object-contain object-bottom drop-shadow-[0_20px_50px_rgba(70,63,209,0.28)]"
               style={{
-                maskImage: 'radial-gradient(ellipse 92% 88% at 50% 45%, black 65%, transparent 100%), linear-gradient(to bottom, black 82%, transparent 100%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 92% 88% at 50% 45%, black 65%, transparent 100%), linear-gradient(to bottom, black 82%, transparent 100%)',
-                maskComposite: 'intersect',
-                WebkitMaskComposite: 'source-in',
+                maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
               }}
-              loading="lazy"
+              loading="eager"
             />
           </div>
         </div>
@@ -204,3 +215,4 @@ export const AboutSection: React.FC = () => {
     </section>
   );
 };
+export default AboutSection;
