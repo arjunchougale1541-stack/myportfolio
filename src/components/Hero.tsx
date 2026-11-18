@@ -22,31 +22,48 @@ export const Hero: React.FC<HeroProps> = ({ onCollaborate }) => {
   // Background video playback setup
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.defaultMuted = true;
-      video.muted = true;
-      video.playbackRate = 0.5;
+    if (!video) return;
 
-      const setHalfSpeed = () => {
-        if (video) video.playbackRate = 0.5;
-      };
+    // Accessibility and data saving checks
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const navWithConn = navigator as unknown as { connection?: { saveData?: boolean } };
+    const isSaveData = navWithConn.connection?.saveData === true;
 
-      video.addEventListener('loadedmetadata', setHalfSpeed);
-      video.addEventListener('play', setHalfSpeed);
-
+    if (prefersReducedMotion || isSaveData) {
+      // Don't play the video; just show the poster image
+      video.removeAttribute('src');
       video.load();
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((err) => {
-          console.warn('Autoplay failed or was prevented:', err);
-        });
-      }
-
-      return () => {
-        video.removeEventListener('loadedmetadata', setHalfSpeed);
-        video.removeEventListener('play', setHalfSpeed);
-      };
+      return;
     }
+
+    // Screens 768px and wider: /hero_bg_1080.mp4 | Screens under 768px: /hero_bg_720.mp4
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    const selectedSrc = isDesktop ? '/hero_bg_1080.mp4' : '/hero_bg_720.mp4';
+
+    video.src = selectedSrc;
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playbackRate = 0.5;
+
+    const setHalfSpeed = () => {
+      if (video) video.playbackRate = 0.5;
+    };
+
+    video.addEventListener('loadedmetadata', setHalfSpeed);
+    video.addEventListener('play', setHalfSpeed);
+
+    video.load();
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((err) => {
+        console.warn('Autoplay failed or was prevented:', err);
+      });
+    }
+
+    return () => {
+      video.removeEventListener('loadedmetadata', setHalfSpeed);
+      video.removeEventListener('play', setHalfSpeed);
+    };
   }, []);
 
   // GSAP ScrollTrigger Sequence Setup
@@ -171,19 +188,14 @@ export const Hero: React.FC<HeroProps> = ({ onCollaborate }) => {
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <video
           ref={videoRef}
-          src="/hero_section_background_video_new.mp4"
+          poster="/hero_bg_poster.webp"
           autoPlay
-          loop
           muted
+          loop
           playsInline
-          onLoadedData={(e) => {
-            e.currentTarget.playbackRate = 0.5;
-          }}
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover object-center"
-        >
-          <source src="/hero_section_background_video_new.mp4" type="video/mp4" />
-          <source src="/hero_section_background_video.mp4" type="video/mp4" />
-        </video>
+        />
 
         {/* Elegant dark overlay for text legibility & seamless fade to next section */}
         <div className="absolute inset-0 bg-black/50 backdrop-blur-[0.5px]" />
