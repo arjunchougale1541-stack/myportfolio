@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arjun-chougale.vercel.app/sitemap.xml
