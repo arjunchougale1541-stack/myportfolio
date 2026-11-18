@@ -14,7 +14,6 @@ export const MarqueeRibbon: React.FC = () => {
 
   const bottomTape = [
     'BRANDING',
-    'UI/UX DESIGN',
     'DESIGNING',
     'DIGITAL MARKETING',
     'VIDEO EDITING',

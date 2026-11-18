@@ -105,8 +105,7 @@ export type WorkCategory =
   | 'Branding'
   | 'Packaging Design'
   | 'Reels'
-  | 'Motion Graphic'
-  | 'UIUX Design';
+  | 'Motion Graphic';
 
 export interface CategorySectionMeta {
   id: string;
@@ -626,13 +625,12 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
         },
         creativeDirection: 'Sleek financial editorial style. Dark obsidian backdrops with neon cyan and bull-market green accent charts, crisp typography hierarchy, and high-frequency data graphics.',
         editingProcess: {
-          description: 'Paced to speech cadences with animated chart overlays, dynamic camera push-ins on key economic metrics, and custom sound design syncing riser whooshes, ticker clicks, and impact drops to data reveals.',
+          description: 'Paced to speech cadences with animated chart overlays, dynamic camera push-ins on key economic metrics, syncing riser whooshes, ticker clicks, and impact drops to data reveals.',
           techniques: [
             'Kinetic Typography',
             'Data Visualization',
             'Motion Graphics (MGFX)',
             'Beat & Voice Synchronization',
-            'Sound Design & Foley',
             'Dynamic Speed Ramping',
             'Color Grading',
           ],
@@ -684,7 +682,6 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
             'Beat Synchronization',
             'Studio Color Grade',
             'Fashion Motion Pacing',
-            'Foley Sound Design',
           ],
         },
         toolsUsed: [
@@ -733,7 +730,6 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
             '3D Text Overlays',
             'Kinetic Typography',
             'Product Callout VFX',
-            'Foley Sound Design',
             'Commercial Color Grade',
           ],
         },
@@ -777,13 +773,12 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
         },
         creativeDirection: 'Sophisticated executive setting with intimate conversational framing. Warm practical interior lighting paired with deep, focused shadows. Bold minimalist typography accents critical ideas without disrupting the speaker’s personal connection.',
         editingProcess: {
-          description: 'Engineered for maximum viewer retention with dynamic conversational cuts, intentional punch-in reframing, and selective monochrome vignettes that emphasize high-impact statements. Polished with nuanced sound design and warm, cinema-grade color balance.',
+          description: 'Engineered for maximum viewer retention with dynamic conversational cuts, intentional punch-in reframing, and selective monochrome vignettes that emphasize high-impact statements. Polished with warm, cinema-grade color balance.',
           techniques: [
             'Conversational Pacing Cuts',
             'Kinetic Headline Typography',
             'Dynamic Framing & Punch-Ins',
             'Selective Vignettes & Highlights',
-            'Foley & Sound Design',
             'Cinematic Color Grading',
           ],
         },
@@ -987,7 +982,6 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
             'Kinetic Typography & Lower-Third Callouts',
             'Financial Data Visualization & Chart Animations',
             'Fintech Color Grading & Atmospheric Lighting',
-            'Motion Foley & Corporate Ambient Sound Design',
           ],
         },
         toolsUsed: [

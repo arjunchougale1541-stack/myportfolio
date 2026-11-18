@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCollaborate, isHidden = false 
     { id: 'hero', label: 'HOME', href: '#hero' },
     { id: 'about', label: 'ABOUT ME', href: '#about' },
     { id: 'projects', label: 'PROJECTS', href: '#projects' },
-    { id: 'services', label: 'SERVICE', href: '#services' },
+    { id: 'services', label: 'SERVICES', href: '#services' },
     { id: 'contact', label: 'CONTACT', href: '#contact' },
   ];
 
@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCollaborate, isHidden = false 
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= headerOffset && rect.bottom > headerOffset) {
-            // Testimonials section maps to the SERVICE nav item
+            // Testimonials section maps to the SERVICES nav item
             setActiveSection(id === 'testimonials' ? 'services' : id);
             return;
           }

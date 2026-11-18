@@ -262,7 +262,7 @@ export const AboutSection: React.FC = () => {
               ref={descRef}
               className="text-base sm:text-lg md:text-xl text-gray-300 font-normal leading-relaxed will-change-transform"
             >
-              “Hi, I'm a Graphic Designer &amp; Video Editor with 1.5 years of experience and 1 year of freelance experience. I create engaging designs, videos, and visual content that help brands communicate, connect, and stand out.”
+              “Hi, I'm a Graphic Designer &amp; Video Editor with 2.5 years of experience across agency and freelance work. I create engaging designs, videos, and visual content that help brands communicate, connect, and stand out.”
             </p>
 
             {/* Social Media Icons */}

@@ -118,7 +118,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'Axial Graphic is my personal design identity, built to represent my creative journey and style as a graphic designer. The word "Axial" symbolizes structure and balance, referencing an axis — the central line around which design elements align. This logo reflects strength, clarity, and visual stability — qualities I bring to every design project. From logo creation to brand storytelling, this identity serves as the visual voice of my creative career.',
       role: 'Lead Brand Designer, Visual Strategist & 3D Mockup Artist',
       timeline: '4 Weeks (Q3 2023)',
-      tools: ['Adobe Illustrator', 'Adobe Photoshop', 'Blender 3D', 'Figma'],
+      tools: ['Adobe Illustrator', 'Adobe Photoshop', 'Blender 3D'],
       colors: [
         { name: 'Periwinkle Slate', hex: '#6366f1' },
         { name: 'Deep Midnight Indigo', hex: '#16143c' },
@@ -214,9 +214,9 @@ export const projectsData: ProjectItem[] = [
     ],
     details: {
       overview: 'Devsthan Vyavasthapan Samiti manages historical and cultural heritage temples across Western Maharashtra, Kolhapur. The branding project unites sacred temple architecture motifs with a majestic golden Ganesha emblem, ceremonial identity collateral, and an intuitive administrative dashboard system.',
-      role: 'Lead Cultural Identity Designer & UI/UX Specialist',
+      role: 'Lead Cultural Identity Designer & Brand Specialist',
       timeline: '8 Weeks (Q2 2024)',
-      tools: ['Adobe Illustrator', 'Adobe Photoshop', 'Figma', 'React/Tailwind'],
+      tools: ['Adobe Illustrator', 'Adobe Photoshop', 'React/Tailwind'],
       colors: [
         { name: 'Sacred Gold Foil', hex: '#f59e0b' },
         { name: 'Deep Crimson Sindoor', hex: '#991b1b' },
@@ -242,16 +242,16 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'candy-cloud-ecommerce-experience',
-    number: 'UI/UX',
-    title: 'CANDY CLOUD - D2C E-COMMERCE UI/UX WEBSITE',
+    number: 'WEB',
+    title: 'CANDY CLOUD - D2C E-COMMERCE WEBSITE',
     subtitle: 'Taste the Clouds. — Immersive Confectionery Web Storefront',
     year: '2024',
     client: 'Candy Cloud D2C Store',
     description: 'A playful, high-converting digital storefront designed to evoke joy and sweet cravings through pastel aesthetics, interactive categories, and friction-free shopping.',
-    tags: ['UI/UX Design', 'E-Commerce', 'Web Design', 'Figma'],
+    tags: ['E-Commerce', 'Web Design', 'Digital Storefront'],
     mockupSide: 'right',
     badge: 'SCROLLABLE WEB UI',
-    category: 'UIUX Design',
+    category: 'Web Design',
     accentColor: '#ec4899',
     bgTone: '#1e1430',
     coverImage: candyCloudUiuxImg,
@@ -263,9 +263,9 @@ export const projectsData: ProjectItem[] = [
     ],
     details: {
       overview: 'Candy Cloud D2C Store is an artisanal digital shopping experience built from the ground up to captivate sweet lovers. Featuring an ethereal pastel cloud aesthetic, gamified category exploration (Lollipops, Gummies, Gift Boxes, Seasonal Specials), bestseller highlights with instant quick-add, seasonal promotional banners, and social-proof customer testimonials. The UI balances whimsical delight with clear e-commerce conversion heuristics.',
-      role: 'Lead UI/UX Designer, Design System Architect & Prototype Specialist',
+      role: 'Lead Web Designer, Design System Architect & Prototype Specialist',
       timeline: '6 Weeks (Q2 2024)',
-      tools: ['Figma', 'Adobe Photoshop', 'Adobe Illustrator', 'Procreate', 'React/Tailwind'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Procreate', 'React/Tailwind'],
       colors: [
         { name: 'Cotton Candy Pink', hex: '#ec4899' },
         { name: 'Lavender Mist', hex: '#c084fc' },
@@ -285,7 +285,7 @@ export const projectsData: ProjectItem[] = [
         'Bestseller Product Cards with Star Ratings & Instant Add-to-Cart',
         'Dynamic 50% Off Promotional Campaign Banner',
         'Customer Testimonial Carousel & Newsletter Subscription System',
-        'Figma Design System with Component Variants & Hover Micro-Interactions'
+        'Design System with Component Variants & Hover Micro-Interactions'
       ],
       galleryImages: [
         candyCloudUiuxImg,
@@ -455,7 +455,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A complete multi-channel social media ad campaign designed for GET IT, an on-demand quick-commerce and parcel delivery platform. The 6-creative suite combines bold typography, vibrant brand orange gradients, real-world lifestyle photography, app interface previews, and strong call-to-actions engineered to drive app downloads, brand trust, merchant acquisition, and user retention.',
       role: 'Lead Visual Designer & Social Campaign Strategist',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Vibrant Orange', hex: '#F7931A' },
         { name: 'Pure Charcoal', hex: '#4A4A4A' },
@@ -514,7 +514,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A premium social media advertising suite created for Dimora Haute Parfumerie. The 6-post campaign blends high-end luxury aesthetics, warm amber and champagne lighting, gold foil accents, and refined typography ("The Refined Choice", "More Than a Fragrance. It\'s A Mood", "A Signature of Sophistication") with detailed olfactory ingredient storytelling designed to drive prestige brand prestige, engagement, and direct conversions.',
       role: 'Lead Art Director & Luxury Campaign Designer',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Warm Amber Gold', hex: '#D4AF37' },
         { name: 'Champagne Silk Cream', hex: '#F5EFEB' },
@@ -575,7 +575,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A complete multi-platform social media ad campaign engineered for Konnect Compiler, an innovative computer science and programming academy. The 7-design suite utilizes futuristic cyber aesthetics, high-contrast neon glows, 3D technology assets, clear course breakdowns, and conversion-focused call-to-actions designed to drive enrollments across foundational databases (SQL), full-stack web development, mobile app development, and young innovator coding bootcamps.',
       role: 'Lead Visual Designer & Social Campaign Strategist',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Cyber Electric Cyan', hex: '#00F0FF' },
         { name: 'Deep Tech Indigo', hex: '#1E1B4B' },
@@ -640,7 +640,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A delightful and high-converting multi-post social media campaign designed for Candy Cloud, a playful gourmet confectionery brand. The 8-creative suite fuses pastel dreamscapes, tactile 3D candy typography, whimsical lifestyle scenes ("For kids and adults alike", "Candy means joy"), playful interactive games (Candy Donut Tic-Tac-Toe), and irresistible product showcases designed to spark joy, drive direct-to-consumer online orders, and build memorable brand love.',
       role: 'Lead Visual Designer & Social Campaign Strategist',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Candy Cloud Pink', hex: '#EC4899' },
         { name: 'Sweet Cotton Purple', hex: '#A855F7' },
@@ -703,7 +703,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A high-performance automotive social media campaign created for Hyperlex Premium Car Care Center. The 6-post creative campaign highlights precision Paint Protection Film (PPF) installations, ceramic coating gloss, hydrophobic surface protection, and elite craftsmanship on exotic vehicles including the BMW M4 and Brabus G-Wagon under dramatic studio lighting. Designed to drive luxury vehicle owner bookings, brand authority, and detailing studio footfall.',
       role: 'Lead Visual Designer & Automotive Campaign Strategist',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Hyperlex Spark Orange', hex: '#EA580C' },
         { name: 'Carbon Studio Black', hex: '#111111' },
@@ -762,7 +762,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A luxury editorial social media campaign designed for Soul Fashion Haute Couture, celebrating modern cosmopolitan tailoring, rich burgundy palettes, and statement accessories. The 6-creative collection features high-contrast typographic layouts, architectural perspective framing ("Fashion Unboxed", "Own the Avenue"), vintage broadsheet editorial styling, retro phone tech nostalgia, and luxury handbag spotlights engineered for high engagement and seasonal collection sales.',
       role: 'Lead Visual Designer & Fashion Campaign Strategist',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Royal Crimson Wine', hex: '#751A1F' },
         { name: 'Warm Silk Cream', hex: '#F5EBE1' },
@@ -819,7 +819,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A sleek, forward-thinking social media ad campaign created for Swara Electricals & Lighting Hub. Designed to position the brand as a modern authority in smart home automation, energy-efficient electrical systems, and residential safety. The 5-creative suite combines clean architectural photography, contemporary lifestyle warmth ("A smarter home for today\'s Indian living"), intuitive touch switches, voice-controlled tech integration, and robust distribution panel gear.',
       role: 'Lead Visual Designer & Smart Home Campaign Strategist',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Electrical Royal Blue', hex: '#1E72D8' },
         { name: 'Pure Spark White', hex: '#FFFFFF' },
@@ -880,7 +880,7 @@ export const projectsData: ProjectItem[] = [
       overview: 'A luxury editorial social media advertising campaign designed for Marbex Home & Luxury Interiors. Spanning 8 refined visual creatives, the campaign spotlights bespoke craftsmanship across multiple living spaces: calm master bedroom suites, contemporary curved sofas, sculpted accent chairs, elegant marble dining, playful kids spaces, and regal tufted beds. The visual identity unites warm golden arches, organic curves, rich mustard velvets, natural fluted wood, and aspirational copy ("Invitation to Relax", "Find Your Comfort", "Dine With Class", "Beds Fit for a Queen") engineered to captivate homeowners, interior designers, and luxury lifestyle buyers.',
       role: 'Lead Visual Designer & Interior Campaign Strategist',
       timeline: '2 Weeks (2024)',
-      tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma'],
+      tools: ['Adobe Photoshop', 'Adobe Illustrator'],
       colors: [
         { name: 'Champagne Gold', hex: '#D4AF37' },
         { name: 'Warm Cream Linen', hex: '#F6F1EA' },
@@ -1215,8 +1215,7 @@ export const servicesData: ServiceItem[] = [
       'Brand Identity & Guidelines',
       'Logo Mark Engineering',
       'Print Media',
-      'Social Media Content Systems',
-      'UI/UX & Product Design'
+      'Social Media Content Systems'
     ],
     tools: [
       { name: 'ADOBE PHOTOSHOP' },
@@ -1239,8 +1238,7 @@ export const servicesData: ServiceItem[] = [
       'Cinematic Color Grading',
       'Motion Graphics & Kinetic Type',
       'Short-Form Viral Edits (Reels/TikTok/Shorts)',
-      'Brand Storytelling & Commercials',
-      'Sound Design & Audio Mastering'
+      'Brand Storytelling & Commercials'
     ],
     tools: [
       { name: 'ADOBE PREMIERE' },
@@ -1266,7 +1264,6 @@ export const servicesData: ServiceItem[] = [
       'Viral Hooks & Audience Growth'
     ],
     tools: [
-      { name: 'FIGMA' },
       { name: 'CANVA PRO' },
       { name: 'META SUITE' },
       { name: 'NOTION' }
@@ -1286,7 +1283,6 @@ export const tickerKeywords = [
   'DIGITAL MARKETING',
   'CONTENT MAKING',
   'VIDEO EDITING',
-  'UI/UX DESIGN',
   'LOGO DESIGN',
   'MOTION GRAPHICS',
   'VISUAL IDENTITY'

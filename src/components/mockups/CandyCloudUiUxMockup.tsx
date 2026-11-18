@@ -246,7 +246,7 @@ export const CandyCloudUiUxMockup: React.FC<CandyCloudUiUxMockupProps> = ({
           {/* Candy Cloud High-Resolution Full Webpage Image */}
           <img
             src={candyCloudUiuxImg}
-            alt="Candy Cloud D2C Store Full Page UI/UX Design"
+            alt="Candy Cloud D2C Store Full Page Web Design"
             className="w-full h-auto block select-none cursor-pointer"
             onClick={() => setIsFullscreen(true)}
             title="Click to view in fullscreen scroll mode"
@@ -256,7 +256,7 @@ export const CandyCloudUiUxMockup: React.FC<CandyCloudUiUxMockupProps> = ({
           {!hasScrolled && (
             <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-black/85 backdrop-blur-md border border-pink-400/50 text-white text-xs font-semibold shadow-2xl animate-bounce">
               <MousePointer className="w-3.5 h-3.5 text-pink-400 animate-pulse" />
-              <span>Scroll down to explore full store UI</span>
+              <span>Scroll down to explore full store design</span>
               <ChevronDown className="w-3.5 h-3.5 text-pink-300" />
             </div>
           )}
@@ -301,7 +301,7 @@ export const CandyCloudUiUxMockup: React.FC<CandyCloudUiUxMockupProps> = ({
               </div>
               <div>
                 <h3 className="text-sm sm:text-base font-extrabold text-white tracking-tight">
-                  CANDY CLOUD — FULL WEBPAGE UI/UX DESIGN
+                  CANDY CLOUD — FULL WEBPAGE DESIGN
                 </h3>
                 <p className="text-[11px] text-pink-300 font-mono hidden sm:block">
                   Live Interactive Scroll View • High-Fidelity Prototype
@@ -378,7 +378,7 @@ export const CandyCloudUiUxMockup: React.FC<CandyCloudUiUxMockupProps> = ({
             <div className="w-full max-w-5xl rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)] border border-pink-500/20 bg-white">
               <img
                 src={candyCloudUiuxImg}
-                alt="Candy Cloud Full Website UI/UX Design"
+                alt="Candy Cloud Full Website Design"
                 className="w-full h-auto block select-none"
               />
             </div>

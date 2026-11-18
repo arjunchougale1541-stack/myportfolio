@@ -572,7 +572,7 @@ export const WorksCoverflowCarousel: React.FC<WorksCoverflowCarouselProps> = ({
                             ? 'opacity-100 bg-[#4d5eff] hover:bg-[#3d4ff5] border border-indigo-400/50'
                             : 'opacity-0 group-hover:opacity-100 bg-black/60 hover:bg-[#4d5eff] backdrop-blur-md border border-white/10'
                         }`}
-                        title={project.badge === 'SCROLLABLE WEB UI' ? 'Open Scrollable UI/UX Preview' : 'View Project Case Study'}
+                        title={project.badge === 'SCROLLABLE WEB UI' ? 'Open Scrollable Web Preview' : 'View Project Case Study'}
                         aria-label="View Project"
                       >
                         <ArrowUpRight className="w-4 h-4" />

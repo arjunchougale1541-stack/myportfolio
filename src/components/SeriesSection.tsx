@@ -304,7 +304,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
     return () => ctx.revert();
   }, []);
 
-  const headingWords = ['Great', 'work', 'with', 'my', 'project'];
+  const headingWords = ['Featured', 'Projects'];
 
   return (
     <section
@@ -335,7 +335,7 @@ export const SeriesSection: React.FC<SeriesSectionProps> = ({ onSelectProject, o
             </span>
           </div>
 
-          {/* Masked Word-by-Word Reveal: Great work with my project (Bottom to Top) */}
+          {/* Masked Word-by-Word Reveal: Featured Projects (Bottom to Top) */}
           <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.06] flex flex-wrap gap-x-[0.25em] gap-y-1">
             {headingWords.map((word, idx) => (
               <span key={idx} className="inline-block overflow-hidden py-1">
