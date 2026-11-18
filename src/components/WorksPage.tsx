@@ -86,12 +86,12 @@ export const WorksPage: React.FC<WorksPageProps> = ({
               />
             </div>
 
-            <div className="flex flex-col min-w-0">
-              <span className="font-extrabold text-[11px] xs:text-xs sm:text-base tracking-tight text-white font-sans uppercase group-hover:text-indigo-300 transition-colors whitespace-nowrap">
+            <div className="flex flex-col justify-center min-w-0">
+              <span className="font-extrabold text-[11px] sm:text-sm md:text-base tracking-tight text-white font-sans uppercase group-hover:text-indigo-300 transition-colors whitespace-nowrap leading-tight">
                 ARJUN CHOUGALE
               </span>
-              <span className="text-[8px] xs:text-[9.5px] sm:text-[11px] font-semibold tracking-wider text-gray-400 uppercase truncate max-w-[130px] xs:max-w-[170px] sm:max-w-none">
-                GRAPHIC DESIGNER &amp; VIDEO EDITOR
+              <span className="text-[7.5px] min-[380px]:text-[8.5px] sm:text-[10px] md:text-[11px] font-semibold tracking-wider text-gray-400 uppercase truncate max-w-[130px] min-[380px]:max-w-[180px] sm:max-w-none leading-tight mt-0.5">
+                GRAPHIC DESIGNER | VIDEO EDITOR - MUMBAI
               </span>
             </div>
           </button>
