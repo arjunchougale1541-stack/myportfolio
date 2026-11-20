@@ -604,7 +604,7 @@ export const worksByCategory: Record<string, WorkProjectItem[]> = {
       id: 'who-is-really-holding-the-market',
       title: "WHO'S REALLY HOLDING THE MARKET?",
       category: 'Reels',
-      categories: ['Reels', 'Motion Graphic', 'Social Media Posts'],
+      categories: ['Reels', 'Social Media Posts'],
       image: marketHoldingReelCoverImg,
       coverImage: marketHoldingReelCoverImg,
       projectImages: [marketHoldingReelCoverImg],

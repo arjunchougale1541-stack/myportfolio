@@ -110,15 +110,25 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
   const resolutionValue = reel?.details.aspectRatio || '1080 x 1920 (60 FPS)';
 
   // Format detection: 16:9 widescreen vs 9:16 vertical
+  // Explicit vertical checks take priority: if format is 9:16, aspectRatio is 1080x1920,
+  // or project is categorized as Reels, it is strictly 9:16 vertical.
+  const isExplicitVertical =
+    reel?.details.format?.includes('9:16') ||
+    reel?.details.aspectRatio?.includes('1080 x 1920') ||
+    project.category === 'Reels' ||
+    project.category === 'Reel' ||
+    project.number === 'REEL' ||
+    Boolean(project.badge?.toLowerCase().includes('reel'));
+
   const isLandscape =
-    project.category === 'Motion Graphic' ||
-    project.category === 'Motion Graphics' ||
-    project.badge?.toLowerCase().includes('motion') ||
-    project.tags?.some((t) => t.toLowerCase().includes('motion')) ||
-    reel?.details.format?.includes('16:9') ||
-    reel?.details.aspectRatio?.includes('1920 x 1080') ||
-    project.aspectClass === 'aspect-video' ||
-    project.aspectClass === '16:9';
+    !isExplicitVertical &&
+    (reel?.details.format?.includes('16:9') ||
+      reel?.details.aspectRatio?.includes('1920 x 1080') ||
+      project.aspectClass === 'aspect-video' ||
+      project.aspectClass === '16:9' ||
+      project.category === 'Motion Graphic' ||
+      project.category === 'Motion Graphics' ||
+      project.number === 'MOTION');
 
   // Autoplay on mount
   useEffect(() => {
@@ -385,7 +395,7 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
                 onTimeUpdate={handleTimeUpdate}
                 onLoadedMetadata={handleLoadedMetadata}
                 onEnded={handleVideoEnded}
-                className="w-full h-full object-contain cursor-pointer block select-none bg-black"
+                className={`w-full h-full ${isLandscape ? 'object-contain' : 'object-cover'} cursor-pointer block select-none bg-black`}
                 aria-label={`${reelTitle} video playback`}
               />
 
@@ -421,7 +431,9 @@ export const ReelModalView: React.FC<ReelModalViewProps> = ({ project, onClose }
 
               {/* Resolution & Format Badge on Top-Right of Video */}
               <div className="absolute top-3 right-3 z-20 pointer-events-none px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono font-bold tracking-wider text-gray-300 uppercase">
-                {isLandscape ? '16:9 • 30FPS' : '9:16 • 60FPS'}
+                {isLandscape
+                  ? (reel?.details.aspectRatio?.includes('60 FPS') ? '16:9 • 60FPS' : '16:9 • 30FPS')
+                  : (reel?.details.aspectRatio?.includes('30 FPS') ? '9:16 • 30FPS' : '9:16 • 60FPS')}
               </div>
 
               {/* BOTTOM CUSTOM VIDEO CONTROLS BAR */}
