@@ -297,7 +297,7 @@ export const ServicesSection: React.FC = () => {
       {/* 3 Services Cards Grid - Full Width Rectangular Layout */}
       <div
         ref={cardsContainerRef}
-        className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 w-full"
+        className="grid grid-cols-1 md:grid-cols-3 items-stretch gap-5 sm:gap-6 lg:gap-8 w-full"
       >
         {servicesData.map((service, idx) => {
           const isHovered = hoveredIndex === idx;
@@ -307,14 +307,14 @@ export const ServicesSection: React.FC = () => {
             /* Outer Wrapper: Dedicated solely to Scroll Entrance Transforms (y: 70 -> 0, scale: 0.96 -> 1) */
             <div
               key={service.id}
-              className="service-card-wrapper w-full will-change-transform"
+              className="service-card-wrapper w-full h-full flex flex-col will-change-transform"
             >
               {/* Inner Card: Handles 3D Tilt, Lift (-7px), and Ambient Glow */}
               <div
                 onMouseMove={handleCardMouseMove}
                 onMouseEnter={(e) => handleCardMouseEnter(e, idx)}
                 onMouseLeave={handleCardMouseLeave}
-                className={`service-card-inner w-full p-6 sm:p-7 md:p-8 rounded-2xl border transition-[border-color,box-shadow,background] duration-300 ease-out space-y-5 sm:space-y-6 flex flex-col justify-between group cursor-pointer will-change-transform select-none ${
+                className={`service-card-inner w-full h-full p-6 sm:p-7 md:p-8 rounded-2xl border transition-[border-color,box-shadow,background] duration-300 ease-out space-y-5 sm:space-y-6 flex flex-col justify-between group cursor-pointer will-change-transform select-none ${
                   isVideoEditor
                     ? isHovered
                       ? 'border-indigo-400/90 shadow-2xl shadow-indigo-600/40 ring-2 ring-indigo-400/50 bg-gradient-to-b from-[#18153c] to-[#0d0c1e]'
@@ -383,7 +383,7 @@ export const ServicesSection: React.FC = () => {
                 </div>
 
                 {/* Software Badges */}
-                <div className="pt-4 border-t border-indigo-950/80 group-hover:border-indigo-900/80 transition-colors">
+                <div className="pt-4 border-t border-indigo-950/80 group-hover:border-indigo-900/80 transition-colors mt-auto">
                   <div className="flex flex-wrap items-center gap-2">
                     {service.tools.map((tool) => (
                       <span
